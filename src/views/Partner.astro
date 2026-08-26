@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { METHODIK, PARTNERS } from "../lib/links";
+import { pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+---
+
+<BaseLayout title={copy.partner.title}>
+  <div class="stack">
+    <h1>{copy.partner.h1}</h1>
+    <p>{copy.partner.intro}</p>
+    <div class="card-list partner-grid">
+      {
+        PARTNERS.map((partner) => (
+          <article class="card partner-card">
+            <p class="muted partner-role">
+              {copy.partner.roles[partner.id] ?? partner.role}
+            </p>
+            <a
+              class="partner-logo-link"
+              href={partner.href}
+              rel="noopener noreferrer"
+            >
+              <img
+                class="partner-logo"
+                src={partner.logo}
+                alt={copy.partner.names[partner.id] ?? partner.name}
+                width={partner.width}
+                height={partner.height}
+              />
+            </a>
+            <h2>{copy.partner.names[partner.id] ?? partner.name}</h2>
+            <p>{copy.partner.blurbs[partner.id] ?? partner.blurb}</p>
+            <p>
+              <a href={partner.href} rel="noopener noreferrer">
+                {partner.href.replace("https://", "").replace(/\/$/, "")}
+              </a>
+            </p>
+          </article>
+        ))
+      }
+      <article class="card">
+        <p class="muted partner-role">{copy.partner.methodRole}</p>
+        <h2>{copy.partner.methodName}</h2>
+        <p>{copy.partner.methodText}</p>
+        <p>
+          <a href={METHODIK.href} rel="noopener noreferrer">
+            {METHODIK.href.replace("https://", "").replace(/\/$/, "")}
+          </a>
+        </p>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

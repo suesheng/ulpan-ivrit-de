@@ -1,0 +1,9 @@
+---
+import { jobStaticPaths } from "../../lib/content-paths";
+import Page from "../../views/JobDetail.astro";
+
+export const getStaticPaths = jobStaticPaths;
+
+const { job } = Astro.props;
+---
+<Page job={job} />

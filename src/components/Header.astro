@@ -1,0 +1,102 @@
+---
+import { LINKS } from "../lib/links";
+import { locPath, stripLocalePrefix, uiLocales, uiLocale, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+import Logo from "./Logo.astro";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const path = stripLocalePrefix(Astro.url.pathname);
+const href = (p: string) => locPath(locale, p);
+
+const groups = [
+  {
+    id: "lernen",
+    label: copy.nav.lernen,
+    items: [
+      { href: href("/so-gehts"), path: "/so-gehts", label: copy.nav.anmelden },
+      { href: href("/kurse"), path: "/kurse", label: copy.nav.online },
+      { href: href("/vor-ort"), path: "/vor-ort", label: copy.nav.vorOrt },
+    ],
+  },
+  {
+    id: "lehrkraefte",
+    label: copy.nav.lehrkraefte,
+    items: [
+      { href: href("/lehrer"), path: "/lehrer", label: copy.nav.methodik },
+      { href: href("/stellen"), path: "/stellen", label: copy.nav.stellen },
+    ],
+  },
+  {
+    id: "verein",
+    label: copy.nav.verein,
+    items: [
+      { href: href("/verein"), path: "/verein", label: copy.nav.aboutVerein },
+      { href: href("/partner"), path: "/partner", label: copy.nav.partner },
+      { href: href("/faq"), path: "/faq", label: copy.nav.faq },
+      { href: href("/kontakt"), path: "/kontakt", label: copy.nav.kontakt },
+    ],
+  },
+];
+---
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href={href("/")}><Logo compact /></a>
+    <nav class="nav-links" aria-label={copy.meta.navAria}>
+      {
+        groups.map((group) => {
+          const current = group.items.some(
+            (item) => path === item.path || path.startsWith(`${item.path}/`),
+          );
+          return (
+            <details class="nav-group">
+              <summary class:list={[{ current }]}>
+                {group.label}
+              </summary>
+              <ul class="nav-panel">
+                {group.items.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      aria-current={path === item.path || path.startsWith(`${item.path}/`) ? "page" : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          );
+        })
+      }
+    </nav>
+    <nav class="lang-switch" aria-label={copy.meta.langAria}>
+      {
+        uiLocales.map((code) => (
+          <a
+            href={locPath(code, path)}
+            hreflang={code}
+            lang={code}
+            aria-current={uiLocale(locale) === code ? "page" : undefined}
+          >
+            {code.toUpperCase()}
+          </a>
+        ))
+      }
+    </nav>
+    <a class="btn" href={LINKS.membership}>{copy.nav.member}</a>
+  </div>
+</header>
+
+<script>
+  const groups = document.querySelectorAll<HTMLDetailsElement>(".nav-group");
+  groups.forEach((group) => {
+    group.addEventListener("toggle", () => {
+      if (!group.open) return;
+      groups.forEach((other) => {
+        if (other !== group) other.open = false;
+      });
+    });
+  });
+</script>

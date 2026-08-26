@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+---
+
+<BaseLayout title={copy.lehrer.title} description={copy.lehrer.desc}>
+  <div class="stack">
+    <h1>{copy.lehrer.h1}</h1>
+    <p>{copy.lehrer.p1}</p>
+
+    <h2>{copy.lehrer.hishtalmut}</h2>
+    <p>
+      {copy.lehrer.hishtalmutText}
+    </p>
+
+    <h2>{copy.lehrer.method}</h2>
+    <p>{copy.lehrer.methodText}</p>
+    <p>
+      <a href={href("/stellen")}>{copy.lehrer.jobs}</a> ·
+      <a href={href("/vor-ort")}>{copy.lehrer.local}</a> ·
+      <a href={LINKS.moodle}>Moodle</a>
+    </p>
+  </div>
+</BaseLayout>

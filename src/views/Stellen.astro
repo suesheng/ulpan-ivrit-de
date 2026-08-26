@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+
+const jobs = (await getCollection("jobs"))
+  .filter((job) => job.data.status === "open")
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={copy.stellen.title} description={copy.stellen.desc}>
+  <div class="stack">
+    <h1>{copy.stellen.h1}</h1>
+    <p>{copy.stellen.intro}</p>
+    {
+      jobs.length === 0 ? (
+        <p class="muted">
+          {copy.stellen.empty}
+          {" "}
+          <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+        </p>
+      ) : (
+        <div class="card-list">
+          {jobs.map((job) => {
+            const local = copy.jobs[job.id];
+            return (
+              <article class="card">
+                <h2>
+                  <a href={href(`/stellen/${job.id}`)}>
+                    {local?.title ?? job.data.title}
+                  </a>
+                </h2>
+                <p class="muted">
+                  {local?.location ?? job.data.location} · {local?.format ?? job.data.format} · {local?.level ?? job.data.level}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      )
+    }
+    <p>
+      <a href={href("/lehrer")}>{copy.stellen.methodLink}</a>
+    </p>
+  </div>
+</BaseLayout>

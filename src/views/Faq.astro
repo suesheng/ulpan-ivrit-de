@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaMitglied from "../components/CtaMitglied.astro";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+---
+
+<BaseLayout title={copy.faq.title}>
+  <div class="stack">
+    <h1>{copy.faq.h1}</h1>
+    <section>
+      <h2>{copy.faq.q1}</h2>
+      <p>{copy.faq.a1}</p>
+    </section>
+    <section>
+      <h2>{copy.faq.q2}</h2>
+      <p>{copy.faq.a2}</p>
+    </section>
+    <section>
+      <h2>{copy.faq.q3}</h2>
+      <p>
+        <a href={href("/so-gehts")}>{copy.faq.q3Link}</a>. {copy.faq.a3}
+      </p>
+    </section>
+    <section>
+      <h2>{copy.faq.q4}</h2>
+      <p>
+        {copy.faq.a4}{" "}
+        <a href={href("/vor-ort")}>{copy.faq.a4Link}</a>.
+      </p>
+    </section>
+    <section>
+      <h2>{copy.faq.q5}</h2>
+      <p>{copy.faq.a5}</p>
+    </section>
+    <section>
+      <h2>{copy.faq.q6}</h2>
+      <p>{copy.faq.a6}</p>
+    </section>
+    <section>
+      <h2>{copy.faq.q7}</h2>
+      <p>{copy.faq.a7}</p>
+    </section>
+    <CtaMitglied />
+  </div>
+</BaseLayout>

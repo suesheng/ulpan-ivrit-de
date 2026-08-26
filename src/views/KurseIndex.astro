@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaMitglied from "../components/CtaMitglied.astro";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+
+const courses = (await getCollection("courses")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title={copy.kurse.title}>
+  <div class="stack">
+    <h1>{copy.kurse.h1}</h1>
+    <p>{copy.kurse.intro}</p>
+    <p>
+      <a href={href("/vor-ort")}>{copy.kurse.localLink}</a>.
+    </p>
+    <div class="card-list">
+      {
+        courses.map((course) => {
+          const local = copy.courses[course.id];
+          return (
+            <article class="card">
+              <h2>
+                <a href={href(`/kurse/${course.id}`)}>{local?.title ?? course.data.title}</a>
+              </h2>
+              <p class="muted">
+                {local?.level ?? course.data.level} · {local?.format ?? course.data.format}
+              </p>
+              <p>{copy.kurse.entry}: {local?.entry ?? course.data.entry}</p>
+            </article>
+          );
+        })
+      }
+    </div>
+    <CtaMitglied />
+  </div>
+</BaseLayout>

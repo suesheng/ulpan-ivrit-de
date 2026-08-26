@@ -1,0 +1,54 @@
+---
+import { LINKS, PARTNERS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <nav class="footer-cols" aria-label={copy.meta.footerAria}>
+      <div>
+        <p>{copy.nav.lernen}</p>
+        <a href={href("/so-gehts")}>{copy.nav.anmelden}</a>
+        <a href={href("/kurse")}>{copy.nav.online}</a>
+        <a href={href("/vor-ort")}>{copy.nav.vorOrt}</a>
+      </div>
+      <div>
+        <p>{copy.nav.lehrkraefte}</p>
+        <a href={href("/lehrer")}>{copy.nav.methodik}</a>
+        <a href={href("/stellen")}>{copy.nav.stellen}</a>
+      </div>
+      <div>
+        <p>{copy.nav.verein}</p>
+        <a href={href("/verein")}>{copy.nav.aboutVerein}</a>
+        <a href={href("/partner")}>{copy.nav.partner}</a>
+        <a href={href("/kontakt")}>{copy.nav.kontakt}</a>
+      </div>
+    </nav>
+    <nav class="legal-links" aria-label={copy.meta.legalAria}>
+      <a href={LINKS.impressum} rel="noopener noreferrer">{copy.legal.impressum}</a>
+      <a href={LINKS.datenschutz} rel="noopener noreferrer">{copy.legal.datenschutz}</a>
+      <a href={LINKS.moodle} rel="noopener noreferrer">Moodle</a>
+    </nav>
+  </div>
+  <div class="partner-strip">
+    <div class="wrap partner-bar" aria-label={copy.meta.partnersAria}>
+      {
+        PARTNERS.map((partner) => (
+          <a href={partner.href} rel="noopener noreferrer">
+            <img
+              src={partner.logo}
+              alt={copy.partner.names[partner.id] ?? partner.name}
+              width={partner.width}
+              height={partner.height}
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

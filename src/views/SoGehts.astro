@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaMitglied from "../components/CtaMitglied.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+const subject = encodeURIComponent(copy.soGehts.subject);
+---
+
+<BaseLayout title={copy.soGehts.title} description={copy.soGehts.desc}>
+  <div class="stack">
+    <h1>{copy.soGehts.h1}</h1>
+    <p>{copy.soGehts.intro}</p>
+
+    <h2>{copy.soGehts.step1}</h2>
+    <p>
+      {copy.soGehts.step1Text}
+    </p>
+    <CtaMitglied />
+
+    <h2>{copy.soGehts.step2}</h2>
+    <section class="card-list">
+      <article class="card">
+        <h3>{copy.soGehts.onlineTitle}</h3>
+        <p>{copy.soGehts.onlineText}</p>
+        <p><a href={href("/kurse")}>{copy.soGehts.onlineLink}</a></p>
+      </article>
+      <article class="card">
+        <h3>{copy.soGehts.localTitle}</h3>
+        <p>{copy.soGehts.localText}</p>
+        <p>
+          {copy.soGehts.localMail}
+          {" "}
+          <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+        </p>
+      </article>
+      <article class="card">
+        <h3>{copy.soGehts.wishTitle}</h3>
+        <p>{copy.soGehts.wishText}</p>
+      </article>
+    </section>
+
+    <h2>{copy.soGehts.step3}</h2>
+    <p>
+      {copy.soGehts.step3Text}
+      {" "}
+      <a href={href("/vor-ort")}>{copy.soGehts.step3Link}</a>.
+    </p>
+
+    <h2>{copy.soGehts.formTitle}</h2>
+    <p>{copy.soGehts.formLead}</p>
+    <p class="muted">
+      {copy.soGehts.formMail}
+      {" "}
+      <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+    </p>
+
+    <form class="stack" method="post" enctype="text/plain" action={`mailto:${LINKS.contactEmail}?subject=${subject}`}>
+      <label>
+        {copy.soGehts.name}
+        <input type="text" name="Name" required />
+      </label>
+      <label>
+        {copy.soGehts.email}
+        <input type="email" name="E-Mail" required />
+      </label>
+      <label>
+        {copy.soGehts.city}
+        <input type="text" name="Ort" required placeholder={copy.soGehts.cityPh} />
+      </label>
+      <label>
+        {copy.soGehts.level}
+        <select name="Niveau" required>
+          <option value={copy.soGehts.levelBeginner}>{copy.soGehts.levelBeginner}</option>
+          <option value={copy.soGehts.levelSome}>{copy.soGehts.levelSome}</option>
+          <option value={copy.soGehts.levelUnknown}>{copy.soGehts.levelUnknown}</option>
+        </select>
+      </label>
+      <label>
+        {copy.soGehts.onlineUntil}
+        <select name="Online_bis_Gruppe" required>
+          <option value={copy.soGehts.onlineYes}>{copy.soGehts.onlineYes}</option>
+          <option value={copy.soGehts.onlineNo}>{copy.soGehts.onlineNo}</option>
+        </select>
+      </label>
+      <label>
+        {copy.soGehts.message}
+        <textarea name="Nachricht" placeholder={copy.soGehts.messagePh}></textarea>
+      </label>
+      <button type="submit">{copy.soGehts.submit}</button>
+    </form>
+  </div>
+</BaseLayout>

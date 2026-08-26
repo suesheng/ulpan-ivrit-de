@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LetterVortex from "../components/LetterVortex.astro";
+import QuoteBand from "../components/QuoteBand.astro";
+import Logo from "../components/Logo.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+---
+
+<BaseLayout full title={copy.home.title}>
+  <section class="hero wrap">
+    <LetterVortex />
+    <h1 set:html={copy.home.h1} />
+    <p>{copy.home.lead}</p>
+  </section>
+
+  <QuoteBand />
+
+  <section class="wrap feature-row">
+    <ul class="feature-list">
+      <li>{copy.home.f1}</li>
+      <li>{copy.home.f2}</li>
+      <li>{copy.home.f3}</li>
+      <li>{copy.home.f4}</li>
+      <li>{copy.home.f5}</li>
+    </ul>
+    <div class="cta-frame">
+      <a class="btn" href={href("/so-gehts")}>{copy.home.ctaRegister}</a>
+      <a class="btn btn-ghost" href={LINKS.membership}>{copy.nav.member}</a>
+      <p class="muted">{copy.home.noUlpan}</p>
+    </div>
+  </section>
+
+  <div class="lockup-block">
+    <Logo />
+  </div>
+
+  <section class="wrap stack home-cards">
+    <div class="card-list">
+      <article class="card">
+        <h2>{copy.home.onlineTitle}</h2>
+        <p>{copy.home.onlineText}</p>
+        <p><a href={href("/kurse")}>{copy.home.onlineLink}</a></p>
+      </article>
+      <article class="card">
+        <h2>{copy.home.localTitle}</h2>
+        <p>{copy.home.localText}</p>
+        <p><a href={href("/so-gehts")}>{copy.home.localLink}</a></p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

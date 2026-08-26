@@ -1,0 +1,32 @@
+---
+import { pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const hebrew = "רק בשפה העברית יחיה ישראל בארצו";
+---
+
+<aside class="quote-band">
+  <canvas
+    class="quote-gl"
+    data-quote-gl
+    data-quote-stamp="/brand/quote-bg.svg"
+    width="1024"
+    height="532"
+    aria-hidden="true"></canvas>
+  <img
+    class="quote-bg"
+    src="/brand/quote-bg.svg"
+    width="1024"
+    height="532"
+    alt=""
+  />
+  <div class="wrap quote-inner">
+    <p class="quote-he" lang="he" dir="rtl">{copy.quote.open}{hebrew}{copy.quote.close}</p>
+    <p class="quote-de">{copy.quote.open}{copy.quote.translation}{copy.quote.close}</p>
+    <p class="quote-src">{copy.quote.source}</p>
+  </div>
+</aside>
+
+<script is:inline src="/scripts/quote-bg.js"></script>

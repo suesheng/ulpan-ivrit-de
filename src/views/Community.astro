@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+---
+
+<BaseLayout title={copy.community.title}>
+  <div class="stack">
+    <h1>{copy.community.h1}</h1>
+    <p>{copy.community.p1}</p>
+    <p>
+      {copy.community.project}: <a href={LINKS.ulpanProject}>Ulpan Next</a> ·
+      <a href={locPath(locale, "/so-gehts")}>{copy.community.membership}</a>
+    </p>
+  </div>
+</BaseLayout>

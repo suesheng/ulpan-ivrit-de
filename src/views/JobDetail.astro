@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  job: CollectionEntry<"jobs">;
+}
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const { job } = Astro.props;
+const local = copy.jobs[job.id];
+const title = local?.title ?? job.data.title;
+const subject = encodeURIComponent(`${copy.stellen.applySubject}: ${title}`);
+const mailto = `mailto:${LINKS.contactEmail}?subject=${subject}`;
+---
+
+<BaseLayout title={`${title} — Ulpan Ivrit`}>
+  <div class="stack">
+    <p><a href={locPath(locale, "/stellen")}>{copy.stellen.back}</a></p>
+    <h1>{title}</h1>
+    <p class="muted">
+      {local?.location ?? job.data.location} · {local?.format ?? job.data.format} · {local?.level ?? job.data.level}
+      {job.data.status === "closed" ? ` · ${copy.stellen.closed}` : ""}
+    </p>
+    {local ? <div class="stack" set:html={local.body} /> : null}
+    {
+      job.data.status === "open" && (
+        <p>
+          <a class="btn" href={mailto}>
+            {copy.stellen.apply}
+          </a>
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaMitglied from "../components/CtaMitglied.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  course: CollectionEntry<"courses">;
+}
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const { course } = Astro.props;
+const local = copy.courses[course.id];
+---
+
+<BaseLayout title={`${local?.title ?? course.data.title} — Ulpan Ivrit`}>
+  <div class="stack">
+    <p><a href={locPath(locale, "/kurse")}>{copy.kurse.back}</a></p>
+    <h1>{local?.title ?? course.data.title}</h1>
+    <p class="muted">{local?.level ?? course.data.level}</p>
+    {local ? <div class="stack" set:html={local.body} /> : null}
+    <p>
+      <a href={LINKS.moodle}>{copy.kurse.moodle}</a>
+      <span class="muted">{copy.kurse.moodleNote}</span>
+    </p>
+    <CtaMitglied />
+  </div>
+</BaseLayout>

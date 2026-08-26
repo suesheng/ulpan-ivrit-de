@@ -1,0 +1,9 @@
+---
+import { courseStaticPaths } from "../../lib/content-paths";
+import Page from "../../views/CourseDetail.astro";
+
+export const getStaticPaths = courseStaticPaths;
+
+const { course } = Astro.props;
+---
+<Page course={course} />

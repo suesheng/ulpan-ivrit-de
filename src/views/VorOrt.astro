@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+const subject = encodeURIComponent(copy.vorOrt.subject);
+---
+
+<BaseLayout title={copy.vorOrt.title} description={copy.vorOrt.desc}>
+  <div class="stack">
+    <h1>{copy.vorOrt.h1}</h1>
+    <p>{copy.vorOrt.p1}</p>
+    <p>{copy.vorOrt.p2}</p>
+    <p>
+      {copy.vorOrt.p3}
+      {" "}
+      <a href={href("/lehrer")}>{copy.vorOrt.p3Link}</a>.
+    </p>
+    <p>
+      {copy.vorOrt.p4}
+      {" "}
+      <a href={href("/so-gehts")}>{copy.vorOrt.p4Link}</a>.
+    </p>
+
+    <h2>{copy.vorOrt.formTitle}</h2>
+    <p class="muted">
+      {copy.vorOrt.formMail}
+      {" "}
+      <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+    </p>
+
+    <form class="stack" method="post" enctype="text/plain" action={`mailto:${LINKS.contactEmail}?subject=${subject}`}>
+      <label>
+        {copy.vorOrt.orgType}
+        <select name="Organisationstyp" required>
+          <option value={copy.vorOrt.gemeinde}>{copy.vorOrt.gemeinde}</option>
+          <option value={copy.vorOrt.verein}>{copy.vorOrt.verein}</option>
+          <option value={copy.vorOrt.community}>{copy.vorOrt.community}</option>
+          <option value={copy.vorOrt.other}>{copy.vorOrt.other}</option>
+        </select>
+      </label>
+      <label>
+        {copy.vorOrt.orgName}
+        <input type="text" name="Organisation" required />
+      </label>
+      <label>
+        {copy.vorOrt.place}
+        <input type="text" name="Ort" required />
+      </label>
+      <label>
+        {copy.vorOrt.person}
+        <input type="text" name="Name" required />
+      </label>
+      <label>
+        {copy.vorOrt.email}
+        <input type="email" name="E-Mail" required />
+      </label>
+      <label>
+        {copy.vorOrt.phone}
+        <input type="tel" name="Telefon" />
+      </label>
+      <label>
+        {copy.vorOrt.size}
+        <input type="text" name="Gruppengröße" />
+      </label>
+      <label>
+        {copy.vorOrt.message}
+        <textarea name="Nachricht" required></textarea>
+      </label>
+      <button type="submit">{copy.vorOrt.submit}</button>
+    </form>
+  </div>
+</BaseLayout>
