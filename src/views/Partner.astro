@@ -15,7 +15,7 @@ const copy = t(locale);
     <div class="card-list partner-grid">
       {
         PARTNERS.map((partner) => (
-          <article class="card partner-card">
+          <article class="card partner-card" data-partner={partner.id}>
             <p class="muted partner-role">
               {copy.partner.roles[partner.id] ?? partner.role}
             </p>
@@ -23,6 +23,7 @@ const copy = t(locale);
               class="partner-logo-link"
               href={partner.href}
               rel="noopener noreferrer"
+              aria-label={copy.partner.names[partner.id] ?? partner.name}
             >
               <img
                 class="partner-logo"

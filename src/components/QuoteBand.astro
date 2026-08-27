@@ -23,10 +23,20 @@ const hebrew = "רק בשפה העברית יחיה ישראל בארצו";
     alt=""
   />
   <div class="wrap quote-inner">
-    <p class="quote-he" lang="he" dir="rtl">{copy.quote.open}{hebrew}{copy.quote.close}</p>
+    <p class="quote-he" lang="he" dir="rtl">{hebrew}</p>
     <p class="quote-de">{copy.quote.open}{copy.quote.translation}{copy.quote.close}</p>
     <p class="quote-src">{copy.quote.source}</p>
   </div>
+  <button
+    type="button"
+    class="quote-pause"
+    data-quote-pause
+    hidden
+    data-label-pause={copy.quote.pause}
+    data-label-play={copy.quote.play}
+  >
+    {copy.quote.pause}
+  </button>
 </aside>
 
 <script is:inline src="/scripts/quote-bg.js"></script>

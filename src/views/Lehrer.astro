@@ -14,16 +14,20 @@ const href = (p: string) => locPath(locale, p);
     <h1>{copy.lehrer.h1}</h1>
     <p>{copy.lehrer.p1}</p>
 
-    <h2>{copy.lehrer.hishtalmut}</h2>
-    <p>
-      {copy.lehrer.hishtalmutText}
-    </p>
+    <div class="card-list">
+      <article class="card">
+        <h2>{copy.lehrer.hishtalmut}</h2>
+        <p>{copy.lehrer.hishtalmutText}</p>
+      </article>
+      <article class="card card-online">
+        <h2>{copy.lehrer.method}</h2>
+        <p>{copy.lehrer.methodText}</p>
+      </article>
+    </div>
 
-    <h2>{copy.lehrer.method}</h2>
-    <p>{copy.lehrer.methodText}</p>
-    <p>
-      <a href={href("/stellen")}>{copy.lehrer.jobs}</a> ·
-      <a href={href("/vor-ort")}>{copy.lehrer.local}</a> ·
+    <p class="actions">
+      <a class="btn" href={href("/stellen")}>{copy.lehrer.jobs}</a>
+      <a href={href("/vor-ort")}>{copy.lehrer.local}</a>
       <a href={LINKS.moodle}>Moodle</a>
     </p>
   </div>

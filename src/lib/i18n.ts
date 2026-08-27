@@ -33,3 +33,9 @@ export function htmlLang(locale: string | undefined): string {
   const ui = uiLocale(locale);
   return ui;
 }
+
+export function ogLocale(locale: UiLocale): string {
+  if (locale === "ru") return "ru_RU";
+  if (locale === "en") return "en_GB";
+  return "de_DE";
+}

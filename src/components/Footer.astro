@@ -35,14 +35,19 @@ const href = (p: string) => locPath(locale, p);
       <a href={LINKS.moodle} rel="noopener noreferrer">Moodle</a>
     </nav>
   </div>
-  <div class="partner-strip">
-    <div class="wrap partner-bar" aria-label={copy.meta.partnersAria}>
+  <nav class="partner-strip" aria-label={copy.meta.partnersAria}>
+    <div class="wrap partner-bar">
       {
         PARTNERS.map((partner) => (
-          <a href={partner.href} rel="noopener noreferrer">
+          <a
+            href={partner.href}
+            rel="noopener noreferrer"
+            aria-label={copy.partner.names[partner.id] ?? partner.name}
+            data-partner={partner.id}
+          >
             <img
               src={partner.logo}
-              alt={copy.partner.names[partner.id] ?? partner.name}
+              alt=""
               width={partner.width}
               height={partner.height}
             />
@@ -50,5 +55,5 @@ const href = (p: string) => locPath(locale, p);
         ))
       }
     </div>
-  </div>
+  </nav>
 </footer>

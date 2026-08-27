@@ -16,82 +16,128 @@ const subject = encodeURIComponent(copy.soGehts.subject);
     <h1>{copy.soGehts.h1}</h1>
     <p>{copy.soGehts.intro}</p>
 
-    <h2>{copy.soGehts.step1}</h2>
-    <p>
-      {copy.soGehts.step1Text}
-    </p>
-    <CtaMitglied />
+    <ol class="path">
+      <li class="path-step">
+        <h2>{copy.soGehts.step1}</h2>
+        <div class="path-body">
+          <p>{copy.soGehts.step1Text}</p>
+          <CtaMitglied />
+        </div>
+      </li>
 
-    <h2>{copy.soGehts.step2}</h2>
-    <section class="card-list">
-      <article class="card">
-        <h3>{copy.soGehts.onlineTitle}</h3>
-        <p>{copy.soGehts.onlineText}</p>
-        <p><a href={href("/kurse")}>{copy.soGehts.onlineLink}</a></p>
-      </article>
-      <article class="card">
-        <h3>{copy.soGehts.localTitle}</h3>
-        <p>{copy.soGehts.localText}</p>
-        <p>
-          {copy.soGehts.localMail}
-          {" "}
-          <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
-        </p>
-      </article>
-      <article class="card">
-        <h3>{copy.soGehts.wishTitle}</h3>
-        <p>{copy.soGehts.wishText}</p>
-      </article>
-    </section>
+      <li class="path-step">
+        <h2>{copy.soGehts.step2}</h2>
+        <div class="path-body">
+          <div class="card-list">
+            <article class="card card-online">
+              <h3>{copy.soGehts.onlineTitle}</h3>
+              <p>{copy.soGehts.onlineText}</p>
+              <p><a href={href("/kurse")}>{copy.soGehts.onlineLink}</a></p>
+            </article>
+            <article class="card card-local">
+              <h3>{copy.soGehts.localTitle}</h3>
+              <p>{copy.soGehts.localText}</p>
+              <p>
+                <strong>{copy.soGehts.citiesTitle}</strong>
+                {" "}
+                {copy.soGehts.cities.join(", ")}
+              </p>
+              <p>
+                {copy.soGehts.localMail}
+                {" "}
+                <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+              </p>
+            </article>
+          </div>
+        </div>
+      </li>
 
-    <h2>{copy.soGehts.step3}</h2>
-    <p>
-      {copy.soGehts.step3Text}
-      {" "}
-      <a href={href("/vor-ort")}>{copy.soGehts.step3Link}</a>.
-    </p>
+      <li class="path-step">
+        <h2>{copy.soGehts.step3}</h2>
+        <div class="path-body">
+          <p>{copy.soGehts.wishText}</p>
+          <p>{copy.soGehts.formLead}</p>
+          <p class="muted">
+            {copy.soGehts.formMail}
+            {" "}
+            <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+          </p>
 
-    <h2>{copy.soGehts.formTitle}</h2>
-    <p>{copy.soGehts.formLead}</p>
-    <p class="muted">
-      {copy.soGehts.formMail}
-      {" "}
-      <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
-    </p>
+          <form
+            class="stack path-form"
+            method="post"
+            enctype="text/plain"
+            action={`mailto:${LINKS.contactEmail}?subject=${subject}`}
+            data-inquiry="location"
+            data-sent={copy.form.sent}
+            data-error={copy.form.error}
+            data-sending={copy.form.sending}
+          >
+            <input type="hidden" name="locale" value={locale} />
+            <div class="hp" aria-hidden="true">
+              <label>
+                Website
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
+            <label>
+              {copy.soGehts.name}
+              <input type="text" name="Name" autocomplete="name" required />
+            </label>
+            <label>
+              {copy.soGehts.email}
+              <input
+                type="email"
+                name="E-Mail"
+                autocomplete="email"
+                spellcheck="false"
+                required
+              />
+            </label>
+            <label>
+              {copy.soGehts.city}
+              <input
+                type="text"
+                name="Ort"
+                autocomplete="address-level2"
+                required
+                placeholder={copy.soGehts.cityPh}
+              />
+            </label>
+            <label>
+              {copy.soGehts.level}
+              <select name="Niveau" required>
+                <option value={copy.soGehts.levelBeginner}>{copy.soGehts.levelBeginner}</option>
+                <option value={copy.soGehts.levelSome}>{copy.soGehts.levelSome}</option>
+                <option value={copy.soGehts.levelUnknown}>{copy.soGehts.levelUnknown}</option>
+              </select>
+            </label>
+            <label>
+              {copy.soGehts.onlineUntil}
+              <select name="Online_bis_Gruppe" required>
+                <option value={copy.soGehts.onlineYes}>{copy.soGehts.onlineYes}</option>
+                <option value={copy.soGehts.onlineNo}>{copy.soGehts.onlineNo}</option>
+              </select>
+            </label>
+            <label>
+              {copy.soGehts.message}
+              <textarea
+                name="Nachricht"
+                autocomplete="off"
+                placeholder={copy.soGehts.messagePh}
+              ></textarea>
+            </label>
+            <button type="submit">{copy.soGehts.submit}</button>
+            <p class="form-status" data-form-status hidden></p>
+          </form>
 
-    <form class="stack" method="post" enctype="text/plain" action={`mailto:${LINKS.contactEmail}?subject=${subject}`}>
-      <label>
-        {copy.soGehts.name}
-        <input type="text" name="Name" required />
-      </label>
-      <label>
-        {copy.soGehts.email}
-        <input type="email" name="E-Mail" required />
-      </label>
-      <label>
-        {copy.soGehts.city}
-        <input type="text" name="Ort" required placeholder={copy.soGehts.cityPh} />
-      </label>
-      <label>
-        {copy.soGehts.level}
-        <select name="Niveau" required>
-          <option value={copy.soGehts.levelBeginner}>{copy.soGehts.levelBeginner}</option>
-          <option value={copy.soGehts.levelSome}>{copy.soGehts.levelSome}</option>
-          <option value={copy.soGehts.levelUnknown}>{copy.soGehts.levelUnknown}</option>
-        </select>
-      </label>
-      <label>
-        {copy.soGehts.onlineUntil}
-        <select name="Online_bis_Gruppe" required>
-          <option value={copy.soGehts.onlineYes}>{copy.soGehts.onlineYes}</option>
-          <option value={copy.soGehts.onlineNo}>{copy.soGehts.onlineNo}</option>
-        </select>
-      </label>
-      <label>
-        {copy.soGehts.message}
-        <textarea name="Nachricht" placeholder={copy.soGehts.messagePh}></textarea>
-      </label>
-      <button type="submit">{copy.soGehts.submit}</button>
-    </form>
+          <p class="muted">
+            {copy.soGehts.step3Text}
+            {" "}
+            <a href={href("/vor-ort")}>{copy.soGehts.step3Link}</a>.
+          </p>
+        </div>
+      </li>
+    </ol>
   </div>
 </BaseLayout>

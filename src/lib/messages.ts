@@ -3,13 +3,20 @@ import { uiLocale, type UiLocale } from "./i18n";
 export type Messages = {
   meta: {
     descDefault: string;
+    skip: string;
     navAria: string;
     footerAria: string;
     legalAria: string;
     langAria: string;
     partnersAria: string;
   };
+  form: {
+    sent: string;
+    error: string;
+    sending: string;
+  };
   nav: {
+    menu: string;
     lernen: string;
     anmelden: string;
     online: string;
@@ -29,6 +36,8 @@ export type Messages = {
     source: string;
     open: string;
     close: string;
+    pause: string;
+    play: string;
   };
   home: {
     title: string;
@@ -40,6 +49,7 @@ export type Messages = {
     f4: string;
     f5: string;
     ctaRegister: string;
+    howItWorks: string;
     noUlpan: string;
     onlineTitle: string;
     onlineText: string;
@@ -61,6 +71,8 @@ export type Messages = {
     onlineLink: string;
     localTitle: string;
     localText: string;
+    citiesTitle: string;
+    cities: string[];
     localMail: string;
     wishTitle: string;
     wishText: string;
@@ -88,6 +100,7 @@ export type Messages = {
   };
   kurse: {
     title: string;
+    desc: string;
     h1: string;
     intro: string;
     localLink: string;
@@ -149,6 +162,7 @@ export type Messages = {
   };
   faq: {
     title: string;
+    desc: string;
     h1: string;
     q1: string;
     a1: string;
@@ -169,20 +183,27 @@ export type Messages = {
   };
   kontakt: {
     title: string;
+    desc: string;
     h1: string;
-    general: string;
-    orgs: string;
-    orgsLink: string;
-    teachers: string;
-    teachersLink: string;
+    intro: string;
+    mail: string;
+    learnersTitle: string;
     learners: string;
     learnersLink: string;
+    orgsTitle: string;
+    orgs: string;
+    orgsLink: string;
+    teachersTitle: string;
+    teachers: string;
+    teachersLink: string;
   };
   verein: {
     title: string;
+    desc: string;
     h1: string;
     p1: string;
     fees: string;
+    talks: string;
     partner: string;
     project: string;
   };
@@ -196,13 +217,6 @@ export type Messages = {
     roles: Record<string, string>;
     names: Record<string, string>;
     blurbs: Record<string, string>;
-  };
-  community: {
-    title: string;
-    h1: string;
-    p1: string;
-    project: string;
-    membership: string;
   };
   legal: {
     impressum: string;
@@ -227,13 +241,20 @@ export const messages: Record<UiLocale, Messages> = {
     meta: {
       descDefault:
         "Hebräisch lernen vor Ort und online — Ulpan Ivrit, BiFoDe e.V.",
+      skip: "Zum Inhalt",
       navAria: "Hauptnavigation",
       footerAria: "Fußzeile",
       legalAria: "Rechtliches",
       langAria: "Sprache",
       partnersAria: "Partner",
     },
+    form: {
+      sent: "Gesendet. Wir lesen die Nachricht und antworten per E-Mail.",
+      error: "Senden hat nicht geklappt. Schreiben Sie uns direkt an die Adresse oben.",
+      sending: "Wird gesendet…",
+    },
     nav: {
+      menu: "Menü",
       lernen: "Lernen",
       anmelden: "Anmeldung",
       online: "Online",
@@ -254,6 +275,8 @@ export const messages: Record<UiLocale, Messages> = {
       source: "Eliezer Ben-Jehuda",
       open: "„",
       close: "“",
+      pause: "Animation anhalten",
+      play: "Animation abspielen",
     },
     home: {
       title: "Ulpan Ivrit — Hebräisch lernen ist ganz einfach",
@@ -266,6 +289,7 @@ export const messages: Record<UiLocale, Messages> = {
       f4: "Typische Sitzung vor Ort: 2 volle Stunden, einmal wöchentlich, mit Pause",
       f5: "Mitgliedschaft 180 € / Jahr, ermäßigt 144 € — kein Einzelkauf eines Kurses",
       ctaRegister: "Anmelden",
+      howItWorks: "So nehmen Sie teil",
       noUlpan: "Kein Ulpan in Ihrer Stadt? Standortwunsch auf der Anmeldeseite.",
       onlineTitle: "Online — individuell",
       onlineText: "Moodle, aus jedem Ort. Stoff der Gruppe liegt parallel dort.",
@@ -280,9 +304,9 @@ export const messages: Record<UiLocale, Messages> = {
       h1: "So nehmen Sie teil",
       intro:
         "Ulpan Ivrit ist kein Einzelkauf eines Kurses. Zuerst werden Sie Mitglied bei BiFoDe e.V. Danach nutzen Sie Online, Präsenz (wo es eine Gruppe gibt), Vorträge und Ankündigungen. Beitrag: 180 € / Jahr, ermäßigt 144 €.",
-      step1: "1. Mitglied werden",
+      step1: "Mitglied werden",
       step1Text: "Antrag auf bifode.org/mitglied-werden. Nach Prüfung und Aufnahme erhalten Sie den Zugang.",
-      step2: "2. Format wählen",
+      step2: "Format wählen",
       onlineTitle: "Online — überall",
       onlineText:
         "Moodle individuell, dieselben Materialien wie im Unterricht. Passt, wenn Sie nicht vor Ort lernen können oder wollen.",
@@ -290,13 +314,15 @@ export const messages: Record<UiLocale, Messages> = {
       localTitle: "Vor Ort — wenn es eine Gruppe gibt",
       localText:
         "2 volle Stunden, einmal wöchentlich, mit Pause. Schwerpunkt: gesprochenes Hebräisch. Stoff liegt parallel in Moodle.",
+      citiesTitle: "Städte mit einer Präsenzgruppe:",
+      cities: ["Düsseldorf", "Berlin"],
       localMail: "Ob in Ihrer Stadt schon eine Gruppe läuft, klären wir nach dem Antrag — oder schreiben Sie an",
       wishTitle: "Vor Ort gewünscht — noch kein Ulpan in Ihrer Stadt",
       wishText:
         "Füllen Sie das Formular unten aus. So sehen wir, wo Nachfrage entsteht, und können eine Gruppe aufbauen. Bis es soweit ist, können Sie nach der Aufnahme online starten.",
-      step3: "3. Nach der Aufnahme",
+      step3: "Standortwunsch",
       step3Text:
-        "Moodle-Zugang, Einladung zur lokalen Gruppe falls vorhanden, Vorträge und Termine. Organisationen (Gemeinde, Verein, Community), die selbst eine Gruppe tragen wollen:",
+        "Nach der Aufnahme: Moodle-Zugang, Einladung zur lokalen Gruppe falls vorhanden, Vorträge und Termine. Organisationen, die selbst eine Gruppe tragen wollen:",
       step3Link: "Formular für Träger",
       formTitle: "Standortwunsch: in meiner Stadt gibt es noch keinen Ulpan",
       formLead:
@@ -305,7 +331,7 @@ export const messages: Record<UiLocale, Messages> = {
       name: "Name",
       email: "E-Mail",
       city: "Stadt / Ort",
-      cityPh: "z. B. Essen",
+      cityPh: "z. B. Essen…",
       level: "Niveau",
       levelBeginner: "Anfänger",
       levelSome: "mit Vorkenntnissen",
@@ -314,12 +340,13 @@ export const messages: Record<UiLocale, Messages> = {
       onlineYes: "Ja, ich starte online",
       onlineNo: "Nein, nur vor Ort",
       message: "Nachricht",
-      messagePh: "Wochentag, Gemeinde vor Ort, sonstiges",
+      messagePh: "Wochentag, Gemeinde vor Ort, sonstiges…",
       submit: "Standortwunsch senden",
       subject: "Standortwunsch Ulpan — noch keine Gruppe vor Ort",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
+      desc: "Online-Kurse über Moodle: Level 0 und Level 1, nach Aufnahme als Mitglied.",
       h1: "Online — individuell über Moodle",
       intro:
         "Der Fernunterricht läuft auf Moodle. Nach der Aufnahme in den Verein lernen Teilnehmende einzeln. Die Materialien sind dieselben wie im Präsenzunterricht — der Stoff der Gruppe wird in Moodle gespiegelt. Methodik der Hebräischen Universität Jerusalem, Schwerpunkt gesprochenes Hebräisch.",
@@ -385,6 +412,7 @@ export const messages: Record<UiLocale, Messages> = {
     },
     faq: {
       title: "FAQ — Ulpan Ivrit",
+      desc: "Mitgliedschaft, Online, Vor Ort, Standortwunsch, Hishtalmut und Beitrag.",
       h1: "Fragen",
       q1: "Kann ich nur einen Kurs kaufen?",
       a1: "Nein. Zugang zu Präsenz, Moodle, Vorträgen und Ankündigungen folgt aus der Mitgliedschaft bei BiFoDe e.V.",
@@ -405,20 +433,27 @@ export const messages: Record<UiLocale, Messages> = {
     },
     kontakt: {
       title: "Kontakt — Ulpan Ivrit",
+      desc: "Drei Wege: Lernende, Träger, Lehrkräfte — oder direkt an info@bifode.org.",
       h1: "Kontakt",
-      general: "Allgemein:",
-      orgs: "Gemeinde, Verein oder Community, die eine Präsenzgruppe aufbauen will:",
-      orgsLink: "Formular Gruppe vor Ort",
-      teachers: "Lehrkräfte:",
-      teachersLink: "offene Stellen",
-      learners: "Lernende: Anmeldung — auch Standortwunsch, wenn es in Ihrer Stadt noch keinen Ulpan gibt.",
-      learnersLink: "Anmeldung",
+      intro: "Wählen Sie, wer Sie sind. Allgemeine Fragen gehen an",
+      mail: "E-Mail",
+      learnersTitle: "Lernende",
+      learners: "Mitglied werden, Online oder Vor Ort — und Standortwunsch, wenn in Ihrer Stadt noch keine Gruppe läuft.",
+      learnersLink: "So nehmen Sie teil",
+      orgsTitle: "Gemeinde oder Verein",
+      orgs: "Sie wollen eine Präsenzgruppe tragen. Materialien, Moodle und oft auch die Lehrkraft kommen vom Projekt.",
+      orgsLink: "Gruppe aufbauen",
+      teachersTitle: "Lehrkräfte",
+      teachers: "Offene Einsätze in Community-Projekten. Hishtalmut und Materialien stellt das Projekt.",
+      teachersLink: "Offene Stellen",
     },
     verein: {
       title: "Verein — Ulpan Ivrit",
+      desc: "BiFoDe e.V. führt Ulpan Ivrit in Deutschland durch. Mitgliedschaft 180 € / 144 €.",
       h1: "Durchführung durch BiFoDe e.V.",
       p1: "Das Programm kommt von der Zionistischen Weltorganisation, Ofek Israeli, der Sochnut und Keren Hayesod. Träger in Deutschland ist Bildungsforum für Demokratie und Vielfalt NRW e.V. Die Mitgliedschaft ist der Vereinsbeitrag, kein Kauf eines Einzelkurses.",
       fees: "Standard 180 € / Jahr, Studierende / ermäßigt 144 € / Jahr.",
+      talks: "Mitglieder erhalten Vorträge und Ankündigungen — online und vor Ort, je nach Programm.",
       partner: "Partner",
       project: "Projektseite",
     },
@@ -454,13 +489,6 @@ export const messages: Record<UiLocale, Messages> = {
         sochnut: "Die Jewish Agency – Sochnut – ist Partner von Ulpan Ivrit.",
       },
     },
-    community: {
-      title: "Community — Ulpan Ivrit",
-      h1: "Vorträge und Ankündigungen",
-      p1: "Mitglieder erhalten Zugang zu Vorträgen und zu Ankündigungen weiterer Veranstaltungen — online und vor Ort, je nach Programm.",
-      project: "Projektseite",
-      membership: "Mitgliedschaft",
-    },
     legal: { impressum: "Impressum", datenschutz: "Datenschutz" },
     session: { weekly: "einmal wöchentlich", spoken: "gesprochenes Hebräisch" },
     courses: {
@@ -492,22 +520,29 @@ export const messages: Record<UiLocale, Messages> = {
   ru: {
     meta: {
       descDefault: "Иврит очно и онлайн — Ulpan Ivrit, BiFoDe e.V.",
+      skip: "К содержанию",
       navAria: "Главная навигация",
       footerAria: "Подвал сайта",
       legalAria: "Правовая информация",
       langAria: "Язык",
       partnersAria: "Партнёры",
     },
+    form: {
+      sent: "Отправлено. Прочитаем и ответим по почте.",
+      error: "Не отправилось. Напишите напрямую на адрес выше.",
+      sending: "Отправляем…",
+    },
     nav: {
+      menu: "Меню",
       lernen: "Обучение",
-      anmelden: "Запись",
-      online: "Онлайн",
-      vorOrt: "Очно",
+      anmelden: "Запись на занятия",
+      online: "Онлайн обучение",
+      vorOrt: "Очные занятия",
       lehrkraefte: "Преподаватели",
-      methodik: "Методика и повышение квалификации",
+      methodik: "Повышение квалификации",
       stellen: "Вакансии",
-      verein: "Союз",
-      aboutVerein: "О союзе",
+      verein: "НКО",
+      aboutVerein: "О нас",
       partner: "Партнёры",
       faq: "FAQ",
       kontakt: "Контакты",
@@ -519,6 +554,8 @@ export const messages: Record<UiLocale, Messages> = {
       source: "Элиэзер Бен-Йехуда",
       open: "«",
       close: "»",
+      pause: "Остановить анимацию",
+      play: "Включить анимацию",
     },
     home: {
       title: "Ulpan Ivrit — учить иврит просто",
@@ -531,6 +568,7 @@ export const messages: Record<UiLocale, Messages> = {
       f4: "Типичное занятие очно: 2 полных часа, раз в неделю, с перерывом",
       f5: "Членский взнос 180 € / год, льготный 144 € — курс отдельно не продаётся",
       ctaRegister: "Записаться",
+      howItWorks: "Как участвовать",
       noUlpan: "Нет ульпана в вашем городе? Оставьте пожелание на странице записи.",
       onlineTitle: "Онлайн — индивидуально",
       onlineText: "Moodle из любой точки. Тот же материал, что у группы.",
@@ -545,9 +583,9 @@ export const messages: Record<UiLocale, Messages> = {
       h1: "Как участвовать",
       intro:
         "Ulpan Ivrit — это не покупка отдельного курса. Сначала вы становитесь членом BiFoDe e.V. Затем доступны онлайн, очные занятия (где есть группа), лекции и анонсы. Взнос: 180 € / год, льготный 144 €.",
-      step1: "1. Стать членом",
+      step1: "Стать членом",
       step1Text: "Заявка на bifode.org/mitglied-werden. После рассмотрения и приёма вы получите доступ.",
-      step2: "2. Выбрать формат",
+      step2: "Выбрать формат",
       onlineTitle: "Онлайн — из любого места",
       onlineText:
         "Moodle индивидуально, те же материалы, что на занятиях. Подходит, если вы не можете или не хотите учиться очно.",
@@ -555,22 +593,24 @@ export const messages: Record<UiLocale, Messages> = {
       localTitle: "Очно — если есть группа",
       localText:
         "2 полных часа, раз в неделю, с перерывом. Акцент: разговорный иврит. Материал параллельно в Moodle.",
+      citiesTitle: "Города, где уже есть очная группа:",
+      cities: ["Дюссельдорф", "Берлин"],
       localMail: "Есть ли уже группа в вашем городе, выясним после заявки — или напишите на",
       wishTitle: "Хотим очно — ульпана в городе ещё нет",
       wishText:
         "Заполните форму ниже. Так мы видим спрос и можем собрать группу. Пока её нет, после приёма можно начать онлайн.",
-      step3: "3. После приёма",
+      step3: "Пожелание площадки",
       step3Text:
-        "Доступ в Moodle, приглашение в местную группу если она есть, лекции и даты. Организации (община, союз, community), которые хотят вести группу:",
+        "После приёма: доступ в Moodle, приглашение в местную группу если она есть, лекции и даты. Организации, которые хотят вести группу:",
       step3Link: "Форма для организаторов",
-      formTitle: "Пожелание площадки: в моём городе ульпана ещё нет",
+      formTitle: "Напишите нам, если вы хотите Ульпан в вашем городе.",
       formLead:
         "Для тех, кто хочет учиться прежде всего очно. Это не замена заявки в союз — только карта спроса.",
       formMail: "Сообщение уйдёт на",
       name: "Имя",
       email: "Эл. почта",
       city: "Город",
-      cityPh: "например, Essen",
+      cityPh: "например, Essen…",
       level: "Уровень",
       levelBeginner: "Начинающий",
       levelSome: "есть база",
@@ -579,12 +619,13 @@ export const messages: Record<UiLocale, Messages> = {
       onlineYes: "Да, начну онлайн",
       onlineNo: "Нет, только очно",
       message: "Сообщение",
-      messagePh: "День недели, община на месте, другое",
+      messagePh: "День недели, община на месте, другое…",
       submit: "Отправить пожелание",
       subject: "Пожелание площадки Ulpan — группы на месте ещё нет",
     },
     kurse: {
       title: "Онлайн — Ulpan Ivrit",
+      desc: "Онлайн-курсы в Moodle: уровень 0 и уровень 1, после приёма в члены союза.",
       h1: "Онлайн — индивидуально в Moodle",
       intro:
         "Дистанционное обучение идёт в Moodle. После приёма в союз участники занимаются индивидуально. Материалы те же, что на очных занятиях — программа группы зеркалится в Moodle. Методика Еврейского университета в Иерусалиме, акцент на разговорный иврит.",
@@ -650,6 +691,7 @@ export const messages: Record<UiLocale, Messages> = {
     },
     faq: {
       title: "FAQ — Ulpan Ivrit",
+      desc: "Членство, онлайн, очно, пожелание площадки, Hishtalmut и взнос.",
       h1: "Вопросы",
       q1: "Можно купить только курс?",
       a1: "Нет. Доступ к очным занятиям, Moodle, лекциям и анонсам следует из членства в BiFoDe e.V.",
@@ -670,20 +712,27 @@ export const messages: Record<UiLocale, Messages> = {
     },
     kontakt: {
       title: "Контакты — Ulpan Ivrit",
+      desc: "Три пути: учащиеся, организаторы, преподаватели — или сразу на info@bifode.org.",
       h1: "Контакты",
-      general: "Общие вопросы:",
-      orgs: "Община, союз или community, которые хотят собрать очную группу:",
-      orgsLink: "Форма группы на месте",
-      teachers: "Преподавателям:",
-      teachersLink: "открытые вакансии",
-      learners: "Учащимся: запись — в том числе пожелание площадки, если в городе ульпана ещё нет.",
-      learnersLink: "Запись",
+      intro: "Выберите, кто вы. Общие вопросы — на",
+      mail: "Эл. почта",
+      learnersTitle: "Учащиеся",
+      learners: "Членство, онлайн или очно — и пожелание площадки, если в городе ещё нет группы.",
+      learnersLink: "Как участвовать",
+      orgsTitle: "Община или союз",
+      orgs: "Хотите вести очную группу. Материалы, Moodle и часто преподавателя даёт проект.",
+      orgsLink: "Собрать группу",
+      teachersTitle: "Преподаватели",
+      teachers: "Открытые задания в community-проектах. Hishtalmut и материалы — от проекта.",
+      teachersLink: "Открытые вакансии",
     },
     verein: {
       title: "Союз — Ulpan Ivrit",
+      desc: "BiFoDe e.V. ведёт Ulpan Ivrit в Германии. Взнос 180 € / 144 €.",
       h1: "Реализация — BiFoDe e.V.",
-      p1: "Программа идёт от Всемирной сионистской организации, Ofek Israeli, Сохнута и Керен ха-Йесод. Носитель в Германии — Bildungsforum für Demokratie und Vielfalt NRW e.V. Членский взнос — это взнос союза, а не покупка отдельного курса.",
+      p1: "Программа идёт от Всемирной сионистской организации, Ofek Israeli, Сохнута и Керен ха-Йесод. Оператор в Германии — Bildungsforum für Demokratie und Vielfalt NRW e.V. Членский взнос — это членский взнос в некоммерческую организацию BiFoDe e.V.",
       fees: "Обычный взнос 180 € / год, студенты / льгота 144 € / год.",
+      talks: "Члены союза получают лекции и анонсы — онлайн и очно, по программе.",
       partner: "Партнёры",
       project: "Страница проекта",
     },
@@ -697,7 +746,7 @@ export const messages: Record<UiLocale, Messages> = {
       methodText:
         "Методика занятий. Hishtalmut (повышение квалификации) преподавателей ведут действующие преподаватели университета.",
       roles: {
-        bifode: "Носитель",
+        bifode: "Оператор",
         wzo: "Партнёр",
         "keren-hayesod": "Партнёр",
         ofek: "Партнёр",
@@ -711,19 +760,12 @@ export const messages: Record<UiLocale, Messages> = {
         sochnut: "The Jewish Agency for Israel",
       },
       blurbs: {
-        bifode: "Носитель Ulpan Ivrit в Германии и организационная рамка членства.",
-        wzo: "Отдел поощрения алиьи. Партнёр Ulpan Ivrit.",
+        bifode: "Оператор Ulpan Ivrit в Германии и организационная основа членства.",
+        wzo: "Отдел поощрения алии. Партнёр Ulpan Ivrit.",
         "keren-hayesod": "Керен ха-Йесод — партнёр Ulpan Ivrit.",
         ofek: "Ofek Israeli — партнёр Ulpan Ivrit.",
         sochnut: "Еврейское агентство — Сохнут — партнёр Ulpan Ivrit.",
       },
-    },
-    community: {
-      title: "Community — Ulpan Ivrit",
-      h1: "Лекции и анонсы",
-      p1: "Члены союза получают доступ к лекциям и анонсам мероприятий — онлайн и очно, по программе.",
-      project: "Страница проекта",
-      membership: "Членство",
     },
     legal: { impressum: "Выходные данные", datenschutz: "Защита данных" },
     session: { weekly: "раз в неделю", spoken: "разговорный иврит" },
@@ -733,14 +775,14 @@ export const messages: Record<UiLocale, Messages> = {
         level: "Pre-A1 / с нуля",
         format: "Онлайн — уроки, аудирование, чтение, тесты, H5P, задания",
         entry: "Предварительные знания не нужны",
-        body: "<p>Hebrew-A0 — вступительный курс для тех, кто не знает иврита. Он готовит к уровню 1: алфавит, произношение, базовый словарь и язык аудитории.</p><p>К концу курса участники узнают и произносят основные буквы, читают короткие слова начинающих, могут просто представиться и перейти на уровень 1.</p>",
+        body: "<p>Hebrew-A0 — вступительный курс для тех, кто не знает иврита. Он готовит к уровню 1: алфавит, произношение, базовый словарь и язык аудитории.</p><p>К концу курса участники узнают и произносят основные буквы, читают короткие слова для начинающих, могут просто представиться и перейти на уровень 1.</p>",
       },
       "hebrew-level-1": {
         title: "Иврит, уровень 1",
         level: "A1",
         format: "Онлайн — уроки, аудирование, чтение, тесты, задания",
         entry: "Алфавит, базовая фонетика и входной словарь — или завершённый уровень 0",
-        body: "<p>Уровень 1 — курс для начинающих, которые уже знают алфавит и базовый pre-ulpan словарь или закончили уровень 0.</p><p>Курс строит бытовой иврит: чтение, аудирование, речь, письмо, грамматика и задания в Moodle.</p>",
+        body: "<p>Уровень 1 — курс для начинающих, которые уже знают алфавит и базовый словарь допрограммного уровня или закончили уровень 0.</p><p>Курс формирует бытовой иврит: чтение, аудирование, речь, письмо, грамматика и задания в Moodle.</p>",
       },
     },
     jobs: {
@@ -749,20 +791,27 @@ export const messages: Record<UiLocale, Messages> = {
         location: "Район Дюссельдорфа",
         format: "Предпочтительно очно, онлайн возможен",
         level: "Начинающие",
-        body: "<p>Ищем преподавателя современного иврита в районе Дюссельдорфа. Группа стартует с нуля. Очные занятия предпочтительны; онлайн возможен, если очно нельзя.</p><p>Типичное занятие: два полных часа, раз в неделю, с перерывом. Акцент: разговорный иврит. Методика Еврейского университета в Иерусалиме. Материалы и зеркало в Moodle даёт проект; Hishtalmut (повышение квалификации) ведут преподаватели университета.</p><p>Отклик с кратким профилем и указанием очной или онлайн-доступности — на адрес ниже.</p>",
+        body: "<p>Ищем преподавателя современного иврита в районе Дюссельдорфа. Группа стартует с нуля. Очные занятия предпочтительны; онлайн возможен, если очно нельзя.</p><p>Типичное занятие: два полных часа, раз в неделю, с перерывом. Акцент: разговорный иврит. Методика Еврейского университета в Иерусалиме. Материалы и их копию в Moodle предоставляет проект; Hishtalmut (повышение квалификации) ведут преподаватели университета.</p><p>Отклик с кратким профилем и указанием очной или онлайн-доступности — на адрес ниже.</p>",
       },
     },
   },
   en: {
     meta: {
       descDefault: "Learn Hebrew in person and online — Ulpan Ivrit, BiFoDe e.V.",
+      skip: "Skip to content",
       navAria: "Main navigation",
       footerAria: "Footer",
       legalAria: "Legal",
       langAria: "Language",
       partnersAria: "Partners",
     },
+    form: {
+      sent: "Sent. We will read it and reply by email.",
+      error: "Sending failed. Write to us directly at the address above.",
+      sending: "Sending…",
+    },
     nav: {
+      menu: "Menu",
       lernen: "Learn",
       anmelden: "Registration",
       online: "Online",
@@ -783,6 +832,8 @@ export const messages: Record<UiLocale, Messages> = {
       source: "Eliezer Ben-Yehuda",
       open: "“",
       close: "”",
+      pause: "Pause animation",
+      play: "Play animation",
     },
     home: {
       title: "Ulpan Ivrit — Learning Hebrew is quite simple",
@@ -795,6 +846,7 @@ export const messages: Record<UiLocale, Messages> = {
       f4: "A typical in-person session: 2 full hours, once a week, with a break",
       f5: "Membership 180 € / year, reduced 144 € — courses are not sold separately",
       ctaRegister: "Register",
+      howItWorks: "How to take part",
       noUlpan: "No ulpan in your city? Send a location request on the registration page.",
       onlineTitle: "Online — individual",
       onlineText: "Moodle from anywhere. The group’s material is mirrored there.",
@@ -809,9 +861,9 @@ export const messages: Record<UiLocale, Messages> = {
       h1: "How to take part",
       intro:
         "Ulpan Ivrit is not a one-off course purchase. First you become a member of BiFoDe e.V. Then you use online study, in-person classes where a group exists, talks and announcements. Fee: 180 € / year, reduced 144 €.",
-      step1: "1. Become a member",
+      step1: "Become a member",
       step1Text: "Apply at bifode.org/mitglied-werden. After review and admission you receive access.",
-      step2: "2. Choose a format",
+      step2: "Choose a format",
       onlineTitle: "Online — from anywhere",
       onlineText:
         "Moodle individually, the same materials as in class. Fits if you cannot or do not want to study in person.",
@@ -819,13 +871,15 @@ export const messages: Record<UiLocale, Messages> = {
       localTitle: "In person — when a group exists",
       localText:
         "2 full hours, once a week, with a break. Focus: spoken Hebrew. The material is also in Moodle.",
+      citiesTitle: "Cities with an in-person group:",
+      cities: ["Düsseldorf", "Berlin"],
       localMail: "Whether a group already runs in your city, we clarify after the application — or write to",
       wishTitle: "In person wanted — no ulpan in your city yet",
       wishText:
         "Fill in the form below. That shows us where demand is growing, so we can start a group. Until then you can begin online after admission.",
-      step3: "3. After admission",
+      step3: "Location request",
       step3Text:
-        "Moodle access, an invitation to the local group if there is one, talks and dates. Organisations (congregation, association, community) that want to host a group:",
+        "After admission: Moodle access, an invitation to the local group if there is one, talks and dates. Organisations that want to host a group:",
       step3Link: "Form for hosts",
       formTitle: "Location request: there is no ulpan in my city yet",
       formLead:
@@ -834,7 +888,7 @@ export const messages: Record<UiLocale, Messages> = {
       name: "Name",
       email: "Email",
       city: "City",
-      cityPh: "e.g. Essen",
+      cityPh: "e.g. Essen…",
       level: "Level",
       levelBeginner: "Beginner",
       levelSome: "some prior knowledge",
@@ -843,12 +897,13 @@ export const messages: Record<UiLocale, Messages> = {
       onlineYes: "Yes, I will start online",
       onlineNo: "No, in person only",
       message: "Message",
-      messagePh: "Weekday, local congregation, anything else",
+      messagePh: "Weekday, local congregation, anything else…",
       submit: "Send location request",
       subject: "Ulpan location request — no local group yet",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
+      desc: "Online courses on Moodle: Level 0 and Level 1, after admission as a member.",
       h1: "Online — individually on Moodle",
       intro:
         "Distance learning runs on Moodle. After admission to the association, participants study individually. The materials are the same as in the classroom — the group syllabus is mirrored in Moodle. Hebrew University of Jerusalem method, focus on spoken Hebrew.",
@@ -914,6 +969,7 @@ export const messages: Record<UiLocale, Messages> = {
     },
     faq: {
       title: "FAQ — Ulpan Ivrit",
+      desc: "Membership, online, in person, location request, Hishtalmut and fees.",
       h1: "Questions",
       q1: "Can I buy a single course?",
       a1: "No. Access to in-person classes, Moodle, talks and announcements comes with membership of BiFoDe e.V.",
@@ -934,20 +990,27 @@ export const messages: Record<UiLocale, Messages> = {
     },
     kontakt: {
       title: "Contact — Ulpan Ivrit",
+      desc: "Three paths: learners, hosts, teachers — or write to info@bifode.org.",
       h1: "Contact",
-      general: "General:",
-      orgs: "A congregation, association or community that wants to start an in-person group:",
-      orgsLink: "Local group form",
-      teachers: "Teachers:",
-      teachersLink: "open positions",
-      learners: "Learners: registration — including a location request if there is no ulpan in your city yet.",
-      learnersLink: "Registration",
+      intro: "Choose who you are. General questions go to",
+      mail: "Email",
+      learnersTitle: "Learners",
+      learners: "Become a member, study online or in person — and send a location request if there is no group in your city yet.",
+      learnersLink: "How to take part",
+      orgsTitle: "Congregation or association",
+      orgs: "You want to host an in-person group. The project provides materials, Moodle and often the teacher.",
+      orgsLink: "Start a group",
+      teachersTitle: "Teachers",
+      teachers: "Open assignments in community projects. Hishtalmut and materials come from the project.",
+      teachersLink: "Open positions",
     },
     verein: {
       title: "Association — Ulpan Ivrit",
+      desc: "BiFoDe e.V. delivers Ulpan Ivrit in Germany. Membership 180 € / 144 €.",
       h1: "Delivered by BiFoDe e.V.",
       p1: "The programme comes from the World Zionist Organization, Ofek Israeli, the Jewish Agency and Keren Hayesod. The host in Germany is Bildungsforum für Demokratie und Vielfalt NRW e.V. Membership is the association fee, not the purchase of a single course.",
       fees: "Standard 180 € / year, students / reduced 144 € / year.",
+      talks: "Members receive talks and announcements — online and in person, depending on the programme.",
       partner: "Partners",
       project: "Project page",
     },
@@ -981,13 +1044,6 @@ export const messages: Record<UiLocale, Messages> = {
         ofek: "Ofek Israeli is a partner of Ulpan Ivrit.",
         sochnut: "The Jewish Agency – Sochnut – is a partner of Ulpan Ivrit.",
       },
-    },
-    community: {
-      title: "Community — Ulpan Ivrit",
-      h1: "Talks and announcements",
-      p1: "Members get access to talks and announcements of further events — online and in person, depending on the programme.",
-      project: "Project page",
-      membership: "Membership",
     },
     legal: { impressum: "Imprint", datenschutz: "Privacy" },
     session: { weekly: "once a week", spoken: "spoken Hebrew" },

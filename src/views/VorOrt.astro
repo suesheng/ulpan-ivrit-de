@@ -14,12 +14,22 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
   <div class="stack">
     <h1>{copy.vorOrt.h1}</h1>
     <p>{copy.vorOrt.p1}</p>
-    <p>{copy.vorOrt.p2}</p>
-    <p>
-      {copy.vorOrt.p3}
-      {" "}
-      <a href={href("/lehrer")}>{copy.vorOrt.p3Link}</a>.
-    </p>
+
+    <div class="card-list">
+      <article class="card card-local">
+        <h2>{copy.home.localTitle}</h2>
+        <p>{copy.vorOrt.p2}</p>
+      </article>
+      <article class="card">
+        <h2>{copy.lehrer.hishtalmut}</h2>
+        <p>
+          {copy.vorOrt.p3}
+          {" "}
+          <a href={href("/lehrer")}>{copy.vorOrt.p3Link}</a>.
+        </p>
+      </article>
+    </div>
+
     <p>
       {copy.vorOrt.p4}
       {" "}
@@ -33,10 +43,26 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
     </p>
 
-    <form class="stack" method="post" enctype="text/plain" action={`mailto:${LINKS.contactEmail}?subject=${subject}`}>
+    <form
+      class="stack path-form"
+      method="post"
+      enctype="text/plain"
+      action={`mailto:${LINKS.contactEmail}?subject=${subject}`}
+      data-inquiry="host"
+      data-sent={copy.form.sent}
+      data-error={copy.form.error}
+      data-sending={copy.form.sending}
+    >
+      <input type="hidden" name="locale" value={locale} />
+      <div class="hp" aria-hidden="true">
+        <label>
+          Website
+          <input type="text" name="website" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
       <label>
         {copy.vorOrt.orgType}
-        <select name="Organisationstyp" required>
+        <select name="Organisationstyp" autocomplete="organization-title" required>
           <option value={copy.vorOrt.gemeinde}>{copy.vorOrt.gemeinde}</option>
           <option value={copy.vorOrt.verein}>{copy.vorOrt.verein}</option>
           <option value={copy.vorOrt.community}>{copy.vorOrt.community}</option>
@@ -45,23 +71,23 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       </label>
       <label>
         {copy.vorOrt.orgName}
-        <input type="text" name="Organisation" required />
+        <input type="text" name="Organisation" autocomplete="organization" required />
       </label>
       <label>
         {copy.vorOrt.place}
-        <input type="text" name="Ort" required />
+        <input type="text" name="Ort" autocomplete="address-level2" required />
       </label>
       <label>
         {copy.vorOrt.person}
-        <input type="text" name="Name" required />
+        <input type="text" name="Name" autocomplete="name" required />
       </label>
       <label>
         {copy.vorOrt.email}
-        <input type="email" name="E-Mail" required />
+        <input type="email" name="E-Mail" autocomplete="email" spellcheck="false" required />
       </label>
       <label>
         {copy.vorOrt.phone}
-        <input type="tel" name="Telefon" />
+        <input type="tel" name="Telefon" autocomplete="tel" />
       </label>
       <label>
         {copy.vorOrt.size}
@@ -69,9 +95,10 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       </label>
       <label>
         {copy.vorOrt.message}
-        <textarea name="Nachricht" required></textarea>
+        <textarea name="Nachricht" autocomplete="off" required></textarea>
       </label>
       <button type="submit">{copy.vorOrt.submit}</button>
+      <p class="form-status" data-form-status hidden></p>
     </form>
   </div>
 </BaseLayout>

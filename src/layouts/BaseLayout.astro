@@ -1,8 +1,14 @@
 ---
+import "@fontsource/montserrat/latin-600.css";
+import "@fontsource/montserrat/latin-700.css";
+import "@fontsource/source-sans-3/latin-400.css";
+import "@fontsource/source-sans-3/latin-400-italic.css";
+import "@fontsource/source-sans-3/latin-600.css";
+import "@fontsource/frank-ruhl-libre/hebrew-700.css";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { locPath, stripLocalePrefix, uiLocales, htmlLang, pageLocale } from "../lib/i18n";
+import { locPath, stripLocalePrefix, uiLocales, htmlLang, pageLocale, ogLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 import { LINKS } from "../lib/links";
 
@@ -22,6 +28,8 @@ const {
 
 const path = stripLocalePrefix(Astro.url.pathname);
 const origin = Astro.site?.origin ?? LINKS.site;
+const canonical = new URL(locPath(locale, path), origin).href;
+const image = new URL("/brand/logo.png", origin).href;
 ---
 
 <!doctype html>
@@ -30,6 +38,29 @@ const origin = Astro.site?.origin ?? LINKS.site;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#0067b8" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/brand/logo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/brand/logo.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ulpan Ivrit" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content={ogLocale(locale)} />
+    {
+      uiLocales
+        .filter((code) => code !== locale)
+        .map((code) => (
+          <meta property="og:locale:alternate" content={ogLocale(code)} />
+        ))
+    }
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
     {
       uiLocales.map((code) => (
         <link
@@ -44,19 +75,17 @@ const origin = Astro.site?.origin ?? LINKS.site;
       hreflang="x-default"
       href={new URL(locPath("de", path), origin).href}
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700&family=Montserrat:wght@200;300;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main">{copy.meta.skip}</a>
     <Header />
-    <main class:list={[full ? "full-main" : "wrap page-main"]}>
+    <main id="main" tabindex="-1" class:list={[full ? "full-main" : "wrap page-main"]}>
       <slot />
     </main>
     <Footer />
+    <script>
+      import "../scripts/inquiry";
+    </script>
   </body>
 </html>

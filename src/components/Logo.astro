@@ -1,17 +1,21 @@
 ---
 interface Props {
   compact?: boolean;
+  priority?: boolean;
 }
 
-const { compact = false } = Astro.props;
+const { compact = false, priority = false } = Astro.props;
 ---
 
 <img
   class:list={["logo", { compact }]}
   src="/brand/logo.png"
-  alt="ulpan ivrit"
+  alt="Ulpan Ivrit"
   width="568"
   height="248"
+  fetchpriority={priority ? "high" : "auto"}
+  loading={priority ? "eager" : "lazy"}
+  decoding="async"
 />
 
 <style>

@@ -9,28 +9,31 @@ const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
 ---
 
-<BaseLayout title={copy.kontakt.title}>
+<BaseLayout title={copy.kontakt.title} description={copy.kontakt.desc}>
   <div class="stack">
     <h1>{copy.kontakt.h1}</h1>
     <p>
-      {copy.kontakt.general}
+      {copy.kontakt.intro}
       {" "}
       <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
     </p>
-    <p>
-      {copy.kontakt.orgs}
-      {" "}
-      <a href={href("/vor-ort")}>{copy.kontakt.orgsLink}</a>.
-    </p>
-    <p>
-      {copy.kontakt.teachers}
-      {" "}
-      <a href={href("/stellen")}>{copy.kontakt.teachersLink}</a>.
-    </p>
-    <p>
-      {copy.kontakt.learners}
-      {" "}
-      <a href={href("/so-gehts")}>{copy.kontakt.learnersLink}</a>.
-    </p>
+
+    <div class="card-list card-list-3">
+      <article class="card card-online">
+        <h2>{copy.kontakt.learnersTitle}</h2>
+        <p>{copy.kontakt.learners}</p>
+        <p><a href={href("/so-gehts")}>{copy.kontakt.learnersLink}</a></p>
+      </article>
+      <article class="card card-local">
+        <h2>{copy.kontakt.orgsTitle}</h2>
+        <p>{copy.kontakt.orgs}</p>
+        <p><a href={href("/vor-ort")}>{copy.kontakt.orgsLink}</a></p>
+      </article>
+      <article class="card">
+        <h2>{copy.kontakt.teachersTitle}</h2>
+        <p>{copy.kontakt.teachers}</p>
+        <p><a href={href("/stellen")}>{copy.kontakt.teachersLink}</a></p>
+      </article>
+    </div>
   </div>
 </BaseLayout>

@@ -30,7 +30,7 @@ const jobs = (await getCollection("jobs"))
           {jobs.map((job) => {
             const local = copy.jobs[job.id];
             return (
-              <article class="card">
+              <article class="card card-local">
                 <h2>
                   <a href={href(`/stellen/${job.id}`)}>
                     {local?.title ?? job.data.title}

@@ -216,7 +216,11 @@ void main() {
 
     let raf = 0;
     let visible = true;
+    let paused = false;
     let startTime = performance.now();
+    const pauseBtn = canvas.closest(".quote-band")?.querySelector("[data-quote-pause]");
+    const labelPause = pauseBtn?.getAttribute("data-label-pause") || "";
+    const labelPlay = pauseBtn?.getAttribute("data-label-play") || "";
 
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
@@ -229,9 +233,24 @@ void main() {
       gl.viewport(0, 0, canvas.width, canvas.height);
     }
 
+    function motionOn() {
+      return !reduce.matches && !paused;
+    }
+
+    function syncPauseBtn() {
+      if (!pauseBtn) return;
+      if (reduce.matches) {
+        pauseBtn.hidden = true;
+        return;
+      }
+      pauseBtn.hidden = false;
+      pauseBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+      pauseBtn.textContent = paused ? labelPlay : labelPause;
+    }
+
     function draw(now) {
       resize();
-      const motion = reduce.matches ? 0 : 1;
+      const motion = motionOn() ? 1 : 0;
       gl.useProgram(program);
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
       gl.enableVertexAttribArray(0);
@@ -275,7 +294,7 @@ void main() {
       const io = new IntersectionObserver(
         (entries) => {
           visible = entries.some((entry) => entry.isIntersecting);
-          if (visible && !reduce.matches) {
+          if (visible && motionOn()) {
             cancelAnimationFrame(raf);
             raf = requestAnimationFrame(draw);
           } else {
@@ -289,7 +308,18 @@ void main() {
       window.addEventListener("resize", () => draw(performance.now()), {
         passive: true,
       });
-      reduce.addEventListener("change", () => draw(performance.now()));
+      reduce.addEventListener("change", () => {
+        syncPauseBtn();
+        draw(performance.now());
+      });
+      pauseBtn?.addEventListener("click", () => {
+        paused = !paused;
+        syncPauseBtn();
+        cancelAnimationFrame(raf);
+        if (visible && motionOn()) raf = requestAnimationFrame(draw);
+        else draw(performance.now());
+      });
+      syncPauseBtn();
       draw(performance.now());
       canvas.dataset.gl = "ok";
       done(true);

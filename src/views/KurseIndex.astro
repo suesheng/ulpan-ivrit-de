@@ -14,7 +14,7 @@ const courses = (await getCollection("courses")).sort(
 );
 ---
 
-<BaseLayout title={copy.kurse.title}>
+<BaseLayout title={copy.kurse.title} description={copy.kurse.desc}>
   <div class="stack">
     <h1>{copy.kurse.h1}</h1>
     <p>{copy.kurse.intro}</p>
@@ -26,7 +26,7 @@ const courses = (await getCollection("courses")).sort(
         courses.map((course) => {
           const local = copy.courses[course.id];
           return (
-            <article class="card">
+            <article class="card card-online">
               <h2>
                 <a href={href(`/kurse/${course.id}`)}>{local?.title ?? course.data.title}</a>
               </h2>

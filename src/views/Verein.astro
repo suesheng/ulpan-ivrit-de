@@ -9,16 +9,19 @@ const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 ---
 
-<BaseLayout title={copy.verein.title}>
+<BaseLayout title={copy.verein.title} description={copy.verein.desc}>
   <div class="stack">
     <h1>{copy.verein.h1}</h1>
     <p>{copy.verein.p1}</p>
-    <p>{copy.verein.fees}</p>
-    <p>
-      <a href={locPath(locale, "/partner")}>{copy.verein.partner}</a> ·
-      <a href={LINKS.ulpanProject}>{copy.verein.project}</a> ·
+    <ul class="feature-list">
+      <li>{copy.verein.fees}</li>
+      <li>{copy.verein.talks}</li>
+    </ul>
+    <CtaMitglied />
+    <p class="actions">
+      <a href={locPath(locale, "/partner")}>{copy.verein.partner}</a>
+      <a href={LINKS.ulpanProject}>{copy.verein.project}</a>
       <a href={LINKS.vereinHome}>bifode.org</a>
     </p>
-    <CtaMitglied />
   </div>
 </BaseLayout>
