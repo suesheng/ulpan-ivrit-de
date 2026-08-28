@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { LINKS } from "../lib/links";
+import { EXT, LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -28,7 +28,7 @@ const href = (p: string) => locPath(locale, p);
     <p class="actions">
       <a class="btn" href={href("/stellen")}>{copy.lehrer.jobs}</a>
       <a href={href("/vor-ort")}>{copy.lehrer.local}</a>
-      <a href={LINKS.moodle}>Moodle</a>
+      <a href={LINKS.moodle} {...EXT}>Moodle</a>
     </p>
   </div>
 </BaseLayout>

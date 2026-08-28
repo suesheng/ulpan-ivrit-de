@@ -1,0 +1,13 @@
+---
+description: On-site Impressum, Datenschutz, and cookie pages
+globs: src/lib/legal.ts,src/views/Legal.astro,src/pages/**/impressum.astro,src/pages/**/datenschutz.astro,src/pages/**/cookies.astro,src/components/PrivacyCheck.astro
+alwaysApply: false
+---
+
+# Legal
+
+- Site legal pages are on this domain (`/impressum`, `/datenschutz`, `/cookies` and `en/` / `ru/` twins). Edit `src/lib/legal.ts`, not bifode.org.
+- `LINKS.impressum` / `LINKS.datenschutz` are the Verein pages on bifode.org. Keep that distinction in the footer of `Legal.astro`.
+- Forms need `PrivacyCheck` and must not POST without the privacy checkbox. Honeypot field `website` stays in the parser.
+- German `.de` launch needs Impressum and Datenschutz. Do not redirect those paths off-site again.
+- Binding language for legal text is German; ru/en are aids. If you change a legal fact (address, email, purposes), update all three locales.

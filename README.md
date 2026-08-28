@@ -7,6 +7,9 @@ Membership in the Verein unlocks Präsenz and online classes, lectures, and even
 - **Online:** individual Moodle at [ulpan.bifode.org](https://ulpan.bifode.org)
 - **Vor Ort:** groups hosted by Gemeinde, Verein, or Community — contact form at `/vor-ort`
 - **Enrolment:** [Mitglied werden](https://www.bifode.org/mitglied-werden)
+- **Repo / deploy:** [github.com/suesheng/ulpan-ivrit-de](https://github.com/suesheng/ulpan-ivrit-de) → Vercel (`master`)
+
+Locales: German (default, no prefix), Russian (`/ru`), English (`/en`). Legal pages live on this domain (`/impressum`, `/datenschutz`, `/cookies`).
 
 ## Commands
 
@@ -15,3 +18,5 @@ npm install
 npm run dev
 npm run build
 ```
+
+Project brief: [docs/BRIEF.md](docs/BRIEF.md). Paths and deploy notes: [docs/QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md).

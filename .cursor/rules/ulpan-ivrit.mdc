@@ -1,0 +1,17 @@
+---
+description: Ulpan Ivrit public site — stack, deploy, and what not to invent
+alwaysApply: true
+---
+
+# Ulpan Ivrit
+
+Public vitrine for Ulpan Ivrit in Germany (BiFoDe e.V.) at `www.ulpan-ivrit.de`.
+
+- Astro 5, `output: "static"`, `@astrojs/vercel`. UI locales: `de` (default, no prefix), `ru`, `en`. `he` falls back to German — do not build a Hebrew UI unless asked.
+- Pages in `src/pages/` are thin wrappers. UI lives in `src/views/`. A new route needs the German file plus `en/` and `ru/` wrappers of the same view.
+- Copy: `src/lib/messages.ts`. Legal: `src/lib/legal.ts`. Canonical URLs: `src/lib/links.ts`. Courses/jobs: `src/content/`.
+- Design comes from Open Design, then Astro. Do not restyle to a generic template.
+- Enrolment is membership on bifode.org. Moodle is `ulpan.bifode.org` (not this repo). This site has no user accounts.
+- GitHub `suesheng/ulpan-ivrit-de`, branch `master`, Vercel project `ulpan-ivrit-de`.
+- Forms: `src/pages/api/inquiry.ts` (`prerender = false`) plus `src/scripts/inquiry.ts`. Needs `BREVO_API_KEY` on Vercel; otherwise mailto fallback.
+- Do not commit `.env*`, `.vercel/`, or `.obsidian/`.

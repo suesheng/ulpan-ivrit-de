@@ -1,5 +1,5 @@
 ---
-import { LINKS } from "../lib/links";
+import { EXT, LINKS } from "../lib/links";
 import { pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -11,4 +11,4 @@ const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const { label = t(locale).nav.member } = Astro.props;
 ---
 
-<a class="btn" href={LINKS.membership}>{label}</a>
+<a class="btn" href={LINKS.membership} {...EXT}>{label}</a>

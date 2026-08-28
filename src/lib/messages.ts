@@ -23,6 +23,7 @@ export type Messages = {
     menu: string;
     lernen: string;
     anmelden: string;
+    gemeinde: string;
     online: string;
     vorOrt: string;
     lehrkraefte: string;
@@ -34,6 +35,7 @@ export type Messages = {
     faq: string;
     kontakt: string;
     member: string;
+    start: string;
   };
   quote: {
     translation: string;
@@ -69,6 +71,9 @@ export type Messages = {
     intro: string;
     step1: string;
     step1Text: string;
+    step1BenefitsTitle: string;
+    step1Benefits: string[];
+    step1Fee: string;
     step2: string;
     onlineTitle: string;
     onlineText: string;
@@ -88,6 +93,8 @@ export type Messages = {
     formMail: string;
     name: string;
     email: string;
+    org: string;
+    orgPh: string;
     city: string;
     cityPh: string;
     level: string;
@@ -270,6 +277,7 @@ export const messages: Record<UiLocale, Messages> = {
       menu: "Menü",
       lernen: "Lernen",
       anmelden: "Anmeldung",
+      gemeinde: "Gemeinde",
       online: "Online",
       vorOrt: "Vor Ort",
       lehrkraefte: "Lehrkräfte",
@@ -281,6 +289,7 @@ export const messages: Record<UiLocale, Messages> = {
       faq: "FAQ",
       kontakt: "Kontakt",
       member: "Mitglied werden",
+      start: "Anmeldung",
     },
     quote: {
       translation:
@@ -303,23 +312,32 @@ export const messages: Record<UiLocale, Messages> = {
       f5: "Mitgliedschaft 180 € / Jahr, ermäßigt 144 € — kein Einzelkauf eines Kurses",
       ctaRegister: "Anmelden",
       howItWorks: "So nehmen Sie teil",
-      noUlpan: "Kein Ulpan in Ihrer Stadt? Standortwunsch auf der Anmeldeseite.",
+      noUlpan: "Kein Ulpan in Ihrer Stadt? Wenn in der Gemeinde Interesse besteht — schreiben Sie uns.",
       onlineTitle: "Online — individuell",
       onlineText: "Moodle, aus jedem Ort. Stoff der Gruppe liegt parallel dort.",
       onlineLink: "Zu den Online-Kursen",
       localTitle: "Vor Ort — in der Community",
       localText: "Gruppen an Gemeinde, Verein oder Community. Zwei Stunden pro Woche.",
-      localLink: "Anmeldung und Standortwunsch",
+      localLink: "Anmeldung — und Interesse in der Gemeinde",
     },
     soGehts: {
       title: "Anmeldung — Ulpan Ivrit",
-      desc: "So melden Sie sich an: Mitgliedschaft, Online, Vor Ort — oder Standortwunsch, wenn es in Ihrer Stadt noch keinen Ulpan gibt.",
-      h1: "So nehmen Sie teil",
+      desc: "Teilnahme über Mitgliedschaft bei BiFoDe e.V.: Moodle, Präsenz wo eine Gruppe besteht, Vorträge. Interesse in der Gemeinde? Schreiben Sie uns.",
+      h1: "Anmeldung",
       intro:
-        "Ulpan Ivrit ist kein Einzelkauf eines Kurses. Zuerst werden Sie Mitglied bei BiFoDe e.V. Danach nutzen Sie Online, Präsenz (wo es eine Gruppe gibt), Vorträge und Ankündigungen. Beitrag: 180 € / Jahr, ermäßigt 144 €.",
+        "Die Teilnahme am Ulpan läuft über die Mitgliedschaft bei BiFoDe e.V. Einen einzelnen Kurs kaufen Sie nicht. Nach Prüfung und Aufnahme nutzen Sie die Angebote des Vereins: Online, Präsenz wo eine Gruppe besteht, Vorträge und Termine.",
       step1: "Mitglied werden",
-      step1Text: "Antrag auf bifode.org/mitglied-werden. Nach Prüfung und Aufnahme erhalten Sie den Zugang.",
-      step2: "Format wählen",
+      step1Text:
+        "Den Antrag stellen Sie auf bifode.org. Der Verein prüft die Aufnahme. Danach erhalten Sie den Zugang — nicht als Käufer eines Kurses, sondern als Mitglied.",
+      step1BenefitsTitle: "Mitglieder erhalten:",
+      step1Benefits: [
+        "Zugang zu Moodle (ulpan.bifode.org) — dieselben Materialien wie im Unterricht",
+        "Präsenzunterricht, wo bereits eine Gruppe läuft",
+        "Vorträge und Termine, online und vor Ort, je nach Programm",
+        "Ankündigungen zum Kursbetrieb",
+      ],
+      step1Fee: "Beitrag: 180 € / Jahr, Studierende und Ermäßigte 144 € / Jahr.",
+      step2: "Format nach der Aufnahme",
       onlineTitle: "Online — überall",
       onlineText:
         "Moodle individuell, dieselben Materialien wie im Unterricht. Passt, wenn Sie nicht vor Ort lernen können oder wollen.",
@@ -329,21 +347,21 @@ export const messages: Record<UiLocale, Messages> = {
         "2 volle Stunden, einmal wöchentlich, mit Pause. Schwerpunkt: gesprochenes Hebräisch. Stoff liegt parallel in Moodle.",
       citiesTitle: "Städte mit einer Präsenzgruppe:",
       cities: ["Düsseldorf", "Berlin"],
-      localMail: "Ob in Ihrer Stadt schon eine Gruppe läuft, klären wir nach dem Antrag — oder schreiben Sie an",
-      wishTitle: "Vor Ort gewünscht — noch kein Ulpan in Ihrer Stadt",
+      localMail: "Noch keine Gruppe in Ihrer Gemeinde? Schreiben Sie uns im nächsten Schritt.",
+      wishTitle: "Interesse in der Gemeinde",
       wishText:
-        "Füllen Sie das Formular unten aus. So sehen wir, wo Nachfrage entsteht, und können eine Gruppe aufbauen. Bis es soweit ist, können Sie nach der Aufnahme online starten.",
-      step3: "Standortwunsch",
-      step3Text:
-        "Nach der Aufnahme: Moodle-Zugang, Einladung zur lokalen Gruppe falls vorhanden, Vorträge und Termine. Organisationen, die selbst eine Gruppe tragen wollen:",
-      step3Link: "Formular für Träger",
-      formTitle: "Standortwunsch: in meiner Stadt gibt es noch keinen Ulpan",
-      formLead:
-        "Für Lernende, die vor allem vor Ort lernen wollen. Kein Ersatz für den Mitgliedsantrag — nur die Nachfragekarte.",
+        "Wenn in Ihrer Gemeinde, Ihrem Verein oder Ihrer Community Interesse an einer Ulpan-Gruppe besteht, schreiben Sie uns. Das gilt für Lernende und für Träger, die eine Gruppe vor Ort aufbauen wollen.",
+      step3: "Interesse in der Gemeinde?",
+      step3Text: "Ausführliches Formular für Träger, die selbst eine Gruppe tragen wollen:",
+      step3Link: "Seite Vor Ort",
+      formTitle: "Anfrage per E-Mail",
+      formLead: "Das Formular öffnet eine E-Mail an uns. Es ersetzt nicht den Mitgliedsantrag.",
       formMail: "Die Nachricht geht an",
       name: "Name",
       email: "E-Mail",
-      city: "Stadt / Ort",
+      org: "Gemeinde / Organisation",
+      orgPh: "optional",
+      city: "Stadt / Gemeinde",
       cityPh: "z. B. Essen…",
       level: "Niveau",
       levelBeginner: "Anfänger",
@@ -353,9 +371,9 @@ export const messages: Record<UiLocale, Messages> = {
       onlineYes: "Ja, ich starte online",
       onlineNo: "Nein, nur vor Ort",
       message: "Nachricht",
-      messagePh: "Wochentag, Gemeinde vor Ort, sonstiges…",
-      submit: "Standortwunsch senden",
-      subject: "Standortwunsch Ulpan — noch keine Gruppe vor Ort",
+      messagePh: "Wer hat Interesse, ungefähre Zahl der Teilnehmenden, Wochentag, sonstiges…",
+      submit: "Anfrage per E-Mail senden",
+      subject: "Ulpan — Interesse in der Gemeinde",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
@@ -378,7 +396,7 @@ export const messages: Record<UiLocale, Messages> = {
       p3: "Im Community-Projekt suchen wir nach Möglichkeit die Lehrkraft und beteiligen uns an der Finanzierung, stellen Materialien und Fortbildung (Hishtalmut). Mehr dazu:",
       p3Link: "Lehrkräfte",
       p4: "Teilnehmende treten in BiFoDe e.V. ein. Wie die Anmeldung läuft und was gilt, wenn es in Ihrer Stadt noch keinen Ulpan gibt:",
-      p4Link: "So nehmen Sie teil",
+      p4Link: "Anmeldung",
       formTitle: "Träger: Gruppe aufbauen",
       formMail: "Für Vorstände und Ansprechpersonen. Die Nachricht geht an",
       orgType: "Art der Organisation",
@@ -425,7 +443,7 @@ export const messages: Record<UiLocale, Messages> = {
     },
     faq: {
       title: "FAQ — Ulpan Ivrit",
-      desc: "Mitgliedschaft, Online, Vor Ort, Standortwunsch, Hishtalmut und Beitrag.",
+      desc: "Mitgliedschaft, Online, Vor Ort, Gemeinde, Hishtalmut und Beitrag.",
       h1: "Fragen",
       q1: "Kann ich nur einen Kurs kaufen?",
       a1: "Nein. Zugang zu Präsenz, Moodle, Vorträgen und Ankündigungen folgt aus der Mitgliedschaft bei BiFoDe e.V.",
@@ -433,7 +451,7 @@ export const messages: Record<UiLocale, Messages> = {
       a2: "Individuell über Moodle (ulpan.bifode.org), nach der Aufnahme in den Verein.",
       q3: "Was, wenn es in meiner Stadt keinen Ulpan gibt?",
       a3: "So sehen wir, wo eine Präsenzgruppe gebraucht wird. Bis eine Gruppe entsteht, können Sie nach der Aufnahme online über Moodle starten.",
-      q3Link: "Standortwunsch",
+      q3Link: "Interesse in der Gemeinde",
       q4: "Wie entsteht eine Gruppe vor Ort?",
       a4: "Über jüdische Organisationen — Gemeinde, Verein oder Community. Die Organisation schreibt uns über das",
       a4Link: "Kontaktformular",
@@ -451,8 +469,8 @@ export const messages: Record<UiLocale, Messages> = {
       intro: "Wählen Sie, wer Sie sind. Allgemeine Fragen gehen an",
       mail: "E-Mail",
       learnersTitle: "Lernende",
-      learners: "Mitglied werden, Online oder Vor Ort — und Standortwunsch, wenn in Ihrer Stadt noch keine Gruppe läuft.",
-      learnersLink: "So nehmen Sie teil",
+      learners: "Mitglied werden, dann Online oder Vor Ort. Wenn in Ihrer Gemeinde Interesse an einer Gruppe besteht — schreiben Sie uns.",
+      learnersLink: "Anmeldung",
       orgsTitle: "Gemeinde oder Verein",
       orgs: "Sie wollen eine Präsenzgruppe tragen. Materialien, Moodle und oft auch die Lehrkraft kommen vom Projekt.",
       orgsLink: "Gruppe aufbauen",
@@ -561,6 +579,7 @@ export const messages: Record<UiLocale, Messages> = {
       menu: "Меню",
       lernen: "Обучение",
       anmelden: "Запись на занятия",
+      gemeinde: "Община",
       online: "Онлайн обучение",
       vorOrt: "Очные занятия",
       lehrkraefte: "Преподаватели",
@@ -572,6 +591,7 @@ export const messages: Record<UiLocale, Messages> = {
       faq: "FAQ",
       kontakt: "Контакты",
       member: "Стать членом",
+      start: "Запись",
     },
     quote: {
       translation:
@@ -594,23 +614,32 @@ export const messages: Record<UiLocale, Messages> = {
       f5: "Членский взнос 180 € / год, льготный 144 € — курс отдельно не продаётся",
       ctaRegister: "Записаться",
       howItWorks: "Как участвовать",
-      noUlpan: "Нет ульпана в вашем городе? Оставьте пожелание на странице записи.",
+      noUlpan: "Нет ульпана в вашем городе? Если в общине есть интерес — напишите нам.",
       onlineTitle: "Онлайн — индивидуально",
       onlineText: "Moodle из любой точки. Тот же материал, что у группы.",
       onlineLink: "К онлайн-курсам",
       localTitle: "Очно — в общине",
       localText: "Группы при общине, союзе или community. Два часа в неделю.",
-      localLink: "Запись и пожелание площадки",
+      localLink: "Запись — и интерес в общине",
     },
     soGehts: {
       title: "Запись — Ulpan Ivrit",
-      desc: "Как записаться: членство, онлайн, очно — или пожелание площадки, если в вашем городе ульпана ещё нет.",
-      h1: "Как участвовать",
+      desc: "Запись через членство в BiFoDe e.V.: Moodle, очные занятия где есть группа, лекции. Интерес в общине? Напишите нам.",
+      h1: "Запись",
       intro:
-        "Ulpan Ivrit — это не покупка отдельного курса. Сначала вы становитесь членом BiFoDe e.V. Затем доступны онлайн, очные занятия (где есть группа), лекции и анонсы. Взнос: 180 € / год, льготный 144 €.",
+        "Запись на ульпан идёт через членство в BiFoDe e.V. Отдельный курс купить нельзя. После рассмотрения и приёма вы пользуетесь предложениями союза: онлайн, очные занятия где есть группа, лекции и даты.",
       step1: "Стать членом",
-      step1Text: "Заявка на bifode.org/mitglied-werden. После рассмотрения и приёма вы получите доступ.",
-      step2: "Выбрать формат",
+      step1Text:
+        "Заявку подаёте на bifode.org. Союз рассматривает приём. После этого вы получаете доступ — не как покупатель курса, а как член союза.",
+      step1BenefitsTitle: "Члены союза получают:",
+      step1Benefits: [
+        "Доступ в Moodle (ulpan.bifode.org) — те же материалы, что на занятиях",
+        "Очные занятия, где уже есть группа",
+        "Лекции и даты — онлайн и очно, по программе",
+        "Анонсы по учёбе",
+      ],
+      step1Fee: "Взнос: 180 € / год, студенты и льгота 144 € / год.",
+      step2: "Формат после приёма",
       onlineTitle: "Онлайн — из любого места",
       onlineText:
         "Moodle индивидуально, те же материалы, что на занятиях. Подходит, если вы не можете или не хотите учиться очно.",
@@ -620,21 +649,21 @@ export const messages: Record<UiLocale, Messages> = {
         "2 полных часа, раз в неделю, с перерывом. Акцент: разговорный иврит. Материал параллельно в Moodle.",
       citiesTitle: "Города, где уже есть очная группа:",
       cities: ["Дюссельдорф", "Берлин"],
-      localMail: "Есть ли уже группа в вашем городе, выясним после заявки — или напишите на",
-      wishTitle: "Хотим очно — ульпана в городе ещё нет",
+      localMail: "В общине ещё нет группы? Напишите нам в следующем шаге.",
+      wishTitle: "Интерес в общине",
       wishText:
-        "Заполните форму ниже. Так мы видим спрос и можем собрать группу. Пока её нет, после приёма можно начать онлайн.",
-      step3: "Пожелание площадки",
-      step3Text:
-        "После приёма: доступ в Moodle, приглашение в местную группу если она есть, лекции и даты. Организации, которые хотят вести группу:",
-      step3Link: "Форма для организаторов",
-      formTitle: "Напишите нам, если вы хотите Ульпан в вашем городе.",
-      formLead:
-        "Для тех, кто хочет учиться прежде всего очно. Это не замена заявки в союз — только карта спроса.",
+        "Если в вашей общине, союзе или community есть интерес к группе ульпана — напишите нам. Это и для учащихся, и для тех, кто готов вести группу на месте.",
+      step3: "Интерес в общине?",
+      step3Text: "Подробная форма для организаторов, которые сами хотят вести группу:",
+      step3Link: "Страница «Очно»",
+      formTitle: "Запрос по электронной почте",
+      formLead: "Форма откроет письмо на нашу почту. Это не замена заявки в союз.",
       formMail: "Сообщение уйдёт на",
       name: "Имя",
       email: "Эл. почта",
-      city: "Город",
+      org: "Община / организация",
+      orgPh: "необязательно",
+      city: "Город / община",
       cityPh: "например, Essen…",
       level: "Уровень",
       levelBeginner: "Начинающий",
@@ -644,9 +673,9 @@ export const messages: Record<UiLocale, Messages> = {
       onlineYes: "Да, начну онлайн",
       onlineNo: "Нет, только очно",
       message: "Сообщение",
-      messagePh: "День недели, община на месте, другое…",
-      submit: "Отправить пожелание",
-      subject: "Пожелание площадки Ulpan — группы на месте ещё нет",
+      messagePh: "Кто заинтересован, примерное число участников, день недели, другое…",
+      submit: "Отправить на почту",
+      subject: "Ulpan — интерес в общине",
     },
     kurse: {
       title: "Онлайн — Ulpan Ivrit",
@@ -669,7 +698,7 @@ export const messages: Record<UiLocale, Messages> = {
       p3: "В community-проекте мы по возможности ищем преподавателя и участвуем в финансировании, даём материалы и повышение квалификации (Hishtalmut). Подробнее:",
       p3Link: "Преподаватели",
       p4: "Участники вступают в BiFoDe e.V. Как проходит запись и что делать, если в городе ульпана ещё нет:",
-      p4Link: "Как участвовать",
+      p4Link: "Запись",
       formTitle: "Организаторам: собрать группу",
       formMail: "Для правления и контактных лиц. Сообщение уйдёт на",
       orgType: "Тип организации",
@@ -716,7 +745,7 @@ export const messages: Record<UiLocale, Messages> = {
     },
     faq: {
       title: "FAQ — Ulpan Ivrit",
-      desc: "Членство, онлайн, очно, пожелание площадки, Hishtalmut и взнос.",
+      desc: "Членство, онлайн, очно, община, Hishtalmut и взнос.",
       h1: "Вопросы",
       q1: "Можно купить только курс?",
       a1: "Нет. Доступ к очным занятиям, Moodle, лекциям и анонсам следует из членства в BiFoDe e.V.",
@@ -724,7 +753,7 @@ export const messages: Record<UiLocale, Messages> = {
       a2: "Индивидуально в Moodle (ulpan.bifode.org) после приёма в союз.",
       q3: "Что, если в моём городе нет ульпана?",
       a3: "Так мы видим, где нужна очная группа. Пока группа не собралась, после приёма можно начать онлайн в Moodle.",
-      q3Link: "пожелание площадки",
+      q3Link: "интерес в общине",
       q4: "Как появляется очная группа?",
       a4: "Через еврейские организации — общину, союз или community. Организация пишет нам через",
       a4Link: "форму",
@@ -742,8 +771,8 @@ export const messages: Record<UiLocale, Messages> = {
       intro: "Выберите, кто вы. Общие вопросы — на",
       mail: "Эл. почта",
       learnersTitle: "Учащиеся",
-      learners: "Членство, онлайн или очно — и пожелание площадки, если в городе ещё нет группы.",
-      learnersLink: "Как участвовать",
+      learners: "Сначала членство, затем онлайн или очно. Если в общине есть интерес к группе — напишите нам.",
+      learnersLink: "Запись",
       orgsTitle: "Община или союз",
       orgs: "Хотите вести очную группу. Материалы, Moodle и часто преподавателя даёт проект.",
       orgsLink: "Собрать группу",
@@ -851,6 +880,7 @@ export const messages: Record<UiLocale, Messages> = {
       menu: "Menu",
       lernen: "Learn",
       anmelden: "Registration",
+      gemeinde: "Community",
       online: "Online",
       vorOrt: "In person",
       lehrkraefte: "Teachers",
@@ -862,6 +892,7 @@ export const messages: Record<UiLocale, Messages> = {
       faq: "FAQ",
       kontakt: "Contact",
       member: "Become a member",
+      start: "Registration",
     },
     quote: {
       translation:
@@ -884,23 +915,32 @@ export const messages: Record<UiLocale, Messages> = {
       f5: "Membership 180 € / year, reduced 144 € — courses are not sold separately",
       ctaRegister: "Register",
       howItWorks: "How to take part",
-      noUlpan: "No ulpan in your city? Send a location request on the registration page.",
+      noUlpan: "No ulpan in your city? If there is interest in the community — write to us.",
       onlineTitle: "Online — individual",
       onlineText: "Moodle from anywhere. The group’s material is mirrored there.",
       onlineLink: "Online courses",
       localTitle: "In person — in the community",
       localText: "Groups at a congregation, association or community. Two hours a week.",
-      localLink: "Registration and location request",
+      localLink: "Registration — and community interest",
     },
     soGehts: {
       title: "Registration — Ulpan Ivrit",
-      desc: "How to join: membership, online, in person — or a location request if there is no ulpan in your city yet.",
-      h1: "How to take part",
+      desc: "Join through membership of BiFoDe e.V.: Moodle, in-person classes where a group exists, talks. Interest in your community? Write to us.",
+      h1: "Registration",
       intro:
-        "Ulpan Ivrit is not a one-off course purchase. First you become a member of BiFoDe e.V. Then you use online study, in-person classes where a group exists, talks and announcements. Fee: 180 € / year, reduced 144 €.",
+        "You join the ulpan through membership of BiFoDe e.V. Courses are not sold one by one. After review and admission you use the association’s offer: online study, in-person classes where a group exists, talks and dates.",
       step1: "Become a member",
-      step1Text: "Apply at bifode.org/mitglied-werden. After review and admission you receive access.",
-      step2: "Choose a format",
+      step1Text:
+        "You apply on bifode.org. The association reviews admission. After that you receive access — not as a course buyer, but as a member.",
+      step1BenefitsTitle: "Members receive:",
+      step1Benefits: [
+        "Access to Moodle (ulpan.bifode.org) — the same materials as in class",
+        "In-person teaching where a group already runs",
+        "Talks and dates, online and in person, depending on the programme",
+        "Course announcements",
+      ],
+      step1Fee: "Fee: 180 € / year, students and reduced rate 144 € / year.",
+      step2: "Format after admission",
       onlineTitle: "Online — from anywhere",
       onlineText:
         "Moodle individually, the same materials as in class. Fits if you cannot or do not want to study in person.",
@@ -910,21 +950,21 @@ export const messages: Record<UiLocale, Messages> = {
         "2 full hours, once a week, with a break. Focus: spoken Hebrew. The material is also in Moodle.",
       citiesTitle: "Cities with an in-person group:",
       cities: ["Düsseldorf", "Berlin"],
-      localMail: "Whether a group already runs in your city, we clarify after the application — or write to",
-      wishTitle: "In person wanted — no ulpan in your city yet",
+      localMail: "No group in your community yet? Write to us in the next step.",
+      wishTitle: "Interest in the community",
       wishText:
-        "Fill in the form below. That shows us where demand is growing, so we can start a group. Until then you can begin online after admission.",
-      step3: "Location request",
-      step3Text:
-        "After admission: Moodle access, an invitation to the local group if there is one, talks and dates. Organisations that want to host a group:",
-      step3Link: "Form for hosts",
-      formTitle: "Location request: there is no ulpan in my city yet",
-      formLead:
-        "For learners who mainly want to study in person. This does not replace the membership application — it is only a demand map.",
+        "If there is interest in an ulpan group in your congregation, association or community, write to us. That applies to learners and to hosts who want to start a local group.",
+      step3: "Interest in your community?",
+      step3Text: "A longer form for hosts who want to run a group themselves:",
+      step3Link: "In-person page",
+      formTitle: "Request by email",
+      formLead: "The form opens an email to us. It does not replace the membership application.",
       formMail: "The message goes to",
       name: "Name",
       email: "Email",
-      city: "City",
+      org: "Congregation / organisation",
+      orgPh: "optional",
+      city: "City / community",
       cityPh: "e.g. Essen…",
       level: "Level",
       levelBeginner: "Beginner",
@@ -934,9 +974,9 @@ export const messages: Record<UiLocale, Messages> = {
       onlineYes: "Yes, I will start online",
       onlineNo: "No, in person only",
       message: "Message",
-      messagePh: "Weekday, local congregation, anything else…",
-      submit: "Send location request",
-      subject: "Ulpan location request — no local group yet",
+      messagePh: "Who is interested, approximate number of participants, weekday, anything else…",
+      submit: "Send by email",
+      subject: "Ulpan — community interest",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
@@ -959,7 +999,7 @@ export const messages: Record<UiLocale, Messages> = {
       p3: "In the community project we look for a teacher where possible and help with funding, materials and training (Hishtalmut). More:",
       p3Link: "Teachers",
       p4: "Participants join BiFoDe e.V. How registration works, and what applies if there is no ulpan in your city yet:",
-      p4Link: "How to take part",
+      p4Link: "Registration",
       formTitle: "Hosts: start a group",
       formMail: "For boards and contact persons. The message goes to",
       orgType: "Type of organisation",
@@ -1006,7 +1046,7 @@ export const messages: Record<UiLocale, Messages> = {
     },
     faq: {
       title: "FAQ — Ulpan Ivrit",
-      desc: "Membership, online, in person, location request, Hishtalmut and fees.",
+      desc: "Membership, online, in person, community, Hishtalmut and fees.",
       h1: "Questions",
       q1: "Can I buy a single course?",
       a1: "No. Access to in-person classes, Moodle, talks and announcements comes with membership of BiFoDe e.V.",
@@ -1014,7 +1054,7 @@ export const messages: Record<UiLocale, Messages> = {
       a2: "Individually on Moodle (ulpan.bifode.org), after admission to the association.",
       q3: "What if there is no ulpan in my city?",
       a3: "That shows us where an in-person group is needed. Until a group exists, you can start online on Moodle after admission.",
-      q3Link: "location request",
+      q3Link: "community interest",
       q4: "How does an in-person group start?",
       a4: "Through Jewish organisations — a congregation, association or community. The organisation writes to us via the",
       a4Link: "form",
@@ -1032,8 +1072,8 @@ export const messages: Record<UiLocale, Messages> = {
       intro: "Choose who you are. General questions go to",
       mail: "Email",
       learnersTitle: "Learners",
-      learners: "Become a member, study online or in person — and send a location request if there is no group in your city yet.",
-      learnersLink: "How to take part",
+      learners: "Become a member, then study online or in person. If there is interest in a group in your community — write to us.",
+      learnersLink: "Registration",
       orgsTitle: "Congregation or association",
       orgs: "You want to host an in-person group. The project provides materials, Moodle and often the teacher.",
       orgsLink: "Start a group",

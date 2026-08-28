@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LetterVortex from "../components/LetterVortex.astro";
 import QuoteBand from "../components/QuoteBand.astro";
-import { LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -17,8 +16,7 @@ const href = (p: string) => locPath(locale, p);
       <h1 set:html={copy.home.h1} />
       <p>{copy.home.lead}</p>
       <div class="hero-actions">
-        <a class="btn" href={LINKS.membership}>{copy.nav.member}</a>
-        <a class="hero-secondary" href={href("/so-gehts")}>{copy.home.howItWorks}</a>
+        <a class="btn" href={href("/so-gehts")}>{copy.nav.start}</a>
       </div>
     </div>
     <LetterVortex />
@@ -33,9 +31,9 @@ const href = (p: string) => locPath(locale, p);
       <li>{copy.home.f5}</li>
     </ul>
     <div class="cta-frame">
-      <a class="btn" href={LINKS.membership}>{copy.nav.member}</a>
+      <a class="btn" href={href("/so-gehts")}>{copy.nav.start}</a>
       <p class="muted">
-        <a href={href("/so-gehts")}>{copy.home.noUlpan}</a>
+        <a href={`${href("/so-gehts")}#gemeinde`}>{copy.home.noUlpan}</a>
       </p>
     </div>
   </section>
@@ -50,7 +48,7 @@ const href = (p: string) => locPath(locale, p);
       <article class="card card-local">
         <h2>{copy.home.localTitle}</h2>
         <p>{copy.home.localText}</p>
-        <p><a href={href("/so-gehts")}>{copy.home.localLink}</a></p>
+        <p><a href={`${href("/so-gehts")}#gemeinde`}>{copy.home.localLink}</a></p>
       </article>
     </div>
   </section>

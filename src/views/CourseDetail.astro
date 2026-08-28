@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaMitglied from "../components/CtaMitglied.astro";
-import { LINKS } from "../lib/links";
+import { EXT, LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 import type { CollectionEntry } from "astro:content";
@@ -23,7 +23,7 @@ const local = copy.courses[course.id];
     <p class="muted">{local?.level ?? course.data.level}</p>
     {local ? <div class="stack" set:html={local.body} /> : null}
     <p>
-      <a href={LINKS.moodle}>{copy.kurse.moodle}</a>
+      <a href={LINKS.moodle} {...EXT}>{copy.kurse.moodle}</a>
       <span class="muted">{copy.kurse.moodleNote}</span>
     </p>
     <CtaMitglied />

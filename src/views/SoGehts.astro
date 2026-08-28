@@ -22,6 +22,11 @@ const subject = encodeURIComponent(copy.soGehts.subject);
         <h2>{copy.soGehts.step1}</h2>
         <div class="path-body">
           <p>{copy.soGehts.step1Text}</p>
+          <p><strong>{copy.soGehts.step1BenefitsTitle}</strong></p>
+          <ul class="feature-list">
+            {copy.soGehts.step1Benefits.map((item) => <li>{item}</li>)}
+          </ul>
+          <p>{copy.soGehts.step1Fee}</p>
           <CtaMitglied />
         </div>
       </li>
@@ -43,17 +48,13 @@ const subject = encodeURIComponent(copy.soGehts.subject);
                 {" "}
                 {copy.soGehts.cities.join(", ")}
               </p>
-              <p>
-                {copy.soGehts.localMail}
-                {" "}
-                <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
-              </p>
+              <p><a href="#gemeinde">{copy.soGehts.localMail}</a></p>
             </article>
           </div>
         </div>
       </li>
 
-      <li class="path-step">
+      <li class="path-step" id="gemeinde">
         <h2>{copy.soGehts.step3}</h2>
         <div class="path-body">
           <p>{copy.soGehts.wishText}</p>
@@ -70,6 +71,7 @@ const subject = encodeURIComponent(copy.soGehts.subject);
             enctype="text/plain"
             action={`mailto:${LINKS.contactEmail}?subject=${subject}`}
             data-inquiry="location"
+            data-mail-only
             data-sent={copy.form.sent}
             data-error={copy.form.error}
             data-sending={copy.form.sending}
@@ -96,6 +98,15 @@ const subject = encodeURIComponent(copy.soGehts.subject);
               />
             </label>
             <label>
+              {copy.soGehts.org}
+              <input
+                type="text"
+                name="Gemeinde_Organisation"
+                autocomplete="organization"
+                placeholder={copy.soGehts.orgPh}
+              />
+            </label>
+            <label>
               {copy.soGehts.city}
               <input
                 type="text"
@@ -106,25 +117,11 @@ const subject = encodeURIComponent(copy.soGehts.subject);
               />
             </label>
             <label>
-              {copy.soGehts.level}
-              <select name="Niveau" required>
-                <option value={copy.soGehts.levelBeginner}>{copy.soGehts.levelBeginner}</option>
-                <option value={copy.soGehts.levelSome}>{copy.soGehts.levelSome}</option>
-                <option value={copy.soGehts.levelUnknown}>{copy.soGehts.levelUnknown}</option>
-              </select>
-            </label>
-            <label>
-              {copy.soGehts.onlineUntil}
-              <select name="Online_bis_Gruppe" required>
-                <option value={copy.soGehts.onlineYes}>{copy.soGehts.onlineYes}</option>
-                <option value={copy.soGehts.onlineNo}>{copy.soGehts.onlineNo}</option>
-              </select>
-            </label>
-            <label>
               {copy.soGehts.message}
               <textarea
                 name="Nachricht"
                 autocomplete="off"
+                required
                 placeholder={copy.soGehts.messagePh}
               ></textarea>
             </label>

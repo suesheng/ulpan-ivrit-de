@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaMitglied from "../components/CtaMitglied.astro";
-import { LINKS } from "../lib/links";
+import { EXT, LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -20,8 +20,8 @@ const copy = t(locale);
     <CtaMitglied />
     <p class="actions">
       <a href={locPath(locale, "/partner")}>{copy.verein.partner}</a>
-      <a href={LINKS.ulpanProject}>{copy.verein.project}</a>
-      <a href={LINKS.vereinHome}>bifode.org</a>
+      <a href={LINKS.ulpanProject} {...EXT}>{copy.verein.project}</a>
+      <a href={LINKS.vereinHome} {...EXT}>bifode.org</a>
     </p>
   </div>
 </BaseLayout>

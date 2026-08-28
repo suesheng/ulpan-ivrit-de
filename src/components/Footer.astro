@@ -1,5 +1,5 @@
 ---
-import { LINKS, PARTNERS } from "../lib/links";
+import { EXT, LINKS, PARTNERS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -14,6 +14,7 @@ const href = (p: string) => locPath(locale, p);
       <div>
         <p>{copy.nav.lernen}</p>
         <a href={href("/so-gehts")}>{copy.nav.anmelden}</a>
+        <a href={`${href("/so-gehts")}#gemeinde`}>{copy.nav.gemeinde}</a>
         <a href={href("/kurse")}>{copy.nav.online}</a>
         <a href={href("/vor-ort")}>{copy.nav.vorOrt}</a>
       </div>
@@ -33,7 +34,7 @@ const href = (p: string) => locPath(locale, p);
       <a href={href("/impressum")}>{copy.legal.impressum}</a>
       <a href={href("/datenschutz")}>{copy.legal.datenschutz}</a>
       <a href={href("/cookies")}>{copy.legal.noCookies}</a>
-      <a href={LINKS.moodle} rel="noopener noreferrer">Moodle</a>
+      <a href={LINKS.moodle} {...EXT}>Moodle</a>
     </nav>
   </div>
   <nav class="partner-strip" aria-label={copy.meta.partnersAria}>
@@ -42,7 +43,7 @@ const href = (p: string) => locPath(locale, p);
         PARTNERS.map((partner) => (
           <a
             href={partner.href}
-            rel="noopener noreferrer"
+            {...EXT}
             aria-label={copy.partner.names[partner.id] ?? partner.name}
             data-partner={partner.id}
           >

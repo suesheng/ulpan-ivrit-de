@@ -1,3 +1,9 @@
+/** Off-site http(s) links: keep this vitrine open. */
+export const EXT = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+} as const;
+
 export const LINKS = {
   site: "https://www.ulpan-ivrit.de",
   vereinHome: "https://www.bifode.org",

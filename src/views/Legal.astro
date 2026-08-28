@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { LINKS } from "../lib/links";
+import { EXT, LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { getLegal, type LegalKey } from "../lib/legal";
 import { t } from "../lib/messages";
@@ -59,7 +59,7 @@ function hrefOf(part: string): string {
                     const url = hrefOf(part);
                     return (
                       <>
-                        <a href={url} rel="noopener noreferrer">
+                        <a href={url} {...EXT}>
                           {url}
                         </a>
                         {part.slice(url.length)}
@@ -79,7 +79,7 @@ function hrefOf(part: string): string {
                         const url = hrefOf(part);
                         return (
                           <>
-                            <a href={url} rel="noopener noreferrer">
+                            <a href={url} {...EXT}>
                               {url}
                             </a>
                             {part.slice(url.length)}
@@ -126,9 +126,9 @@ function hrefOf(part: string): string {
 
     <p class="muted">{doc.updated}</p>
     <p class="muted">
-      <a href={LINKS.impressum} rel="noopener noreferrer">{copy.legal.vereinImpressum}</a>
+      <a href={LINKS.impressum} {...EXT}>{copy.legal.vereinImpressum}</a>
       {" · "}
-      <a href={LINKS.datenschutz} rel="noopener noreferrer">{copy.legal.vereinDatenschutz}</a>
+      <a href={LINKS.datenschutz} {...EXT}>{copy.legal.vereinDatenschutz}</a>
     </p>
   </div>
 </BaseLayout>

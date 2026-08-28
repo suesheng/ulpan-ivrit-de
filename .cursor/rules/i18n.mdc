@@ -1,0 +1,14 @@
+---
+description: Locale routing and UI copy for de / ru / en
+globs: src/pages/**/*.astro,src/views/**/*.astro,src/lib/messages.ts,src/lib/i18n.ts,src/components/**/*.astro
+alwaysApply: false
+---
+
+# i18n
+
+- Detect locale with `pageLocale(Astro.currentLocale, Astro.url.pathname)` so `/ru` and `/en` stay translated even if `currentLocale` is unset.
+- Paths: `locPath(locale, "/vor-ort")`. Never hardcode `/en/...` inside a view.
+- Every string in `messages.ts` must exist for `de`, `ru`, and `en` with the same keys.
+- New page: German `src/pages/foo.astro` plus `src/pages/en/foo.astro` and `src/pages/ru/foo.astro`, all importing the same view.
+- Courses and jobs: German markdown in `src/content/`; translated titles/bodies go in `messages.ts` (`courses` / job copy), not extra markdown trees.
+- Do not prefix the default locale. Do not invent `he/` pages.

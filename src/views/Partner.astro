@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { METHODIK, PARTNERS } from "../lib/links";
+import { EXT, METHODIK, PARTNERS } from "../lib/links";
 import { pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -22,7 +22,7 @@ const copy = t(locale);
             <a
               class="partner-logo-link"
               href={partner.href}
-              rel="noopener noreferrer"
+              {...EXT}
               aria-label={copy.partner.names[partner.id] ?? partner.name}
             >
               <img
@@ -36,7 +36,7 @@ const copy = t(locale);
             <h2>{copy.partner.names[partner.id] ?? partner.name}</h2>
             <p>{copy.partner.blurbs[partner.id] ?? partner.blurb}</p>
             <p>
-              <a href={partner.href} rel="noopener noreferrer">
+              <a href={partner.href} {...EXT}>
                 {partner.href.replace("https://", "").replace(/\/$/, "")}
               </a>
             </p>
@@ -48,7 +48,7 @@ const copy = t(locale);
         <h2>{copy.partner.methodName}</h2>
         <p>{copy.partner.methodText}</p>
         <p>
-          <a href={METHODIK.href} rel="noopener noreferrer">
+          <a href={METHODIK.href} {...EXT}>
             {METHODIK.href.replace("https://", "").replace(/\/$/, "")}
           </a>
         </p>

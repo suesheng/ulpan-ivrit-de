@@ -1,5 +1,4 @@
 ---
-import { LINKS } from "../lib/links";
 import { locPath, stripLocalePrefix, uiLocales, uiLocale, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 import Logo from "./Logo.astro";
@@ -15,6 +14,7 @@ const groups = [
     label: copy.nav.lernen,
     items: [
       { href: href("/so-gehts"), path: "/so-gehts", label: copy.nav.anmelden },
+      { href: `${href("/so-gehts")}#gemeinde`, path: "/so-gehts#gemeinde", label: copy.nav.gemeinde },
       { href: href("/kurse"), path: "/kurse", label: copy.nav.online },
       { href: href("/vor-ort"), path: "/vor-ort", label: copy.nav.vorOrt },
     ],
@@ -95,7 +95,7 @@ const groups = [
         ))
       }
     </nav>
-    <a class="btn nav-cta" href={LINKS.membership}>{copy.nav.member}</a>
+    <a class="btn nav-cta" href={href("/so-gehts")}>{copy.nav.start}</a>
   </div>
 </header>
 

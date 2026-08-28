@@ -470,6 +470,10 @@ h1 {
   padding-bottom: 0;
 }
 
+#gemeinde {
+  scroll-margin-top: 5.5rem;
+}
+
 .path-step::before {
   content: counter(path-step);
   grid-column: 1;
