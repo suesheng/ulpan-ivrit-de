@@ -20,13 +20,6 @@ export function bindInquiryForms() {
       event.preventDefault();
       if (!form.reportValidity()) return;
 
-      if (form.hasAttribute("data-mail-only")) {
-        const bait = String(new FormData(form).get("website") ?? "").trim();
-        if (bait) return;
-        window.location.href = mailtoFromForm(form);
-        return;
-      }
-
       const kind = form.dataset.inquiry as InquiryKind | undefined;
       const status = form.querySelector<HTMLElement>("[data-form-status]");
       const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');

@@ -46,7 +46,9 @@ export function parseInquiry(input: unknown):
     return { ok: false, error: "email" };
   }
   if (kind === "location") {
-    if (!fields.Name || !fields.Ort) return { ok: false, error: "fields" };
+    if (!fields.Name || !fields.Ort || !fields.Nachricht) {
+      return { ok: false, error: "fields" };
+    }
   } else if (!fields.Organisation || !fields.Ort || !fields.Name) {
     return { ok: false, error: "fields" };
   }
@@ -56,7 +58,7 @@ export function parseInquiry(input: unknown):
 export function inquirySubject(kind: InquiryKind, fields: Record<string, string>): string {
   const place = fields.Ort ? ` — ${fields.Ort}` : "";
   return kind === "location"
-    ? `Standortwunsch Ulpan${place}`
+    ? `Ulpan — Interesse in der Gemeinde${place}`
     : `Ulpan vor Ort — Gruppenanfrage${place}`;
 }
 
