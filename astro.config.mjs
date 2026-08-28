@@ -20,8 +20,6 @@ export default defineConfig({
     }),
   ],
   redirects: {
-    "/impressum": "https://www.bifode.org/impressum",
-    "/datenschutz": "https://www.bifode.org/datenschutz",
     "/community": "/verein",
     "/ru/community": "/ru/verein",
     "/en/community": "/en/verein",

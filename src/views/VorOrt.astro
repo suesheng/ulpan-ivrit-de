@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PrivacyCheck from "../components/PrivacyCheck.astro";
 import { LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
@@ -97,6 +98,7 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
         {copy.vorOrt.message}
         <textarea name="Nachricht" autocomplete="off" required></textarea>
       </label>
+      <PrivacyCheck />
       <button type="submit">{copy.vorOrt.submit}</button>
       <p class="form-status" data-form-status hidden></p>
     </form>

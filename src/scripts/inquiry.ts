@@ -5,7 +5,7 @@ function mailtoFromForm(form: HTMLFormElement): string {
   const action = form.getAttribute("action") ?? "";
   const lines: string[] = [];
   for (const [key, value] of data.entries()) {
-    if (key === "website" || key === "locale") continue;
+    if (key === "website" || key === "locale" || key === "privacy") continue;
     const text = String(value).trim();
     if (text) lines.push(`${key}: ${text}`);
   }
@@ -33,7 +33,7 @@ export function bindInquiryForms() {
       const data = new FormData(form);
       const fields: Record<string, string> = {};
       for (const [key, value] of data.entries()) {
-        if (key === "website") continue;
+        if (key === "website" || key === "privacy") continue;
         fields[key] = String(value);
       }
 

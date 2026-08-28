@@ -30,8 +30,9 @@ const href = (p: string) => locPath(locale, p);
       </div>
     </nav>
     <nav class="legal-links" aria-label={copy.meta.legalAria}>
-      <a href={LINKS.impressum} rel="noopener noreferrer">{copy.legal.impressum}</a>
-      <a href={LINKS.datenschutz} rel="noopener noreferrer">{copy.legal.datenschutz}</a>
+      <a href={href("/impressum")}>{copy.legal.impressum}</a>
+      <a href={href("/datenschutz")}>{copy.legal.datenschutz}</a>
+      <a href={href("/cookies")}>{copy.legal.noCookies}</a>
       <a href={LINKS.moodle} rel="noopener noreferrer">Moodle</a>
     </nav>
   </div>

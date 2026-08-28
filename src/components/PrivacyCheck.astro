@@ -1,0 +1,18 @@
+---
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+---
+
+<label class="check">
+  <input type="checkbox" name="privacy" value="yes" required />
+  <span>
+    {copy.form.privacyBefore}
+    {" "}
+    <a href={href("/datenschutz")}>{copy.form.privacyLink}</a>{copy.form.privacyAfter}
+  </span>
+</label>
+<p class="muted">{copy.form.privacyNote}</p>

@@ -30,7 +30,15 @@ export function parseInquiry(input: unknown):
       : data;
   const fields: Record<string, string> = {};
   for (const [key, value] of Object.entries(rawFields)) {
-    if (key === "kind" || key === "locale" || key === "website" || key === "fields") continue;
+    if (
+      key === "kind" ||
+      key === "locale" ||
+      key === "website" ||
+      key === "fields" ||
+      key === "privacy"
+    ) {
+      continue;
+    }
     fields[key] = clip(value, key === "Nachricht" ? LONG : SHORT);
   }
   const email = fields["E-Mail"];

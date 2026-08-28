@@ -14,6 +14,10 @@ export type Messages = {
     sent: string;
     error: string;
     sending: string;
+    privacyBefore: string;
+    privacyLink: string;
+    privacyAfter: string;
+    privacyNote: string;
   };
   nav: {
     menu: string;
@@ -221,6 +225,10 @@ export type Messages = {
   legal: {
     impressum: string;
     datenschutz: string;
+    cookies: string;
+    noCookies: string;
+    vereinImpressum: string;
+    vereinDatenschutz: string;
   };
   session: {
     weekly: string;
@@ -252,6 +260,11 @@ export const messages: Record<UiLocale, Messages> = {
       sent: "Gesendet. Wir lesen die Nachricht und antworten per E-Mail.",
       error: "Senden hat nicht geklappt. Schreiben Sie uns direkt an die Adresse oben.",
       sending: "Wird gesendet…",
+      privacyBefore: "Ich habe die",
+      privacyLink: "Datenschutzerklärung",
+      privacyAfter: " gelesen. Die Angaben dienen nur der Bearbeitung dieser Anfrage.",
+      privacyNote:
+        "Verantwortlich ist BiFoDe e.V. Keine Werbung. Einzelheiten stehen in der Datenschutzerklärung.",
     },
     nav: {
       menu: "Menü",
@@ -489,7 +502,14 @@ export const messages: Record<UiLocale, Messages> = {
         sochnut: "Die Jewish Agency – Sochnut – ist Partner von Ulpan Ivrit.",
       },
     },
-    legal: { impressum: "Impressum", datenschutz: "Datenschutz" },
+    legal: {
+      impressum: "Impressum",
+      datenschutz: "Datenschutz",
+      cookies: "Cookies",
+      noCookies: "Keine Tracking-Cookies",
+      vereinImpressum: "Impressum des Vereins auf bifode.org",
+      vereinDatenschutz: "Datenschutz des Vereins auf bifode.org",
+    },
     session: { weekly: "einmal wöchentlich", spoken: "gesprochenes Hebräisch" },
     courses: {
       "hebrew-level-0": {
@@ -531,6 +551,11 @@ export const messages: Record<UiLocale, Messages> = {
       sent: "Отправлено. Прочитаем и ответим по почте.",
       error: "Не отправилось. Напишите напрямую на адрес выше.",
       sending: "Отправляем…",
+      privacyBefore: "Я ознакомился/ознакомилась с",
+      privacyLink: "политикой конфиденциальности",
+      privacyAfter: ". Данные используются только для ответа на этот запрос.",
+      privacyNote:
+        "Ответственный — BiFoDe e.V. Рекламы нет. Подробности — в политике конфиденциальности.",
     },
     nav: {
       menu: "Меню",
@@ -767,7 +792,14 @@ export const messages: Record<UiLocale, Messages> = {
         sochnut: "Еврейское агентство — Сохнут — партнёр Ulpan Ivrit.",
       },
     },
-    legal: { impressum: "Выходные данные", datenschutz: "Защита данных" },
+    legal: {
+      impressum: "Выходные данные",
+      datenschutz: "Защита данных",
+      cookies: "Cookies",
+      noCookies: "Нет cookies для учёта",
+      vereinImpressum: "Импрессум союза на bifode.org",
+      vereinDatenschutz: "Защита данных союза на bifode.org",
+    },
     session: { weekly: "раз в неделю", spoken: "разговорный иврит" },
     courses: {
       "hebrew-level-0": {
@@ -809,6 +841,11 @@ export const messages: Record<UiLocale, Messages> = {
       sent: "Sent. We will read it and reply by email.",
       error: "Sending failed. Write to us directly at the address above.",
       sending: "Sending…",
+      privacyBefore: "I have read the",
+      privacyLink: "privacy notice",
+      privacyAfter: ". The details are used only to handle this request.",
+      privacyNote:
+        "The controller is BiFoDe e.V. No advertising. Details are in the privacy notice.",
     },
     nav: {
       menu: "Menu",
@@ -1045,7 +1082,14 @@ export const messages: Record<UiLocale, Messages> = {
         sochnut: "The Jewish Agency – Sochnut – is a partner of Ulpan Ivrit.",
       },
     },
-    legal: { impressum: "Imprint", datenschutz: "Privacy" },
+    legal: {
+      impressum: "Imprint",
+      datenschutz: "Privacy",
+      cookies: "Cookies",
+      noCookies: "No tracking cookies",
+      vereinImpressum: "Association imprint on bifode.org",
+      vereinDatenschutz: "Association privacy notice on bifode.org",
+    },
     session: { weekly: "once a week", spoken: "spoken Hebrew" },
     courses: {
       "hebrew-level-0": {

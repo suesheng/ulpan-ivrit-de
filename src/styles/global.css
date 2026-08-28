@@ -889,3 +889,73 @@ button[type="submit"] {
   font-family: var(--font-display);
   font-weight: 600;
 }
+
+label.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+label.check input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.3em;
+  padding: 0;
+  flex-shrink: 0;
+  accent-color: var(--blue);
+}
+
+.legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.legal-nav a {
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.legal-nav a[aria-current="page"] {
+  color: var(--navy);
+}
+
+.legal-prose h2 {
+  margin-bottom: 0.4em;
+}
+
+.legal-prose ul {
+  margin: 0;
+  padding-inline-start: 1.2em;
+}
+
+.legal-prose li + li {
+  margin-top: 0.35em;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.cookie-table th,
+.cookie-table td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: start;
+  vertical-align: top;
+}
+
+.cookie-table th {
+  background: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 600;
+}

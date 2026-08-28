@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { getLegal, type LegalKey } from "../lib/legal";
+import { t } from "../lib/messages";
+
+interface Props {
+  page: LegalKey;
+}
+
+const { page } = Astro.props;
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+const doc = getLegal(locale, page);
+
+const nav = [
+  { key: "impressum" as const, path: "/impressum", label: copy.legal.impressum },
+  { key: "datenschutz" as const, path: "/datenschutz", label: copy.legal.datenschutz },
+  { key: "cookies" as const, path: "/cookies", label: copy.legal.cookies },
+];
+
+function linkParts(text: string): string[] {
+  return text.split(/(https:\/\/[^\s]+)/g);
+}
+
+function hrefOf(part: string): string {
+  return part.replace(/[.,;:)]+$/, "");
+}
+---
+
+<BaseLayout title={doc.title} description={doc.desc}>
+  <div class="stack legal-prose">
+    <nav class="legal-nav" aria-label={copy.meta.legalAria}>
+      {
+        nav.map((item) => (
+          <a href={href(item.path)} aria-current={item.key === page ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <h1>{doc.h1}</h1>
+    {doc.binding && <p class="muted">{doc.binding}</p>}
+    <p>{doc.lead}</p>
+
+    {
+      doc.sections.map((section) => (
+        <section>
+          <h2>{section.h2}</h2>
+          {section.blocks.map((block) => {
+            if (block.type === "p") {
+              return (
+                <p>
+                  {linkParts(block.text).map((part) => {
+                    if (!part.startsWith("https://")) return part;
+                    const url = hrefOf(part);
+                    return (
+                      <>
+                        <a href={url} rel="noopener noreferrer">
+                          {url}
+                        </a>
+                        {part.slice(url.length)}
+                      </>
+                    );
+                  })}
+                </p>
+              );
+            }
+            if (block.type === "ul") {
+              return (
+                <ul>
+                  {block.items.map((item) => (
+                    <li>
+                      {linkParts(item).map((part) => {
+                        if (!part.startsWith("https://")) return part;
+                        const url = hrefOf(part);
+                        return (
+                          <>
+                            <a href={url} rel="noopener noreferrer">
+                              {url}
+                            </a>
+                            {part.slice(url.length)}
+                          </>
+                        );
+                      })}
+                    </li>
+                  ))}
+                </ul>
+              );
+            }
+            return (
+              <div class="table-wrap">
+                <table class="cookie-table">
+                  <thead>
+                    <tr>
+                      {block.headers.map((header) => (
+                        <th>{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.length ? (
+                      block.rows.map((row) => (
+                        <tr>
+                          {row.map((cell) => (
+                            <td>{cell}</td>
+                          ))}
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colspan={block.headers.length}>{block.empty}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            );
+          })}
+        </section>
+      ))
+    }
+
+    <p class="muted">{doc.updated}</p>
+    <p class="muted">
+      <a href={LINKS.impressum} rel="noopener noreferrer">{copy.legal.vereinImpressum}</a>
+      {" · "}
+      <a href={LINKS.datenschutz} rel="noopener noreferrer">{copy.legal.vereinDatenschutz}</a>
+    </p>
+  </div>
+</BaseLayout>
