@@ -470,8 +470,21 @@ h1 {
   padding-bottom: 0;
 }
 
-#gemeinde {
+#gemeinde,
+#anmelden {
   scroll-margin-top: 5.5rem;
+}
+
+.jotform-embed {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+}
+
+.jotform-embed iframe {
+  display: block;
+  width: 100%;
+  background: var(--paper, #fff);
 }
 
 .path-step::before {

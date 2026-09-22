@@ -8,7 +8,8 @@ export const LINKS = {
   site: "https://www.ulpan-ivrit.de",
   vereinHome: "https://www.bifode.org",
   ulpanProject: "https://www.bifode.org/projekte/ulpan-next",
-  membership: "https://www.bifode.org/mitglied-werden",
+  membership: "https://form.jotform.com/261742322871052",
+  jotformUlpan: "https://form.jotform.com/261742322871052",
   moodle: "https://ulpan.bifode.org",
   contactEmail: "info@bifode.org",
   impressum: "https://www.bifode.org/impressum",
@@ -88,7 +89,13 @@ export const SESSION = {
   focusDe: "gesprochenes Hebräisch",
 } as const;
 
+/** Course fees (membership itself is free). */
 export const MEMBERSHIP = {
-  standardYear: 180,
-  reducedYear: 144,
+  memberHour: 8,
+  nonMemberHour: 16,
+  hoursPerYear: 60,
+  memberYear: 480,
+  nonMemberYear: 960,
+  memberMonth: 40,
+  nonMemberMonth: 80,
 } as const;

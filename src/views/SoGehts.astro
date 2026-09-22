@@ -1,15 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CtaMitglied from "../components/CtaMitglied.astro";
-import PrivacyCheck from "../components/PrivacyCheck.astro";
-import { LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
-const subject = encodeURIComponent(copy.soGehts.subject);
+const anmelden = `${href("/so-gehts")}#anmelden`;
 ---
 
 <BaseLayout title={copy.soGehts.title} description={copy.soGehts.desc}>
@@ -27,115 +24,68 @@ const subject = encodeURIComponent(copy.soGehts.subject);
             {copy.soGehts.step1Benefits.map((item) => <li>{item}</li>)}
           </ul>
           <p>{copy.soGehts.step1Fee}</p>
-          <CtaMitglied />
+          <a class="btn" href={anmelden}>{copy.soGehts.step1Cta}</a>
         </div>
       </li>
 
       <li class="path-step">
         <h2>{copy.soGehts.step2}</h2>
         <div class="path-body">
+          <p>{copy.soGehts.step2Text}</p>
           <div class="card-list">
             <article class="card card-online">
-              <h3>{copy.soGehts.onlineTitle}</h3>
-              <p>{copy.soGehts.onlineText}</p>
-              <p><a href={href("/kurse")}>{copy.soGehts.onlineLink}</a></p>
+              <h3>{copy.soGehts.formatTitle}</h3>
+              <p>{copy.soGehts.formatText}</p>
             </article>
             <article class="card card-local">
-              <h3>{copy.soGehts.localTitle}</h3>
-              <p>{copy.soGehts.localText}</p>
+              <h3>{copy.soGehts.locationsTitle}</h3>
+              <p>{copy.soGehts.locationsText}</p>
               <p>
                 <strong>{copy.soGehts.citiesTitle}</strong>
                 {" "}
                 {copy.soGehts.cities.join(", ")}
               </p>
-              <p><a href="#gemeinde">{copy.soGehts.localMail}</a></p>
             </article>
           </div>
+          <p>{copy.soGehts.step2Fee}</p>
+          <a class="btn" href={anmelden}>{copy.soGehts.step2Cta}</a>
         </div>
       </li>
 
-      <li class="path-step" id="gemeinde">
+      <li class="path-step">
         <h2>{copy.soGehts.step3}</h2>
         <div class="path-body">
-          <p>{copy.soGehts.wishText}</p>
-          <p>{copy.soGehts.formLead}</p>
-          <p class="muted">
-            {copy.soGehts.formMail}
-            {" "}
-            <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
-          </p>
-
-          <form
-            class="stack path-form"
-            method="post"
-            enctype="text/plain"
-            action={`mailto:${LINKS.contactEmail}?subject=${subject}`}
-            data-inquiry="location"
-            data-sent={copy.form.sent}
-            data-error={copy.form.error}
-            data-sending={copy.form.sending}
-          >
-            <input type="hidden" name="locale" value={locale} />
-            <div class="hp" aria-hidden="true">
-              <label>
-                Website
-                <input type="text" name="website" tabindex="-1" autocomplete="off" />
-              </label>
-            </div>
-            <label>
-              {copy.soGehts.name}
-              <input type="text" name="Name" autocomplete="name" required />
-            </label>
-            <label>
-              {copy.soGehts.email}
-              <input
-                type="email"
-                name="E-Mail"
-                autocomplete="email"
-                spellcheck="false"
-                required
-              />
-            </label>
-            <label>
-              {copy.soGehts.org}
-              <input
-                type="text"
-                name="Gemeinde_Organisation"
-                autocomplete="organization"
-                placeholder={copy.soGehts.orgPh}
-              />
-            </label>
-            <label>
-              {copy.soGehts.city}
-              <input
-                type="text"
-                name="Ort"
-                autocomplete="address-level2"
-                required
-                placeholder={copy.soGehts.cityPh}
-              />
-            </label>
-            <label>
-              {copy.soGehts.message}
-              <textarea
-                name="Nachricht"
-                autocomplete="off"
-                required
-                placeholder={copy.soGehts.messagePh}
-              ></textarea>
-            </label>
-            <PrivacyCheck />
-            <button type="submit">{copy.soGehts.submit}</button>
-            <p class="form-status" data-form-status hidden></p>
-          </form>
-
-          <p class="muted">
-            {copy.soGehts.step3Text}
-            {" "}
-            <a href={href("/vor-ort")}>{copy.soGehts.step3Link}</a>.
-          </p>
+          <p>{copy.soGehts.step3Intro}</p>
+          <ul class="feature-list">
+            {copy.soGehts.step3Items.map((item) => <li>{item}</li>)}
+          </ul>
+          <p><strong>{copy.soGehts.paymentTitle}</strong></p>
+          <ul class="feature-list">
+            {copy.soGehts.paymentItems.map((item) => <li>{item}</li>)}
+          </ul>
+          <p>{copy.soGehts.step3Note}</p>
         </div>
       </li>
     </ol>
+
+    <section id="anmelden" class="stack jotform-embed">
+      <h2>{copy.soGehts.formTitle}</h2>
+      <iframe
+        id="JotFormIFrame-261742322871052"
+        title={copy.soGehts.formTitle}
+        allow="geolocation; microphone; camera; fullscreen; payment"
+        src="https://form.jotform.com/261742322871052"
+        style="min-width:100%;max-width:100%;height:539px;border:none;"
+        loading="lazy"
+      ></iframe>
+    </section>
   </div>
 </BaseLayout>
+
+<script is:inline src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script is:inline>
+  window.jotformEmbedHandler(
+    "iframe[id='JotFormIFrame-261742322871052']",
+    "https://form.jotform.com/",
+  );
+</script>

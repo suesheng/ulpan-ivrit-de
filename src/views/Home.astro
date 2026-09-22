@@ -33,7 +33,7 @@ const href = (p: string) => locPath(locale, p);
     <div class="cta-frame">
       <a class="btn" href={href("/so-gehts")}>{copy.nav.start}</a>
       <p class="muted">
-        <a href={`${href("/so-gehts")}#gemeinde`}>{copy.home.noUlpan}</a>
+        <a href={href("/kontakt")}>{copy.home.noUlpan}</a>
       </p>
     </div>
   </section>
@@ -48,7 +48,7 @@ const href = (p: string) => locPath(locale, p);
       <article class="card card-local">
         <h2>{copy.home.localTitle}</h2>
         <p>{copy.home.localText}</p>
-        <p><a href={`${href("/so-gehts")}#gemeinde`}>{copy.home.localLink}</a></p>
+        <p><a href={href("/so-gehts")}>{copy.home.localLink}</a></p>
       </article>
     </div>
   </section>
