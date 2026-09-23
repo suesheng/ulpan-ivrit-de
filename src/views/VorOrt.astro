@@ -47,23 +47,25 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       <a href={anmelden}>{copy.vorOrt.p4Link}</a>.
     </p>
 
-    <h2>{copy.vorOrt.formTitle}</h2>
-    <p class="muted">
-      {copy.vorOrt.formMail}
-      {" "}
-      <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
-    </p>
+    <section id="traeger" class="stack traeger-block" aria-labelledby="traeger-heading">
+      <h2 id="traeger-heading">{copy.vorOrt.formTitle}</h2>
+      <p class="home-perk">{copy.vorOrt.formLead}</p>
+      <p class="muted">
+        {copy.vorOrt.formMail}
+        {" "}
+        <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
+      </p>
 
-    <form
-      class="stack path-form"
-      method="post"
-      enctype="text/plain"
-      action={`mailto:${LINKS.contactEmail}?subject=${subject}`}
-      data-inquiry="host"
-      data-sent={copy.form.sent}
-      data-error={copy.form.error}
-      data-sending={copy.form.sending}
-    >
+      <form
+        class="stack path-form"
+        method="post"
+        enctype="text/plain"
+        action={`mailto:${LINKS.contactEmail}?subject=${subject}`}
+        data-inquiry="host"
+        data-sent={copy.form.sent}
+        data-error={copy.form.error}
+        data-sending={copy.form.sending}
+      >
       <input type="hidden" name="locale" value={locale} />
       <div class="hp" aria-hidden="true">
         <label>
@@ -102,7 +104,7 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       </label>
       <label>
         {copy.vorOrt.size}
-        <input type="text" name="Gruppengröße" />
+        <input type="text" name="Gruppengröße" placeholder={copy.vorOrt.sizePlaceholder} />
       </label>
       <label>
         {copy.vorOrt.message}
@@ -112,5 +114,6 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       <button type="submit">{copy.vorOrt.submit}</button>
       <p class="form-status" data-form-status hidden></p>
     </form>
+    </section>
   </div>
 </BaseLayout>

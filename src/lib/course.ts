@@ -58,3 +58,4 @@ export const COURSE = {
 } as const;
 
 export const ANMELDUNG_HASH = "#anmeldung";
+export const TRAEGER_HASH = "#traeger";

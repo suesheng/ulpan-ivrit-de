@@ -72,6 +72,18 @@ export type Messages = {
     localTitle: string;
     localText: string;
     localLink: string;
+    firstH2: string;
+    firstText: string;
+    firstStartBadge: string;
+    firstPlannedBadge: string;
+    firstCities: string[];
+    firstWaitlistCta: string;
+    firstWaitlistNote: string;
+    firstGroupCta: string;
+    firstGroupNote: string;
+    firstBoxTitle: string;
+    firstBoxText: string;
+    firstBoxCta: string;
   };
   soGehts: {
     title: string;
@@ -97,6 +109,8 @@ export type Messages = {
     formTitle: string;
     noCourse: string;
     noCourseLink: string;
+    cityFaqQ: string;
+    cityFaqA: string;
   };
   kurse: {
     title: string;
@@ -126,7 +140,9 @@ export type Messages = {
     p4: string;
     p4Link: string;
     formTitle: string;
+    formLead: string;
     formMail: string;
+    sizePlaceholder: string;
     orgType: string;
     gemeinde: string;
     verein: string;
@@ -186,6 +202,8 @@ export type Messages = {
     a6: string;
     q7: string;
     a7: string;
+    q8: string;
+    a8: string;
   };
   kontakt: {
     title: string;
@@ -328,6 +346,43 @@ export const messages: Record<UiLocale, Messages> = {
       localText:
         "Mittwochs 2 × 45 Min., Schwerpunkt Sprechen, Unterlagen in Moodle. Berlin: Warteliste.",
       localLink: "Anmeldung",
+      firstH2: "Düsseldorf ist der erste Ulpan – weitere folgen",
+      firstText:
+        "Mit Düsseldorf startet am 18. November 2026 der erste Ulpan Ivrit. Weitere Ulpanim planen wir in den größten jüdischen Gemeinden Deutschlands:",
+      firstStartBadge: "Start 18.11.2026",
+      firstPlannedBadge: "in Planung",
+      firstCities: [
+        "Düsseldorf",
+        "Aachen",
+        "Berlin",
+        "Bielefeld",
+        "Bochum",
+        "Bonn",
+        "Dortmund",
+        "Dresden",
+        "Duisburg",
+        "Essen",
+        "Frankfurt am Main",
+        "Gelsenkirchen",
+        "Hamburg",
+        "Hannover",
+        "Köln",
+        "Leipzig",
+        "München",
+        "Nürnberg",
+        "Stuttgart",
+        "Wuppertal",
+      ],
+      firstWaitlistCta: "Auf die Warteliste",
+      firstWaitlistNote:
+        "Kostenlos und unverbindlich – wir informieren Sie, sobald Ihre Stadt startet.",
+      firstGroupCta: "Gruppe melden",
+      firstGroupNote:
+        "Sie haben eine Gruppe ab 15 Interessierten? Dann kann der Ulpan schon bald bei Ihnen starten – sprechen Sie uns an.",
+      firstBoxTitle: "Ab 15 Personen gründen wir eine neue Gruppe.",
+      firstBoxText:
+        "Gemeinde, Verein oder Freundeskreis – melden Sie sich mit Ihrer Gruppe, und wir planen gemeinsam Lehrkraft, Termine und Ort.",
+      firstBoxCta: "Kontakt aufnehmen",
     },
     soGehts: {
       title: "Anmeldung — Ulpan Ivrit",
@@ -365,6 +420,9 @@ export const messages: Record<UiLocale, Messages> = {
       formTitle: "Anmeldung",
       noCourse: "Kein Kurs in Ihrer Stadt?",
       noCourseLink: "Schreiben Sie uns",
+      cityFaqQ: "Wann startet ein Ulpan in meiner Stadt?",
+      cityFaqA:
+        "Sobald sich mindestens 15 Interessierte gemeldet haben – über die Warteliste oder als Gruppe über Ihre Gemeinde oder Organisation.",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
@@ -398,6 +456,7 @@ export const messages: Record<UiLocale, Messages> = {
       p4: "Teilnehmende melden sich über das Anmeldeformular an; die Mitgliedschaft ist kostenlos und optional.",
       p4Link: "Anmeldung",
       formTitle: "Träger: Gruppe aufbauen",
+      formLead: "Neue Gruppen starten ab 15 Teilnehmenden.",
       formMail: "Für Vorstände und Ansprechpersonen. Die Nachricht geht an",
       orgType: "Art der Organisation",
       gemeinde: "Gemeinde",
@@ -410,6 +469,7 @@ export const messages: Record<UiLocale, Messages> = {
       email: "E-Mail",
       phone: "Telefon",
       size: "Geschätzte Gruppengröße",
+      sizePlaceholder: "mind. 15",
       message: "Nachricht",
       submit: "Anfrage senden",
       subject: "Ulpan vor Ort — Gruppenanfrage",
@@ -461,6 +521,8 @@ export const messages: Record<UiLocale, Messages> = {
       a6: "Die Inhalte stehen in Moodle bereit.",
       q7: "Was ist Hishtalmut?",
       a7: "Die Fortbildung der Lehrkräfte. Sie führen aktive Dozentinnen und Lehrkräfte der Hebräischen Universität Jerusalem durch. Materialien und Methodik kommen aus derselben Schule.",
+      q8: "Wann startet ein Ulpan in meiner Stadt?",
+      a8: "Sobald sich mindestens 15 Interessierte gemeldet haben – über die Warteliste oder als Gruppe über Ihre Gemeinde oder Organisation.",
     },
     kontakt: {
       title: "Kontakt — Ulpan Ivrit",
@@ -636,6 +698,43 @@ export const messages: Record<UiLocale, Messages> = {
       localText:
         "По средам 2 × 45 мин., упор на речь, материалы в Moodle. Берлин: лист ожидания.",
       localLink: "Запись",
+      firstH2: "Дюссельдорф — первый ульпан, скоро будут и другие",
+      firstText:
+        "18 ноября 2026 года в Дюссельдорфе открывается первый Ульпан Иврит. Следующие ульпаны мы планируем в крупнейших еврейских общинах Германии:",
+      firstStartBadge: "старт 18.11.2026",
+      firstPlannedBadge: "в планах",
+      firstCities: [
+        "Дюссельдорф",
+        "Ахен",
+        "Берлин",
+        "Билефельд",
+        "Бохум",
+        "Бонн",
+        "Дортмунд",
+        "Дрезден",
+        "Дуйсбург",
+        "Эссен",
+        "Франкфурт-на-Майне",
+        "Гельзенкирхен",
+        "Гамбург",
+        "Ганновер",
+        "Кёльн",
+        "Лейпциг",
+        "Мюнхен",
+        "Нюрнберг",
+        "Штутгарт",
+        "Вупперталь",
+      ],
+      firstWaitlistCta: "В лист ожидания",
+      firstWaitlistNote:
+        "Бесплатно и без обязательств: мы сообщим, когда начнётся курс в вашем городе.",
+      firstGroupCta: "Сообщить о группе",
+      firstGroupNote:
+        "У вас есть группа от 15 желающих? Тогда ульпан может скоро открыться и у вас – свяжитесь с нами.",
+      firstBoxTitle: "От 15 человек мы открываем новую группу.",
+      firstBoxText:
+        "Община, союз или круг друзей – напишите нам, и вместе подберём преподавателя, время и место.",
+      firstBoxCta: "Связаться",
     },
     soGehts: {
       title: "Запись — Ulpan Ivrit",
@@ -673,6 +772,9 @@ export const messages: Record<UiLocale, Messages> = {
       formTitle: "Запись",
       noCourse: "Нет курса в вашем городе?",
       noCourseLink: "Напишите нам",
+      cityFaqQ: "Когда ульпан откроется в моём городе?",
+      cityFaqA:
+        "Как только наберётся не меньше 15 желающих – через лист ожидания или как группа через вашу общину или организацию.",
     },
     kurse: {
       title: "Онлайн — Ulpan Ivrit",
@@ -706,6 +808,7 @@ export const messages: Record<UiLocale, Messages> = {
       p4: "Участники записываются через форму; членство бесплатное и необязательное.",
       p4Link: "Запись",
       formTitle: "Организаторам: собрать группу",
+      formLead: "Новые группы стартуют от 15 участников.",
       formMail: "Для правления и контактных лиц. Сообщение уйдёт на",
       orgType: "Тип организации",
       gemeinde: "Община",
@@ -718,6 +821,7 @@ export const messages: Record<UiLocale, Messages> = {
       email: "Эл. почта",
       phone: "Телефон",
       size: "Ориентировочный размер группы",
+      sizePlaceholder: "мин. 15",
       message: "Сообщение",
       submit: "Отправить запрос",
       subject: "Ulpan очно — запрос группы",
@@ -769,6 +873,8 @@ export const messages: Record<UiLocale, Messages> = {
       a6: "Материалы доступны в Moodle.",
       q7: "Что такое Hishtalmut?",
       a7: "Повышение квалификации преподавателей. Его ведут действующие преподаватели Еврейского университета в Иерусалиме. Материалы и методика — из той же школы.",
+      q8: "Когда ульпан откроется в моём городе?",
+      a8: "Как только наберётся не меньше 15 желающих – через лист ожидания или как группа через вашу общину или организацию.",
     },
     kontakt: {
       title: "Контакты — Ulpan Ivrit",
@@ -943,6 +1049,43 @@ export const messages: Record<UiLocale, Messages> = {
       localText:
         "Wednesdays 2 × 45 min, focus on speaking, materials in Moodle. Berlin: waiting list.",
       localLink: "Registration",
+      firstH2: "Düsseldorf is the first Ulpan – more are coming",
+      firstText:
+        "Our first Ulpan Ivrit opens in Düsseldorf on 18 November 2026. We are planning further Ulpanim in Germany's largest Jewish communities:",
+      firstStartBadge: "starts 18.11.2026",
+      firstPlannedBadge: "planned",
+      firstCities: [
+        "Düsseldorf",
+        "Aachen",
+        "Berlin",
+        "Bielefeld",
+        "Bochum",
+        "Bonn",
+        "Dortmund",
+        "Dresden",
+        "Duisburg",
+        "Essen",
+        "Frankfurt",
+        "Gelsenkirchen",
+        "Hamburg",
+        "Hanover",
+        "Cologne",
+        "Leipzig",
+        "Munich",
+        "Nuremberg",
+        "Stuttgart",
+        "Wuppertal",
+      ],
+      firstWaitlistCta: "Join the waiting list",
+      firstWaitlistNote:
+        "Free and non-binding – we'll let you know when your city starts.",
+      firstGroupCta: "Register a group",
+      firstGroupNote:
+        "Do you have a group of 15 or more? Then the Ulpan could start near you soon – get in touch.",
+      firstBoxTitle: "From 15 people we start a new group.",
+      firstBoxText:
+        "Community, association or group of friends – contact us and we'll plan teacher, schedule and venue together.",
+      firstBoxCta: "Get in touch",
     },
     soGehts: {
       title: "Registration — Ulpan Ivrit",
@@ -980,6 +1123,9 @@ export const messages: Record<UiLocale, Messages> = {
       formTitle: "Registration",
       noCourse: "No course in your city?",
       noCourseLink: "Write to us",
+      cityFaqQ: "When does an Ulpan start in my city?",
+      cityFaqA:
+        "As soon as at least 15 interested people have signed up – via the waiting list or as a group through your community or organisation.",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
@@ -1013,6 +1159,7 @@ export const messages: Record<UiLocale, Messages> = {
       p4: "Participants register via the enrolment form; membership is free and optional.",
       p4Link: "Registration",
       formTitle: "Hosts: start a group",
+      formLead: "New groups start from 15 participants.",
       formMail: "For boards and contact persons. The message goes to",
       orgType: "Type of organisation",
       gemeinde: "Congregation",
@@ -1025,6 +1172,7 @@ export const messages: Record<UiLocale, Messages> = {
       email: "Email",
       phone: "Phone",
       size: "Estimated group size",
+      sizePlaceholder: "min. 15",
       message: "Message",
       submit: "Send enquiry",
       subject: "Ulpan in person — group enquiry",
@@ -1076,6 +1224,8 @@ export const messages: Record<UiLocale, Messages> = {
       a6: "The materials are available in Moodle.",
       q7: "What is Hishtalmut?",
       a7: "Teacher training. It is run by active lecturers and teachers of the Hebrew University of Jerusalem. Materials and method come from the same school.",
+      q8: "When does an Ulpan start in my city?",
+      a8: "As soon as at least 15 interested people have signed up – via the waiting list or as a group through your community or organisation.",
     },
     kontakt: {
       title: "Contact — Ulpan Ivrit",

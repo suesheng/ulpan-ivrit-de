@@ -3,13 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LetterVortex from "../components/LetterVortex.astro";
 import QuoteBand from "../components/QuoteBand.astro";
 import { locPath, pageLocale } from "../lib/i18n";
-import { ANMELDUNG_HASH } from "../lib/course";
+import { ANMELDUNG_HASH, TRAEGER_HASH } from "../lib/course";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
 const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
+const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
 ---
 
 <BaseLayout full title={copy.home.title} description={copy.home.description}>
@@ -34,6 +35,48 @@ const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
     <p>{copy.home.nextMeta}</p>
     <p class="home-price" set:html={copy.home.nextPrice} />
     <p><a class="btn" href={anmelden}>{copy.home.nextCta}</a></p>
+  </section>
+
+  <section class="wrap first-ulpan" aria-labelledby="first-ulpan-heading">
+    <h2 id="first-ulpan-heading">{copy.home.firstH2}</h2>
+    <p>{copy.home.firstText}</p>
+    <ul class="city-chips">
+      {
+        copy.home.firstCities.map((city, i) => (
+          <li class:list={["city-chip", { "city-chip-active": i === 0 }]}>
+            <span class="city-chip-name">{city}</span>
+            <span class="city-chip-badge">
+              {i === 0 ? copy.home.firstStartBadge : copy.home.firstPlannedBadge}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="first-ulpan-actions">
+      <div class="first-ulpan-action">
+        <a class="btn" href={anmelden}>{copy.home.firstWaitlistCta}</a>
+        <p class="muted">{copy.home.firstWaitlistNote}</p>
+      </div>
+      <div class="first-ulpan-action">
+        <a class="btn btn-ghost" href={traeger}>{copy.home.firstGroupCta}</a>
+        <p class="muted">{copy.home.firstGroupNote}</p>
+      </div>
+    </div>
+    <aside class="group-callout">
+      <div class="group-callout-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.75">
+          <circle cx="9" cy="8" r="3.25"></circle>
+          <circle cx="16.5" cy="9.5" r="2.5"></circle>
+          <path d="M3.5 18.5c.6-3.2 2.9-5 5.5-5s4.9 1.8 5.5 5"></path>
+          <path d="M13.2 16.2c.9-1.7 2.5-2.7 4.3-2.7 1.7 0 3.1.8 4 2.3"></path>
+        </svg>
+      </div>
+      <div class="group-callout-body">
+        <p class="group-callout-title">{copy.home.firstBoxTitle}</p>
+        <p>{copy.home.firstBoxText}</p>
+        <p><a class="btn" href={traeger}>{copy.home.firstBoxCta}</a></p>
+      </div>
+    </aside>
   </section>
 
   <section class="wrap join-band">

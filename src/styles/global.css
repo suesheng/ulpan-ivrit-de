@@ -493,7 +493,8 @@ h1 {
   padding-bottom: 0;
 }
 
-#anmeldung {
+#anmeldung,
+#traeger {
   scroll-margin-top: 5.5rem;
 }
 
@@ -994,6 +995,138 @@ button[type="submit"]:disabled {
 
 .no-course {
   margin-top: 1.5rem;
+}
+
+.first-ulpan {
+  margin-block: 1.75rem 0.5rem;
+  display: grid;
+  gap: 1.15rem;
+}
+
+.first-ulpan h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.1vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.first-ulpan > p {
+  margin: 0;
+  max-width: 48rem;
+  color: var(--blue);
+  font-size: 1.17rem;
+  line-height: 1.5;
+}
+
+.city-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.city-chip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.6rem;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--navy) 8%, #f3f5f7);
+  color: var(--navy);
+  font-size: 1.14rem;
+  line-height: 1.3;
+}
+
+.city-chip-name {
+  font-weight: 600;
+}
+
+.city-chip-badge {
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--muted);
+}
+
+.city-chip-active {
+  background: color-mix(in srgb, var(--green) 16%, #fff);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--green) 35%, transparent);
+}
+
+.city-chip-active .city-chip-badge {
+  color: var(--green);
+  text-transform: none;
+}
+
+.first-ulpan-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem 1.25rem;
+  align-items: start;
+}
+
+.first-ulpan-action {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+}
+
+.first-ulpan-action .muted {
+  margin: 0;
+  font-size: 1.17rem;
+  line-height: 1.45;
+  max-width: 30rem;
+}
+
+.group-callout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem 1rem;
+  margin-top: 0.35rem;
+  padding: 1.15rem 1.25rem;
+  background: color-mix(in srgb, var(--blue) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--blue) 18%, transparent);
+  font-size: 1.17rem;
+  line-height: 1.45;
+}
+
+.group-callout-icon {
+  color: var(--blue);
+  margin-top: 0.15rem;
+}
+
+.group-callout-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.group-callout-body {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.group-callout-body p {
+  margin: 0;
+  color: var(--navy);
+}
+
+.group-callout-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .first-ulpan-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .group-callout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .home-ask {
