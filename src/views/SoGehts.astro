@@ -7,6 +7,7 @@ const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
 const anmelden = `${href("/so-gehts")}#anmelden`;
+const formSrc = "/api/jotform-ulpan";
 ---
 
 <BaseLayout title={copy.soGehts.title} description={copy.soGehts.desc}>
@@ -68,24 +69,164 @@ const anmelden = `${href("/so-gehts")}#anmelden`;
       </li>
     </ol>
 
-    <section id="anmelden" class="stack jotform-embed">
+    <section id="anmelden" class="stack jotform-embed" aria-label={copy.soGehts.formTitle}>
       <h2>{copy.soGehts.formTitle}</h2>
-      <iframe
-        id="JotFormIFrame-261742322871052"
-        title={copy.soGehts.formTitle}
-        allow="geolocation; microphone; camera; fullscreen; payment"
-        src="https://form.jotform.com/261742322871052"
-        style="min-width:100%;max-width:100%;height:539px;border:none;"
-        loading="lazy"
-      ></iframe>
+      <div class="jotform-frame">
+        <iframe
+          id="JotFormIFrame-261742322871052"
+          title={copy.soGehts.formTitle}
+          allow="geolocation; microphone; camera; fullscreen; payment"
+          src={formSrc}
+          loading="eager"
+        ></iframe>
+      </div>
     </section>
   </div>
 </BaseLayout>
 
-<script is:inline src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 <script is:inline>
-  window.jotformEmbedHandler(
-    "iframe[id='JotFormIFrame-261742322871052']",
-    "https://form.jotform.com/",
-  );
+  (function () {
+    var iframe = document.getElementById("JotFormIFrame-261742322871052");
+    if (!iframe) return;
+
+    var observer = null;
+    var pollTimer = null;
+
+    function measureContentHeight(doc) {
+      if (!doc) return 0;
+      var body = doc.body;
+      var el = doc.documentElement;
+      var nodes = body ? body.children : [];
+      var content = 0;
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (!n || n.nodeType !== 1) continue;
+        var style = doc.defaultView && doc.defaultView.getComputedStyle(n);
+        if (style && (style.display === "none" || style.visibility === "hidden")) continue;
+        var rect = n.getBoundingClientRect();
+        var bottom = (rect.bottom || 0) + (doc.defaultView ? doc.defaultView.scrollY || 0 : 0);
+        // Prefer offsetTop + offsetHeight for nested layouts
+        var oh = n.offsetTop + n.offsetHeight;
+        content = Math.max(content, bottom, oh, n.scrollHeight || 0);
+      }
+      return Math.max(
+        content,
+        body ? body.scrollHeight : 0,
+        body ? body.offsetHeight : 0,
+        el ? el.scrollHeight : 0,
+        el ? el.offsetHeight : 0,
+      );
+    }
+
+    function isThankYou(doc) {
+      if (!doc || !doc.body) return false;
+      var text = (doc.body.innerText || "").slice(0, 2000).toLowerCase();
+      if (text.indexOf("vielen dank") !== -1 || text.indexOf("thank you") !== -1) return true;
+      if (doc.querySelector("[class*='thankyou'], [class*='ThankYou'], .thankyou-wrapper")) return true;
+      if ((doc.body.className || "").toLowerCase().indexOf("thankyou") !== -1) return true;
+      return false;
+    }
+
+    function setHeight(h, thankyou) {
+      var height = Number(h) || 0;
+      if (thankyou) {
+        height = Math.max(260, Math.min(height, 720));
+        iframe.classList.add("is-thankyou");
+      } else {
+        height = Math.max(480, height);
+        iframe.classList.remove("is-thankyou");
+      }
+      iframe.style.height = Math.ceil(height) + "px";
+    }
+
+    function syncSameOrigin() {
+      try {
+        var doc = iframe.contentDocument;
+        if (!doc || !doc.body) return;
+        var thankyou = isThankYou(doc);
+        if (thankyou) {
+          doc.documentElement.classList.add("thankyou");
+          doc.body.classList.add("thankyou");
+        }
+        var h = measureContentHeight(doc);
+        if (h > 80) setHeight(h + (thankyou ? 16 : 24), thankyou);
+      } catch (_) {
+        /* ignore */
+      }
+    }
+
+    function watchSameOrigin() {
+      try {
+        var doc = iframe.contentDocument;
+        if (!doc || !doc.body) return;
+        if (observer) observer.disconnect();
+        observer = new MutationObserver(function () {
+          syncSameOrigin();
+        });
+        observer.observe(doc.documentElement, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+        });
+        if (typeof ResizeObserver !== "undefined" && doc.body) {
+          var ro = new ResizeObserver(function () {
+            syncSameOrigin();
+          });
+          ro.observe(doc.body);
+        }
+      } catch (_) {
+        /* ignore */
+      }
+    }
+
+    window.addEventListener("message", function (e) {
+      if (!e || !e.data) return;
+      var origin = String(e.origin || "");
+      var ok =
+        origin === window.location.origin ||
+        origin.indexOf("jotform.com") !== -1 ||
+        origin.indexOf("jotfor.ms") !== -1;
+      if (!ok) return;
+
+      var data = e.data;
+      var thankyou = false;
+      try {
+        thankyou = isThankYou(iframe.contentDocument);
+      } catch (_) {}
+
+      if (typeof data === "object") {
+        if (data.thankYou || data.action === "submission-completed" || data.action === "thankYou") {
+          setHeight(data.height || data.value || 320, true);
+          setTimeout(syncSameOrigin, 50);
+          setTimeout(syncSameOrigin, 300);
+          return;
+        }
+        if (data.action === "setHeight" || data.action === "setPageHeight") {
+          setHeight(data.height || data.value, thankyou);
+        } else if (typeof data.frameHeight === "number") {
+          setHeight(data.frameHeight, thankyou);
+        } else if (typeof data.height === "number") {
+          setHeight(data.height, thankyou);
+        }
+      } else if (typeof data === "string" && data.indexOf("setHeight:") === 0) {
+        setHeight(data.split(":")[1], thankyou);
+      }
+    });
+
+    iframe.addEventListener("load", function () {
+      syncSameOrigin();
+      watchSameOrigin();
+      setTimeout(syncSameOrigin, 200);
+      setTimeout(syncSameOrigin, 800);
+      setTimeout(syncSameOrigin, 1600);
+      if (pollTimer) clearInterval(pollTimer);
+      // Catch thank-you swap without a full iframe reload.
+      var ticks = 0;
+      pollTimer = setInterval(function () {
+        syncSameOrigin();
+        ticks += 1;
+        if (ticks > 40) clearInterval(pollTimer);
+      }, 500);
+    });
+  })();
 </script>

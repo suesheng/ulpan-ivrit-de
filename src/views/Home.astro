@@ -3,11 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LetterVortex from "../components/LetterVortex.astro";
 import QuoteBand from "../components/QuoteBand.astro";
 import { locPath, pageLocale } from "../lib/i18n";
+import { EXT, LINKS } from "../lib/links";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
+const anmelden = LINKS.jotformUlpan;
 ---
 
 <BaseLayout full title={copy.home.title}>
@@ -28,12 +30,15 @@ const href = (p: string) => locPath(locale, p);
     <ul class="feature-list">
       <li>{copy.home.f1}</li>
       <li>{copy.home.f3}</li>
-      <li>{copy.home.f5}</li>
+      <li class="home-perk" set:html={copy.home.f5} />
     </ul>
     <div class="cta-frame">
-      <a class="btn" href={href("/so-gehts")}>{copy.nav.start}</a>
-      <p class="muted">
-        <a href={href("/kontakt")}>{copy.home.noUlpan}</a>
+      <a class="btn" href={anmelden} {...EXT}>{copy.nav.start}</a>
+      <p class="cta-pitch" set:html={copy.home.ctaPitch} />
+      <p class="cta-ask">
+        {copy.home.ctaQuestions}
+        {" "}
+        <a href={href("/kontakt")}>{copy.home.ctaContact}</a>
       </p>
     </div>
   </section>
@@ -43,12 +48,19 @@ const href = (p: string) => locPath(locale, p);
       <article class="card card-online">
         <h2>{copy.home.onlineTitle}</h2>
         <p>{copy.home.onlineText}</p>
-        <p><a href={href("/kurse")}>{copy.home.onlineLink}</a></p>
+        <p class="home-price" set:html={copy.home.onlinePrice} />
+        <p><a href={anmelden} {...EXT}>{copy.home.onlineLink}</a></p>
       </article>
       <article class="card card-local">
         <h2>{copy.home.localTitle}</h2>
         <p>{copy.home.localText}</p>
-        <p><a href={href("/so-gehts")}>{copy.home.localLink}</a></p>
+        <p class="home-price" set:html={copy.home.localPrice} />
+        <p><a href={anmelden} {...EXT}>{copy.home.localLink}</a></p>
+        <p class="home-ask">
+          {copy.home.localGemeindeQ}
+          {" "}
+          <a href={href("/kontakt")}>{copy.home.localContact}</a>
+        </p>
       </article>
     </div>
   </section>

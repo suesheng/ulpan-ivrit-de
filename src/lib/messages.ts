@@ -56,13 +56,19 @@ export type Messages = {
     f5: string;
     ctaRegister: string;
     howItWorks: string;
-    noUlpan: string;
+    ctaPitch: string;
+    ctaQuestions: string;
+    ctaContact: string;
     onlineTitle: string;
     onlineText: string;
+    onlinePrice: string;
     onlineLink: string;
     localTitle: string;
     localText: string;
+    localPrice: string;
     localLink: string;
+    localGemeindeQ: string;
+    localContact: string;
   };
   soGehts: {
     title: string;
@@ -293,16 +299,27 @@ export const messages: Record<UiLocale, Messages> = {
       f2: "Über 400 Ulpanim weltweit",
       f3: "In Zusammenarbeit mit der Hebräischen Universität Jerusalem",
       f4: "Typische Sitzung vor Ort: 2 volle Stunden, einmal wöchentlich, mit Pause",
-      f5: "Mitgliedschaft kostenlos — Kurs 8 €/Std. für Mitglieder, 16 €/Std. für Nichtmitglieder (SEPA)",
+      f5: "Kostenlose Mitgliedschaft – 50% Rabatt auf Kurse (<strong>8&nbsp;€/Std</strong> statt <strong>16&nbsp;€/Std</strong>)",
       ctaRegister: "Anmelden",
       howItWorks: "So nehmen Sie teil",
-      noUlpan: "Kein Ulpan in Ihrer Stadt? Schreiben Sie uns — wir prüfen Online-Gruppen und neue Standorte.",
+      ctaPitch:
+        "Hol dir jetzt deine <span class=\"home-perk\">kostenlose Mitgliedschaft + 50% Rabatt</span>!<br />In 3 Minuten registriert.",
+      ctaQuestions: "Fragen?",
+      ctaContact: "schreiben Sie uns",
       onlineTitle: "Online — individuell",
-      onlineText: "Moodle, aus jedem Ort. Stoff der Gruppe liegt parallel dort.",
+      onlineText:
+        "Moodle-Unterricht mit deiner Gruppe. Flexibel, nach deinem Hebräisch-Niveau und Zeitplan.",
+      onlinePrice:
+        "Preis: <strong>8&nbsp;€/Std</strong> (mit Mitgliedschaft) oder <strong>16&nbsp;€/Std</strong> (ohne)",
       onlineLink: "Zu den Online-Kursen",
       localTitle: "Vor Ort — in der Community",
-      localText: "Gruppen an Gemeinde, Verein oder Community. Zwei Stunden pro Woche.",
-      localLink: "Anmeldung — So funktioniert Ulpan Ivrit",
+      localText:
+        "Präsenzkurse in Düsseldorf und Berlin. 1× pro Woche, 2 Stunden (60 Stunden pro Jahr).",
+      localPrice:
+        "Preis: <strong>8&nbsp;€/Std</strong> (mit Mitgliedschaft) oder <strong>16&nbsp;€/Std</strong> (ohne)",
+      localLink: "Anmeldung",
+      localGemeindeQ: "Fragen zur Gemeinde?",
+      localContact: "schreiben Sie uns",
     },
     soGehts: {
       title: "So funktioniert Ulpan Ivrit — Ulpan Ivrit",
@@ -588,16 +605,27 @@ export const messages: Record<UiLocale, Messages> = {
       f2: "Более 400 ульпанов по миру",
       f3: "В сотрудничестве с Еврейским университетом в Иерусалиме",
       f4: "Типичное занятие очно: 2 полных часа, раз в неделю, с перерывом",
-      f5: "Членство бесплатно — курс 8 €/час для членов, 16 €/час для нечленов (SEPA)",
+      f5: "Бесплатное членство – скидка 50% на курсы (<strong>8&nbsp;€/час</strong> вместо <strong>16&nbsp;€/час</strong>)",
       ctaRegister: "Записаться",
       howItWorks: "Как участвовать",
-      noUlpan: "Нет ульпана в вашем городе? Напишите нам — проверим онлайн-группы и новые площадки.",
+      ctaPitch:
+        "Оформите сейчас <span class=\"home-perk\">бесплатное членство + скидку 50%</span>!<br />Регистрация за 3 минуты.",
+      ctaQuestions: "Вопросы?",
+      ctaContact: "напишите нам",
       onlineTitle: "Онлайн — индивидуально",
-      onlineText: "Moodle из любой точки. Тот же материал, что у группы.",
+      onlineText:
+        "Занятия в Moodle с вашей группой. Гибко — по уровню иврита и вашему расписанию.",
+      onlinePrice:
+        "Цена: <strong>8&nbsp;€/час</strong> (с членством) или <strong>16&nbsp;€/час</strong> (без)",
       onlineLink: "К онлайн-курсам",
       localTitle: "Очно — в общине",
-      localText: "Группы при общине, союзе или community. Два часа в неделю.",
-      localLink: "Запись — как устроен Ulpan Ivrit",
+      localText:
+        "Очные курсы в Дюссельдорфе и Берлине. 1× в неделю, 2 часа (60 часов в год).",
+      localPrice:
+        "Цена: <strong>8&nbsp;€/час</strong> (с членством) или <strong>16&nbsp;€/час</strong> (без)",
+      localLink: "Запись",
+      localGemeindeQ: "Вопросы по общине?",
+      localContact: "напишите нам",
     },
     soGehts: {
       title: "Как устроен Ulpan Ivrit — Ulpan Ivrit",
@@ -882,16 +910,27 @@ export const messages: Record<UiLocale, Messages> = {
       f2: "Over 400 ulpanim worldwide",
       f3: "In cooperation with the Hebrew University of Jerusalem",
       f4: "A typical in-person session: 2 full hours, once a week, with a break",
-      f5: "Membership free — course 8 €/h for members, 16 €/h for non-members (SEPA)",
+      f5: "Free membership – 50% off courses (<strong>8&nbsp;€/h</strong> instead of <strong>16&nbsp;€/h</strong>)",
       ctaRegister: "Register",
       howItWorks: "How to take part",
-      noUlpan: "No ulpan in your city? Write to us — we will check online groups and new locations.",
+      ctaPitch:
+        "Get your <span class=\"home-perk\">free membership + 50% discount</span> now!<br />Registered in 3 minutes.",
+      ctaQuestions: "Questions?",
+      ctaContact: "write to us",
       onlineTitle: "Online — individual",
-      onlineText: "Moodle from anywhere. The group’s material is mirrored there.",
+      onlineText:
+        "Moodle classes with your group. Flexible, by your Hebrew level and schedule.",
+      onlinePrice:
+        "Price: <strong>8&nbsp;€/h</strong> (with membership) or <strong>16&nbsp;€/h</strong> (without)",
       onlineLink: "Online courses",
       localTitle: "In person — in the community",
-      localText: "Groups at a congregation, association or community. Two hours a week.",
-      localLink: "Registration — how Ulpan Ivrit works",
+      localText:
+        "In-person courses in Düsseldorf and Berlin. Once a week, 2 hours (60 hours per year).",
+      localPrice:
+        "Price: <strong>8&nbsp;€/h</strong> (with membership) or <strong>16&nbsp;€/h</strong> (without)",
+      localLink: "Registration",
+      localGemeindeQ: "Questions about a congregation?",
+      localContact: "write to us",
     },
     soGehts: {
       title: "How Ulpan Ivrit works — Ulpan Ivrit",
