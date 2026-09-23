@@ -501,10 +501,13 @@ h1 {
   display: block;
   width: 100%;
   min-height: 0;
-  height: 900px;
+  height: 1100px;
   border: 0;
   background: transparent;
   color-scheme: light;
+  overflow: hidden;
+  /* Hide any residual iframe chrome scrollbars */
+  scrollbar-width: none;
 }
 
 .jotform-frame iframe.is-thankyou,

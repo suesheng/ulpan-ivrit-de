@@ -27,15 +27,40 @@ body.supernova {
   background-image: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
   overflow-x: hidden !important;
+  overflow-y: hidden !important;
   min-height: 0 !important;
   height: auto !important;
   max-height: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
-.supernova {
-  min-height: 0 !important;
-  height: auto !important;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.supernova::-webkit-scrollbar,
+.form-all::-webkit-scrollbar,
+.jf-form-page::-webkit-scrollbar,
+.form-section::-webkit-scrollbar,
+#stage::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+
+.supernova,
+.form-all,
+.jf-form-page,
+.form-section,
+#stage,
+.supernova .form-all,
+[role="main"] {
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  max-height: none !important;
+  scrollbar-width: none !important;
 }
 
 /* Thank-you / confirmation: no full-viewport vertical centering */

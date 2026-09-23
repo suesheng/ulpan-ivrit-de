@@ -3,6 +3,7 @@ import { uiLocale, type UiLocale } from "./i18n";
 export type Messages = {
   meta: {
     descDefault: string;
+    ogImageAlt: string;
     skip: string;
     navAria: string;
     footerAria: string;
@@ -245,7 +246,9 @@ export const messages: Record<UiLocale, Messages> = {
   de: {
     meta: {
       descDefault:
-        "Hebräisch lernen vor Ort und online — Ulpan Ivrit, BiFoDe e.V.",
+        "Anmeldung zum Ulpan: Hebräisch A1 für Anfänger. 60 Unterrichtsstunden, Fokus auf gesprochenes Hebräisch. Mit kostenloser BiFoDe-Mitgliedschaft 60 €/Monat.",
+      ogImageAlt:
+        "Anmeldung zum Ulpan — Hebräisch A1 Anfänger, 60 Unterrichtsstunden, 60 €/Monat mit kostenloser BiFoDe-Mitgliedschaft",
       skip: "Zum Inhalt",
       navAria: "Hauptnavigation",
       footerAria: "Fußzeile",
@@ -551,7 +554,10 @@ export const messages: Record<UiLocale, Messages> = {
   },
   ru: {
     meta: {
-      descDefault: "Иврит очно и онлайн — Ulpan Ivrit, BiFoDe e.V.",
+      descDefault:
+        "Запись в ульпан: иврит A1 для начинающих. 60 академических часов, упор на разговорный иврит. С бесплатным членством BiFoDe — 60 €/месяц.",
+      ogImageAlt:
+        "Запись в ульпан — иврит A1 для начинающих, 60 часов, 60 €/месяц с бесплатным членством BiFoDe",
       skip: "К содержанию",
       navAria: "Главная навигация",
       footerAria: "Подвал сайта",
@@ -856,7 +862,10 @@ export const messages: Record<UiLocale, Messages> = {
   },
   en: {
     meta: {
-      descDefault: "Learn Hebrew in person and online — Ulpan Ivrit, BiFoDe e.V.",
+      descDefault:
+        "Register for Ulpan: Hebrew A1 for beginners. 60 lessons, focus on spoken Hebrew. With free BiFoDe membership: 60 €/month.",
+      ogImageAlt:
+        "Ulpan registration — Hebrew A1 beginners, 60 lessons, 60 €/month with free BiFoDe membership",
       skip: "Skip to content",
       navAria: "Main navigation",
       footerAria: "Footer",

@@ -22,6 +22,14 @@ export const LINKS = {
   huji: "https://en.huji.ac.il/",
 } as const;
 
+/** Social share preview (WhatsApp, Facebook, Telegram, X). */
+export const OG = {
+  imagePath: "/og/ulpan-anmeldung.jpg",
+  imageType: "image/jpeg",
+  imageWidth: 1024,
+  imageHeight: 576,
+} as const;
+
 export const PARTNERS = [
   {
     id: "bifode",

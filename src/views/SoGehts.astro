@@ -78,6 +78,7 @@ const formSrc = "/api/jotform-ulpan";
           allow="geolocation; microphone; camera; fullscreen; payment"
           src={formSrc}
           loading="eager"
+          scrolling="no"
         ></iframe>
       </div>
     </section>
@@ -150,10 +151,11 @@ const formSrc = "/api/jotform-ulpan";
         bottom = Math.max(bottom, r.bottom);
       }
       if (found && isFinite(top)) {
-        return Math.ceil(bottom - top + 56);
+        // Extra buffer so the pagebreak button never clips / forces a scrollbar.
+        return Math.ceil(bottom - top + 96);
       }
       // Fallback: offsetHeight of active section only (not body/html).
-      return Math.ceil((target.offsetHeight || 0) + 32);
+      return Math.ceil((target.offsetHeight || 0) + 72);
     }
 
     function setHeight(h, thankyou) {
@@ -163,14 +165,14 @@ const formSrc = "/api/jotform-ulpan";
         height = Math.max(240, Math.min(height, 560));
         iframe.classList.add("is-thankyou");
       } else {
-        // Cap runaway growth; form pages are rarely taller than ~2200px
-        height = Math.max(420, Math.min(height, 2400));
+        height = Math.max(520, Math.min(height, 2400));
         iframe.classList.remove("is-thankyou");
       }
       height = Math.ceil(height);
-      if (Math.abs(height - lastHeight) < 12) return;
+      if (Math.abs(height - lastHeight) < 8) return;
       lastHeight = height;
       iframe.style.height = height + "px";
+      iframe.setAttribute("scrolling", "no");
     }
 
     function syncSameOrigin() {

@@ -10,12 +10,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { locPath, stripLocalePrefix, uiLocales, htmlLang, pageLocale, ogLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
-import { LINKS } from "../lib/links";
+import { LINKS, OG } from "../lib/links";
 
 interface Props {
   title: string;
   description?: string;
   full?: boolean;
+  /** Absolute or site-relative OG image path. Defaults to campaign share image. */
+  image?: string;
 }
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
@@ -24,12 +26,13 @@ const {
   title,
   description = copy.meta.descDefault,
   full = false,
+  image: imageProp,
 } = Astro.props;
 
 const path = stripLocalePrefix(Astro.url.pathname);
 const origin = Astro.site?.origin ?? LINKS.site;
 const canonical = new URL(locPath(locale, path), origin).href;
-const image = new URL("/brand/logo.png", origin).href;
+const image = new URL(imageProp ?? OG.imagePath, origin).href;
 ---
 
 <!doctype html>
@@ -51,6 +54,11 @@ const image = new URL("/brand/logo.png", origin).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:secure_url" content={image} />
+    <meta property="og:image:type" content={OG.imageType} />
+    <meta property="og:image:width" content={String(OG.imageWidth)} />
+    <meta property="og:image:height" content={String(OG.imageHeight)} />
+    <meta property="og:image:alt" content={copy.meta.ogImageAlt} />
     <meta property="og:locale" content={ogLocale(locale)} />
     {
       uiLocales
@@ -59,10 +67,11 @@ const image = new URL("/brand/logo.png", origin).href;
           <meta property="og:locale:alternate" content={ogLocale(code)} />
         ))
     }
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={copy.meta.ogImageAlt} />
     {
       uiLocales.map((code) => (
         <link
