@@ -89,54 +89,88 @@ const formSrc = "/api/jotform-ulpan";
     var iframe = document.getElementById("JotFormIFrame-261742322871052");
     if (!iframe) return;
 
-    var observer = null;
-    var pollTimer = null;
-
-    function measureContentHeight(doc) {
-      if (!doc) return 0;
-      var body = doc.body;
-      var el = doc.documentElement;
-      var nodes = body ? body.children : [];
-      var content = 0;
-      for (var i = 0; i < nodes.length; i++) {
-        var n = nodes[i];
-        if (!n || n.nodeType !== 1) continue;
-        var style = doc.defaultView && doc.defaultView.getComputedStyle(n);
-        if (style && (style.display === "none" || style.visibility === "hidden")) continue;
-        var rect = n.getBoundingClientRect();
-        var bottom = (rect.bottom || 0) + (doc.defaultView ? doc.defaultView.scrollY || 0 : 0);
-        // Prefer offsetTop + offsetHeight for nested layouts
-        var oh = n.offsetTop + n.offsetHeight;
-        content = Math.max(content, bottom, oh, n.scrollHeight || 0);
-      }
-      return Math.max(
-        content,
-        body ? body.scrollHeight : 0,
-        body ? body.offsetHeight : 0,
-        el ? el.scrollHeight : 0,
-        el ? el.offsetHeight : 0,
-      );
-    }
+    var lastHeight = 0;
+    var settleTimer = null;
 
     function isThankYou(doc) {
       if (!doc || !doc.body) return false;
       var text = (doc.body.innerText || "").slice(0, 2000).toLowerCase();
       if (text.indexOf("vielen dank") !== -1 || text.indexOf("thank you") !== -1) return true;
       if (doc.querySelector("[class*='thankyou'], [class*='ThankYou'], .thankyou-wrapper")) return true;
-      if ((doc.body.className || "").toLowerCase().indexOf("thankyou") !== -1) return true;
       return false;
+    }
+
+    /** Measure real form content — never document.scrollHeight (iframe feedback loop). */
+    function measureContentHeight(doc) {
+      if (!doc || !doc.body) return 0;
+      var thankyou = isThankYou(doc);
+
+      if (thankyou) {
+        var ty =
+          doc.querySelector("[class*='thankyou'], [class*='ThankYou'], .thankyou-wrapper, .ty-container") ||
+          doc.querySelector(".form-all") ||
+          doc.body;
+        var tyRect = ty.getBoundingClientRect();
+        return Math.ceil((tyRect.height || ty.offsetHeight || 0) + 32);
+      }
+
+      // Active page only — never sum all pagebreak sections.
+      var sections = doc.querySelectorAll(".form-section");
+      var active = null;
+      for (var s = 0; s < sections.length; s++) {
+        var sec = sections[s];
+        var st = doc.defaultView && doc.defaultView.getComputedStyle(sec);
+        if (!st || st.display === "none" || st.visibility === "hidden") continue;
+        if (sec.offsetHeight < 2) continue;
+        active = sec;
+        break;
+      }
+
+      var target =
+        active ||
+        doc.querySelector(".form-all") ||
+        doc.querySelector("form.jotform-form") ||
+        doc.querySelector("form");
+      if (!target) return 0;
+
+      var lines = target.querySelectorAll(
+        ".form-line, .form-pagebreak, .form-buttons-wrapper, .form-submit-clear-wrapper",
+      );
+      var top = Infinity;
+      var bottom = 0;
+      var found = false;
+      for (var i = 0; i < lines.length; i++) {
+        var n = lines[i];
+        var style = doc.defaultView && doc.defaultView.getComputedStyle(n);
+        if (style && (style.display === "none" || style.visibility === "hidden")) continue;
+        var r = n.getBoundingClientRect();
+        if (r.height < 1) continue;
+        found = true;
+        top = Math.min(top, r.top);
+        bottom = Math.max(bottom, r.bottom);
+      }
+      if (found && isFinite(top)) {
+        return Math.ceil(bottom - top + 56);
+      }
+      // Fallback: offsetHeight of active section only (not body/html).
+      return Math.ceil((target.offsetHeight || 0) + 32);
     }
 
     function setHeight(h, thankyou) {
       var height = Number(h) || 0;
+      if (!height || height < 100) return;
       if (thankyou) {
-        height = Math.max(260, Math.min(height, 720));
+        height = Math.max(240, Math.min(height, 560));
         iframe.classList.add("is-thankyou");
       } else {
-        height = Math.max(480, height);
+        // Cap runaway growth; form pages are rarely taller than ~2200px
+        height = Math.max(420, Math.min(height, 2400));
         iframe.classList.remove("is-thankyou");
       }
-      iframe.style.height = Math.ceil(height) + "px";
+      height = Math.ceil(height);
+      if (Math.abs(height - lastHeight) < 12) return;
+      lastHeight = height;
+      iframe.style.height = height + "px";
     }
 
     function syncSameOrigin() {
@@ -149,38 +183,19 @@ const formSrc = "/api/jotform-ulpan";
           doc.body.classList.add("thankyou");
         }
         var h = measureContentHeight(doc);
-        if (h > 80) setHeight(h + (thankyou ? 16 : 24), thankyou);
+        if (h > 80) setHeight(h, thankyou);
       } catch (_) {
         /* ignore */
       }
     }
 
-    function watchSameOrigin() {
-      try {
-        var doc = iframe.contentDocument;
-        if (!doc || !doc.body) return;
-        if (observer) observer.disconnect();
-        observer = new MutationObserver(function () {
-          syncSameOrigin();
-        });
-        observer.observe(doc.documentElement, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-        });
-        if (typeof ResizeObserver !== "undefined" && doc.body) {
-          var ro = new ResizeObserver(function () {
-            syncSameOrigin();
-          });
-          ro.observe(doc.body);
-        }
-      } catch (_) {
-        /* ignore */
-      }
+    function scheduleSync() {
+      if (settleTimer) clearTimeout(settleTimer);
+      settleTimer = setTimeout(syncSameOrigin, 120);
     }
 
     window.addEventListener("message", function (e) {
-      if (!e || !e.data) return;
+      if (!e || e.source !== iframe.contentWindow || !e.data) return;
       var origin = String(e.origin || "");
       var ok =
         origin === window.location.origin ||
@@ -191,42 +206,43 @@ const formSrc = "/api/jotform-ulpan";
       var data = e.data;
       var thankyou = false;
       try {
-        thankyou = isThankYou(iframe.contentDocument);
+        thankyou = isThankYou(iframe.contentDocument) || !!(data && data.thankYou);
       } catch (_) {}
 
       if (typeof data === "object") {
         if (data.thankYou || data.action === "submission-completed" || data.action === "thankYou") {
-          setHeight(data.height || data.value || 320, true);
-          setTimeout(syncSameOrigin, 50);
-          setTimeout(syncSameOrigin, 300);
+          setHeight(data.height || 320, true);
+          scheduleSync();
           return;
         }
+        // Ignore raw setHeight from Jotform if it looks like viewport feedback
         if (data.action === "setHeight" || data.action === "setPageHeight") {
-          setHeight(data.height || data.value, thankyou);
-        } else if (typeof data.frameHeight === "number") {
-          setHeight(data.frameHeight, thankyou);
-        } else if (typeof data.height === "number") {
-          setHeight(data.height, thankyou);
+          var incoming = Number(data.height || data.value) || 0;
+          if (thankyou) {
+            setHeight(incoming, true);
+          } else if (incoming > 0 && incoming < 2400) {
+            // Prefer our own measure; only accept if close to content
+            scheduleSync();
+          }
+          return;
         }
-      } else if (typeof data === "string" && data.indexOf("setHeight:") === 0) {
-        setHeight(data.split(":")[1], thankyou);
       }
+      scheduleSync();
     });
 
     iframe.addEventListener("load", function () {
+      lastHeight = 0;
       syncSameOrigin();
-      watchSameOrigin();
-      setTimeout(syncSameOrigin, 200);
-      setTimeout(syncSameOrigin, 800);
-      setTimeout(syncSameOrigin, 1600);
-      if (pollTimer) clearInterval(pollTimer);
-      // Catch thank-you swap without a full iframe reload.
-      var ticks = 0;
-      pollTimer = setInterval(function () {
-        syncSameOrigin();
-        ticks += 1;
-        if (ticks > 40) clearInterval(pollTimer);
-      }, 500);
+      setTimeout(syncSameOrigin, 300);
+      setTimeout(syncSameOrigin, 900);
+      try {
+        var doc = iframe.contentDocument;
+        if (!doc) return;
+        var mo = new MutationObserver(scheduleSync);
+        mo.observe(doc.documentElement, { childList: true, subtree: true });
+      } catch (_) {
+        /* ignore */
+      }
     });
   })();
 </script>

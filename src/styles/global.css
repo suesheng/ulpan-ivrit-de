@@ -501,11 +501,10 @@ h1 {
   display: block;
   width: 100%;
   min-height: 0;
-  height: 720px;
+  height: 900px;
   border: 0;
   background: transparent;
   color-scheme: light;
-  transition: height 0.2s ease;
 }
 
 .jotform-frame iframe.is-thankyou,

@@ -30,6 +30,12 @@ body.supernova {
   overflow-x: hidden !important;
   min-height: 0 !important;
   height: auto !important;
+  max-height: none !important;
+}
+
+.supernova {
+  min-height: 0 !important;
+  height: auto !important;
 }
 
 /* Thank-you / confirmation: no full-viewport vertical centering */
@@ -261,38 +267,41 @@ li[data-type="control_text"] strong {
 const ULPAN_HEIGHT_SCRIPT = `
 <script id="ulpan-ivrit-height-bridge">
 (function () {
+  var last = 0;
   function measure() {
     var body = document.body;
-    var el = document.documentElement;
-    var h = Math.max(
-      body ? body.scrollHeight : 0,
-      body ? body.offsetHeight : 0,
-      el ? el.scrollHeight : 0,
-      el ? el.offsetHeight : 0
-    );
+    var form = document.querySelector(".form-all") || document.querySelector("form") || body;
+    if (!form) return;
     var text = ((body && body.innerText) || "").toLowerCase();
     var thankyou =
       text.indexOf("vielen dank") !== -1 ||
       text.indexOf("thank you") !== -1 ||
       !!(document.querySelector("[class*='thankyou'], [class*='ThankYou'], .thankyou-wrapper"));
     if (thankyou) {
-      el && el.classList.add("thankyou");
+      document.documentElement.classList.add("thankyou");
       body && body.classList.add("thankyou");
     }
+    var target = thankyou
+      ? document.querySelector("[class*='thankyou'], [class*='ThankYou'], .thankyou-wrapper, .ty-container") || form
+      : form;
+    var rect = target.getBoundingClientRect();
+    var h = Math.ceil((rect.height || target.offsetHeight || 0) + (thankyou ? 24 : 32));
+    if (h < 120 || Math.abs(h - last) < 16) return;
+    last = h;
     try {
-      parent.postMessage(
-        { action: "setHeight", height: h + 8, thankYou: thankyou },
-        "*"
-      );
+      parent.postMessage({ action: "setHeight", height: h, thankYou: thankyou }, "*");
     } catch (e) {}
   }
+  var t;
+  function schedule() {
+    clearTimeout(t);
+    t = setTimeout(measure, 100);
+  }
   window.addEventListener("load", measure);
-  window.addEventListener("resize", measure);
   document.addEventListener("DOMContentLoaded", measure);
-  setInterval(measure, 600);
   if (typeof MutationObserver !== "undefined") {
-    var mo = new MutationObserver(measure);
-    mo.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+    var mo = new MutationObserver(schedule);
+    mo.observe(document.documentElement, { childList: true, subtree: true });
   }
 })();
 </script>
