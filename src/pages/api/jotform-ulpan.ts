@@ -12,8 +12,8 @@ const ULPAN_THEME_CSS = `
   --ulpan-muted: #4a6d8c;
   --ulpan-line: #c5d8ea;
   --ulpan-bg: #ffffff;
-  --ulpan-font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  --ulpan-font-body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --ulpan-font-display: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --ulpan-font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 html,
@@ -109,9 +109,10 @@ div[class*="thankyou"] {
   margin: 0 auto !important;
   padding: 0 !important;
   font-family: var(--ulpan-font-body) !important;
-  font-size: 1rem !important;
+  font-size: 1.2rem !important;
   color: var(--ulpan-navy) !important;
   --clrText: var(--ulpan-navy) !important;
+  line-height: 1.45 !important;
 }
 
 .supernova.stacked-form .form-line,
@@ -166,12 +167,14 @@ li[data-type="control_head"]:has(#cid_16) {
   font-family: var(--ulpan-font-display) !important;
   font-weight: 700 !important;
   color: var(--ulpan-navy) !important;
-  font-size: 1.35rem !important;
+  font-size: 1.75rem !important;
+  line-height: 1.25 !important;
 }
 
 .form-header-group .form-subHeader {
   color: var(--ulpan-muted) !important;
   font-family: var(--ulpan-font-body) !important;
+  font-size: 1.15rem !important;
 }
 
 .form-label,
@@ -184,11 +187,23 @@ li[data-type="control_head"]:has(#cid_16) {
   color: var(--ulpan-blue) !important;
   font-family: var(--ulpan-font-body) !important;
   font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  line-height: 1.4 !important;
 }
 
 .form-sub-label {
   color: var(--ulpan-muted) !important;
   font-family: var(--ulpan-font-body) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+}
+
+.form-description,
+.form-description-content,
+.form-sub-label-container,
+.form-matrix-row-headers,
+.form-matrix-column-headers {
+  font-size: 1.05rem !important;
 }
 
 .form-textbox,
@@ -205,11 +220,19 @@ input[type="number"],
 select,
 textarea {
   font-family: var(--ulpan-font-body) !important;
+  font-size: 1.15rem !important;
+  line-height: 1.4 !important;
   color: var(--ulpan-navy) !important;
   border: 1px solid var(--ulpan-line) !important;
   border-radius: 0 !important;
   background: #fff !important;
   box-shadow: none !important;
+  padding: 0.65rem 0.75rem !important;
+  min-height: 2.75rem !important;
+}
+
+.form-textarea {
+  min-height: 7rem !important;
 }
 
 .form-textbox:focus,
@@ -231,7 +254,7 @@ button.form-submit-button,
 [data-component="button"] button {
   font-family: var(--ulpan-font-display) !important;
   font-weight: 600 !important;
-  font-size: 0.92rem !important;
+  font-size: 1.15rem !important;
   background: var(--ulpan-blue) !important;
   background-color: var(--ulpan-blue) !important;
   background-image: none !important;
@@ -240,7 +263,7 @@ button.form-submit-button,
   color: #fff !important;
   box-shadow: none !important;
   text-shadow: none !important;
-  padding: 10px 18px !important;
+  padding: 12px 20px !important;
   min-width: auto !important;
 }
 
@@ -360,7 +383,7 @@ export async function GET({ url }: { url: URL }) {
 <base href="https://form.jotform.com/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap&subset=latin,cyrillic" rel="stylesheet" />
 <style id="ulpan-ivrit-jotform-theme">${ULPAN_THEME_CSS}</style>
 `;
 
