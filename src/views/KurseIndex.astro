@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CtaMitglied from "../components/CtaMitglied.astro";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -17,6 +16,7 @@ const courses = (await getCollection("courses")).sort(
 <BaseLayout title={copy.kurse.title} description={copy.kurse.desc}>
   <div class="stack">
     <h1>{copy.kurse.h1}</h1>
+    <p class="notice-banner">{copy.kurse.notice}</p>
     <p>{copy.kurse.intro}</p>
     <p>
       <a href={href("/vor-ort")}>{copy.kurse.localLink}</a>.
@@ -39,6 +39,8 @@ const courses = (await getCollection("courses")).sort(
         })
       }
     </div>
-    <CtaMitglied />
+    <p>
+      <a class="btn" href={href("/kontakt")}>{copy.kurse.interestCta}</a>
+    </p>
   </div>
 </BaseLayout>

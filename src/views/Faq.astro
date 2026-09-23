@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaMitglied from "../components/CtaMitglied.astro";
+import { ANMELDUNG_HASH } from "../lib/course";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
+const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 ---
 
 <BaseLayout title={copy.faq.title} description={copy.faq.desc}>
@@ -24,21 +26,23 @@ const href = (p: string) => locPath(locale, p);
       </details>
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q3}</summary>
-        <p>
-          <a href={href("/vor-ort")}>{copy.faq.q3Link}</a>. {copy.faq.a3}
-        </p>
+        <p>{copy.faq.a3}</p>
       </details>
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q4}</summary>
         <p>
           {copy.faq.a4}
           {" "}
-          <a href={href("/vor-ort")}>{copy.faq.a4Link}</a>.
+          <a href={anmelden}>{copy.faq.a4Link}</a>.
         </p>
       </details>
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q5}</summary>
-        <p>{copy.faq.a5}</p>
+        <p>
+          {copy.faq.a5}
+          {" "}
+          <a href={href("/kontakt")}>{copy.nav.kontakt}</a>.
+        </p>
       </details>
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q6}</summary>
@@ -50,6 +54,6 @@ const href = (p: string) => locPath(locale, p);
       </details>
     </div>
 
-    <CtaMitglied />
+    <CtaMitglied label={copy.nav.member} />
   </div>
 </BaseLayout>

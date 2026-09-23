@@ -90,20 +90,22 @@ export const METHODIK = {
   href: LINKS.huji,
 } as const;
 
-/** Typical Präsenz session: two full hours, weekly, with a break. */
+/** Typical Präsenz session: two lessons of 45 min with a break. */
 export const SESSION = {
-  hours: 2,
-  frequencyDe: "einmal wöchentlich",
+  lessonMinutes: 45,
+  lessonsPerSession: 2,
+  frequencyDe: "mittwochs",
   focusDe: "gesprochenes Hebräisch",
 } as const;
 
-/** Course fees (membership itself is free). */
+/** Course fees (membership itself is free). Düsseldorf A1 2026/27. */
 export const MEMBERSHIP = {
-  memberHour: 8,
-  nonMemberHour: 16,
-  hoursPerYear: 60,
-  memberYear: 480,
-  nonMemberYear: 960,
-  memberMonth: 40,
-  nonMemberMonth: 80,
+  memberLesson: 8,
+  nonMemberLesson: 16,
+  totalLessons: 60,
+  memberMonth: 60,
+  nonMemberMonth: 120,
+  memberTotal: 480,
+  nonMemberTotal: 960,
+  installments: 8,
 } as const;

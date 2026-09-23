@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CtaMitglied from "../components/CtaMitglied.astro";
 import { EXT, LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
@@ -26,6 +25,8 @@ const local = copy.courses[course.id];
       <a href={LINKS.moodle} {...EXT}>{copy.kurse.moodle}</a>
       <span class="muted">{copy.kurse.moodleNote}</span>
     </p>
-    <CtaMitglied />
+    <p>
+      <a class="btn" href={locPath(locale, "/kontakt")}>{copy.kurse.interestCta}</a>
+    </p>
   </div>
 </BaseLayout>

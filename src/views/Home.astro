@@ -3,28 +3,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LetterVortex from "../components/LetterVortex.astro";
 import QuoteBand from "../components/QuoteBand.astro";
 import { locPath, pageLocale } from "../lib/i18n";
-import { EXT, LINKS } from "../lib/links";
+import { ANMELDUNG_HASH } from "../lib/course";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
-const anmelden = LINKS.jotformUlpan;
+const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 ---
 
-<BaseLayout full title={copy.home.title}>
+<BaseLayout full title={copy.home.title} description={copy.home.description}>
   <section class="hero wrap">
     <div class="hero-copy">
       <h1 set:html={copy.home.h1} />
       <p>{copy.home.lead}</p>
       <div class="hero-actions">
-        <a class="btn" href={href("/so-gehts")}>{copy.nav.start}</a>
+        <a class="btn" href={anmelden}>{copy.nav.start}</a>
       </div>
     </div>
     <LetterVortex />
   </section>
 
   <QuoteBand />
+
+  <section class="wrap next-course" aria-label={copy.home.nextEyebrow}>
+    <p class="next-course-eyebrow home-perk">{copy.home.nextEyebrow}</p>
+    <h2>{copy.home.nextTitle}</h2>
+    <p>{copy.home.nextWhen}</p>
+    <p>{copy.home.nextWhere}</p>
+    <p>{copy.home.nextMeta}</p>
+    <p class="home-price" set:html={copy.home.nextPrice} />
+    <p><a class="btn" href={anmelden}>{copy.home.nextCta}</a></p>
+  </section>
 
   <section class="wrap join-band">
     <ul class="feature-list">
@@ -33,7 +43,7 @@ const anmelden = LINKS.jotformUlpan;
       <li class="home-perk" set:html={copy.home.f5} />
     </ul>
     <div class="cta-frame">
-      <a class="btn" href={anmelden} {...EXT}>{copy.nav.start}</a>
+      <a class="btn" href={anmelden}>{copy.nav.start}</a>
       <p class="cta-pitch" set:html={copy.home.ctaPitch} />
       <p class="cta-ask">
         {copy.home.ctaQuestions}
@@ -45,22 +55,16 @@ const anmelden = LINKS.jotformUlpan;
 
   <section class="wrap stack home-cards">
     <div class="card-list">
-      <article class="card card-online">
-        <h2>{copy.home.onlineTitle}</h2>
-        <p>{copy.home.onlineText}</p>
-        <p class="home-price" set:html={copy.home.onlinePrice} />
-        <p><a href={anmelden} {...EXT}>{copy.home.onlineLink}</a></p>
-      </article>
       <article class="card card-local">
         <h2>{copy.home.localTitle}</h2>
         <p>{copy.home.localText}</p>
-        <p class="home-price" set:html={copy.home.localPrice} />
-        <p><a href={anmelden} {...EXT}>{copy.home.localLink}</a></p>
-        <p class="home-ask">
-          {copy.home.localGemeindeQ}
-          {" "}
-          <a href={href("/kontakt")}>{copy.home.localContact}</a>
-        </p>
+        <p><a href={anmelden}>{copy.home.localLink}</a></p>
+      </article>
+      <article class="card card-online">
+        <p class="badge-soon">{copy.home.onlineBadge}</p>
+        <h2>{copy.home.onlineTitle}</h2>
+        <p>{copy.home.onlineText}</p>
+        <p><a class="btn btn-ghost" href={href("/kontakt")}>{copy.home.onlineCta}</a></p>
       </article>
     </div>
   </section>

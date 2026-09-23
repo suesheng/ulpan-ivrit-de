@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { COURSE } from "../lib/course";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
-const anmelden = `${href("/so-gehts")}#anmelden`;
-const formSrc = "/api/jotform-ulpan";
+const formLang =
+  locale === "ru" ? "?language=ru" : locale === "en" ? "?language=en" : "";
+const formSrc = `/api/jotform-ulpan${formLang}`;
 ---
 
 <BaseLayout title={copy.soGehts.title} description={copy.soGehts.desc}>
@@ -20,60 +22,60 @@ const formSrc = "/api/jotform-ulpan";
         <h2>{copy.soGehts.step1}</h2>
         <div class="path-body">
           <p>{copy.soGehts.step1Text}</p>
-          <p><strong>{copy.soGehts.step1BenefitsTitle}</strong></p>
-          <ul class="feature-list">
-            {copy.soGehts.step1Benefits.map((item) => <li>{item}</li>)}
-          </ul>
-          <p>{copy.soGehts.step1Fee}</p>
-          <a class="btn" href={anmelden}>{copy.soGehts.step1Cta}</a>
         </div>
       </li>
-
       <li class="path-step">
         <h2>{copy.soGehts.step2}</h2>
         <div class="path-body">
           <p>{copy.soGehts.step2Text}</p>
-          <div class="card-list">
-            <article class="card card-online">
-              <h3>{copy.soGehts.formatTitle}</h3>
-              <p>{copy.soGehts.formatText}</p>
-            </article>
-            <article class="card card-local">
-              <h3>{copy.soGehts.locationsTitle}</h3>
-              <p>{copy.soGehts.locationsText}</p>
-              <p>
-                <strong>{copy.soGehts.citiesTitle}</strong>
-                {" "}
-                {copy.soGehts.cities.join(", ")}
-              </p>
-            </article>
-          </div>
-          <p>{copy.soGehts.step2Fee}</p>
-          <a class="btn" href={anmelden}>{copy.soGehts.step2Cta}</a>
         </div>
       </li>
-
       <li class="path-step">
         <h2>{copy.soGehts.step3}</h2>
         <div class="path-body">
-          <p>{copy.soGehts.step3Intro}</p>
-          <ul class="feature-list">
-            {copy.soGehts.step3Items.map((item) => <li>{item}</li>)}
-          </ul>
-          <p><strong>{copy.soGehts.paymentTitle}</strong></p>
-          <ul class="feature-list">
-            {copy.soGehts.paymentItems.map((item) => <li>{item}</li>)}
-          </ul>
-          <p>{copy.soGehts.step3Note}</p>
+          <p>{copy.soGehts.step3Text}</p>
         </div>
       </li>
     </ol>
 
-    <section id="anmelden" class="stack jotform-embed" aria-label={copy.soGehts.formTitle}>
+    <section class="stack" aria-labelledby="tarife">
+      <h2 id="tarife">{copy.soGehts.tariffTitle}</h2>
+      <div class="card-list tariff-grid">
+        <article class="card tariff tariff-recommended">
+          <p class="badge-soon home-perk">{copy.soGehts.tariffRecommended}</p>
+          <h3>{copy.soGehts.tariffMemberTitle}</h3>
+          <ul class="feature-list">
+            {copy.soGehts.tariffMemberItems.map((item) => <li set:html={item.replace(/^(\d+ €)/, "<strong>$1</strong>")} />)}
+          </ul>
+        </article>
+        <article class="card tariff">
+          <h3>{copy.soGehts.tariffNonTitle}</h3>
+          <ul class="feature-list">
+            {copy.soGehts.tariffNonItems.map((item) => <li set:html={item.replace(/^(\d+ €)/, "<strong>$1</strong>")} />)}
+          </ul>
+        </article>
+      </div>
+      <p class="muted">{copy.soGehts.tariffNote}</p>
+    </section>
+
+    <details class="course-dates">
+      <summary>{copy.soGehts.datesTitle}</summary>
+      <p>{copy.soGehts.datesSummary}</p>
+      <p>
+        <strong>{copy.soGehts.datesFreeLabel}:</strong>
+        {" "}
+        {COURSE.freeDates.join(", ")}
+      </p>
+      <ul class="date-list">
+        {COURSE.dates.map((d) => <li>{d}</li>)}
+      </ul>
+    </details>
+
+    <section id="anmeldung" class="stack jotform-embed" aria-label={copy.soGehts.formTitle}>
       <h2>{copy.soGehts.formTitle}</h2>
       <div class="jotform-frame">
         <iframe
-          id="JotFormIFrame-261742322871052"
+          id={`JotFormIFrame-${COURSE.jotformId}`}
           title={copy.soGehts.formTitle}
           allow="geolocation; microphone; camera; fullscreen; payment"
           src={formSrc}
@@ -82,12 +84,18 @@ const formSrc = "/api/jotform-ulpan";
         ></iframe>
       </div>
     </section>
+
+    <p class="no-course">
+      {copy.soGehts.noCourse}
+      {" "}
+      <a href={href("/kontakt")}>{copy.soGehts.noCourseLink}</a>
+    </p>
   </div>
 </BaseLayout>
 
-<script is:inline>
+<script is:inline define:vars={{ formId: COURSE.jotformId }}>
   (function () {
-    var iframe = document.getElementById("JotFormIFrame-261742322871052");
+    var iframe = document.getElementById("JotFormIFrame-" + formId);
     if (!iframe) return;
 
     var lastHeight = 0;
@@ -101,11 +109,9 @@ const formSrc = "/api/jotform-ulpan";
       return false;
     }
 
-    /** Measure real form content — never document.scrollHeight (iframe feedback loop). */
     function measureContentHeight(doc) {
       if (!doc || !doc.body) return 0;
       var thankyou = isThankYou(doc);
-
       if (thankyou) {
         var ty =
           doc.querySelector("[class*='thankyou'], [class*='ThankYou'], .thankyou-wrapper, .ty-container") ||
@@ -114,8 +120,6 @@ const formSrc = "/api/jotform-ulpan";
         var tyRect = ty.getBoundingClientRect();
         return Math.ceil((tyRect.height || ty.offsetHeight || 0) + 32);
       }
-
-      // Active page only — never sum all pagebreak sections.
       var sections = doc.querySelectorAll(".form-section");
       var active = null;
       for (var s = 0; s < sections.length; s++) {
@@ -126,14 +130,12 @@ const formSrc = "/api/jotform-ulpan";
         active = sec;
         break;
       }
-
       var target =
         active ||
         doc.querySelector(".form-all") ||
         doc.querySelector("form.jotform-form") ||
         doc.querySelector("form");
       if (!target) return 0;
-
       var lines = target.querySelectorAll(
         ".form-line, .form-pagebreak, .form-buttons-wrapper, .form-submit-clear-wrapper",
       );
@@ -150,11 +152,7 @@ const formSrc = "/api/jotform-ulpan";
         top = Math.min(top, r.top);
         bottom = Math.max(bottom, r.bottom);
       }
-      if (found && isFinite(top)) {
-        // Extra buffer so the pagebreak button never clips / forces a scrollbar.
-        return Math.ceil(bottom - top + 96);
-      }
-      // Fallback: offsetHeight of active section only (not body/html).
+      if (found && isFinite(top)) return Math.ceil(bottom - top + 96);
       return Math.ceil((target.offsetHeight || 0) + 72);
     }
 
@@ -186,9 +184,7 @@ const formSrc = "/api/jotform-ulpan";
         }
         var h = measureContentHeight(doc);
         if (h > 80) setHeight(h, thankyou);
-      } catch (_) {
-        /* ignore */
-      }
+      } catch (_) {}
     }
 
     function scheduleSync() {
@@ -204,28 +200,19 @@ const formSrc = "/api/jotform-ulpan";
         origin.indexOf("jotform.com") !== -1 ||
         origin.indexOf("jotfor.ms") !== -1;
       if (!ok) return;
-
       var data = e.data;
       var thankyou = false;
       try {
         thankyou = isThankYou(iframe.contentDocument) || !!(data && data.thankYou);
       } catch (_) {}
-
       if (typeof data === "object") {
         if (data.thankYou || data.action === "submission-completed" || data.action === "thankYou") {
           setHeight(data.height || 320, true);
           scheduleSync();
           return;
         }
-        // Ignore raw setHeight from Jotform if it looks like viewport feedback
         if (data.action === "setHeight" || data.action === "setPageHeight") {
-          var incoming = Number(data.height || data.value) || 0;
-          if (thankyou) {
-            setHeight(incoming, true);
-          } else if (incoming > 0 && incoming < 2400) {
-            // Prefer our own measure; only accept if close to content
-            scheduleSync();
-          }
+          scheduleSync();
           return;
         }
       }
@@ -242,9 +229,16 @@ const formSrc = "/api/jotform-ulpan";
         if (!doc) return;
         var mo = new MutationObserver(scheduleSync);
         mo.observe(doc.documentElement, { childList: true, subtree: true });
-      } catch (_) {
-        /* ignore */
-      }
+      } catch (_) {}
     });
   })();
+</script>
+<script is:inline src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script is:inline define:vars={{ formId: COURSE.jotformId }}>
+  if (window.jotformEmbedHandler) {
+    window.jotformEmbedHandler(
+      "iframe[id='JotFormIFrame-" + formId + "']",
+      "https://form.jotform.com/",
+    );
+  }
 </script>

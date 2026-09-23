@@ -1,7 +1,6 @@
 export const prerender = false;
 
 const FORM_ID = "261742322871052";
-const FORM_URL = `https://form.jotform.com/${FORM_ID}?isIframeEmbed=1`;
 
 /** Brand CSS injected into the proxied Jotform document (cross-origin iframe cannot be styled from the parent). */
 const ULPAN_THEME_CSS = `
@@ -332,9 +331,16 @@ const ULPAN_HEIGHT_SCRIPT = `
 </script>
 `;
 
-export async function GET() {
+export async function GET({ url }: { url: URL }) {
   try {
-    const upstream = await fetch(FORM_URL, {
+    const lang = url.searchParams.get("language") || url.searchParams.get("lang");
+    const formUrl = new URL(`https://form.jotform.com/${FORM_ID}`);
+    formUrl.searchParams.set("isIframeEmbed", "1");
+    if (lang === "ru" || lang === "en") {
+      formUrl.searchParams.set("language", lang);
+    }
+
+    const upstream = await fetch(formUrl.href, {
       headers: {
         Accept: "text/html,application/xhtml+xml",
         "User-Agent": "ulpan-ivrit-de-form-embed/1.0",

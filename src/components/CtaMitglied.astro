@@ -1,5 +1,6 @@
 ---
 import { locPath, pageLocale } from "../lib/i18n";
+import { ANMELDUNG_HASH } from "../lib/course";
 import { t } from "../lib/messages";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const { label = t(locale).nav.member } = Astro.props;
-const href = locPath(locale, "/so-gehts") + "#anmelden";
+const href = locPath(locale, "/so-gehts") + ANMELDUNG_HASH;
 ---
 
 <a class="btn" href={href}>{label}</a>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PrivacyCheck from "../components/PrivacyCheck.astro";
+import { ANMELDUNG_HASH } from "../lib/course";
 import { LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
@@ -8,12 +9,21 @@ import { t } from "../lib/messages";
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
+const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 const subject = encodeURIComponent(copy.vorOrt.subject);
 ---
 
 <BaseLayout title={copy.vorOrt.title} description={copy.vorOrt.desc}>
   <div class="stack">
     <h1>{copy.vorOrt.h1}</h1>
+
+    <section class="next-course" aria-label={copy.vorOrt.currentTitle}>
+      <h2>{copy.vorOrt.currentTitle}</h2>
+      <p>{copy.vorOrt.currentMeta}</p>
+      <p class="home-price" set:html={copy.vorOrt.currentPrice} />
+      <p><a class="btn" href={anmelden}>{copy.vorOrt.currentCta}</a></p>
+    </section>
+
     <p>{copy.vorOrt.p1}</p>
 
     <div class="card-list">
@@ -34,7 +44,7 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
     <p>
       {copy.vorOrt.p4}
       {" "}
-      <a href={href("/so-gehts")}>{copy.vorOrt.p4Link}</a>.
+      <a href={anmelden}>{copy.vorOrt.p4Link}</a>.
     </p>
 
     <h2>{copy.vorOrt.formTitle}</h2>

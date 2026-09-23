@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { ANMELDUNG_HASH } from "../lib/course";
 import { LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
@@ -7,6 +8,7 @@ import { t } from "../lib/messages";
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
+const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 ---
 
 <BaseLayout title={copy.kontakt.title} description={copy.kontakt.desc}>
@@ -22,7 +24,7 @@ const href = (p: string) => locPath(locale, p);
       <article class="card card-online">
         <h2>{copy.kontakt.learnersTitle}</h2>
         <p>{copy.kontakt.learners}</p>
-        <p><a href={href("/so-gehts")}>{copy.kontakt.learnersLink}</a></p>
+        <p><a href={anmelden}>{copy.kontakt.learnersLink}</a></p>
       </article>
       <article class="card card-local">
         <h2>{copy.kontakt.orgsTitle}</h2>

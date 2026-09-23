@@ -80,7 +80,7 @@ const de: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "Externe Links (Partner, Moodle, Mitgliedsantrag auf bifode.org) führen zu Inhalten Dritter. Auf diese Inhalte haben wir keinen Einfluss und distanzieren uns von rechtswidrigen Inhalten.",
+            text: "Externe Links (Partner, Moodle) führen zu Inhalten Dritter. Auf diese Inhalte haben wir keinen Einfluss und distanzieren uns von rechtswidrigen Inhalten.",
           },
         ],
       },
@@ -176,7 +176,7 @@ const de: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "Der Button „Mitglied werden“ führt auf bifode.org. Dort kann ein externes Formular (derzeit Jotform, USA) eingesetzt werden. Dafür gilt die Datenschutzerklärung von BiFoDe, nicht diese Seite.",
+            text: "Die Anmeldung läuft über ein eingebettetes Formular (Jotform, USA) auf dieser Website. Für die dort eingegebenen Daten gilt die Datenschutzerklärung von BiFoDe bzw. des Formularanbieters, soweit einschlägig.",
           },
           {
             type: "p",
@@ -344,7 +344,7 @@ const ru: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "Внешние ссылки (партнёры, Moodle, заявка на bifode.org) ведут на чужие сайты. На их содержание мы не влияем.",
+            text: "Внешние ссылки (партнёры, Moodle) ведут на чужие сайты. На их содержание мы не влияем.",
           },
         ],
       },
@@ -437,7 +437,7 @@ const ru: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "«Стать членом» ведёт на bifode.org; там может быть внешняя форма (Jotform). Действует политика BiFoDe.",
+            text: "Запись идёт через встроенную форму (Jotform) на этом сайте. Для данных в форме действует политика BiFoDe и/или провайдера формы.",
           },
           {
             type: "p",
@@ -577,7 +577,7 @@ const en: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "External links (partners, Moodle, membership on bifode.org) lead to third-party sites. We have no control over those pages.",
+            text: "External links (partners, Moodle) lead to third-party sites. We have no control over those pages.",
           },
         ],
       },
@@ -667,7 +667,7 @@ const en: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "“Become a member” goes to bifode.org, which may use an external form (Jotform). BiFoDe’s privacy notice applies there.",
+            text: "Registration uses an embedded form (Jotform, USA) on this site. For data entered there, BiFoDe’s and/or the form provider’s privacy notice applies as relevant.",
           },
           {
             type: "p",
