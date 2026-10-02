@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CourseCard from "../components/CourseCard.astro";
 import LetterVortex from "../components/LetterVortex.astro";
 import QuoteBand from "../components/QuoteBand.astro";
 import { locPath, pageLocale } from "../lib/i18n";
@@ -11,6 +12,11 @@ const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
 const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
+const preise = href("/preise");
+
+const activeCities = copy.home.firstCities.filter((city) => Boolean(city.start));
+const plannedCities = copy.home.firstCities.filter((city) => !city.start);
+const plannedPreview = 6;
 ---
 
 <BaseLayout full title={copy.home.title} description={copy.home.description}>
@@ -19,7 +25,7 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
       <h1 set:html={copy.home.h1} />
       <p>{copy.home.lead}</p>
       <div class="hero-actions">
-        <a class="btn" href={anmelden}>{copy.nav.start}</a>
+        <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
       </div>
     </div>
     <LetterVortex />
@@ -32,13 +38,19 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
     <div class="next-course-grid">
       {
         copy.home.nextCourses.map((course) => (
-          <article class="next-course-card">
-            <h2>{course.title}</h2>
-            <p>{course.when}</p>
-            <p>
-              <a href={href("/preise")}>{copy.nav.preise}</a>
-            </p>
-          </article>
+          <CourseCard
+            status={course.status}
+            level={course.level}
+            place={course.place}
+            venue={course.venue}
+            start={course.start}
+            schedule={course.schedule}
+            format={course.format}
+            detailsHref={preise}
+            detailsLabel={copy.home.courseDetails}
+            ctaHref={anmelden}
+            ctaLabel={copy.home.registerNow}
+          />
         ))
       }
     </div>
@@ -47,18 +59,57 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
   <section class="wrap first-ulpan" aria-labelledby="first-ulpan-heading">
     <h2 id="first-ulpan-heading">{copy.home.firstH2}</h2>
     <p>{copy.home.firstText}</p>
-    <ul class="city-chips">
+
+    <div class="city-block">
+      <h3 class="city-block-title">{copy.home.activeCitiesTitle}</h3>
+      <ul class="city-chips">
+        {
+          activeCities.map((city) => (
+            <li class="city-chip city-chip-active">
+              <span class="city-chip-name">{city.name}</span>
+              <span class="city-chip-badge">{city.start}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="city-block" data-city-planned>
+      <h3 class="city-block-title">{copy.home.plannedCitiesTitle}</h3>
+      <ul class="city-chips">
+        {
+          plannedCities.map((city, index) => (
+            <li
+              class:list={[
+                "city-chip",
+                { "city-chip-extra": index >= plannedPreview },
+              ]}
+            >
+              <span class="city-chip-name">{city.name}</span>
+              <span class="city-chip-badge">{copy.home.firstPlannedBadge}</span>
+            </li>
+          ))
+        }
+      </ul>
       {
-        copy.home.firstCities.map((city) => (
-          <li class:list={["city-chip", { "city-chip-active": Boolean(city.start) }]}>
-            <span class="city-chip-name">{city.name}</span>
-            <span class="city-chip-badge">
-              {city.start ?? copy.home.firstPlannedBadge}
-            </span>
-          </li>
-        ))
+        plannedCities.length > plannedPreview && (
+          <button
+            type="button"
+            class="btn-text city-toggle"
+            data-city-toggle
+            data-label-more={copy.home.showMoreCities}
+            data-label-less={copy.home.hideCities}
+            aria-expanded="false"
+          >
+            {copy.home.showMoreCities}
+          </button>
+        )
       }
-    </ul>
+      <p class="city-planned-cta">
+        <a class="btn btn-ghost" href={anmelden}>{copy.home.cityRegisterCta}</a>
+      </p>
+    </div>
+
     <div class="first-ulpan-actions">
       <div class="first-ulpan-action">
         <a class="btn" href={anmelden}>{copy.home.firstWaitlistCta}</a>
@@ -81,7 +132,7 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
       <div class="group-callout-body">
         <p class="group-callout-title">{copy.home.firstBoxTitle}</p>
         <p>{copy.home.firstBoxText}</p>
-        <p><a class="btn" href={traeger}>{copy.home.firstBoxCta}</a></p>
+        <p><a class="btn btn-ghost" href={href("/kontakt")}>{copy.home.firstBoxCta}</a></p>
       </div>
     </aside>
   </section>
@@ -92,7 +143,7 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
       <li>{copy.home.f3}</li>
     </ul>
     <div class="cta-frame">
-      <a class="btn" href={anmelden}>{copy.nav.start}</a>
+      <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
       <p class="cta-pitch">{copy.home.ctaPitch}</p>
       <p class="cta-ask">
         {copy.home.ctaQuestions}
@@ -118,3 +169,18 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const block = document.querySelector<HTMLElement>("[data-city-planned]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-city-toggle]");
+
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    const next = !expanded;
+    toggle.setAttribute("aria-expanded", String(next));
+    toggle.textContent = next
+      ? toggle.dataset.labelLess ?? ""
+      : toggle.dataset.labelMore ?? "";
+    block?.classList.toggle("is-expanded", next);
+  });
+</script>

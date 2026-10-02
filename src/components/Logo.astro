@@ -25,6 +25,11 @@ const { compact = false, priority = false } = Astro.props;
     height: 96px;
   }
   .compact {
-    height: 40px;
+    height: 48px;
+  }
+  @media (max-width: 880px) {
+    .compact {
+      height: 40px;
+    }
   }
 </style>

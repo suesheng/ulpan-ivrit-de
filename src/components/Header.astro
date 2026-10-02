@@ -43,7 +43,7 @@ const groups = [
 ---
 
 <header class="site-header">
-  <div class="wrap nav">
+  <div class="wrap nav" data-nav>
     <a class="brand" href={href("/")} aria-label="Ulpan Ivrit" translate="no">
       <Logo compact priority />
     </a>
@@ -52,10 +52,13 @@ const groups = [
       class="nav-toggle"
       aria-expanded="false"
       aria-controls="site-nav"
+      aria-label={copy.nav.menu}
+      data-nav-toggle
     >
-      {copy.nav.menu}
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+      <span class="nav-toggle-label">{copy.nav.menu}</span>
     </button>
-    <nav class="nav-links" id="site-nav" aria-label={copy.meta.navAria}>
+    <nav class="nav-links" id="site-nav" aria-label={copy.meta.navAria} data-nav-panel>
       {
         groups.map((group) => {
           const current = group.items.some(
@@ -71,6 +74,7 @@ const groups = [
                   <li>
                     <a
                       href={item.href}
+                      data-nav-link
                       aria-current={path === item.path || path.startsWith(`${item.path}/`) ? "page" : undefined}
                     >
                       {item.label}
@@ -82,8 +86,26 @@ const groups = [
           );
         })
       }
+      <div class="nav-mobile-extra">
+        <nav class="lang-switch lang-switch-mobile" aria-label={copy.meta.langAria}>
+          {
+            uiLocales.map((code) => (
+              <a
+                href={locPath(code, path)}
+                hreflang={code}
+                lang={code}
+                data-nav-link
+                aria-current={uiLocale(locale) === code ? "page" : undefined}
+              >
+                {code.toUpperCase()}
+              </a>
+            ))
+          }
+        </nav>
+        <a class="btn nav-cta-mobile" href={anmelden} data-nav-link>{copy.home.registerNow}</a>
+      </div>
     </nav>
-    <nav class="lang-switch" aria-label={copy.meta.langAria}>
+    <nav class="lang-switch lang-switch-bar" aria-label={copy.meta.langAria}>
       {
         uiLocales.map((code) => (
           <a
@@ -97,23 +119,35 @@ const groups = [
         ))
       }
     </nav>
-    <a class="btn nav-cta" href={anmelden}>{copy.nav.start}</a>
+    <a class="btn nav-cta" href={anmelden}>{copy.home.registerNow}</a>
   </div>
 </header>
 
+<a class="mobile-sticky-cta" href={anmelden} data-sticky-cta hidden>
+  {copy.home.registerNow}
+</a>
+
 <script>
-  const nav = document.querySelector<HTMLElement>(".nav");
-  const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+  const nav = document.querySelector<HTMLElement>("[data-nav]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
   const groups = document.querySelectorAll<HTMLDetailsElement>(".nav-group");
+  const stickyCta = document.querySelector<HTMLAnchorElement>("[data-sticky-cta]");
+  const hero = document.querySelector<HTMLElement>(".hero");
+  const footer = document.querySelector<HTMLElement>(".site-footer");
+
+  function setMenuOpen(open: boolean) {
+    nav?.classList.toggle("is-open", open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    document.documentElement.classList.toggle("is-nav-open", open);
+  }
 
   function closeMenu() {
-    nav?.classList.remove("is-open");
-    toggle?.setAttribute("aria-expanded", "false");
+    setMenuOpen(false);
   }
 
   toggle?.addEventListener("click", () => {
-    const open = nav?.classList.toggle("is-open") ?? false;
-    toggle.setAttribute("aria-expanded", String(open));
+    const open = !(nav?.classList.contains("is-open") ?? false);
+    setMenuOpen(open);
   });
 
   groups.forEach((group) => {
@@ -140,4 +174,27 @@ const groups = [
     });
     closeMenu();
   });
+
+  nav?.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
+    link.addEventListener("click", () => closeMenu());
+  });
+
+  function updateStickyCta() {
+    if (!stickyCta || !hero) return;
+    if (window.matchMedia("(min-width: 881px)").matches) {
+      stickyCta.hidden = true;
+      return;
+    }
+    const pastHero = window.scrollY > hero.offsetTop + hero.offsetHeight * 0.7;
+    let nearFooter = false;
+    if (footer) {
+      const footerTop = footer.getBoundingClientRect().top;
+      nearFooter = footerTop < window.innerHeight - 24;
+    }
+    stickyCta.hidden = !(pastHero && !nearFooter);
+  }
+
+  window.addEventListener("scroll", updateStickyCta, { passive: true });
+  window.addEventListener("resize", updateStickyCta);
+  updateStickyCta();
 </script>

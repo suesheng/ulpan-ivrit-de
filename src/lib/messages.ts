@@ -55,9 +55,20 @@ export type Messages = {
     lead: string;
     nextEyebrow: string;
     nextCourses: {
-      title: string;
-      when: string;
+      status: string;
+      level: string;
+      place: string;
+      venue: string;
+      start: string;
+      schedule: string;
+      format: string;
     }[];
+    courseDetails: string;
+    registerNow: string;
+    activeCitiesTitle: string;
+    plannedCitiesTitle: string;
+    showMoreCities: string;
+    hideCities: string;
     f1: string;
     f3: string;
     ctaPitch: string;
@@ -82,6 +93,7 @@ export type Messages = {
     firstBoxTitle: string;
     firstBoxText: string;
     firstBoxCta: string;
+    cityRegisterCta: string;
   };
   soGehts: {
     title: string;
@@ -98,8 +110,10 @@ export type Messages = {
     tariffRecommended: string;
     tariffMemberTitle: string;
     tariffMemberPrice: string;
+    tariffMemberHint: string;
     tariffNonTitle: string;
     tariffNonPrice: string;
+    tariffNonHint: string;
     preiseLink: string;
     legalIntro: string;
     formTitle: string;
@@ -115,14 +129,20 @@ export type Messages = {
     title: string;
     desc: string;
     h1: string;
+    h1Short: string;
     scopeH2: string;
     sessions: string;
     units: string;
     period: string;
-    memberLabel: string;
-    memberPrice: string;
-    nonMemberLabel: string;
-    nonMemberPrice: string;
+    recommended: string;
+    memberTitle: string;
+    memberAmount: string;
+    memberPeriod: string;
+    memberMeta: string;
+    nonMemberTitle: string;
+    nonMemberAmount: string;
+    nonMemberPeriod: string;
+    nonMemberMeta: string;
     membershipNote: string;
     membershipLink: string;
   };
@@ -352,14 +372,30 @@ export const messages: Record<UiLocale, Messages> = {
       nextEyebrow: "Nächster Kurs",
       nextCourses: [
         {
-          title: "Hebräisch A1 in Düsseldorf",
-          when: "18. November 2026 bis Juli 2027",
+          status: "Anmeldung geöffnet",
+          level: "Hebräisch A1",
+          place: "Düsseldorf",
+          venue: "Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1",
+          start: "Start: 18. November 2026",
+          schedule: "Mittwochs · 18:30–20:30",
+          format: "Präsenzkurs",
         },
         {
-          title: "Hebräisch A1 in Berlin-Prenzlauer Berg",
-          when: "15. November 2026 bis Juni 2027",
+          status: "Anmeldung geöffnet",
+          level: "Hebräisch A1",
+          place: "Berlin-Prenzlauer Berg",
+          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          start: "Start: 15. November 2026",
+          schedule: "Sonntags · am Vormittag",
+          format: "Präsenzkurs",
         },
       ],
+      courseDetails: "Kursdetails",
+      registerNow: "Jetzt anmelden",
+      activeCitiesTitle: "Aktive Kurse",
+      plannedCitiesTitle: "Weitere Standorte in Planung",
+      showMoreCities: "Weitere Standorte anzeigen",
+      hideCities: "Standorte ausblenden",
       f1: "Präsenz- und Onlineunterricht",
       f3: "In Zusammenarbeit mit der Hebräischen Universität Jerusalem",
       ctaPitch: "Anmeldung in wenigen Minuten.",
@@ -377,7 +413,7 @@ export const messages: Record<UiLocale, Messages> = {
       firstText:
         "Unser erster Ulpan Ivrit startet in einer jüdischen Gemeinde. Weitere Ulpanim planen wir in den größten jüdischen Gemeinden Deutschlands:",
       firstStartBadge: "Start 18.11.2026",
-      firstPlannedBadge: "in Planung",
+      firstPlannedBadge: "In Planung",
       firstCities: [
         { name: "Düsseldorf", start: "Start 18.11.2026" },
         { name: "Aachen" },
@@ -403,34 +439,35 @@ export const messages: Record<UiLocale, Messages> = {
       firstWaitlistCta: "Auf die Warteliste",
       firstWaitlistNote:
         "Kostenlos und unverbindlich – wir informieren Sie, sobald Ihre Stadt startet.",
-      firstGroupCta: "Gruppe melden",
+      firstGroupCta: "Gruppe anmelden",
       firstGroupNote:
         "Sie haben eine Gruppe mit mindestens 15 Interessierten? Dann kann der Ulpan schon bald bei Ihnen starten – sprechen Sie uns an.",
       firstBoxTitle: "Ab 15 Personen richten wir eine neue Gruppe ein.",
       firstBoxText:
         "Gemeinde, Verein oder Freundeskreis – melden Sie sich mit Ihrer Gruppe, und wir planen gemeinsam Lehrkraft, Termine und Ort.",
-      firstBoxCta: "Kontakt aufnehmen",
+      firstBoxCta: "Kontakt",
+      cityRegisterCta: "Stadt vormerken",
     },
     soGehts: {
       title: "Anmeldung – Ulpan Ivrit",
       desc: "Hebräisch A1 in 3 Schritten anmelden.",
       h1: "Anmeldung in 3 Schritten",
       intro:
-        "Hebräisch A1 für Anfänger. Füllen Sie das Formular aus – Kurs, Preisoption und SEPA-Lastschriftmandat in einem Schritt.",
-      step1: "Formular ausfüllen",
-      step1Text:
-        "Kurs, Preisoption und SEPA-Lastschrift in einem Formular. Mit dem Absenden der Anmeldung werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V.",
-      step2: "Bestätigung per E-Mail",
-      step2Text:
-        "Sie erhalten eine Bestätigung mit Kursdaten, Mandatsreferenz und Zugang zu Moodle (ulpan.bifode.org).",
-      step3: "Erster Termin",
-      step3Text: "Zeit und Ort Ihres ersten Termins stehen in der Bestätigung und im Anmeldeformular; den aktuellen Kurs finden Sie auf der Startseite.",
+        "Hebräisch A1 für Anfänger. Wählen Sie Kurs und Preisoption im Formular – inklusive SEPA-Lastschriftmandat.",
+      step1: "Kurs & Preis wählen",
+      step1Text: "Im Formular wählen Sie Kursort und Preisoption.",
+      step2: "Formular absenden",
+      step2Text: "Angaben und SEPA-Lastschrift in einem Schritt.",
+      step3: "Bestätigung",
+      step3Text: "Sie erhalten Kursdaten, Mandatsreferenz und Moodle-Zugang per E-Mail.",
       tariffTitle: "Preisoptionen",
       tariffRecommended: "Empfohlen",
       tariffMemberTitle: "Mit kostenloser Mitgliedschaft",
       tariffMemberPrice: "60 € pro Monat",
+      tariffMemberHint: "Mitgliedschaft entsteht mit der Anmeldung (siehe Formular).",
       tariffNonTitle: "Ohne Mitgliedschaft",
       tariffNonPrice: "120 € pro Monat",
+      tariffNonHint: "Falls im Formular als Option verfügbar – ohne BiFoDe-Mitgliedschaft.",
       preiseLink: "Kursdetails & Preise",
       legalIntro: "Mit der Anmeldung gelten unsere",
       formTitle: "Anmeldung",
@@ -442,23 +479,28 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqA:
         "Sobald sich mindestens 15 Interessierte gemeldet haben – über die Warteliste oder als Gruppe über Ihre Gemeinde oder Organisation.",
       membershipAuto:
-        "Mit der Anmeldung zum Ulpan werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V. Ein gesonderter Antrag auf bifode.org ist nicht nötig.",
+        "Mit der Anmeldung zum Ulpan werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V. Ein gesonderter Antrag auf bifode.org ist nicht nötig. Die Preisoption wählen Sie im Formular.",
     },
     preise: {
       title: "Kursdetails & Preise — Ulpan Ivrit",
       desc: "Umfang, Zeitraum und Preisoptionen der Hebräischkurse von Ulpan Ivrit.",
       h1: "Kursdetails & Preise",
-      scopeH2: "Kursumfang und Preise",
+      h1Short: "Kurs & Preise",
+      scopeH2: "Kursumfang",
       sessions: "30 Termine mit jeweils 90 Minuten",
       units: "60 Unterrichtseinheiten à 45 Minuten",
       period: "Kurszeitraum: 18. November 2026 bis 7. Juli 2027",
-      memberLabel:
-        "Mit kostenloser Mitgliedschaft bei Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.):",
-      memberPrice: "60 € pro Monat · 8 Monatsraten · insgesamt 480 €",
-      nonMemberLabel: "Ohne Mitgliedschaft:",
-      nonMemberPrice: "120 € pro Monat · 8 Monatsraten · insgesamt 960 €",
+      recommended: "Empfohlen",
+      memberTitle: "Mit kostenloser Mitgliedschaft",
+      memberAmount: "60 €",
+      memberPeriod: "pro Monat",
+      memberMeta: "8 Monatsraten · 480 € insgesamt",
+      nonMemberTitle: "Ohne Mitgliedschaft",
+      nonMemberAmount: "120 €",
+      nonMemberPeriod: "pro Monat",
+      nonMemberMeta: "8 Monatsraten · 960 € insgesamt",
       membershipNote:
-        "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos. Sie entsteht automatisch mit der Anmeldung zum Ulpan; ein gesonderter Antrag ist nicht nötig.",
+        "Die Mitgliedschaft bei Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) ist kostenlos. Nach aktueller Anmeldelogik entsteht sie automatisch mit der Ulpan-Anmeldung; ein gesonderter Antrag ist nicht nötig. Die Preisoption wählen Sie im Anmeldeformular.",
       membershipLink: "Informationen zur Mitgliedschaft bei BiFoDe e.V.",
     },
     kurse: {
@@ -726,14 +768,30 @@ export const messages: Record<UiLocale, Messages> = {
       nextEyebrow: "Ближайший курс",
       nextCourses: [
         {
-          title: "Иврит A1 в Дюссельдорфе",
-          when: "С 18 ноября 2026 года по июль 2027 года",
+          status: "Идёт запись",
+          level: "Иврит A1",
+          place: "Дюссельдорф",
+          venue: "Еврейская община Дюссельдорфа, Paul-Spiegel-Platz 1",
+          start: "Старт: 18 ноября 2026",
+          schedule: "По средам · 18:30–20:30",
+          format: "Очный курс",
         },
         {
-          title: "Иврит A1 в Берлине-Пренцлауэр-Берг",
-          when: "С 15 ноября 2026 года по июнь 2027 года",
+          status: "Идёт запись",
+          level: "Иврит A1",
+          place: "Берлин-Пренцлауэр-Берг",
+          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          start: "Старт: 15 ноября 2026",
+          schedule: "По воскресеньям · утром",
+          format: "Очный курс",
         },
       ],
+      courseDetails: "Подробнее",
+      registerNow: "Записаться",
+      activeCitiesTitle: "Активные курсы",
+      plannedCitiesTitle: "Города в планах",
+      showMoreCities: "Показать другие города",
+      hideCities: "Скрыть",
       f1: "Очно и онлайн",
       f3: "В сотрудничестве с Еврейским университетом в Иерусалиме",
       ctaPitch: "Запись займёт несколько минут.",
@@ -751,7 +809,7 @@ export const messages: Record<UiLocale, Messages> = {
       firstText:
         "Наш первый Ulpan Ivrit открывается в еврейской общине. Следующие ульпаны мы планируем в крупнейших еврейских общинах Германии:",
       firstStartBadge: "старт 18.11.2026",
-      firstPlannedBadge: "в планах",
+      firstPlannedBadge: "Планируется",
       firstCities: [
         { name: "Дюссельдорф", start: "старт 18.11.2026" },
         { name: "Ахен" },
@@ -777,34 +835,35 @@ export const messages: Record<UiLocale, Messages> = {
       firstWaitlistCta: "В список ожидания",
       firstWaitlistNote:
         "Бесплатно и без обязательств: мы сообщим, когда начнётся курс в вашем городе.",
-      firstGroupCta: "Сообщить о группе",
+      firstGroupCta: "Записать группу",
       firstGroupNote:
         "У вас есть группа от 15 желающих? Тогда ульпан может скоро открыться и у вас – свяжитесь с нами.",
       firstBoxTitle: "От 15 человек мы открываем новую группу.",
       firstBoxText:
         "Община, союз или круг друзей – напишите нам, и вместе подберём преподавателя, время и место.",
-      firstBoxCta: "Связаться",
+      firstBoxCta: "Контакты",
+      cityRegisterCta: "Выбрать свой город",
     },
     soGehts: {
       title: "Запись — Ulpan Ivrit",
       desc: "Иврит A1: запись в 3 шага.",
       h1: "Запись в 3 шага",
       intro:
-        "Иврит A1 для начинающих. Заполните форму — курс, вариант оплаты и мандат базового прямого дебетования SEPA в одном шаге.",
-      step1: "Заполнить форму",
-      step1Text:
-        "Курс, вариант оплаты и списание по SEPA в одной форме. Отправляя заявку, вы автоматически и бесплатно становитесь членом BiFoDe e.V.",
-      step2: "Подтверждение по e-mail",
-      step2Text:
-        "Вы получите подтверждение с данными курса, номером SEPA-мандата и доступом в Moodle (ulpan.bifode.org).",
-      step3: "Первое занятие",
-      step3Text: "Время и место первого занятия указаны в подтверждении и в форме записи; актуальный курс — на главной странице.",
+        "Иврит A1 для начинающих. Курс и вариант оплаты выбираете в форме — вместе с мандатом SEPA.",
+      step1: "Курс и тариф",
+      step1Text: "В форме выберите город и вариант оплаты.",
+      step2: "Отправить форму",
+      step2Text: "Данные и списание по SEPA в одном шаге.",
+      step3: "Подтверждение",
+      step3Text: "На e-mail придут данные курса, номер мандата и доступ в Moodle.",
       tariffTitle: "Варианты оплаты",
       tariffRecommended: "Рекомендуем",
       tariffMemberTitle: "С бесплатным членством",
       tariffMemberPrice: "60 € в месяц",
+      tariffMemberHint: "Членство оформляется при записи (см. форму).",
       tariffNonTitle: "Без членства",
       tariffNonPrice: "120 € в месяц",
+      tariffNonHint: "Если в форме доступен этот вариант — без членства в BiFoDe.",
       preiseLink: "Программа и стоимость",
       legalIntro: "При записи действуют наши",
       formTitle: "Запись",
@@ -816,22 +875,28 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqA:
         "Как только наберётся не меньше 15 желающих – через список ожидания или как группа через вашу общину или организацию.",
       membershipAuto:
-        "Заполняя форму записи в ульпан, вы автоматически и бесплатно становитесь членом BiFoDe e.V. Отдельная заявка на bifode.org не нужна.",
+        "Заполняя форму записи в ульпан, вы автоматически и бесплатно становитесь членом BiFoDe e.V. Отдельная заявка на bifode.org не нужна. Вариант оплаты выбираете в форме.",
     },
     preise: {
       title: "Программа и стоимость — Ulpan Ivrit",
       desc: "Объём, сроки и варианты оплаты курсов иврита Ulpan Ivrit.",
       h1: "Программа и стоимость",
-      scopeH2: "Программа и стоимость",
+      h1Short: "Курс и стоимость",
+      scopeH2: "Объём курса",
       sessions: "30 занятий продолжительностью 90 минут",
       units: "60 академических часов по 45 минут",
       period: "Период обучения: с 18 ноября 2026 года по 7 июля 2027 года",
-      memberLabel: "С бесплатным членством в BiFoDe e.V.:",
-      memberPrice: "60 € в месяц · 8 ежемесячных платежей · всего 480 €",
-      nonMemberLabel: "Без членства:",
-      nonMemberPrice: "120 € в месяц · 8 ежемесячных платежей · всего 960 €",
+      recommended: "Рекомендуем",
+      memberTitle: "С бесплатным членством",
+      memberAmount: "60 €",
+      memberPeriod: "в месяц",
+      memberMeta: "8 ежемесячных платежей · всего 480 €",
+      nonMemberTitle: "Без членства",
+      nonMemberAmount: "120 €",
+      nonMemberPeriod: "в месяц",
+      nonMemberMeta: "8 ежемесячных платежей · всего 960 €",
       membershipNote:
-        "Членство в Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) бесплатное. Оно оформляется автоматически при записи в ульпан; отдельная заявка не нужна.",
+        "Членство в Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) бесплатное. По текущей логике записи оно оформляется автоматически при заявке в ульпан; отдельная заявка не нужна. Вариант оплаты выбираете в форме записи.",
       membershipLink: "Подробнее о членстве в BiFoDe e.V.",
     },
     kurse: {
@@ -1098,14 +1163,30 @@ export const messages: Record<UiLocale, Messages> = {
       nextEyebrow: "Next course",
       nextCourses: [
         {
-          title: "Hebrew A1 in Düsseldorf",
-          when: "18 November 2026 to July 2027",
+          status: "Registration open",
+          level: "Hebrew A1",
+          place: "Düsseldorf",
+          venue: "Jewish Community of Düsseldorf, Paul-Spiegel-Platz 1",
+          start: "Start: 18 November 2026",
+          schedule: "Wednesdays · 18:30–20:30",
+          format: "In-person course",
         },
         {
-          title: "Hebrew A1 in Berlin-Prenzlauer Berg",
-          when: "15 November 2026 to June 2027",
+          status: "Registration open",
+          level: "Hebrew A1",
+          place: "Berlin-Prenzlauer Berg",
+          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          start: "Start: 15 November 2026",
+          schedule: "Sundays · mornings",
+          format: "In-person course",
         },
       ],
+      courseDetails: "Course details",
+      registerNow: "Register now",
+      activeCitiesTitle: "Active courses",
+      plannedCitiesTitle: "Locations in planning",
+      showMoreCities: "Show more locations",
+      hideCities: "Hide locations",
       f1: "In person & online",
       f3: "In cooperation with the Hebrew University of Jerusalem",
       ctaPitch: "Registration takes a few minutes.",
@@ -1123,7 +1204,7 @@ export const messages: Record<UiLocale, Messages> = {
       firstText:
         "Our first Ulpan Ivrit opens at a Jewish community. We are planning further Ulpanim in Germany's largest Jewish communities:",
       firstStartBadge: "starts 18.11.2026",
-      firstPlannedBadge: "planned",
+      firstPlannedBadge: "Planned",
       firstCities: [
         { name: "Düsseldorf", start: "starts 18.11.2026" },
         { name: "Aachen" },
@@ -1155,28 +1236,29 @@ export const messages: Record<UiLocale, Messages> = {
       firstBoxTitle: "From 15 people we start a new group.",
       firstBoxText:
         "Community, association or group of friends – contact us and we'll plan teacher, schedule and venue together.",
-      firstBoxCta: "Get in touch",
+      firstBoxCta: "Contact",
+      cityRegisterCta: "Register your city",
     },
     soGehts: {
       title: "Registration — Ulpan Ivrit",
       desc: "Hebrew A1: register in 3 steps.",
       h1: "Registration in 3 steps",
       intro:
-        "Hebrew A1 for beginners. Fill in the form — course, price option and SEPA in one step.",
-      step1: "Fill in the form",
-      step1Text:
-        "Course, price option and SEPA direct debit in one form. By submitting the registration you automatically become a member of BiFoDe e.V. at no charge.",
-      step2: "Confirmation by email",
-      step2Text:
-        "You receive confirmation with course details, mandate reference and Moodle access (ulpan.bifode.org).",
-      step3: "First session",
-      step3Text: "The time and place of your first session are in the confirmation and the enrolment form; the current course is on the homepage.",
+        "Hebrew A1 for beginners. Choose course and price option in the form — including SEPA direct debit.",
+      step1: "Course & price",
+      step1Text: "In the form, choose location and price option.",
+      step2: "Submit the form",
+      step2Text: "Your details and SEPA mandate in one step.",
+      step3: "Confirmation",
+      step3Text: "You receive course details, mandate reference and Moodle access by email.",
       tariffTitle: "Price options",
       tariffRecommended: "Recommended",
       tariffMemberTitle: "With free membership",
       tariffMemberPrice: "€60 per month",
+      tariffMemberHint: "Membership is created with registration (see form).",
       tariffNonTitle: "Without membership",
       tariffNonPrice: "€120 per month",
+      tariffNonHint: "If available in the form — without BiFoDe membership.",
       preiseLink: "Course details & pricing",
       legalIntro: "By registering you agree to our",
       formTitle: "Registration",
@@ -1188,22 +1270,28 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqA:
         "As soon as at least 15 interested people have signed up – via the waiting list or as a group through your community or organisation.",
       membershipAuto:
-        "By filling in the Ulpan registration form you automatically become a member of BiFoDe e.V. at no charge. A separate application on bifode.org is not required.",
+        "By filling in the Ulpan registration form you automatically become a member of BiFoDe e.V. at no charge. A separate application on bifode.org is not required. You choose the price option in the form.",
     },
     preise: {
       title: "Course details & pricing — Ulpan Ivrit",
       desc: "Scope, dates and course fees for Ulpan Ivrit Hebrew courses.",
       h1: "Course details & pricing",
-      scopeH2: "Course details and pricing",
+      h1Short: "Course & pricing",
+      scopeH2: "Course scope",
       sessions: "30 sessions of 90 minutes each",
       units: "60 teaching units of 45 minutes",
       period: "Course period: 18 November 2026 to 7 July 2027",
-      memberLabel: "With free membership of BiFoDe e.V.:",
-      memberPrice: "€60 per month · 8 monthly instalments · €480 in total",
-      nonMemberLabel: "Without membership:",
-      nonMemberPrice: "€120 per month · 8 monthly instalments · €960 in total",
+      recommended: "Recommended",
+      memberTitle: "With free membership",
+      memberAmount: "€60",
+      memberPeriod: "per month",
+      memberMeta: "8 monthly instalments · €480 in total",
+      nonMemberTitle: "Without membership",
+      nonMemberAmount: "€120",
+      nonMemberPeriod: "per month",
+      nonMemberMeta: "8 monthly instalments · €960 in total",
       membershipNote:
-        "Membership of Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) is free. It is created automatically with the Ulpan registration; a separate application is not required.",
+        "Membership of Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) is free. Under the current registration logic it is created automatically with Ulpan enrolment; a separate application is not required. You choose the price option in the registration form.",
       membershipLink: "More information about membership of BiFoDe e.V.",
     },
     kurse: {

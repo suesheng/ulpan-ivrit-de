@@ -11,7 +11,10 @@ const href = (p: string) => locPath(locale, p);
 
 <BaseLayout title={copy.preise.title} description={copy.preise.desc}>
   <div class="stack preise-page">
-    <h1>{copy.preise.h1}</h1>
+    <h1>
+      <span class="preise-h1-full">{copy.preise.h1}</span>
+      <span class="preise-h1-short">{copy.preise.h1Short}</span>
+    </h1>
 
     <section class="preise-block" aria-labelledby="preise-scope">
       <h2 id="preise-scope">{copy.preise.scopeH2}</h2>
@@ -23,23 +26,35 @@ const href = (p: string) => locPath(locale, p);
 
       <div class="card-list tariff-grid">
         <article class="card tariff tariff-recommended">
-          <h3>{copy.preise.memberLabel}</h3>
-          <p>{copy.preise.memberPrice}</p>
+          <p class="tariff-badge">{copy.preise.recommended}</p>
+          <h3>{copy.preise.memberTitle}</h3>
+          <p class="tariff-amount">
+            <span class="tariff-price">{copy.preise.memberAmount}</span>
+            <span class="tariff-period">{copy.preise.memberPeriod}</span>
+          </p>
+          <p class="tariff-meta">{copy.preise.memberMeta}</p>
         </article>
         <article class="card tariff">
-          <h3>{copy.preise.nonMemberLabel}</h3>
-          <p>{copy.preise.nonMemberPrice}</p>
+          <p class="tariff-badge tariff-badge-empty" aria-hidden="true">&nbsp;</p>
+          <h3>{copy.preise.nonMemberTitle}</h3>
+          <p class="tariff-amount">
+            <span class="tariff-price">{copy.preise.nonMemberAmount}</span>
+            <span class="tariff-period">{copy.preise.nonMemberPeriod}</span>
+          </p>
+          <p class="tariff-meta">{copy.preise.nonMemberMeta}</p>
         </article>
       </div>
 
-      <p class="home-perk">{copy.preise.membershipNote}</p>
-      <p>
-        <a href={LINKS.vereinHome} {...EXT}>{copy.preise.membershipLink}</a>
+      <p class="preise-cta">
+        <a class="btn" href={`${href("/so-gehts")}#anmeldung`}>{copy.home.registerNow}</a>
       </p>
-    </section>
 
-    <p>
-      <a class="btn" href={`${href("/so-gehts")}#anmeldung`}>{copy.nav.start}</a>
-    </p>
+      <aside class="membership-note">
+        <p>{copy.preise.membershipNote}</p>
+        <p>
+          <a href={LINKS.vereinHome} {...EXT}>{copy.preise.membershipLink}</a>
+        </p>
+      </aside>
+    </section>
   </div>
 </BaseLayout>

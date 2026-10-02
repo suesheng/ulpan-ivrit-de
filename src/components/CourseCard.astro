@@ -1,0 +1,54 @@
+---
+interface Props {
+  status: string;
+  level: string;
+  place: string;
+  venue?: string;
+  schedule: string;
+  start: string;
+  format: string;
+  detailsHref: string;
+  detailsLabel: string;
+  ctaHref: string;
+  ctaLabel: string;
+}
+
+const {
+  status,
+  level,
+  place,
+  venue,
+  schedule,
+  start,
+  format,
+  detailsHref,
+  detailsLabel,
+  ctaHref,
+  ctaLabel,
+} = Astro.props;
+---
+
+<article class="course-card">
+  <p class="course-card-status">{status}</p>
+  <h3 class="course-card-level">{level}</h3>
+  <p class="course-card-place">{place}</p>
+  {venue && <p class="course-card-venue">{venue}</p>}
+  <dl class="course-card-meta">
+    <div>
+      <dt class="visually-hidden">Start</dt>
+      <dd>{start}</dd>
+    </div>
+    <div>
+      <dt class="visually-hidden">Schedule</dt>
+      <dd>{schedule}</dd>
+    </div>
+    <div>
+      <dt class="visually-hidden">Format</dt>
+      <dd>{format}</dd>
+    </div>
+  </dl>
+  <div class="course-card-actions">
+    <a class="btn btn-ghost" href={detailsHref}>{detailsLabel}</a>
+    <a class="btn" href={ctaHref}>{ctaLabel}</a>
+  </div>
+</article>

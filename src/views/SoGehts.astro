@@ -14,12 +14,11 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
 ---
 
 <BaseLayout title={copy.soGehts.title} description={copy.soGehts.desc}>
-  <div class="stack">
+  <div class="stack so-gehts-page">
     <h1>{copy.soGehts.h1}</h1>
-    <p>{copy.soGehts.intro}</p>
-    <p class="home-perk">{copy.soGehts.membershipAuto}</p>
+    <p class="so-gehts-intro">{copy.soGehts.intro}</p>
 
-    <ol class="path">
+    <ol class="path path-compact">
       <li class="path-step">
         <h2>{copy.soGehts.step1}</h2>
         <div class="path-body">
@@ -40,32 +39,30 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
       </li>
     </ol>
 
-    <section class="stack" aria-labelledby="tarife">
+    <section class="tariff-summary" aria-labelledby="tarife">
       <h2 id="tarife">{copy.soGehts.tariffTitle}</h2>
-      <div class="card-list tariff-grid">
+      <div class="card-list tariff-grid tariff-grid-compact">
         <article class="card tariff tariff-recommended">
-          <p class="badge-soon home-perk">{copy.soGehts.tariffRecommended}</p>
+          <p class="tariff-badge">{copy.soGehts.tariffRecommended}</p>
           <h3>{copy.soGehts.tariffMemberTitle}</h3>
-          <p>{copy.soGehts.tariffMemberPrice}</p>
+          <p class="tariff-price-line">{copy.soGehts.tariffMemberPrice}</p>
+          <p class="muted tariff-hint">{copy.soGehts.tariffMemberHint}</p>
         </article>
         <article class="card tariff">
+          <p class="tariff-badge tariff-badge-empty" aria-hidden="true">&nbsp;</p>
           <h3>{copy.soGehts.tariffNonTitle}</h3>
-          <p>{copy.soGehts.tariffNonPrice}</p>
+          <p class="tariff-price-line">{copy.soGehts.tariffNonPrice}</p>
+          <p class="muted tariff-hint">{copy.soGehts.tariffNonHint}</p>
         </article>
       </div>
-      <p>
+      <p class="tariff-more">
         <a href={href("/preise")}>{copy.soGehts.preiseLink}</a>
       </p>
+      <p class="home-perk membership-once">{copy.soGehts.membershipAuto}</p>
     </section>
-
-    <details class="faq-item course-dates">
-      <summary>{copy.soGehts.cityFaqQ}</summary>
-      <p>{copy.soGehts.cityFaqA}</p>
-    </details>
 
     <section id="anmeldung" class="stack jotform-embed" aria-label={copy.soGehts.formTitle}>
       <h2>{copy.soGehts.formTitle}</h2>
-      <p class="home-perk">{copy.soGehts.membershipAuto}</p>
       <p class="muted">
         {copy.soGehts.legalIntro}
         {" "}
@@ -91,6 +88,11 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
         <a href={LINKS.jotformUlpan} {...EXT}>{copy.soGehts.formFallbackLink}</a>
       </p>
     </section>
+
+    <details class="faq-item course-dates">
+      <summary>{copy.soGehts.cityFaqQ}</summary>
+      <p>{copy.soGehts.cityFaqA}</p>
+    </details>
 
     <p class="no-course">
       {copy.soGehts.noCourse}

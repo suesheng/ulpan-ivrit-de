@@ -6,29 +6,62 @@ import { t } from "../lib/messages";
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
+
+const groups = [
+  {
+    label: copy.nav.lernen,
+    links: [
+      { href: href("/so-gehts") + "#anmeldung", label: copy.nav.anmelden },
+      { href: href("/preise"), label: copy.nav.preise },
+      { href: href("/vor-ort"), label: copy.nav.vorOrt },
+      { href: href("/kurse"), label: copy.nav.onlineSoon },
+    ],
+  },
+  {
+    label: copy.nav.lehrkraefte,
+    links: [
+      { href: href("/lehrer"), label: copy.nav.methodik },
+      { href: href("/stellen"), label: copy.nav.stellen },
+    ],
+  },
+  {
+    label: copy.nav.verein,
+    links: [
+      { href: href("/verein"), label: copy.nav.aboutVerein },
+      { href: href("/partner"), label: copy.nav.partner },
+      { href: href("/kontakt"), label: copy.nav.kontakt },
+    ],
+  },
+];
 ---
 
 <footer class="site-footer">
   <div class="wrap footer-grid">
-    <nav class="footer-cols" aria-label={copy.meta.footerAria}>
-      <div>
-        <p>{copy.nav.lernen}</p>
-        <a href={href("/so-gehts") + "#anmeldung"}>{copy.nav.anmelden}</a>
-        <a href={href("/preise")}>{copy.nav.preise}</a>
-        <a href={href("/vor-ort")}>{copy.nav.vorOrt}</a>
-        <a href={href("/kurse")}>{copy.nav.onlineSoon}</a>
-      </div>
-      <div>
-        <p>{copy.nav.lehrkraefte}</p>
-        <a href={href("/lehrer")}>{copy.nav.methodik}</a>
-        <a href={href("/stellen")}>{copy.nav.stellen}</a>
-      </div>
-      <div>
-        <p>{copy.nav.verein}</p>
-        <a href={href("/verein")}>{copy.nav.aboutVerein}</a>
-        <a href={href("/partner")}>{copy.nav.partner}</a>
-        <a href={href("/kontakt")}>{copy.nav.kontakt}</a>
-      </div>
+    <nav class="footer-cols footer-cols-desktop" aria-label={copy.meta.footerAria}>
+      {
+        groups.map((group) => (
+          <div>
+            <p>{group.label}</p>
+            {group.links.map((link) => (
+              <a href={link.href}>{link.label}</a>
+            ))}
+          </div>
+        ))
+      }
+    </nav>
+    <nav class="footer-accordion" aria-label={copy.meta.footerAria}>
+      {
+        groups.map((group) => (
+          <details class="footer-group">
+            <summary>{group.label}</summary>
+            <div class="footer-group-links">
+              {group.links.map((link) => (
+                <a href={link.href}>{link.label}</a>
+              ))}
+            </div>
+          </details>
+        ))
+      }
     </nav>
     <nav class="legal-links" aria-label={copy.meta.legalAria}>
       <a href={href("/impressum")}>{copy.legal.impressum}</a>
