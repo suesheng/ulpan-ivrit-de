@@ -69,7 +69,7 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
       <input type="hidden" name="locale" value={locale} />
       <div class="hp" aria-hidden="true">
         <label>
-          Website
+          {locale === "ru" ? "Сайт" : "Website"}
           <input type="text" name="website" tabindex="-1" autocomplete="off" />
         </label>
       </div>

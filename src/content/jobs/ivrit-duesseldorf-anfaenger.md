@@ -1,5 +1,5 @@
 ---
-title: Lehrkraft Ivrit — Raum Düsseldorf
+title: Lehrkraft für Hebräisch – Raum Düsseldorf
 location: Raum Düsseldorf
 format: Präsenz bevorzugt, Online möglich
 level: Anfänger
