@@ -60,19 +60,6 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
       <p class="muted">{copy.soGehts.tariffNote}</p>
     </section>
 
-    <details class="course-dates">
-      <summary>{copy.soGehts.datesTitle}</summary>
-      <p>{copy.soGehts.datesSummary}</p>
-      <p>
-        <strong>{copy.soGehts.datesFreeLabel}:</strong>
-        {" "}
-        {COURSE.freeDates.join(", ")}
-      </p>
-      <ul class="date-list">
-        {COURSE.dates.map((d) => <li>{d}</li>)}
-      </ul>
-    </details>
-
     <details class="faq-item course-dates">
       <summary>{copy.soGehts.cityFaqQ}</summary>
       <p>{copy.soGehts.cityFaqA}</p>
