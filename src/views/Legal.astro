@@ -18,6 +18,12 @@ const doc = getLegal(locale, page);
 const nav = [
   { key: "impressum" as const, path: "/impressum", label: copy.legal.impressum },
   { key: "datenschutz" as const, path: "/datenschutz", label: copy.legal.datenschutz },
+  {
+    key: "teilnahmebedingungen" as const,
+    path: "/teilnahmebedingungen",
+    label: copy.legal.teilnahmebedingungen,
+  },
+  { key: "widerruf" as const, path: "/widerruf", label: copy.legal.widerruf },
   { key: "cookies" as const, path: "/cookies", label: copy.legal.cookies },
 ];
 
