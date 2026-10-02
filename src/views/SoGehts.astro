@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { COURSE } from "../lib/course";
+import { EXT, LINKS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
@@ -16,6 +17,7 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
   <div class="stack">
     <h1>{copy.soGehts.h1}</h1>
     <p>{copy.soGehts.intro}</p>
+    <p class="muted">{copy.soGehts.priceLine}</p>
 
     <ol class="path">
       <li class="path-step">
@@ -78,6 +80,15 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
 
     <section id="anmeldung" class="stack jotform-embed" aria-label={copy.soGehts.formTitle}>
       <h2>{copy.soGehts.formTitle}</h2>
+      <p class="muted">
+        {copy.soGehts.legalIntro}
+        {" "}
+        <a href={href("/teilnahmebedingungen")}>{copy.legal.teilnahmebedingungen}</a>
+        {", "}
+        <a href={href("/widerruf")}>{copy.legal.widerruf}</a>
+        {" · "}
+        <a href={href("/datenschutz")}>{copy.legal.datenschutz}</a>.
+      </p>
       <div class="jotform-frame">
         <iframe
           id={`JotFormIFrame-${COURSE.jotformId}`}
@@ -88,6 +99,11 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
           scrolling="no"
         ></iframe>
       </div>
+      <p class="muted">
+        {copy.soGehts.formFallback}
+        {" "}
+        <a href={LINKS.jotformUlpan} {...EXT}>{copy.soGehts.formFallbackLink}</a>
+      </p>
     </section>
 
     <p class="no-course">
