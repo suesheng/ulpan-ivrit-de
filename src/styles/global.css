@@ -132,8 +132,14 @@ html.is-nav-open {
 
 .footer-cols {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+}
+
+@media (max-width: 900px) and (min-width: 721px) {
+  .footer-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .footer-cols p {
@@ -148,8 +154,7 @@ html.is-nav-open {
   text-decoration: none;
 }
 
-.footer-cols a:hover,
-.legal-links a:hover {
+.footer-cols a:hover {
   text-decoration: underline;
 }
 
@@ -243,16 +248,6 @@ html.is-nav-open {
 .partner-card[data-partner="sochnut"] .partner-logo {
   max-height: 48px;
   max-width: 240px;
-}
-
-.legal-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 16px;
-}
-
-.legal-links a {
-  text-decoration: none;
 }
 
 @media (max-width: 720px) {

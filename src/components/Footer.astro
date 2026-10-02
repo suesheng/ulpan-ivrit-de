@@ -7,7 +7,9 @@ const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
 
-const groups = [
+type FooterLink = { href: string; label: string; external?: boolean };
+
+const groups: { label: string; links: FooterLink[] }[] = [
   {
     label: copy.nav.lernen,
     links: [
@@ -32,6 +34,17 @@ const groups = [
       { href: href("/kontakt"), label: copy.nav.kontakt },
     ],
   },
+  {
+    label: copy.meta.legalAria,
+    links: [
+      { href: href("/impressum"), label: copy.legal.impressum },
+      { href: href("/datenschutz"), label: copy.legal.datenschutz },
+      { href: href("/teilnahmebedingungen"), label: copy.legal.teilnahmebedingungen },
+      { href: href("/widerruf"), label: copy.legal.widerruf },
+      { href: href("/cookies"), label: copy.legal.noCookies },
+      { href: LINKS.moodle, label: "Moodle", external: true },
+    ],
+  },
 ];
 ---
 
@@ -42,9 +55,13 @@ const groups = [
         groups.map((group) => (
           <div>
             <p>{group.label}</p>
-            {group.links.map((link) => (
-              <a href={link.href}>{link.label}</a>
-            ))}
+            {group.links.map((link) =>
+              link.external ? (
+                <a href={link.href} {...EXT}>{link.label}</a>
+              ) : (
+                <a href={link.href}>{link.label}</a>
+              ),
+            )}
           </div>
         ))
       }
@@ -55,21 +72,17 @@ const groups = [
           <details class="footer-group">
             <summary>{group.label}</summary>
             <div class="footer-group-links">
-              {group.links.map((link) => (
-                <a href={link.href}>{link.label}</a>
-              ))}
+              {group.links.map((link) =>
+                link.external ? (
+                  <a href={link.href} {...EXT}>{link.label}</a>
+                ) : (
+                  <a href={link.href}>{link.label}</a>
+                ),
+              )}
             </div>
           </details>
         ))
       }
-    </nav>
-    <nav class="legal-links" aria-label={copy.meta.legalAria}>
-      <a href={href("/impressum")}>{copy.legal.impressum}</a>
-      <a href={href("/datenschutz")}>{copy.legal.datenschutz}</a>
-      <a href={href("/teilnahmebedingungen")}>{copy.legal.teilnahmebedingungen}</a>
-      <a href={href("/widerruf")}>{copy.legal.widerruf}</a>
-      <a href={href("/cookies")}>{copy.legal.noCookies}</a>
-      <a href={LINKS.moodle} {...EXT}>Moodle</a>
     </nav>
   </div>
   <nav class="partner-strip" aria-label={copy.meta.partnersAria}>
