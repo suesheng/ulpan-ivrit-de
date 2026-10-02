@@ -53,10 +53,13 @@ export type Messages = {
     h1: string;
     lead: string;
     nextEyebrow: string;
-    nextTitle: string;
-    nextWhen: string;
-    nextWhere: string;
-    nextMeta: string;
+    nextCourses: {
+      place: string;
+      title: string;
+      when: string;
+      where: string;
+      meta: string;
+    }[];
     nextPrice: string;
     nextCta: string;
     f1: string;
@@ -76,7 +79,7 @@ export type Messages = {
     firstText: string;
     firstStartBadge: string;
     firstPlannedBadge: string;
-    firstCities: string[];
+    firstCities: { name: string; start?: string }[];
     firstWaitlistCta: string;
     firstWaitlistNote: string;
     firstGroupCta: string;
@@ -337,10 +340,22 @@ export const messages: Record<UiLocale, Messages> = {
       lead:
         "Präsenz- und Onlineunterricht – Methodik der Hebräischen Universität Jerusalem, gesprochenes Hebräisch, Materialien in Moodle.",
       nextEyebrow: "Nächster Kurs",
-      nextTitle: "Hebräisch A1 – Anfängerkurs",
-      nextWhen: "Ab Mittwoch, 18.11.2026 · mittwochs 18:30–20:30 Uhr",
-      nextWhere: "Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1",
-      nextMeta: "30 Termine · 60 Unterrichtsstunden · bis Juli 2027",
+      nextCourses: [
+        {
+          place: "Düsseldorf",
+          title: "Hebräisch A1 – Anfängerkurs",
+          when: "Ab Mittwoch, 18.11.2026 · mittwochs 18:30–20:30 Uhr",
+          where: "Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1",
+          meta: "30 Termine · 60 Unterrichtsstunden · bis Juli 2027",
+        },
+        {
+          place: "Berlin-Prenzlauer Berg",
+          title: "Hebräisch A1 – Anfängerkurs",
+          when: "Ab Sonntag, 15.11.2026 · sonntags am Vormittag",
+          where: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          meta: "bis 20.06.2027",
+        },
+      ],
       nextPrice:
         "Mit kostenloser Mitgliedschaft: <strong>60&nbsp;€/Monat</strong> statt <strong>120&nbsp;€</strong>",
       nextCta: "Jetzt anmelden",
@@ -365,26 +380,26 @@ export const messages: Record<UiLocale, Messages> = {
       firstStartBadge: "Start 18.11.2026",
       firstPlannedBadge: "in Planung",
       firstCities: [
-        "Düsseldorf",
-        "Aachen",
-        "Berlin",
-        "Bielefeld",
-        "Bochum",
-        "Bonn",
-        "Dortmund",
-        "Dresden",
-        "Duisburg",
-        "Essen",
-        "Frankfurt am Main",
-        "Gelsenkirchen",
-        "Hamburg",
-        "Hannover",
-        "Köln",
-        "Leipzig",
-        "München",
-        "Nürnberg",
-        "Stuttgart",
-        "Wuppertal",
+        { name: "Düsseldorf", start: "Start 18.11.2026" },
+        { name: "Aachen" },
+        { name: "Berlin", start: "Start 15.11.2026" },
+        { name: "Bielefeld" },
+        { name: "Bochum" },
+        { name: "Bonn" },
+        { name: "Dortmund" },
+        { name: "Dresden" },
+        { name: "Duisburg" },
+        { name: "Essen" },
+        { name: "Frankfurt am Main" },
+        { name: "Gelsenkirchen" },
+        { name: "Hamburg" },
+        { name: "Hannover" },
+        { name: "Köln" },
+        { name: "Leipzig" },
+        { name: "München" },
+        { name: "Nürnberg" },
+        { name: "Stuttgart" },
+        { name: "Wuppertal" },
       ],
       firstWaitlistCta: "Auf die Warteliste",
       firstWaitlistNote:
@@ -703,10 +718,22 @@ export const messages: Record<UiLocale, Messages> = {
       lead:
         "Очно и онлайн — методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
       nextEyebrow: "Ближайший курс",
-      nextTitle: "Иврит A1 – курс для начинающих",
-      nextWhen: "Начало — в среду, 18 ноября 2026 года · по средам 18:30–20:30",
-      nextWhere: "Еврейская община Дюссельдорфа, Paul-Spiegel-Platz 1",
-      nextMeta: "30 занятий · 60 академических часов · до июля 2027",
+      nextCourses: [
+        {
+          place: "Дюссельдорф",
+          title: "Иврит A1 – курс для начинающих",
+          when: "Начало — в среду, 18 ноября 2026 года · по средам 18:30–20:30",
+          where: "Еврейская община Дюссельдорфа, Paul-Spiegel-Platz 1",
+          meta: "30 занятий · 60 академических часов · до июля 2027",
+        },
+        {
+          place: "Берлин-Пренцлауэр-Берг",
+          title: "Иврит A1 – курс для начинающих",
+          when: "Начало — в воскресенье, 15 ноября 2026 года · по воскресеньям утром",
+          where: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          meta: "до 20 июня 2027",
+        },
+      ],
       nextPrice:
         "С бесплатным членством: <strong>60&nbsp;€/месяц</strong> вместо <strong>120&nbsp;€</strong>",
       nextCta: "Записаться",
@@ -731,26 +758,26 @@ export const messages: Record<UiLocale, Messages> = {
       firstStartBadge: "старт 18.11.2026",
       firstPlannedBadge: "в планах",
       firstCities: [
-        "Дюссельдорф",
-        "Ахен",
-        "Берлин",
-        "Билефельд",
-        "Бохум",
-        "Бонн",
-        "Дортмунд",
-        "Дрезден",
-        "Дуйсбург",
-        "Эссен",
-        "Франкфурт-на-Майне",
-        "Гельзенкирхен",
-        "Гамбург",
-        "Ганновер",
-        "Кёльн",
-        "Лейпциг",
-        "Мюнхен",
-        "Нюрнберг",
-        "Штутгарт",
-        "Вупперталь",
+        { name: "Дюссельдорф", start: "старт 18.11.2026" },
+        { name: "Ахен" },
+        { name: "Берлин", start: "старт 15.11.2026" },
+        { name: "Билефельд" },
+        { name: "Бохум" },
+        { name: "Бонн" },
+        { name: "Дортмунд" },
+        { name: "Дрезден" },
+        { name: "Дуйсбург" },
+        { name: "Эссен" },
+        { name: "Франкфурт-на-Майне" },
+        { name: "Гельзенкирхен" },
+        { name: "Гамбург" },
+        { name: "Ганновер" },
+        { name: "Кёльн" },
+        { name: "Лейпциг" },
+        { name: "Мюнхен" },
+        { name: "Нюрнберг" },
+        { name: "Штутгарт" },
+        { name: "Вупперталь" },
       ],
       firstWaitlistCta: "В список ожидания",
       firstWaitlistNote:
@@ -1068,10 +1095,22 @@ export const messages: Record<UiLocale, Messages> = {
       lead:
         "In person and online — Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
       nextEyebrow: "Next course",
-      nextTitle: "Hebrew (A1) beginners",
-      nextWhen: "From Wednesday, 18 Nov 2026 · Wednesdays 18:30–20:30",
-      nextWhere: "Jewish Community of Düsseldorf, Paul-Spiegel-Platz 1",
-      nextMeta: "30 sessions · 60 lessons · until July 2027",
+      nextCourses: [
+        {
+          place: "Düsseldorf",
+          title: "Hebrew A1 – beginners",
+          when: "From Wednesday, 18 Nov 2026 · Wednesdays 18:30–20:30",
+          where: "Jewish Community of Düsseldorf, Paul-Spiegel-Platz 1",
+          meta: "30 sessions · 60 lessons · until July 2027",
+        },
+        {
+          place: "Berlin-Prenzlauer Berg",
+          title: "Hebrew A1 – beginners",
+          when: "From Sunday, 15 Nov 2026 · Sunday mornings",
+          where: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          meta: "until 20 June 2027",
+        },
+      ],
       nextPrice:
         "With free membership: <strong>60&nbsp;€/month</strong> instead of <strong>120&nbsp;€</strong>",
       nextCta: "Register now",
@@ -1096,26 +1135,26 @@ export const messages: Record<UiLocale, Messages> = {
       firstStartBadge: "starts 18.11.2026",
       firstPlannedBadge: "planned",
       firstCities: [
-        "Düsseldorf",
-        "Aachen",
-        "Berlin",
-        "Bielefeld",
-        "Bochum",
-        "Bonn",
-        "Dortmund",
-        "Dresden",
-        "Duisburg",
-        "Essen",
-        "Frankfurt",
-        "Gelsenkirchen",
-        "Hamburg",
-        "Hanover",
-        "Cologne",
-        "Leipzig",
-        "Munich",
-        "Nuremberg",
-        "Stuttgart",
-        "Wuppertal",
+        { name: "Düsseldorf", start: "starts 18.11.2026" },
+        { name: "Aachen" },
+        { name: "Berlin", start: "starts 15.11.2026" },
+        { name: "Bielefeld" },
+        { name: "Bochum" },
+        { name: "Bonn" },
+        { name: "Dortmund" },
+        { name: "Dresden" },
+        { name: "Duisburg" },
+        { name: "Essen" },
+        { name: "Frankfurt" },
+        { name: "Gelsenkirchen" },
+        { name: "Hamburg" },
+        { name: "Hanover" },
+        { name: "Cologne" },
+        { name: "Leipzig" },
+        { name: "Munich" },
+        { name: "Nuremberg" },
+        { name: "Stuttgart" },
+        { name: "Wuppertal" },
       ],
       firstWaitlistCta: "Join the waiting list",
       firstWaitlistNote:

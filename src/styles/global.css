@@ -934,7 +934,29 @@ button[type="submit"]:disabled {
   border: 1px solid color-mix(in srgb, var(--navy) 14%, transparent);
   background: color-mix(in srgb, #fff 88%, var(--green) 12%);
   display: grid;
+  gap: 0.85rem;
+}
+
+.next-course-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .next-course-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.next-course-card {
+  display: grid;
   gap: 0.35rem;
+}
+
+.next-course-place {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .next-course h2 {
