@@ -377,15 +377,15 @@ const de: Record<LegalKey, LegalDoc> = {
         ],
       },
       {
-        h2: "4. Mitgliedschaft (optional)",
+        h2: "4. Mitgliedschaft",
         blocks: [
           {
             type: "p",
-            text: "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und freiwillig. Sie ist keine Voraussetzung für die Teilnahme, verringert jedoch den Kursbeitrag (ermäßigter Tarif für Mitglieder).",
+            text: "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos. Mit der Anmeldung zum Kurs über das Anmeldeformular werden die Teilnehmenden automatisch Mitglied bei BiFoDe e.V.; ein gesonderter Antrag ist nicht erforderlich.",
           },
           {
             type: "p",
-            text: "Für die Mitgliedschaft gelten die Satzung und die Beitragsordnung von BiFoDe e.V. Sie wird getrennt vom Teilnahmevertrag begründet und beendet.",
+            text: "Für die Mitgliedschaft gelten die Satzung und die Beitragsordnung von BiFoDe e.V.",
           },
         ],
       },
@@ -902,15 +902,15 @@ const ru: Record<LegalKey, LegalDoc> = {
         ],
       },
       {
-        h2: "4. Членство (по желанию)",
+        h2: "4. Членство",
         blocks: [
           {
             type: "p",
-            text: "Членство в BiFoDe e.V. бесплатное и добровольное. Оно не является условием участия, но снижает стоимость курса (льготный тариф для членов).",
+            text: "Членство в BiFoDe e.V. бесплатное. С записью на курс через форму заявки участник автоматически становится членом BiFoDe e.V.; отдельная заявка не требуется.",
           },
           {
             type: "p",
-            text: "К членству применяются устав и положение о взносах BiFoDe e.V. Оно оформляется и прекращается отдельно от договора об участии.",
+            text: "К членству применяются устав и положение о взносах BiFoDe e.V.",
           },
         ],
       },
@@ -1422,15 +1422,15 @@ const en: Record<LegalKey, LegalDoc> = {
         ],
       },
       {
-        h2: "4. Membership (optional)",
+        h2: "4. Membership",
         blocks: [
           {
             type: "p",
-            text: "Membership of BiFoDe e.V. is free and voluntary. It is not a condition of participation, but it reduces the course fee (discounted member tariff).",
+            text: "Membership of BiFoDe e.V. is free. By registering for the course via the enrolment form, participants automatically become members of BiFoDe e.V.; a separate application is not required.",
           },
           {
             type: "p",
-            text: "Membership is governed by the statutes and the fee schedule of BiFoDe e.V. It is created and ended separately from the participation contract.",
+            text: "Membership is governed by the statutes and the fee schedule of BiFoDe e.V.",
           },
         ],
       },

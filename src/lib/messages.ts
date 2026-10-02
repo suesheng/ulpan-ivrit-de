@@ -109,6 +109,7 @@ export type Messages = {
     noCourseLink: string;
     cityFaqQ: string;
     cityFaqA: string;
+    membershipAuto: string;
   };
   preise: {
     title: string;
@@ -418,7 +419,7 @@ export const messages: Record<UiLocale, Messages> = {
         "Hebräisch A1 für Anfänger. Füllen Sie das Formular aus – Kurs, Preisoption und SEPA-Lastschriftmandat in einem Schritt.",
       step1: "Formular ausfüllen",
       step1Text:
-        "Kurs, Preisoption und SEPA-Lastschrift in einem Formular. Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und optional.",
+        "Kurs, Preisoption und SEPA-Lastschrift in einem Formular. Mit dem Absenden der Anmeldung werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V.",
       step2: "Bestätigung per E-Mail",
       step2Text:
         "Sie erhalten eine Bestätigung mit Kursdaten, Mandatsreferenz und Zugang zu Moodle (ulpan.bifode.org).",
@@ -440,6 +441,8 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqQ: "Wann startet ein Ulpan in meiner Stadt?",
       cityFaqA:
         "Sobald sich mindestens 15 Interessierte gemeldet haben – über die Warteliste oder als Gruppe über Ihre Gemeinde oder Organisation.",
+      membershipAuto:
+        "Mit der Anmeldung zum Ulpan werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V. Ein gesonderter Antrag auf bifode.org ist nicht nötig.",
     },
     preise: {
       title: "Kursdetails & Preise — Ulpan Ivrit",
@@ -455,7 +458,7 @@ export const messages: Record<UiLocale, Messages> = {
       nonMemberLabel: "Ohne Mitgliedschaft:",
       nonMemberPrice: "120 € pro Monat · 8 Monatsraten · insgesamt 960 €",
       membershipNote:
-        "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und freiwillig. Sie wird unabhängig von der Kursteilnahme abgeschlossen.",
+        "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos. Sie entsteht automatisch mit der Anmeldung zum Ulpan; ein gesonderter Antrag ist nicht nötig.",
       membershipLink: "Informationen zur Mitgliedschaft bei BiFoDe e.V.",
     },
     kurse: {
@@ -486,7 +489,7 @@ export const messages: Record<UiLocale, Messages> = {
       p2: "Typischer Termin: 2 × 45 Min. mit Pause. Schwerpunkt: gesprochenes Hebräisch. Materialien liegen auch in Moodle.",
       p3: "Im Community-Projekt suchen wir nach Möglichkeit die Lehrkraft und beteiligen uns an der Finanzierung, stellen Materialien und Fortbildung (Hishtalmut). Mehr dazu:",
       p3Link: "Lehrkräfte",
-      p4: "Teilnehmende melden sich über das Anmeldeformular an; die Mitgliedschaft ist kostenlos und optional.",
+      p4: "Teilnehmende melden sich über das Anmeldeformular an. Mit der Anmeldung werden sie automatisch und kostenlos Mitglied bei BiFoDe e.V.",
       p4Link: "Anmeldung",
       formTitle: "Träger: Gruppe aufbauen",
       formLead: "Neue Gruppen starten ab 15 Teilnehmenden.",
@@ -538,8 +541,8 @@ export const messages: Record<UiLocale, Messages> = {
       title: "FAQ – Ulpan Ivrit",
       desc: "Mitgliedschaft, Zahlung, Termine, Standorte, Online und Hishtalmut.",
       h1: "Fragen",
-      q1: "Muss ich Mitglied werden?",
-      a1: "Nein. Die Mitgliedschaft ist kostenlos und freiwillig. Umfang und Preisoptionen stehen unter",
+      q1: "Werde ich mit der Anmeldung Mitglied?",
+      a1: "Ein gesonderter Antrag ist nicht nötig. Mit der Anmeldung zum Ulpan werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V. Umfang und Preisoptionen stehen unter",
       a1Link: "Kursdetails & Preise",
       q2: "Wie wird bezahlt?",
       a2: "Per SEPA-Lastschrift. Die monatlichen Beträge und die Zahl der Raten stehen unter",
@@ -573,7 +576,7 @@ export const messages: Record<UiLocale, Messages> = {
       intro: "Wählen Sie, wer Sie sind. Allgemeine Fragen gehen an",
       mail: "E-Mail",
       learnersTitle: "Lernende",
-      learners: "Melden Sie sich über das Anmeldeformular an. Die Mitgliedschaft ist kostenlos und optional.",
+      learners: "Melden Sie sich über das Anmeldeformular an. Mit der Anmeldung werden Sie automatisch und kostenlos Mitglied bei BiFoDe e.V.",
       learnersLink: "Anmeldung",
       orgsTitle: "Gemeinde oder Verein",
       orgs: "Sie wollen eine Präsenzgruppe tragen. Materialien, Moodle und oft auch die Lehrkraft kommen vom Projekt.",
@@ -586,7 +589,7 @@ export const messages: Record<UiLocale, Messages> = {
       title: "Verein – Ulpan Ivrit",
       desc: "Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) führt Ulpan Ivrit in Deutschland durch.",
       h1: "Durchführung durch BiFoDe e.V.",
-      p1: "Das Programm kommt von der Zionistischen Weltorganisation, Ofek Israeli, der Sochnut und Keren Hayesod. Träger in Deutschland ist Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Die Mitgliedschaft ist kostenlos und optional.",
+      p1: "Das Programm kommt von der Zionistischen Weltorganisation, Ofek Israeli, der Sochnut und Keren Hayesod. Träger in Deutschland ist Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Mit der Ulpan-Anmeldung werden Teilnehmende automatisch und kostenlos Mitglied.",
       fees: "Kursumfang und Preisoptionen:",
       talks: "Mitglieder erhalten Vorträge und Ankündigungen – online und vor Ort, je nach Programm.",
       partner: "Partner",
@@ -790,7 +793,7 @@ export const messages: Record<UiLocale, Messages> = {
         "Иврит A1 для начинающих. Заполните форму — курс, вариант оплаты и мандат базового прямого дебетования SEPA в одном шаге.",
       step1: "Заполнить форму",
       step1Text:
-        "Курс, вариант оплаты и списание по SEPA в одной форме. Членство в BiFoDe e.V. бесплатное и необязательное.",
+        "Курс, вариант оплаты и списание по SEPA в одной форме. Отправляя заявку, вы автоматически и бесплатно становитесь членом BiFoDe e.V.",
       step2: "Подтверждение по e-mail",
       step2Text:
         "Вы получите подтверждение с данными курса, номером SEPA-мандата и доступом в Moodle (ulpan.bifode.org).",
@@ -812,6 +815,8 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqQ: "Когда ульпан откроется в моём городе?",
       cityFaqA:
         "Как только наберётся не меньше 15 желающих – через список ожидания или как группа через вашу общину или организацию.",
+      membershipAuto:
+        "Заполняя форму записи в ульпан, вы автоматически и бесплатно становитесь членом BiFoDe e.V. Отдельная заявка на bifode.org не нужна.",
     },
     preise: {
       title: "Программа и стоимость — Ulpan Ivrit",
@@ -826,7 +831,7 @@ export const messages: Record<UiLocale, Messages> = {
       nonMemberLabel: "Без членства:",
       nonMemberPrice: "120 € в месяц · 8 ежемесячных платежей · всего 960 €",
       membershipNote:
-        "Членство в Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) является бесплатным и добровольным. Оно оформляется отдельно от участия в курсе.",
+        "Членство в Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) бесплатное. Оно оформляется автоматически при записи в ульпан; отдельная заявка не нужна.",
       membershipLink: "Подробнее о членстве в BiFoDe e.V.",
     },
     kurse: {
@@ -857,7 +862,7 @@ export const messages: Record<UiLocale, Messages> = {
       p2: "Типичное занятие: два академических часа по 45 минут с перерывом. Акцент: разговорный иврит. Материалы также в Moodle.",
       p3: "В проекте для еврейских общин мы по возможности ищем преподавателя и участвуем в финансировании, даём материалы и иштальмут (ивр. השתלמות, повышение квалификации). Подробнее:",
       p3Link: "Преподаватели",
-      p4: "Участники записываются через форму; членство бесплатное и необязательное.",
+      p4: "Участники записываются через форму. С записью они автоматически и бесплатно становятся членами BiFoDe e.V.",
       p4Link: "Запись",
       formTitle: "Организаторам: собрать группу",
       formLead: "Новые группы стартуют от 15 участников.",
@@ -909,8 +914,8 @@ export const messages: Record<UiLocale, Messages> = {
       title: "FAQ — Ulpan Ivrit",
       desc: "Членство, оплата, занятия, площадки, онлайн и Hishtalmut.",
       h1: "Вопросы",
-      q1: "Обязательно ли становиться членом?",
-      a1: "Нет. Членство бесплатное и добровольное. Объём курса и варианты оплаты — в разделе",
+      q1: "Становлюсь ли я членом союза при записи?",
+      a1: "Отдельная заявка не нужна. Заполняя форму записи в ульпан, вы автоматически и бесплатно становитесь членом BiFoDe e.V. Объём курса и варианты оплаты — в разделе",
       a1Link: "Программа и стоимость",
       q2: "Как оплачивать?",
       a2: "Списанием по SEPA. Суммы и число платежей указаны в разделе",
@@ -944,7 +949,7 @@ export const messages: Record<UiLocale, Messages> = {
       intro: "Выберите, кто вы. Общие вопросы — на",
       mail: "Эл. почта",
       learnersTitle: "Учащиеся",
-      learners: "Запишитесь через форму. Членство бесплатное и необязательное.",
+      learners: "Запишитесь через форму. С записью вы автоматически и бесплатно становитесь членом BiFoDe e.V.",
       learnersLink: "Запись",
       orgsTitle: "Община или союз",
       orgs: "Хотите вести очную группу. Материалы, Moodle и часто преподавателя даёт проект.",
@@ -957,7 +962,7 @@ export const messages: Record<UiLocale, Messages> = {
       title: "Союз — Ulpan Ivrit",
       desc: "Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) ведёт Ulpan Ivrit в Германии.",
       h1: "Реализация — BiFoDe e.V.",
-      p1: "Программа идёт от Всемирной сионистской организации, Ofek Israeli, Сохнута и Керен ха-Йесод. Оператор в Германии — Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Членство бесплатное и необязательное.",
+      p1: "Программа идёт от Всемирной сионистской организации, Ofek Israeli, Сохнута и Керен ха-Йесод. Оператор в Германии — Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). При записи в ульпан участники автоматически и бесплатно становятся членами союза.",
       fees: "Объём курса и варианты оплаты:",
       talks: "Члены союза получают лекции и анонсы — онлайн и очно, по программе.",
       partner: "Партнёры",
@@ -1160,7 +1165,7 @@ export const messages: Record<UiLocale, Messages> = {
         "Hebrew A1 for beginners. Fill in the form — course, price option and SEPA in one step.",
       step1: "Fill in the form",
       step1Text:
-        "Course, price option and SEPA direct debit in one form. Membership of BiFoDe e.V. is free and optional.",
+        "Course, price option and SEPA direct debit in one form. By submitting the registration you automatically become a member of BiFoDe e.V. at no charge.",
       step2: "Confirmation by email",
       step2Text:
         "You receive confirmation with course details, mandate reference and Moodle access (ulpan.bifode.org).",
@@ -1182,6 +1187,8 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqQ: "When does an Ulpan start in my city?",
       cityFaqA:
         "As soon as at least 15 interested people have signed up – via the waiting list or as a group through your community or organisation.",
+      membershipAuto:
+        "By filling in the Ulpan registration form you automatically become a member of BiFoDe e.V. at no charge. A separate application on bifode.org is not required.",
     },
     preise: {
       title: "Course details & pricing — Ulpan Ivrit",
@@ -1196,7 +1203,7 @@ export const messages: Record<UiLocale, Messages> = {
       nonMemberLabel: "Without membership:",
       nonMemberPrice: "€120 per month · 8 monthly instalments · €960 in total",
       membershipNote:
-        "Membership of Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) is free and voluntary. It is arranged separately from course participation.",
+        "Membership of Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) is free. It is created automatically with the Ulpan registration; a separate application is not required.",
       membershipLink: "More information about membership of BiFoDe e.V.",
     },
     kurse: {
@@ -1227,7 +1234,7 @@ export const messages: Record<UiLocale, Messages> = {
       p2: "A typical session: 2 × 45 min with a break. Focus: spoken Hebrew. Materials are also in Moodle.",
       p3: "In the community project we look for a teacher where possible and help with funding, materials and training (Hishtalmut). More:",
       p3Link: "Teachers",
-      p4: "Participants register via the enrolment form; membership is free and optional.",
+      p4: "Participants register via the enrolment form. With the registration they automatically become members of BiFoDe e.V. at no charge.",
       p4Link: "Registration",
       formTitle: "Hosts: start a group",
       formLead: "New groups start from 15 participants.",
@@ -1279,8 +1286,8 @@ export const messages: Record<UiLocale, Messages> = {
       title: "FAQ — Ulpan Ivrit",
       desc: "Membership, payment, sessions, locations, online and Hishtalmut.",
       h1: "Questions",
-      q1: "Do I have to become a member?",
-      a1: "No. Membership is free and voluntary. Course scope and price options are under",
+      q1: "Do I become a member when I register?",
+      a1: "A separate application is not needed. By registering for the Ulpan you automatically become a member of BiFoDe e.V. at no charge. Course scope and price options are under",
       a1Link: "Course details & pricing",
       q2: "How do I pay?",
       a2: "By SEPA direct debit. The monthly amounts and number of instalments are under",
@@ -1314,7 +1321,7 @@ export const messages: Record<UiLocale, Messages> = {
       intro: "Choose who you are. General questions go to",
       mail: "Email",
       learnersTitle: "Learners",
-      learners: "Register via the enrolment form. Membership is free and optional.",
+      learners: "Register via the enrolment form. With the registration you automatically become a member of BiFoDe e.V. at no charge.",
       learnersLink: "Registration",
       orgsTitle: "Congregation or association",
       orgs: "You want to host an in-person group. The project provides materials, Moodle and often the teacher.",
@@ -1327,7 +1334,7 @@ export const messages: Record<UiLocale, Messages> = {
       title: "Association — Ulpan Ivrit",
       desc: "Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) delivers Ulpan Ivrit in Germany.",
       h1: "Delivered by BiFoDe e.V.",
-      p1: "The programme comes from the World Zionist Organization, Ofek Israeli, the Jewish Agency and Keren Hayesod. The host in Germany is Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Membership is free and optional.",
+      p1: "The programme comes from the World Zionist Organization, Ofek Israeli, the Jewish Agency and Keren Hayesod. The host in Germany is Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). With the Ulpan registration, participants automatically become members at no charge.",
       fees: "Course scope and price options:",
       talks: "Members receive talks and announcements — online and in person, depending on the programme.",
       partner: "Partners",

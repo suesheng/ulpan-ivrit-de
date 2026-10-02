@@ -26,11 +26,11 @@ Der Vertrag kommt zustande, wenn BiFoDe e.V. die Anmeldung bestätigt — in der
 
 Die Teilnahme setzt freie Plätze voraus. Bei ausgebuchten Kursen kann ein Platz auf einer Warteliste angeboten werden.
 
-## 4. Mitgliedschaft (optional)
+## 4. Mitgliedschaft
 
-Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und freiwillig. Sie ist keine Voraussetzung für die Teilnahme, verringert jedoch den Kursbeitrag (ermäßigter Tarif für Mitglieder).
+Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos. Mit der Anmeldung zum Kurs über das Anmeldeformular werden die Teilnehmenden automatisch Mitglied bei BiFoDe e.V.; ein gesonderter Antrag ist nicht erforderlich.
 
-Für die Mitgliedschaft gelten die Satzung und die Beitragsordnung von BiFoDe e.V. Sie wird getrennt vom Teilnahmevertrag begründet und beendet.
+Für die Mitgliedschaft gelten die Satzung und die Beitragsordnung von BiFoDe e.V.
 
 ## 5. Preise und Zahlung
 

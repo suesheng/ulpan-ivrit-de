@@ -28,11 +28,11 @@ The contract is concluded when BiFoDe e.V. confirms the registration — usually
 
 Participation requires available places. For fully booked courses, a place on a waiting list may be offered.
 
-## 4. Membership (optional)
+## 4. Membership
 
-Membership of BiFoDe e.V. is free and voluntary. It is not a condition of participation, but it reduces the course fee (discounted member tariff).
+Membership of BiFoDe e.V. is free. By registering for the course via the enrolment form, participants automatically become members of BiFoDe e.V.; a separate application is not required.
 
-Membership is governed by the statutes and the fee schedule of BiFoDe e.V. It is created and ended separately from the participation contract.
+Membership is governed by the statutes and the fee schedule of BiFoDe e.V.
 
 ## 5. Prices and payment
 
