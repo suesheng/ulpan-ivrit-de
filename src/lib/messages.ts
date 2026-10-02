@@ -38,6 +38,7 @@ export type Messages = {
     member: string;
     start: string;
     interest: string;
+    preise: string;
   };
   quote: {
     translation: string;
@@ -54,17 +55,11 @@ export type Messages = {
     lead: string;
     nextEyebrow: string;
     nextCourses: {
-      place: string;
       title: string;
       when: string;
-      where: string;
-      meta: string;
     }[];
-    nextPrice: string;
-    nextCta: string;
     f1: string;
     f3: string;
-    f5: string;
     ctaPitch: string;
     ctaQuestions: string;
     ctaContact: string;
@@ -102,14 +97,10 @@ export type Messages = {
     tariffTitle: string;
     tariffRecommended: string;
     tariffMemberTitle: string;
-    tariffMemberItems: string[];
+    tariffMemberPrice: string;
     tariffNonTitle: string;
-    tariffNonItems: string[];
-    tariffNote: string;
-    datesTitle: string;
-    datesSummary: string;
-    datesFreeLabel: string;
-    priceLine: string;
+    tariffNonPrice: string;
+    preiseLink: string;
     legalIntro: string;
     formTitle: string;
     formFallback: string;
@@ -118,6 +109,21 @@ export type Messages = {
     noCourseLink: string;
     cityFaqQ: string;
     cityFaqA: string;
+  };
+  preise: {
+    title: string;
+    desc: string;
+    h1: string;
+    scopeH2: string;
+    sessions: string;
+    units: string;
+    period: string;
+    memberLabel: string;
+    memberPrice: string;
+    nonMemberLabel: string;
+    nonMemberPrice: string;
+    membershipNote: string;
+    membershipLink: string;
   };
   kurse: {
     title: string;
@@ -138,8 +144,8 @@ export type Messages = {
     h1: string;
     currentTitle: string;
     currentMeta: string;
-    currentPrice: string;
     currentCta: string;
+    preiseLink: string;
     p1: string;
     p2: string;
     p3: string;
@@ -195,8 +201,10 @@ export type Messages = {
     h1: string;
     q1: string;
     a1: string;
+    a1Link: string;
     q2: string;
     a2: string;
+    a2Link: string;
     q3: string;
     a3: string;
     q3Link: string;
@@ -284,9 +292,9 @@ export const messages: Record<UiLocale, Messages> = {
   de: {
     meta: {
       descDefault:
-        "Anmeldung zum Ulpan: Hebräisch A1 für Anfänger. 60 Unterrichtsstunden, Schwerpunkt gesprochenes Hebräisch. Mit kostenloser BiFoDe-Mitgliedschaft 60 €/Monat.",
+        "Anmeldung zum Ulpan: Hebräisch A1 für Anfänger. Schwerpunkt gesprochenes Hebräisch.",
       ogImageAlt:
-        "Anmeldung zum Ulpan – Hebräisch A1 Anfänger, 60 Unterrichtsstunden, 60 €/Monat mit kostenloser BiFoDe-Mitgliedschaft",
+        "Anmeldung zum Ulpan – Hebräisch A1 für Anfänger, Schwerpunkt gesprochenes Hebräisch",
       skip: "Zum Inhalt",
       navAria: "Hauptnavigation",
       footerAria: "Fußzeile",
@@ -322,6 +330,7 @@ export const messages: Record<UiLocale, Messages> = {
       member: "Jetzt anmelden",
       start: "Anmeldung",
       interest: "Interesse melden",
+      preise: "Kursdetails & Preise",
     },
     quote: {
       translation:
@@ -335,35 +344,24 @@ export const messages: Record<UiLocale, Messages> = {
     home: {
       title: "Hebräisch lernen in Düsseldorf – Ulpan Ivrit A1 ab 18.11.2026",
       description:
-        "Hebräischkurs A1 in der Jüdischen Gemeinde Düsseldorf, mittwochs 18:30 Uhr. Mit kostenloser Mitgliedschaft 60 €/Monat.",
+        "Hebräischkurs A1 in der Jüdischen Gemeinde Düsseldorf, mittwochs 18:30 Uhr.",
       h1: "<strong>Hebräisch</strong> lernen ist ganz <strong>einfach</strong>!",
       lead:
         "Präsenz- und Onlineunterricht – Methodik der Hebräischen Universität Jerusalem, gesprochenes Hebräisch, Materialien in Moodle.",
       nextEyebrow: "Nächster Kurs",
       nextCourses: [
         {
-          place: "Düsseldorf",
-          title: "Hebräisch A1 – Anfängerkurs",
-          when: "Ab Mittwoch, 18.11.2026 · mittwochs 18:30–20:30 Uhr",
-          where: "Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1",
-          meta: "30 Termine · 60 Unterrichtsstunden · bis Juli 2027",
+          title: "Hebräisch A1 in Düsseldorf",
+          when: "18. November 2026 bis Juli 2027",
         },
         {
-          place: "Berlin-Prenzlauer Berg",
-          title: "Hebräisch A1 – Anfängerkurs",
-          when: "Ab Sonntag, 15.11.2026 · sonntags am Vormittag",
-          where: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
-          meta: "bis 20.06.2027",
+          title: "Hebräisch A1 in Berlin-Prenzlauer Berg",
+          when: "15. November 2026 bis Juni 2027",
         },
       ],
-      nextPrice:
-        "Mit kostenloser Mitgliedschaft: <strong>60&nbsp;€/Monat</strong> statt <strong>120&nbsp;€</strong>",
-      nextCta: "Jetzt anmelden",
       f1: "Präsenz- und Onlineunterricht",
       f3: "In Zusammenarbeit mit der Hebräischen Universität Jerusalem",
-      f5: "Kostenlose Mitgliedschaft – 50&nbsp;% Rabatt: <strong>60&nbsp;€</strong> statt <strong>120&nbsp;€</strong> im Monat",
-      ctaPitch:
-        "Sichern Sie sich jetzt Ihre <span class=\"home-perk\">kostenlose Mitgliedschaft + 50&nbsp;% Rabatt</span>.<br />Anmeldung in wenigen Minuten.",
+      ctaPitch: "Anmeldung in wenigen Minuten.",
       ctaQuestions: "Fragen?",
       ctaContact: "Schreiben Sie uns.",
       onlineTitle: "Online",
@@ -414,39 +412,25 @@ export const messages: Record<UiLocale, Messages> = {
     },
     soGehts: {
       title: "Anmeldung – Ulpan Ivrit",
-      desc: "Hebräisch A1 in 3 Schritten anmelden. Mit kostenloser Mitgliedschaft 60 €/Monat statt 120 €.",
+      desc: "Hebräisch A1 in 3 Schritten anmelden.",
       h1: "Anmeldung in 3 Schritten",
       intro:
-        "Hebräisch A1 für Anfänger. Füllen Sie das Formular aus – Kurs, Tarif und SEPA-Lastschriftmandat in einem Schritt.",
+        "Hebräisch A1 für Anfänger. Füllen Sie das Formular aus – Kurs, Preisoption und SEPA-Lastschriftmandat in einem Schritt.",
       step1: "Formular ausfüllen",
       step1Text:
-        "Kurs, Tarif und SEPA-Lastschrift in einem Formular. Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und optional.",
+        "Kurs, Preisoption und SEPA-Lastschrift in einem Formular. Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und optional.",
       step2: "Bestätigung per E-Mail",
       step2Text:
         "Sie erhalten eine Bestätigung mit Kursdaten, Mandatsreferenz und Zugang zu Moodle (ulpan.bifode.org).",
       step3: "Erster Termin",
       step3Text: "Zeit und Ort Ihres ersten Termins stehen in der Bestätigung und im Anmeldeformular; den aktuellen Kurs finden Sie auf der Startseite.",
-      tariffTitle: "Tarife",
+      tariffTitle: "Preisoptionen",
       tariffRecommended: "Empfohlen",
       tariffMemberTitle: "Mit kostenloser Mitgliedschaft",
-      tariffMemberItems: [
-        "8 € / Unterrichtsstunde (45 Min.)",
-        "60 € / Monat",
-        "gesamt 480 €",
-      ],
+      tariffMemberPrice: "60 € pro Monat",
       tariffNonTitle: "Ohne Mitgliedschaft",
-      tariffNonItems: [
-        "16 € / Unterrichtsstunde (45 Min.)",
-        "120 € / Monat",
-        "gesamt 960 €",
-      ],
-      tariffNote: "45 Min. · 8 Monatsraten · SEPA-Lastschrift",
-      datesTitle: "Kurstermine",
-      datesSummary:
-        "30 Termine à 90 Min. (2 × 45 Min.) = 60 Unterrichtsstunden",
-      datesFreeLabel: "Unterrichtsfrei",
-      priceLine:
-        "A1: 30 Termine à 90 Min. (60 UE) · 8 Monatsraten à 60 € (mit kostenloser Mitgliedschaft) bzw. 120 €.",
+      tariffNonPrice: "120 € pro Monat",
+      preiseLink: "Kursdetails & Preise",
       legalIntro: "Mit der Anmeldung gelten unsere",
       formTitle: "Anmeldung",
       formFallback: "Formular lädt nicht?",
@@ -456,6 +440,23 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqQ: "Wann startet ein Ulpan in meiner Stadt?",
       cityFaqA:
         "Sobald sich mindestens 15 Interessierte gemeldet haben – über die Warteliste oder als Gruppe über Ihre Gemeinde oder Organisation.",
+    },
+    preise: {
+      title: "Kursdetails & Preise — Ulpan Ivrit",
+      desc: "Umfang, Zeitraum und Preisoptionen der Hebräischkurse von Ulpan Ivrit.",
+      h1: "Kursdetails & Preise",
+      scopeH2: "Kursumfang und Preise",
+      sessions: "30 Termine mit jeweils 90 Minuten",
+      units: "60 Unterrichtseinheiten à 45 Minuten",
+      period: "Kurszeitraum: 18. November 2026 bis 7. Juli 2027",
+      memberLabel:
+        "Mit kostenloser Mitgliedschaft bei Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.):",
+      memberPrice: "60 € pro Monat · 8 Monatsraten · insgesamt 480 €",
+      nonMemberLabel: "Ohne Mitgliedschaft:",
+      nonMemberPrice: "120 € pro Monat · 8 Monatsraten · insgesamt 960 €",
+      membershipNote:
+        "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und freiwillig. Sie wird unabhängig von der Kursteilnahme abgeschlossen.",
+      membershipLink: "Informationen zur Mitgliedschaft bei BiFoDe e.V.",
     },
     kurse: {
       title: "Online – Ulpan Ivrit",
@@ -478,10 +479,9 @@ export const messages: Record<UiLocale, Messages> = {
       h1: "Ulpan vor Ort",
       currentTitle: "Präsenzunterricht",
       currentMeta:
-        "Hebräisch A1 · 30 Termine à 90 Min. (2 × 45 Min. mit Pause) · 60 Unterrichtsstunden · Schwerpunkt gesprochenes Hebräisch. Den aktuellen Kurs mit Ort und Terminen finden Sie auf der Startseite und im Anmeldeformular.",
-      currentPrice:
-        "Mit kostenloser Mitgliedschaft: <strong>60&nbsp;€/Monat</strong> (gesamt 480&nbsp;€) · ohne: <strong>120&nbsp;€/Monat</strong> (gesamt 960&nbsp;€)",
+        "Hebräisch A1, Schwerpunkt gesprochenes Hebräisch. Den aktuellen Kurs mit Ort und Terminen finden Sie auf der Startseite und im Anmeldeformular.",
       currentCta: "Jetzt anmelden",
+      preiseLink: "Kursdetails & Preise",
       p1: "Der Präsenzunterricht läuft über jüdische Organisationen. Weitere Standorte sind in Planung; Interessierte können sich auf die Warteliste setzen lassen.",
       p2: "Typischer Termin: 2 × 45 Min. mit Pause. Schwerpunkt: gesprochenes Hebräisch. Materialien liegen auch in Moodle.",
       p3: "Im Community-Projekt suchen wir nach Möglichkeit die Lehrkraft und beteiligen uns an der Finanzierung, stellen Materialien und Fortbildung (Hishtalmut). Mehr dazu:",
@@ -539,9 +539,11 @@ export const messages: Record<UiLocale, Messages> = {
       desc: "Mitgliedschaft, Zahlung, Termine, Standorte, Online und Hishtalmut.",
       h1: "Fragen",
       q1: "Muss ich Mitglied werden?",
-      a1: "Nein. Die Mitgliedschaft ist kostenlos und freiwillig. Mitglieder zahlen 60 € statt 120 € im Monat.",
+      a1: "Nein. Die Mitgliedschaft ist kostenlos und freiwillig. Umfang und Preisoptionen stehen unter",
+      a1Link: "Kursdetails & Preise",
       q2: "Wie wird bezahlt?",
-      a2: "Per SEPA-Lastschrift in 8 Monatsraten: 60 € bzw. 120 €. Gesamt 480 € bzw. 960 €.",
+      a2: "Per SEPA-Lastschrift. Die monatlichen Beträge und die Zahl der Raten stehen unter",
+      a2Link: "Kursdetails & Preise",
       q3: "Wie läuft ein Termin?",
       a3: "2 × 45 Min. mit Pause, Schwerpunkt Sprechen, Materialien in Moodle.",
       q3Link: "Anmeldung",
@@ -582,10 +584,10 @@ export const messages: Record<UiLocale, Messages> = {
     },
     verein: {
       title: "Verein – Ulpan Ivrit",
-      desc: "BiFoDe e.V. führt Ulpan Ivrit in Deutschland durch. Mitgliedschaft kostenlos; Kurs 60 € / 120 € pro Monat.",
+      desc: "Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) führt Ulpan Ivrit in Deutschland durch.",
       h1: "Durchführung durch BiFoDe e.V.",
-      p1: "Das Programm kommt von der Zionistischen Weltorganisation, Ofek Israeli, der Sochnut und Keren Hayesod. Träger in Deutschland ist Bildungsforum für Demokratie und Vielfalt NRW e.V. Die Mitgliedschaft ist kostenlos und optional.",
-      fees: "Mitgliedschaft kostenlos. Kurs: 60 €/Monat für Mitglieder, 120 €/Monat ohne Mitgliedschaft (SEPA-Lastschrift, 8 Raten, gesamt 480 € bzw. 960 €).",
+      p1: "Das Programm kommt von der Zionistischen Weltorganisation, Ofek Israeli, der Sochnut und Keren Hayesod. Träger in Deutschland ist Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Die Mitgliedschaft ist kostenlos und optional.",
+      fees: "Kursumfang und Preisoptionen:",
       talks: "Mitglieder erhalten Vorträge und Ankündigungen – online und vor Ort, je nach Programm.",
       partner: "Partner",
       project: "Projektseite",
@@ -662,9 +664,9 @@ export const messages: Record<UiLocale, Messages> = {
   ru: {
     meta: {
       descDefault:
-        "Запись в ульпан: иврит A1 для начинающих. 60 академических часов, упор на разговорный иврит. С бесплатным членством BiFoDe — 60 €/месяц.",
+        "Запись в ульпан: иврит A1 для начинающих. Упор на разговорный иврит.",
       ogImageAlt:
-        "Запись в ульпан — иврит A1 для начинающих, 60 часов, 60 €/месяц с бесплатным членством BiFoDe",
+        "Запись в ульпан — иврит A1 для начинающих, упор на разговорный иврит",
       skip: "К содержанию",
       navAria: "Главная навигация",
       footerAria: "Подвал сайта",
@@ -700,6 +702,7 @@ export const messages: Record<UiLocale, Messages> = {
       member: "Записаться",
       start: "Запись",
       interest: "Оставить заявку",
+      preise: "Программа и стоимость",
     },
     quote: {
       translation:
@@ -713,35 +716,24 @@ export const messages: Record<UiLocale, Messages> = {
     home: {
       title: "Учить иврит в Дюссельдорфе – Ulpan Ivrit A1 с 18.11.2026",
       description:
-        "Курс иврита A1 в Еврейской общине Дюссельдорфа, по средам в 18:30. С бесплатным членством — 60 €/месяц.",
+        "Курс иврита A1 в Еврейской общине Дюссельдорфа, по средам в 18:30.",
       h1: "Учить <strong>иврит</strong> совсем <strong>просто</strong>!",
       lead:
         "Очно и онлайн — методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
       nextEyebrow: "Ближайший курс",
       nextCourses: [
         {
-          place: "Дюссельдорф",
-          title: "Иврит A1 – курс для начинающих",
-          when: "Начало — в среду, 18 ноября 2026 года · по средам 18:30–20:30",
-          where: "Еврейская община Дюссельдорфа, Paul-Spiegel-Platz 1",
-          meta: "30 занятий · 60 академических часов · до июля 2027",
+          title: "Иврит A1 в Дюссельдорфе",
+          when: "С 18 ноября 2026 года по июль 2027 года",
         },
         {
-          place: "Берлин-Пренцлауэр-Берг",
-          title: "Иврит A1 – курс для начинающих",
-          when: "Начало — в воскресенье, 15 ноября 2026 года · по воскресеньям утром",
-          where: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
-          meta: "до 20 июня 2027",
+          title: "Иврит A1 в Берлине-Пренцлауэр-Берг",
+          when: "С 15 ноября 2026 года по июнь 2027 года",
         },
       ],
-      nextPrice:
-        "С бесплатным членством: <strong>60&nbsp;€/месяц</strong> вместо <strong>120&nbsp;€</strong>",
-      nextCta: "Записаться",
       f1: "Очно и онлайн",
       f3: "В сотрудничестве с Еврейским университетом в Иерусалиме",
-      f5: "Бесплатное членство – скидка 50&nbsp;%: <strong>60&nbsp;€</strong> вместо <strong>120&nbsp;€</strong> в месяц",
-      ctaPitch:
-        "Оформите сейчас <span class=\"home-perk\">бесплатное членство + скидку 50&nbsp;%</span>.<br />Запись займёт несколько минут.",
+      ctaPitch: "Запись займёт несколько минут.",
       ctaQuestions: "Вопросы?",
       ctaContact: "Напишите нам.",
       onlineTitle: "Онлайн",
@@ -792,39 +784,25 @@ export const messages: Record<UiLocale, Messages> = {
     },
     soGehts: {
       title: "Запись — Ulpan Ivrit",
-      desc: "Иврит A1: запись в 3 шага. С бесплатным членством — 60 €/месяц вместо 120 €.",
+      desc: "Иврит A1: запись в 3 шага.",
       h1: "Запись в 3 шага",
       intro:
-        "Иврит A1 для начинающих. Заполните форму — курс, тариф и мандат базового прямого дебетования SEPA в одном шаге.",
+        "Иврит A1 для начинающих. Заполните форму — курс, вариант оплаты и мандат базового прямого дебетования SEPA в одном шаге.",
       step1: "Заполнить форму",
       step1Text:
-        "Курс, тариф и списание по SEPA в одной форме. Членство в BiFoDe e.V. бесплатное и необязательное.",
+        "Курс, вариант оплаты и списание по SEPA в одной форме. Членство в BiFoDe e.V. бесплатное и необязательное.",
       step2: "Подтверждение по e-mail",
       step2Text:
         "Вы получите подтверждение с данными курса, номером SEPA-мандата и доступом в Moodle (ulpan.bifode.org).",
       step3: "Первое занятие",
       step3Text: "Время и место первого занятия указаны в подтверждении и в форме записи; актуальный курс — на главной странице.",
-      tariffTitle: "Тарифы",
+      tariffTitle: "Варианты оплаты",
       tariffRecommended: "Рекомендуем",
       tariffMemberTitle: "С бесплатным членством",
-      tariffMemberItems: [
-        "8 € / урок (45 мин.)",
-        "60 € / месяц",
-        "всего 480 €",
-      ],
+      tariffMemberPrice: "60 € в месяц",
       tariffNonTitle: "Без членства",
-      tariffNonItems: [
-        "16 € / урок (45 мин.)",
-        "120 € / месяц",
-        "всего 960 €",
-      ],
-      tariffNote: "45 мин. · 8 ежемесячных платежей · SEPA-списание",
-      datesTitle: "Даты занятий",
-      datesSummary:
-        "30 занятий по 90 мин. (два академических часа по 45 минут) = 60 академических часов",
-      datesFreeLabel: "Без занятий",
-      priceLine:
-        "A1: 30 занятий по 90 мин. (60 академических часов) · 8 ежемесячных платежей по 60 € (с бесплатным членством) или 120 €.",
+      tariffNonPrice: "120 € в месяц",
+      preiseLink: "Программа и стоимость",
       legalIntro: "При записи действуют наши",
       formTitle: "Запись",
       formFallback: "Форма не загружается?",
@@ -834,6 +812,22 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqQ: "Когда ульпан откроется в моём городе?",
       cityFaqA:
         "Как только наберётся не меньше 15 желающих – через список ожидания или как группа через вашу общину или организацию.",
+    },
+    preise: {
+      title: "Программа и стоимость — Ulpan Ivrit",
+      desc: "Объём, сроки и варианты оплаты курсов иврита Ulpan Ivrit.",
+      h1: "Программа и стоимость",
+      scopeH2: "Программа и стоимость",
+      sessions: "30 занятий продолжительностью 90 минут",
+      units: "60 академических часов по 45 минут",
+      period: "Период обучения: с 18 ноября 2026 года по 7 июля 2027 года",
+      memberLabel: "С бесплатным членством в BiFoDe e.V.:",
+      memberPrice: "60 € в месяц · 8 ежемесячных платежей · всего 480 €",
+      nonMemberLabel: "Без членства:",
+      nonMemberPrice: "120 € в месяц · 8 ежемесячных платежей · всего 960 €",
+      membershipNote:
+        "Членство в Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) является бесплатным и добровольным. Оно оформляется отдельно от участия в курсе.",
+      membershipLink: "Подробнее о членстве в BiFoDe e.V.",
     },
     kurse: {
       title: "Онлайн — Ulpan Ivrit",
@@ -856,10 +850,9 @@ export const messages: Record<UiLocale, Messages> = {
       h1: "Ульпан очно",
       currentTitle: "Очные занятия",
       currentMeta:
-        "Иврит A1 · 30 занятий по 90 мин. (два академических часа по 45 минут с перерывом) · 60 академических часов · упор на разговорный иврит. Актуальный курс с местом и датами — на главной странице и в форме записи.",
-      currentPrice:
-        "С бесплатным членством: <strong>60&nbsp;€/месяц</strong> (всего 480&nbsp;€) · без: <strong>120&nbsp;€/месяц</strong> (всего 960&nbsp;€)",
+        "Иврит A1, упор на разговорный иврит. Актуальный курс с местом и датами — на главной странице и в форме записи.",
       currentCta: "Записаться",
+      preiseLink: "Программа и стоимость",
       p1: "Очные занятия идут через еврейские организации. Другие площадки в планах; желающие могут записаться в список ожидания.",
       p2: "Типичное занятие: два академических часа по 45 минут с перерывом. Акцент: разговорный иврит. Материалы также в Moodle.",
       p3: "В проекте для еврейских общин мы по возможности ищем преподавателя и участвуем в финансировании, даём материалы и иштальмут (ивр. השתלמות, повышение квалификации). Подробнее:",
@@ -917,9 +910,11 @@ export const messages: Record<UiLocale, Messages> = {
       desc: "Членство, оплата, занятия, площадки, онлайн и Hishtalmut.",
       h1: "Вопросы",
       q1: "Обязательно ли становиться членом?",
-      a1: "Нет. Членство бесплатное и добровольное. Члены платят 60 € вместо 120 € в месяц.",
+      a1: "Нет. Членство бесплатное и добровольное. Объём курса и варианты оплаты — в разделе",
+      a1Link: "Программа и стоимость",
       q2: "Как оплачивать?",
-      a2: "SEPA-списанием в 8 ежемесячных платежей: 60 € или 120 €. Всего 480 € или 960 €.",
+      a2: "Списанием по SEPA. Суммы и число платежей указаны в разделе",
+      a2Link: "Программа и стоимость",
       q3: "Как проходит занятие?",
       a3: "Два академических часа по 45 минут с перерывом, упор на разговорный иврит, материалы в Moodle.",
       q3Link: "Запись",
@@ -960,10 +955,10 @@ export const messages: Record<UiLocale, Messages> = {
     },
     verein: {
       title: "Союз — Ulpan Ivrit",
-      desc: "BiFoDe e.V. ведёт Ulpan Ivrit в Германии. Членство бесплатно; курс 60 € / 120 € в месяц.",
+      desc: "Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) ведёт Ulpan Ivrit в Германии.",
       h1: "Реализация — BiFoDe e.V.",
-      p1: "Программа идёт от Всемирной сионистской организации, Ofek Israeli, Сохнута и Керен ха-Йесод. Оператор в Германии — Bildungsforum für Demokratie und Vielfalt NRW e.V. Членство бесплатное и необязательное.",
-      fees: "Членство бесплатно. Курс: 60 €/месяц для членов, 120 €/месяц без членства (базовое прямое дебетование SEPA, 8 платежей, всего 480 € или 960 €).",
+      p1: "Программа идёт от Всемирной сионистской организации, Ofek Israeli, Сохнута и Керен ха-Йесод. Оператор в Германии — Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Членство бесплатное и необязательное.",
+      fees: "Объём курса и варианты оплаты:",
       talks: "Члены союза получают лекции и анонсы — онлайн и очно, по программе.",
       partner: "Партнёры",
       project: "Страница проекта",
@@ -1039,9 +1034,9 @@ export const messages: Record<UiLocale, Messages> = {
   en: {
     meta: {
       descDefault:
-        "Register for Ulpan: Hebrew A1 for beginners. 60 lessons, focus on spoken Hebrew. With free BiFoDe membership: 60 €/month.",
+        "Register for Ulpan: Hebrew A1 for beginners. Focus on spoken Hebrew.",
       ogImageAlt:
-        "Ulpan registration — Hebrew A1 beginners, 60 lessons, 60 €/month with free BiFoDe membership",
+        "Ulpan registration — Hebrew A1 for beginners, focus on spoken Hebrew",
       skip: "Skip to content",
       navAria: "Main navigation",
       footerAria: "Footer",
@@ -1077,6 +1072,7 @@ export const messages: Record<UiLocale, Messages> = {
       member: "Register now",
       start: "Registration",
       interest: "Register interest",
+      preise: "Course details & pricing",
     },
     quote: {
       translation:
@@ -1090,35 +1086,24 @@ export const messages: Record<UiLocale, Messages> = {
     home: {
       title: "Learn Hebrew in Düsseldorf – Ulpan Ivrit A1 from 18 Nov 2026",
       description:
-        "Hebrew A1 at the Jewish Community of Düsseldorf, Wednesdays 18:30. With free membership: 60 €/month.",
+        "Hebrew A1 at the Jewish Community of Düsseldorf, Wednesdays 18:30.",
       h1: "Learning <strong>Hebrew</strong> is quite <strong>simple</strong>!",
       lead:
         "In person and online — Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
       nextEyebrow: "Next course",
       nextCourses: [
         {
-          place: "Düsseldorf",
-          title: "Hebrew A1 – beginners",
-          when: "From Wednesday, 18 Nov 2026 · Wednesdays 18:30–20:30",
-          where: "Jewish Community of Düsseldorf, Paul-Spiegel-Platz 1",
-          meta: "30 sessions · 60 lessons · until July 2027",
+          title: "Hebrew A1 in Düsseldorf",
+          when: "18 November 2026 to July 2027",
         },
         {
-          place: "Berlin-Prenzlauer Berg",
-          title: "Hebrew A1 – beginners",
-          when: "From Sunday, 15 Nov 2026 · Sunday mornings",
-          where: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
-          meta: "until 20 June 2027",
+          title: "Hebrew A1 in Berlin-Prenzlauer Berg",
+          when: "15 November 2026 to June 2027",
         },
       ],
-      nextPrice:
-        "With free membership: <strong>60&nbsp;€/month</strong> instead of <strong>120&nbsp;€</strong>",
-      nextCta: "Register now",
       f1: "In person & online",
       f3: "In cooperation with the Hebrew University of Jerusalem",
-      f5: "Free membership – 50&nbsp;% off: <strong>60&nbsp;€</strong> instead of <strong>120&nbsp;€</strong> per month",
-      ctaPitch:
-        "Get your <span class=\"home-perk\">free membership + 50&nbsp;% discount</span> now.<br />Registration takes a few minutes.",
+      ctaPitch: "Registration takes a few minutes.",
       ctaQuestions: "Questions?",
       ctaContact: "write to us",
       onlineTitle: "Online",
@@ -1169,39 +1154,25 @@ export const messages: Record<UiLocale, Messages> = {
     },
     soGehts: {
       title: "Registration — Ulpan Ivrit",
-      desc: "Hebrew A1: register in 3 steps. With free membership 60 €/month instead of 120 €.",
+      desc: "Hebrew A1: register in 3 steps.",
       h1: "Registration in 3 steps",
       intro:
-        "Hebrew A1 for beginners. Fill in the form — course, tariff and SEPA in one step.",
+        "Hebrew A1 for beginners. Fill in the form — course, price option and SEPA in one step.",
       step1: "Fill in the form",
       step1Text:
-        "Course, tariff and SEPA direct debit in one form. Membership of BiFoDe e.V. is free and optional.",
+        "Course, price option and SEPA direct debit in one form. Membership of BiFoDe e.V. is free and optional.",
       step2: "Confirmation by email",
       step2Text:
         "You receive confirmation with course details, mandate reference and Moodle access (ulpan.bifode.org).",
       step3: "First session",
       step3Text: "The time and place of your first session are in the confirmation and the enrolment form; the current course is on the homepage.",
-      tariffTitle: "Tariffs",
+      tariffTitle: "Price options",
       tariffRecommended: "Recommended",
       tariffMemberTitle: "With free membership",
-      tariffMemberItems: [
-        "8 € / lesson (45 min)",
-        "60 € / month",
-        "total 480 €",
-      ],
+      tariffMemberPrice: "€60 per month",
       tariffNonTitle: "Without membership",
-      tariffNonItems: [
-        "16 € / lesson (45 min)",
-        "120 € / month",
-        "total 960 €",
-      ],
-      tariffNote: "45 min · 8 monthly instalments · SEPA direct debit",
-      datesTitle: "Course dates",
-      datesSummary:
-        "30 sessions of 90 min (2 × 45 min) = 60 lessons",
-      datesFreeLabel: "No class",
-      priceLine:
-        "A1: 30 sessions of 90 min (60 UE) · 8 monthly instalments of 60 € (with free membership) or 120 €.",
+      tariffNonPrice: "€120 per month",
+      preiseLink: "Course details & pricing",
       legalIntro: "By registering you agree to our",
       formTitle: "Registration",
       formFallback: "Form not loading?",
@@ -1211,6 +1182,22 @@ export const messages: Record<UiLocale, Messages> = {
       cityFaqQ: "When does an Ulpan start in my city?",
       cityFaqA:
         "As soon as at least 15 interested people have signed up – via the waiting list or as a group through your community or organisation.",
+    },
+    preise: {
+      title: "Course details & pricing — Ulpan Ivrit",
+      desc: "Scope, dates and course fees for Ulpan Ivrit Hebrew courses.",
+      h1: "Course details & pricing",
+      scopeH2: "Course details and pricing",
+      sessions: "30 sessions of 90 minutes each",
+      units: "60 teaching units of 45 minutes",
+      period: "Course period: 18 November 2026 to 7 July 2027",
+      memberLabel: "With free membership of BiFoDe e.V.:",
+      memberPrice: "€60 per month · 8 monthly instalments · €480 in total",
+      nonMemberLabel: "Without membership:",
+      nonMemberPrice: "€120 per month · 8 monthly instalments · €960 in total",
+      membershipNote:
+        "Membership of Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) is free and voluntary. It is arranged separately from course participation.",
+      membershipLink: "More information about membership of BiFoDe e.V.",
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
@@ -1233,10 +1220,9 @@ export const messages: Record<UiLocale, Messages> = {
       h1: "Ulpan in person",
       currentTitle: "In-person teaching",
       currentMeta:
-        "Hebrew A1 · 30 sessions of 90 min (2 × 45 min with a break) · 60 lessons · focus on spoken Hebrew. The current course with venue and dates is on the homepage and in the enrolment form.",
-      currentPrice:
-        "With free membership: <strong>60&nbsp;€/month</strong> (total 480&nbsp;€) · without: <strong>120&nbsp;€/month</strong> (total 960&nbsp;€)",
+        "Hebrew A1, focus on spoken Hebrew. The current course with venue and dates is on the homepage and in the enrolment form.",
       currentCta: "Register now",
+      preiseLink: "Course details & pricing",
       p1: "In-person teaching runs through Jewish organisations. Further locations are planned; interested people can join the waiting list.",
       p2: "A typical session: 2 × 45 min with a break. Focus: spoken Hebrew. Materials are also in Moodle.",
       p3: "In the community project we look for a teacher where possible and help with funding, materials and training (Hishtalmut). More:",
@@ -1294,9 +1280,11 @@ export const messages: Record<UiLocale, Messages> = {
       desc: "Membership, payment, sessions, locations, online and Hishtalmut.",
       h1: "Questions",
       q1: "Do I have to become a member?",
-      a1: "No. Membership is free and voluntary. Members pay 60 € instead of 120 € per month.",
+      a1: "No. Membership is free and voluntary. Course scope and price options are under",
+      a1Link: "Course details & pricing",
       q2: "How do I pay?",
-      a2: "By SEPA direct debit in 8 monthly instalments: 60 € or 120 €. Total 480 € or 960 €.",
+      a2: "By SEPA direct debit. The monthly amounts and number of instalments are under",
+      a2Link: "Course details & pricing",
       q3: "What does a session look like?",
       a3: "2 × 45 min with a break, focus on speaking, materials in Moodle.",
       q3Link: "Registration",
@@ -1337,10 +1325,10 @@ export const messages: Record<UiLocale, Messages> = {
     },
     verein: {
       title: "Association — Ulpan Ivrit",
-      desc: "BiFoDe e.V. delivers Ulpan Ivrit in Germany. Membership free; course 60 € / 120 € per month.",
+      desc: "Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.) delivers Ulpan Ivrit in Germany.",
       h1: "Delivered by BiFoDe e.V.",
-      p1: "The programme comes from the World Zionist Organization, Ofek Israeli, the Jewish Agency and Keren Hayesod. The host in Germany is Bildungsforum für Demokratie und Vielfalt NRW e.V. Membership is free and optional.",
-      fees: "Membership free. Course: 60 €/month for members, 120 €/month without membership (SEPA, 8 instalments, total 480 € or 960 €).",
+      p1: "The programme comes from the World Zionist Organization, Ofek Israeli, the Jewish Agency and Keren Hayesod. The host in Germany is Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.). Membership is free and optional.",
+      fees: "Course scope and price options:",
       talks: "Members receive talks and announcements — online and in person, depending on the programme.",
       partner: "Partners",
       project: "Project page",

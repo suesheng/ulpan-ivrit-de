@@ -18,11 +18,19 @@ const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
     <div class="faq-list">
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q1}</summary>
-        <p>{copy.faq.a1}</p>
+        <p>
+          {copy.faq.a1}
+          {" "}
+          <a href={href("/preise")}>{copy.faq.a1Link}</a>.
+        </p>
       </details>
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q2}</summary>
-        <p>{copy.faq.a2}</p>
+        <p>
+          {copy.faq.a2}
+          {" "}
+          <a href={href("/preise")}>{copy.faq.a2Link}</a>.
+        </p>
       </details>
       <details class="faq-item" name="faq">
         <summary>{copy.faq.q3}</summary>

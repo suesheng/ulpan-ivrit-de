@@ -1,4 +1,4 @@
-/** Shared Düsseldorf A1 course facts — keep DE/RU/EN in sync via messages. */
+/** Shared A1 course numbers. Localized display phrases live in messages.preise. */
 export const COURSE = {
   level: "A1",
   city: "Düsseldorf",

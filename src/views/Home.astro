@@ -33,13 +33,11 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
       {
         copy.home.nextCourses.map((course) => (
           <article class="next-course-card">
-            <p class="next-course-place">{course.place}</p>
             <h2>{course.title}</h2>
             <p>{course.when}</p>
-            <p>{course.where}</p>
-            <p>{course.meta}</p>
-            <p class="home-price" set:html={copy.home.nextPrice} />
-            <p><a class="btn" href={anmelden}>{copy.home.nextCta}</a></p>
+            <p>
+              <a href={href("/preise")}>{copy.nav.preise}</a>
+            </p>
           </article>
         ))
       }
@@ -92,11 +90,10 @@ const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
     <ul class="feature-list">
       <li>{copy.home.f1}</li>
       <li>{copy.home.f3}</li>
-      <li class="home-perk" set:html={copy.home.f5} />
     </ul>
     <div class="cta-frame">
       <a class="btn" href={anmelden}>{copy.nav.start}</a>
-      <p class="cta-pitch" set:html={copy.home.ctaPitch} />
+      <p class="cta-pitch">{copy.home.ctaPitch}</p>
       <p class="cta-ask">
         {copy.home.ctaQuestions}
         {" "}

@@ -14,7 +14,11 @@ const copy = t(locale);
     <h1>{copy.verein.h1}</h1>
     <p>{copy.verein.p1}</p>
     <ul class="feature-list">
-      <li>{copy.verein.fees}</li>
+      <li>
+        {copy.verein.fees}
+        {" "}
+        <a href={locPath(locale, "/preise")}>{copy.nav.preise}</a>
+      </li>
       <li>{copy.verein.talks}</li>
     </ul>
     <CtaMitglied />

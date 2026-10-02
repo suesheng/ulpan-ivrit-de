@@ -17,7 +17,6 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
   <div class="stack">
     <h1>{copy.soGehts.h1}</h1>
     <p>{copy.soGehts.intro}</p>
-    <p class="muted">{copy.soGehts.priceLine}</p>
 
     <ol class="path">
       <li class="path-step">
@@ -46,18 +45,16 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
         <article class="card tariff tariff-recommended">
           <p class="badge-soon home-perk">{copy.soGehts.tariffRecommended}</p>
           <h3>{copy.soGehts.tariffMemberTitle}</h3>
-          <ul class="feature-list">
-            {copy.soGehts.tariffMemberItems.map((item) => <li set:html={item.replace(/^(\d+ €)/, "<strong>$1</strong>")} />)}
-          </ul>
+          <p>{copy.soGehts.tariffMemberPrice}</p>
         </article>
         <article class="card tariff">
           <h3>{copy.soGehts.tariffNonTitle}</h3>
-          <ul class="feature-list">
-            {copy.soGehts.tariffNonItems.map((item) => <li set:html={item.replace(/^(\d+ €)/, "<strong>$1</strong>")} />)}
-          </ul>
+          <p>{copy.soGehts.tariffNonPrice}</p>
         </article>
       </div>
-      <p class="muted">{copy.soGehts.tariffNote}</p>
+      <p>
+        <a href={href("/preise")}>{copy.soGehts.preiseLink}</a>
+      </p>
     </section>
 
     <details class="faq-item course-dates">

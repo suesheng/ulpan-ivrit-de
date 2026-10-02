@@ -980,6 +980,18 @@ button[type="submit"]:disabled {
   margin-top: 0.5rem;
 }
 
+.preise-facts {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.preise-block .tariff h3 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
 .badge-soon {
   display: inline-block;
   margin: 0 0 0.35rem;

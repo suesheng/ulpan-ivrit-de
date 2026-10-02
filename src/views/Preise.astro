@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { EXT, LINKS } from "../lib/links";
+import { locPath, pageLocale } from "../lib/i18n";
+import { t } from "../lib/messages";
+
+const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
+const copy = t(locale);
+const href = (p: string) => locPath(locale, p);
+---
+
+<BaseLayout title={copy.preise.title} description={copy.preise.desc}>
+  <div class="stack preise-page">
+    <h1>{copy.preise.h1}</h1>
+
+    <section class="preise-block" aria-labelledby="preise-scope">
+      <h2 id="preise-scope">{copy.preise.scopeH2}</h2>
+      <ul class="preise-facts">
+        <li>{copy.preise.sessions}</li>
+        <li>{copy.preise.units}</li>
+        <li>{copy.preise.period}</li>
+      </ul>
+
+      <div class="card-list tariff-grid">
+        <article class="card tariff tariff-recommended">
+          <h3>{copy.preise.memberLabel}</h3>
+          <p>{copy.preise.memberPrice}</p>
+        </article>
+        <article class="card tariff">
+          <h3>{copy.preise.nonMemberLabel}</h3>
+          <p>{copy.preise.nonMemberPrice}</p>
+        </article>
+      </div>
+
+      <p>{copy.preise.membershipNote}</p>
+      <p>
+        <a href={LINKS.vereinHome} {...EXT}>{copy.preise.membershipLink}</a>
+      </p>
+    </section>
+
+    <p>
+      <a class="btn" href={`${href("/so-gehts")}#anmeldung`}>{copy.nav.start}</a>
+    </p>
+  </div>
+</BaseLayout>

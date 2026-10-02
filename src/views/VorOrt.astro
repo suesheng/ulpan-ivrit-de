@@ -20,7 +20,7 @@ const subject = encodeURIComponent(copy.vorOrt.subject);
     <section class="next-course" aria-label={copy.vorOrt.currentTitle}>
       <h2>{copy.vorOrt.currentTitle}</h2>
       <p>{copy.vorOrt.currentMeta}</p>
-      <p class="home-price" set:html={copy.vorOrt.currentPrice} />
+      <p><a href={href("/preise")}>{copy.vorOrt.preiseLink}</a></p>
       <p><a class="btn" href={anmelden}>{copy.vorOrt.currentCta}</a></p>
     </section>
 
