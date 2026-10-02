@@ -351,7 +351,7 @@ const de: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "Ein Termin umfasst 90 Minuten (zwei Unterrichtseinheiten à 45 Minuten). Der A1-Kurs in Düsseldorf (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) umfasst 30 Termine à 90 Minuten, insgesamt 60 Unterrichtseinheiten (UE), und findet mittwochs von 18:30 bis 20:30 Uhr vom 18.11.2026 bis 07.07.2027 statt. Weitere Standorte (z. B. Berlin) sind in Planung; Interessierte können sich auf die Warteliste setzen lassen.",
+            text: "Ein Termin umfasst 90 Minuten (zwei Unterrichtseinheiten à 45 Minuten). Ein A1-Kurs umfasst in der Regel 30 Termine à 90 Minuten, insgesamt 60 Unterrichtseinheiten (UE). Ort, Wochentag, Uhrzeit und Kurszeitraum des jeweiligen Kurses ergeben sich aus der Kursbeschreibung und dem Anmeldeformular.",
           },
           {
             type: "p",
@@ -394,7 +394,7 @@ const de: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "Für den A1-Kurs in Düsseldorf beträgt der Beitrag 60 € pro Monat mit kostenloser Mitgliedschaft bei BiFoDe e.V. (insgesamt 480 €) bzw. 120 € pro Monat ohne Mitgliedschaft (insgesamt 960 €). Der Beitrag wird in 8 Monatsraten von Dezember 2026 bis Juli 2027 per SEPA-Basislastschrift eingezogen. Maßgeblich sind die im Anmeldeformular angegebenen Preise.",
+            text: "Für einen A1-Kurs beträgt der Beitrag 60 € pro Monat mit kostenloser Mitgliedschaft bei BiFoDe e.V. (insgesamt 480 €) bzw. 120 € pro Monat ohne Mitgliedschaft (insgesamt 960 €). Der Beitrag wird in 8 Monatsraten per SEPA-Basislastschrift eingezogen. Maßgeblich sind die im Anmeldeformular angegebenen Preise.",
           },
           {
             type: "p",
@@ -876,7 +876,7 @@ const ru: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "Одно занятие (Termin) длится 90 минут (две учебные единицы, Unterrichtseinheit, по 45 минут). Курс A1 в Дюссельдорфе (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) включает 30 занятий по 90 минут, всего 60 учебных единиц (UE), и проходит по средам с 18:30 до 20:30 с 18.11.2026 по 07.07.2027. Другие площадки (например, Берлин) в планах; желающие могут записаться в лист ожидания.",
+            text: "Одно занятие (Termin) длится 90 минут (две учебные единицы, Unterrichtseinheit, по 45 минут). Курс уровня A1, как правило, включает 30 занятий по 90 минут, всего 60 учебных единиц (UE). Место проведения, день недели, время и период курса указаны в описании курса и форме записи.",
           },
           {
             type: "p",
@@ -919,7 +919,7 @@ const ru: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "Для курса A1 в Дюссельдорфе взнос составляет 60 € в месяц при бесплатном членстве в BiFoDe e.V. (всего 480 €) либо 120 € в месяц без членства (всего 960 €). Взнос списывается 8 ежемесячными платежами с декабря 2026 по июль 2027 по SEPA-Basislastschrift. Решающими являются цены, указанные в форме записи.",
+            text: "Для курса A1 взнос составляет 60 € в месяц при бесплатном членстве в BiFoDe e.V. (всего 480 €) либо 120 € в месяц без членства (всего 960 €). Взнос списывается 8 ежемесячными платежами по SEPA-Basislastschrift. Решающими являются цены, указанные в форме записи.",
           },
           {
             type: "p",
@@ -1396,7 +1396,7 @@ const en: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "One session (Termin) lasts 90 minutes (two teaching units, Unterrichtseinheit, of 45 minutes each). The A1 course in Düsseldorf (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) comprises 30 sessions of 90 minutes, 60 teaching units (UE) in total, and takes place on Wednesdays from 18:30 to 20:30, from 18 November 2026 to 7 July 2027. Further locations (e.g. Berlin) are planned; interested people can join the waiting list.",
+            text: "One session (Termin) lasts 90 minutes (two teaching units, Unterrichtseinheit, of 45 minutes each). An A1 course usually comprises 30 sessions of 90 minutes, 60 teaching units (UE) in total. The location, weekday, time and course period of each course are stated in the course description and the enrolment form.",
           },
           {
             type: "p",
@@ -1439,7 +1439,7 @@ const en: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "For the A1 course in Düsseldorf the fee is 60 € per month with free BiFoDe e.V. membership (480 € in total) or 120 € per month without membership (960 € in total). The fee is collected in 8 monthly instalments from December 2026 to July 2027 by SEPA core direct debit (SEPA-Basislastschrift). The prices stated in the enrolment form are decisive.",
+            text: "For an A1 course the fee is 60 € per month with free BiFoDe e.V. membership (480 € in total) or 120 € per month without membership (960 € in total). The fee is collected in 8 monthly instalments by SEPA core direct debit (SEPA-Basislastschrift). The prices stated in the enrolment form are decisive.",
           },
           {
             type: "p",

@@ -16,7 +16,7 @@ The contract language is German. Differing terms of participants do not become p
 
 Ulpan Ivrit offers Hebrew courses following the Hebrew University of Jerusalem method, with a focus on spoken Hebrew. Teaching takes place in in-person groups (in the premises of Jewish communities or other hosts) and/or online via the Moodle learning platform (ulpan.bifode.org).
 
-One session (Termin) lasts 90 minutes (two teaching units, Unterrichtseinheit, of 45 minutes each). The A1 course in Düsseldorf (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) comprises 30 sessions of 90 minutes, 60 teaching units (UE) in total, and takes place on Wednesdays from 18:30 to 20:30, from 18 November 2026 to 7 July 2027. Further locations (e.g. Berlin) are planned; interested people can join the waiting list.
+One session (Termin) lasts 90 minutes (two teaching units, Unterrichtseinheit, of 45 minutes each). An A1 course usually comprises 30 sessions of 90 minutes, 60 teaching units (UE) in total. The location, weekday, time and course period of each course are stated in the course description and the enrolment form.
 
 The scope, level, dates, location and price of each course follow from the course description and the enrolment form. The details given there for the specific course are decisive.
 
@@ -36,7 +36,7 @@ Membership is governed by the statutes and the fee schedule of BiFoDe e.V. It is
 
 ## 5. Prices and payment
 
-For the A1 course in Düsseldorf the fee is 60 € per month with free BiFoDe e.V. membership (480 € in total) or 120 € per month without membership (960 € in total). The fee is collected in 8 monthly instalments from December 2026 to July 2027 by SEPA core direct debit (SEPA-Basislastschrift). The prices stated in the enrolment form are decisive.
+For an A1 course the fee is 60 € per month with free BiFoDe e.V. membership (480 € in total) or 120 € per month without membership (960 € in total). The fee is collected in 8 monthly instalments by SEPA core direct debit (SEPA-Basislastschrift). The prices stated in the enrolment form are decisive.
 
 By granting the SEPA direct debit mandate, participants authorise BiFoDe e.V. to collect the amounts due from their account by SEPA core direct debit. Creditor identifier (Gläubiger-Identifikationsnummer): DE86ZZZ00002929761. The mandate reference is communicated separately. We notify you of the debit in advance (pre-notification) at least 14 days before the due date; for recurring debits a single pre-notification stating the due dates is sufficient.
 

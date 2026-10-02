@@ -14,7 +14,7 @@ Vertragssprache ist Deutsch. Abweichende Bedingungen der Teilnehmenden werden ni
 
 Ulpan Ivrit bietet Hebräischkurse nach der Methodik der Hebräischen Universität Jerusalem mit Schwerpunkt auf gesprochenem Hebräisch. Der Unterricht findet in Präsenzgruppen (in Räumen jüdischer Gemeinden oder weiterer Träger) und/oder online über die Lernplattform Moodle (ulpan.bifode.org) statt.
 
-Ein Termin umfasst 90 Minuten (zwei Unterrichtseinheiten à 45 Minuten). Der A1-Kurs in Düsseldorf (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) umfasst 30 Termine à 90 Minuten, insgesamt 60 Unterrichtseinheiten (UE), und findet mittwochs von 18:30 bis 20:30 Uhr vom 18.11.2026 bis 07.07.2027 statt. Weitere Standorte (z. B. Berlin) sind in Planung; Interessierte können sich auf die Warteliste setzen lassen.
+Ein Termin umfasst 90 Minuten (zwei Unterrichtseinheiten à 45 Minuten). Ein A1-Kurs umfasst in der Regel 30 Termine à 90 Minuten, insgesamt 60 Unterrichtseinheiten (UE). Ort, Wochentag, Uhrzeit und Kurszeitraum des jeweiligen Kurses ergeben sich aus der Kursbeschreibung und dem Anmeldeformular.
 
 Umfang, Niveau, Termine, Ort und Preis des jeweiligen Kurses ergeben sich aus der Kursbeschreibung und dem Anmeldeformular. Maßgeblich sind die dort genannten Angaben zum konkreten Kurs.
 
@@ -34,7 +34,7 @@ Für die Mitgliedschaft gelten die Satzung und die Beitragsordnung von BiFoDe e.
 
 ## 5. Preise und Zahlung
 
-Für den A1-Kurs in Düsseldorf beträgt der Beitrag 60 € pro Monat mit kostenloser Mitgliedschaft bei BiFoDe e.V. (insgesamt 480 €) bzw. 120 € pro Monat ohne Mitgliedschaft (insgesamt 960 €). Der Beitrag wird in 8 Monatsraten von Dezember 2026 bis Juli 2027 per SEPA-Basislastschrift eingezogen. Maßgeblich sind die im Anmeldeformular angegebenen Preise.
+Für einen A1-Kurs beträgt der Beitrag 60 € pro Monat mit kostenloser Mitgliedschaft bei BiFoDe e.V. (insgesamt 480 €) bzw. 120 € pro Monat ohne Mitgliedschaft (insgesamt 960 €). Der Beitrag wird in 8 Monatsraten per SEPA-Basislastschrift eingezogen. Maßgeblich sind die im Anmeldeformular angegebenen Preise.
 
 Mit Erteilung des SEPA-Lastschriftmandats ermächtigen die Teilnehmenden BiFoDe e.V., die fälligen Beträge mittels SEPA-Basislastschrift von ihrem Konto einzuziehen. Gläubiger-Identifikationsnummer: DE86ZZZ00002929761. Die Mandatsreferenz wird gesondert mitgeteilt. Über den Einzug informieren wir Sie vorab (Vorabinformation/Pre-Notification) spätestens 14 Tage vor Fälligkeit; bei wiederkehrenden Lastschriften genügt eine einmalige Vorabinformation mit den Fälligkeitsterminen.
 
