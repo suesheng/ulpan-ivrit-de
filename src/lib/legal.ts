@@ -1,7 +1,12 @@
 import type { UiLocale } from "./i18n";
 import { LINKS } from "./links";
 
-export type LegalKey = "impressum" | "datenschutz" | "cookies";
+export type LegalKey =
+  | "impressum"
+  | "datenschutz"
+  | "cookies"
+  | "teilnahmebedingungen"
+  | "widerruf";
 
 export type LegalBlock =
   | { type: "p"; text: string }
@@ -219,6 +224,31 @@ const de: Record<LegalKey, LegalDoc> = {
           },
         ],
       },
+      {
+        h2: "8. Anmeldung und Zahlungsabwicklung",
+        blocks: [
+          {
+            type: "p",
+            text: "Die Anmeldung zu den Kursen erfolgt über ein auf dieser Website eingebettetes Formular von Jotform (Jotform Inc., USA). Dabei verarbeiten wir die von Ihnen eingegebenen Daten, insbesondere Name, Kontaktdaten, Anschrift sowie die für den SEPA-Lastschrifteinzug erforderlichen Zahlungsdaten (z. B. Kontoinhaber, IBAN).",
+          },
+          {
+            type: "p",
+            text: "Zweck ist die Begründung und Durchführung des Teilnahmevertrags einschließlich der Zahlungsabwicklung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertrag) sowie Art. 6 Abs. 1 lit. c DSGVO (steuer- und handelsrechtliche Aufbewahrungspflichten).",
+          },
+          {
+            type: "p",
+            text: "Der Beitragseinzug erfolgt per SEPA-Basislastschrift (Gläubiger-Identifikationsnummer DE86ZZZ00002929761). Zahlungs- und Mitgliedsdaten können dafür in der Vereinsverwaltung verarbeitet werden. [PRÜFEN: Über welchen Dienst die SEPA-Abwicklung läuft (z. B. MeinVerein/Bank) und ob ein Auftragsverarbeitungsvertrag (AVV) mit dem Zahlungsdienstleister besteht.]",
+          },
+          {
+            type: "p",
+            text: "Jotform verarbeitet Daten auch in den USA. [PRÜFEN: Auftragsverarbeitungsvertrag (AVV) mit Jotform Inc. sowie Rechtsgrundlage für die Drittlandübermittlung (Standardvertragsklauseln/Data Privacy Framework) vor Veröffentlichung bestätigen.]",
+          },
+          {
+            type: "p",
+            text: "Vertrags- und Zahlungsdaten werden für die Dauer des Vertragsverhältnisses und anschließend im Rahmen der gesetzlichen Aufbewahrungsfristen (insbesondere § 147 AO, § 257 HGB) gespeichert und danach gelöscht.",
+          },
+        ],
+      },
     ],
     updated: UPDATED.de,
   },
@@ -287,6 +317,272 @@ const de: Record<LegalKey, LegalDoc> = {
           {
             type: "p",
             text: "Cookies und Speicher können Sie in den Browsereinstellungen einsehen und löschen. Auf dieser Domain sollte derzeit nichts von uns liegen.",
+          },
+        ],
+      },
+    ],
+    updated: UPDATED.de,
+  },
+  teilnahmebedingungen: {
+    title: "Teilnahmebedingungen — Ulpan Ivrit",
+    desc: "Teilnahmebedingungen für die Hebräischkurse von Ulpan Ivrit, Anbieter BiFoDe e.V.",
+    h1: "Teilnahmebedingungen",
+    lead: "Diese Teilnahmebedingungen gelten für die Teilnahme an den Hebräischkursen von Ulpan Ivrit. Anbieter und Vertragspartner ist BiFoDe e.V., Allgäustr. 45, 42651 Solingen. Anmeldung und Zahlung laufen über das Anmeldeformular; diese Website ist nur die öffentliche Darstellung des Angebots.",
+    sections: [
+      {
+        h2: "1. Geltungsbereich und Anbieter",
+        blocks: [
+          {
+            type: "p",
+            text: "Diese Teilnahmebedingungen regeln das Vertragsverhältnis zwischen dem Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.), Allgäustr. 45, 42651 Solingen, und den Teilnehmenden der Hebräischkurse von Ulpan Ivrit. Sie gelten für Präsenz- und Online-Kurse gleichermaßen.",
+          },
+          {
+            type: "p",
+            text: "Vertragssprache ist Deutsch. Abweichende Bedingungen der Teilnehmenden werden nicht Vertragsbestandteil, es sei denn, BiFoDe e.V. stimmt ihnen ausdrücklich in Textform zu.",
+          },
+        ],
+      },
+      {
+        h2: "2. Leistungen",
+        blocks: [
+          {
+            type: "p",
+            text: "Ulpan Ivrit bietet Hebräischkurse nach der Methodik der Hebräischen Universität Jerusalem mit Schwerpunkt auf gesprochenem Hebräisch. Der Unterricht findet in Präsenzgruppen (in Räumen jüdischer Gemeinden oder weiterer Träger) und/oder online über die Lernplattform Moodle (ulpan.bifode.org) statt.",
+          },
+          {
+            type: "p",
+            text: "Ein Termin umfasst 90 Minuten (zwei Unterrichtseinheiten à 45 Minuten). Der A1-Kurs in Düsseldorf (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) umfasst 30 Termine à 90 Minuten, insgesamt 60 Unterrichtseinheiten (UE), und findet mittwochs von 18:30 bis 20:30 Uhr vom 18.11.2026 bis 07.07.2027 statt. Weitere Standorte (z. B. Berlin) sind in Planung; Interessierte können sich auf die Warteliste setzen lassen.",
+          },
+          {
+            type: "p",
+            text: "Umfang, Niveau, Termine, Ort und Preis des jeweiligen Kurses ergeben sich aus der Kursbeschreibung und dem Anmeldeformular. Maßgeblich sind die dort genannten Angaben zum konkreten Kurs.",
+          },
+        ],
+      },
+      {
+        h2: "3. Anmeldung und Vertragsschluss",
+        blocks: [
+          {
+            type: "p",
+            text: "Die Anmeldung erfolgt über das auf dieser Website eingebettete Anmeldeformular (Jotform). Mit dem Absenden geben die Teilnehmenden ein verbindliches Angebot zum Abschluss eines Teilnahmevertrags ab.",
+          },
+          {
+            type: "p",
+            text: "Der Vertrag kommt zustande, wenn BiFoDe e.V. die Anmeldung bestätigt — in der Regel durch eine Bestätigung per E-Mail mit Kursdaten und Zugang zu Moodle.",
+          },
+          {
+            type: "p",
+            text: "Die Teilnahme setzt freie Plätze voraus. Bei ausgebuchten Kursen kann ein Platz auf einer Warteliste angeboten werden.",
+          },
+        ],
+      },
+      {
+        h2: "4. Mitgliedschaft (optional)",
+        blocks: [
+          {
+            type: "p",
+            text: "Die Mitgliedschaft bei BiFoDe e.V. ist kostenlos und freiwillig. Sie ist keine Voraussetzung für die Teilnahme, verringert jedoch den Kursbeitrag (ermäßigter Tarif für Mitglieder).",
+          },
+          {
+            type: "p",
+            text: "Für die Mitgliedschaft gelten die Satzung und die Beitragsordnung von BiFoDe e.V. Sie wird getrennt vom Teilnahmevertrag begründet und beendet.",
+          },
+        ],
+      },
+      {
+        h2: "5. Preise und Zahlung",
+        blocks: [
+          {
+            type: "p",
+            text: "Für den A1-Kurs in Düsseldorf beträgt der Beitrag 60 € pro Monat mit kostenloser Mitgliedschaft bei BiFoDe e.V. (insgesamt 480 €) bzw. 120 € pro Monat ohne Mitgliedschaft (insgesamt 960 €). Der Beitrag wird in 8 Monatsraten von Dezember 2026 bis Juli 2027 per SEPA-Basislastschrift eingezogen. Maßgeblich sind die im Anmeldeformular angegebenen Preise.",
+          },
+          {
+            type: "p",
+            text: "Mit Erteilung des SEPA-Lastschriftmandats ermächtigen die Teilnehmenden BiFoDe e.V., die fälligen Beträge mittels SEPA-Basislastschrift von ihrem Konto einzuziehen. Gläubiger-Identifikationsnummer: DE86ZZZ00002929761. Die Mandatsreferenz wird gesondert mitgeteilt. Über den Einzug informieren wir Sie vorab (Vorabinformation/Pre-Notification) spätestens 14 Tage vor Fälligkeit; bei wiederkehrenden Lastschriften genügt eine einmalige Vorabinformation mit den Fälligkeitsterminen.",
+          },
+          {
+            type: "p",
+            text: "Kommt eine Lastschrift mangels Deckung oder aus von den Teilnehmenden zu vertretenden Gründen nicht zustande, tragen die Teilnehmenden die dadurch entstehenden Rücklastschriftgebühren.",
+          },
+        ],
+      },
+      {
+        h2: "6. Widerrufsrecht für Verbraucher",
+        blocks: [
+          {
+            type: "p",
+            text: "Verbraucherinnen und Verbraucher haben bei einem im Fernabsatz geschlossenen Vertrag ein gesetzliches Widerrufsrecht von vierzehn Tagen ab dem Tag des Vertragsschlusses.",
+          },
+          {
+            type: "p",
+            text: "Die vollständige Widerrufsbelehrung und das Muster-Widerrufsformular finden Sie unter https://www.ulpan-ivrit.de/widerruf.",
+          },
+          {
+            type: "p",
+            text: "Haben Sie ausdrücklich verlangt, dass die Dienstleistung bereits während der Widerrufsfrist beginnt, und widerrufen Sie anschließend, so schulden Sie einen angemessenen Betrag für die bis zum Widerruf bereits erbrachten Leistungen (§§ 356 Abs. 4, 357a BGB).",
+          },
+        ],
+      },
+      {
+        h2: "7. Rücktritt und Kündigung durch Teilnehmende",
+        blocks: [
+          {
+            type: "p",
+            text: "Nach Ablauf der Widerrufsfrist gilt der Teilnahmevertrag grundsätzlich für die gesamte Kursdauer. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Unabhängig davon kann der Teilnahmevertrag aus wichtigem Grund außerordentlich gekündigt werden.",
+          },
+          {
+            type: "p",
+            text: "Die Kündigung bedarf der Textform (z. B. E-Mail an info@bifode.org). Bereits entstandene Beiträge für in Anspruch genommene Leistungen bleiben unberührt.",
+          },
+        ],
+      },
+      {
+        h2: "8. Absage und Änderungen durch den Anbieter",
+        blocks: [
+          {
+            type: "p",
+            text: "Kommt die für einen Kurs erforderliche Mindestteilnehmerzahl (in der Regel 15 Personen) nicht zustande oder liegt ein sonstiger wichtiger Grund vor, kann BiFoDe e.V. einen Kurs absagen oder verschieben. Bereits gezahlte Beiträge für nicht erbrachte Leistungen werden in diesem Fall erstattet.",
+          },
+          {
+            type: "p",
+            text: "Aus organisatorischen Gründen (z. B. Ausfall einer Lehrkraft) können einzelne Termine verlegt oder durch gleichwertige Online-Termine ersetzt werden. Die Teilnehmenden werden rechtzeitig informiert.",
+          },
+          {
+            type: "p",
+            text: "[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]",
+          },
+        ],
+      },
+      {
+        h2: "9. Pflichten der Teilnehmenden und Moodle-Zugang",
+        blocks: [
+          {
+            type: "p",
+            text: "Die Teilnehmenden machen bei der Anmeldung wahrheitsgemäße Angaben und halten ihre Kontaktdaten aktuell.",
+          },
+          {
+            type: "p",
+            text: "Der Zugang zur Lernplattform Moodle ist persönlich und nicht übertragbar. Zugangsdaten sind vertraulich zu behandeln.",
+          },
+          {
+            type: "p",
+            text: "Ein respektvoller Umgang im Unterricht und auf der Lernplattform wird vorausgesetzt. Bei schwerwiegenden oder wiederholten Verstößen kann BiFoDe e.V. von der weiteren Teilnahme ausschließen.",
+          },
+        ],
+      },
+      {
+        h2: "10. Urheberrecht an Lehrmaterialien",
+        blocks: [
+          {
+            type: "p",
+            text: "Die im Kurs und in Moodle bereitgestellten Materialien sind urheberrechtlich geschützt und dürfen ausschließlich zu eigenen Lernzwecken genutzt werden. Eine Vervielfältigung, Weitergabe oder Veröffentlichung — auch auszugsweise — ist ohne vorherige Zustimmung nicht gestattet.",
+          },
+        ],
+      },
+      {
+        h2: "11. Haftung",
+        blocks: [
+          {
+            type: "p",
+            text: "BiFoDe e.V. haftet unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie für Vorsatz und grobe Fahrlässigkeit.",
+          },
+          {
+            type: "p",
+            text: "Für leicht fahrlässige Verletzungen wesentlicher Vertragspflichten (Kardinalpflichten) ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Im Übrigen ist die Haftung ausgeschlossen. Zwingende gesetzliche Regelungen bleiben unberührt.",
+          },
+        ],
+      },
+      {
+        h2: "12. Datenschutz",
+        blocks: [
+          {
+            type: "p",
+            text: "Personenbezogene Daten werden ausschließlich zur Durchführung des Vertrags und im gesetzlich zulässigen Rahmen verarbeitet. Einzelheiten stehen in der Datenschutzerklärung.",
+          },
+        ],
+      },
+      {
+        h2: "13. Schlussbestimmungen",
+        blocks: [
+          {
+            type: "p",
+            text: "Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Zwingende Verbraucherschutzvorschriften des Staates des gewöhnlichen Aufenthalts der Verbraucher bleiben unberührt.",
+          },
+          {
+            type: "p",
+            text: "Änderungen und Ergänzungen dieser AGB bedürfen der Textform. Sollte eine Bestimmung unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.",
+          },
+          {
+            type: "p",
+            text: "[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]",
+          },
+        ],
+      },
+    ],
+    updated: UPDATED.de,
+  },
+  // WICHTIG: Der Wortlaut der Widerrufsbelehrung und des Muster-Widerrufsformulars
+  // folgt den amtlichen Mustern (Anlage 1 und Anlage 2 zu Art. 246a EGBGB). Vor
+  // Veröffentlichung mit der aktuellen Fassung auf gesetze-im-internet.de abgleichen.
+  widerruf: {
+    title: "Widerrufsbelehrung — Ulpan Ivrit",
+    desc: "Widerrufsbelehrung und Muster-Widerrufsformular für die Hebräischkurse von Ulpan Ivrit.",
+    h1: "Widerrufsbelehrung",
+    lead: "Diese Widerrufsbelehrung gilt für Verbraucherinnen und Verbraucher, die einen Teilnahmevertrag im Fernabsatz mit BiFoDe e.V. abschließen.",
+    sections: [
+      {
+        h2: "Widerrufsrecht",
+        blocks: [
+          {
+            type: "p",
+            text: "Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.",
+          },
+          {
+            type: "p",
+            text: "Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.",
+          },
+          {
+            type: "p",
+            text: "Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (BiFoDe e.V., Allgäustr. 45, 42651 Solingen, info@bifode.org) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.",
+          },
+          {
+            type: "p",
+            text: "Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.",
+          },
+        ],
+      },
+      {
+        h2: "Folgen des Widerrufs",
+        blocks: [
+          {
+            type: "p",
+            text: "Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.",
+          },
+          {
+            type: "p",
+            text: "Haben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht (§§ 356 Abs. 4, 357a BGB).",
+          },
+        ],
+      },
+      {
+        h2: "Muster-Widerrufsformular",
+        blocks: [
+          {
+            type: "p",
+            text: "(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)",
+          },
+          {
+            type: "ul",
+            items: [
+              "An BiFoDe e.V., Allgäustr. 45, 42651 Solingen, info@bifode.org:",
+              "Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*):",
+              "Bestellt am (*)/erhalten am (*):",
+              "Name des/der Verbraucher(s):",
+              "Anschrift des/der Verbraucher(s):",
+              "Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier):",
+              "Datum:",
+              "(*) Unzutreffendes streichen.",
+            ],
           },
         ],
       },
@@ -472,6 +768,31 @@ const ru: Record<LegalKey, LegalDoc> = {
           },
         ],
       },
+      {
+        h2: "8. Запись и оплата",
+        blocks: [
+          {
+            type: "p",
+            text: "Запись на курсы идёт через встроенную на этом сайте форму Jotform (Jotform Inc., США). При этом мы обрабатываем введённые вами данные, в частности имя, контактные данные, адрес, а также платёжные данные, необходимые для списания по SEPA (например, владелец счёта, IBAN).",
+          },
+          {
+            type: "p",
+            text: "Цель — заключение и исполнение договора об участии, включая расчёты. Основание: ст. 6 (1)(b) DSGVO (договор), а также ст. 6 (1)(c) DSGVO (налоговые и торгово-правовые сроки хранения).",
+          },
+          {
+            type: "p",
+            text: "Взнос списывается по SEPA-Basislastschrift (идентификатор кредитора DE86ZZZ00002929761). Для этого платёжные и членские данные могут обрабатываться в системе управления союзом. [PRÜFEN: Über welchen Dienst die SEPA-Abwicklung läuft (z. B. MeinVerein/Bank) und ob ein Auftragsverarbeitungsvertrag (AVV) mit dem Zahlungsdienstleister besteht.]",
+          },
+          {
+            type: "p",
+            text: "Jotform обрабатывает данные в том числе в США. [PRÜFEN: Auftragsverarbeitungsvertrag (AVV) mit Jotform Inc. sowie Rechtsgrundlage für die Drittlandübermittlung (Standardvertragsklauseln/Data Privacy Framework) vor Veröffentlichung bestätigen.]",
+          },
+          {
+            type: "p",
+            text: "Договорные и платёжные данные хранятся в течение срока действия договора и далее в рамках установленных законом сроков хранения (в частности § 147 AO, § 257 HGB), после чего удаляются.",
+          },
+        ],
+      },
     ],
     updated: UPDATED.ru,
   },
@@ -520,6 +841,271 @@ const ru: Record<LegalKey, LegalDoc> = {
           {
             type: "p",
             text: "Сначала согласие (ст. 6 (1)(a) DSGVO и § 25 Abs. 1 TDDDG), потом cookie. Отказ не должен быть сложнее согласия.",
+          },
+        ],
+      },
+    ],
+    updated: UPDATED.ru,
+  },
+  teilnahmebedingungen: {
+    title: "Условия участия — Ulpan Ivrit",
+    desc: "Условия участия в курсах иврита Ulpan Ivrit, оператор BiFoDe e.V.",
+    h1: "Условия участия",
+    binding: "Юридически обязательна немецкая версия.",
+    lead: "Эти условия участия регулируют участие в курсах иврита Ulpan Ivrit. Оператор и сторона договора — BiFoDe e.V., Allgäustr. 45, 42651 Solingen. Запись и оплата идут через форму записи; этот сайт — только публичная витрина предложения.",
+    sections: [
+      {
+        h2: "1. Сфера действия и оператор",
+        blocks: [
+          {
+            type: "p",
+            text: "Эти условия регулируют отношения между Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.), Allgäustr. 45, 42651 Solingen, и участниками курсов иврита Ulpan Ivrit. Они одинаково действуют для очных и онлайн-курсов.",
+          },
+          {
+            type: "p",
+            text: "Язык договора — немецкий. Иные условия участников не становятся частью договора, если BiFoDe e.V. прямо не согласится с ними в текстовой форме.",
+          },
+        ],
+      },
+      {
+        h2: "2. Услуги",
+        blocks: [
+          {
+            type: "p",
+            text: "Ulpan Ivrit проводит курсы иврита по методике Еврейского университета в Иерусалиме с упором на разговорный иврит. Занятия проходят в очных группах (в помещениях еврейских общин или иных организаторов) и/или онлайн на платформе Moodle (ulpan.bifode.org).",
+          },
+          {
+            type: "p",
+            text: "Одно занятие (Termin) длится 90 минут (две учебные единицы, Unterrichtseinheit, по 45 минут). Курс A1 в Дюссельдорфе (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) включает 30 занятий по 90 минут, всего 60 учебных единиц (UE), и проходит по средам с 18:30 до 20:30 с 18.11.2026 по 07.07.2027. Другие площадки (например, Берлин) в планах; желающие могут записаться в лист ожидания.",
+          },
+          {
+            type: "p",
+            text: "Объём, уровень, даты, место и цена конкретного курса указаны в описании курса и в форме записи. Решающими являются указанные там сведения о конкретном курсе.",
+          },
+        ],
+      },
+      {
+        h2: "3. Запись и заключение договора",
+        blocks: [
+          {
+            type: "p",
+            text: "Запись производится через встроенную на этом сайте форму записи (Jotform). Отправляя форму, участник делает обязывающее предложение заключить договор об участии.",
+          },
+          {
+            type: "p",
+            text: "Договор считается заключённым, когда BiFoDe e.V. подтверждает запись — как правило, письмом по электронной почте с данными курса и доступом в Moodle.",
+          },
+          {
+            type: "p",
+            text: "Участие возможно при наличии свободных мест. При заполненных группах может быть предложено место в листе ожидания.",
+          },
+        ],
+      },
+      {
+        h2: "4. Членство (по желанию)",
+        blocks: [
+          {
+            type: "p",
+            text: "Членство в BiFoDe e.V. бесплатное и добровольное. Оно не является условием участия, но снижает стоимость курса (льготный тариф для членов).",
+          },
+          {
+            type: "p",
+            text: "К членству применяются устав и положение о взносах BiFoDe e.V. Оно оформляется и прекращается отдельно от договора об участии.",
+          },
+        ],
+      },
+      {
+        h2: "5. Цены и оплата",
+        blocks: [
+          {
+            type: "p",
+            text: "Для курса A1 в Дюссельдорфе взнос составляет 60 € в месяц при бесплатном членстве в BiFoDe e.V. (всего 480 €) либо 120 € в месяц без членства (всего 960 €). Взнос списывается 8 ежемесячными платежами с декабря 2026 по июль 2027 по SEPA-Basislastschrift. Решающими являются цены, указанные в форме записи.",
+          },
+          {
+            type: "p",
+            text: "Выдавая мандат SEPA, участник уполномочивает BiFoDe e.V. списывать причитающиеся суммы со своего счёта в порядке SEPA-Basislastschrift. Идентификатор кредитора (Gläubiger-Identifikationsnummer): DE86ZZZ00002929761. Референс мандата сообщается отдельно. О списании мы уведомляем вас заранее (предварительное уведомление/pre-notification) не позднее чем за 14 дней до срока; при повторяющихся списаниях достаточно однократного уведомления с указанием сроков.",
+          },
+          {
+            type: "p",
+            text: "Если списание не проходит из-за недостатка средств или по причинам на стороне участника, участник несёт связанные с этим комиссии за возврат платежа.",
+          },
+        ],
+      },
+      {
+        h2: "6. Право на отказ для потребителей",
+        blocks: [
+          {
+            type: "p",
+            text: "При договоре, заключённом дистанционно, потребители имеют установленное законом право на отказ в течение четырнадцати дней со дня заключения договора.",
+          },
+          {
+            type: "p",
+            text: "Полный текст разъяснения о праве на отказ и образец формы отказа вы найдёте на странице https://www.ulpan-ivrit.de/widerruf.",
+          },
+          {
+            type: "p",
+            text: "Если вы прямо попросили начать оказание услуги уже в течение срока на отказ и затем отказались, вы обязаны оплатить соразмерную сумму за уже оказанные до отказа услуги (§§ 356 Abs. 4, 357a BGB).",
+          },
+        ],
+      },
+      {
+        h2: "7. Расторжение участником",
+        blocks: [
+          {
+            type: "p",
+            text: "После истечения срока на отказ договор об участии по общему правилу действует на весь срок курса. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Независимо от этого договор может быть расторгнут в чрезвычайном порядке по важной причине.",
+          },
+          {
+            type: "p",
+            text: "Расторжение оформляется в текстовой форме (например, письмом на info@bifode.org). Уже возникшие взносы за использованные услуги остаются в силе.",
+          },
+        ],
+      },
+      {
+        h2: "8. Отмена и изменения со стороны оператора",
+        blocks: [
+          {
+            type: "p",
+            text: "Если не набирается необходимое минимальное число участников (как правило, 15 человек) или есть иная важная причина, BiFoDe e.V. может отменить или перенести курс. Уже уплаченные взносы за неоказанные услуги в этом случае возвращаются.",
+          },
+          {
+            type: "p",
+            text: "По организационным причинам (например, отсутствие преподавателя) отдельные занятия могут быть перенесены или заменены равноценными онлайн-занятиями. Участников своевременно информируют.",
+          },
+          {
+            type: "p",
+            text: "[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]",
+          },
+        ],
+      },
+      {
+        h2: "9. Обязанности участников и доступ в Moodle",
+        blocks: [
+          {
+            type: "p",
+            text: "При записи участники указывают достоверные данные и поддерживают свои контактные данные в актуальном состоянии.",
+          },
+          {
+            type: "p",
+            text: "Доступ к платформе Moodle персональный и не передаётся. Данные для входа следует хранить конфиденциально.",
+          },
+          {
+            type: "p",
+            text: "Предполагается уважительное поведение на занятиях и на платформе. При серьёзных или повторных нарушениях BiFoDe e.V. может отстранить от дальнейшего участия.",
+          },
+        ],
+      },
+      {
+        h2: "10. Авторские права на учебные материалы",
+        blocks: [
+          {
+            type: "p",
+            text: "Материалы, предоставляемые на курсе и в Moodle, охраняются авторским правом и могут использоваться только для собственного обучения. Копирование, передача или публикация — в том числе частичная — без предварительного согласия не допускаются.",
+          },
+        ],
+      },
+      {
+        h2: "11. Ответственность",
+        blocks: [
+          {
+            type: "p",
+            text: "BiFoDe e.V. несёт неограниченную ответственность за вред жизни, телу и здоровью, а также за умысел и грубую неосторожность.",
+          },
+          {
+            type: "p",
+            text: "За лёгкую неосторожность при нарушении существенных договорных обязанностей ответственность ограничена типичным и предвидимым ущербом. В остальном ответственность исключается. Обязательные нормы закона остаются в силе.",
+          },
+        ],
+      },
+      {
+        h2: "12. Защита данных",
+        blocks: [
+          {
+            type: "p",
+            text: "Персональные данные обрабатываются только для исполнения договора и в пределах, допустимых законом. Подробности — в политике конфиденциальности.",
+          },
+        ],
+      },
+      {
+        h2: "13. Заключительные положения",
+        blocks: [
+          {
+            type: "p",
+            text: "Применяется право Федеративной Республики Германия с исключением Венской конвенции о договорах купли-продажи. Обязательные нормы защиты потребителей страны их обычного проживания остаются в силе.",
+          },
+          {
+            type: "p",
+            text: "Изменения и дополнения этих условий оформляются в текстовой форме. Если отдельное положение недействительно, действительность остальных положений сохраняется.",
+          },
+          {
+            type: "p",
+            text: "[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]",
+          },
+        ],
+      },
+    ],
+    updated: UPDATED.ru,
+  },
+  widerruf: {
+    title: "Право на отказ — Ulpan Ivrit",
+    desc: "Разъяснение о праве на отказ и образец формы отказа для курсов иврита Ulpan Ivrit.",
+    h1: "Право на отказ (Widerrufsbelehrung)",
+    binding: "Юридически обязательна немецкая версия.",
+    lead: "Это разъяснение о праве на отказ действует для потребителей, заключающих договор об участии с BiFoDe e.V. дистанционно.",
+    sections: [
+      {
+        h2: "Право на отказ",
+        blocks: [
+          {
+            type: "p",
+            text: "Вы вправе в течение четырнадцати дней без объяснения причин отказаться от этого договора.",
+          },
+          {
+            type: "p",
+            text: "Срок на отказ составляет четырнадцать дней со дня заключения договора.",
+          },
+          {
+            type: "p",
+            text: "Чтобы воспользоваться правом на отказ, вы должны уведомить нас (BiFoDe e.V., Allgäustr. 45, 42651 Solingen, info@bifode.org) о своём решении отказаться от договора однозначным заявлением (например, письмом по почте или по электронной почте). Вы можете воспользоваться прилагаемым образцом формы отказа, но это не обязательно.",
+          },
+          {
+            type: "p",
+            text: "Для соблюдения срока на отказ достаточно отправить сообщение об использовании права на отказ до истечения срока.",
+          },
+        ],
+      },
+      {
+        h2: "Последствия отказа",
+        blocks: [
+          {
+            type: "p",
+            text: "Если вы отказываетесь от этого договора, мы обязаны вернуть вам все полученные от вас платежи, включая расходы на доставку (за исключением дополнительных расходов, возникших из-за выбранного вами способа доставки, отличного от предложенного нами самого дешёвого стандартного способа), незамедлительно и не позднее чем в течение четырнадцати дней со дня получения нами уведомления о вашем отказе от договора. Для возврата мы используем то же платёжное средство, которое вы использовали при первоначальной операции, если с вами прямо не согласовано иное; ни в коем случае вам не начисляются сборы за этот возврат.",
+          },
+          {
+            type: "p",
+            text: "Если вы потребовали, чтобы оказание услуг началось в течение срока на отказ, вы обязаны уплатить нам соразмерную сумму, соответствующую доле уже оказанных до момента уведомления об отказе услуг по сравнению с общим объёмом услуг, предусмотренных договором (§§ 356 Abs. 4, 357a BGB).",
+          },
+        ],
+      },
+      {
+        h2: "Образец формы отказа",
+        blocks: [
+          {
+            type: "p",
+            text: "(Если вы хотите отказаться от договора, заполните, пожалуйста, эту форму и отправьте её обратно.)",
+          },
+          {
+            type: "ul",
+            items: [
+              "Кому: BiFoDe e.V., Allgäustr. 45, 42651 Solingen, info@bifode.org:",
+              "Настоящим я/мы (*) отказываюсь/отказываемся (*) от заключённого мной/нами (*) договора об оказании следующей услуги (*):",
+              "Заказано (*)/получено (*):",
+              "Имя потребителя(ей):",
+              "Адрес потребителя(ей):",
+              "Подпись потребителя(ей) (только при уведомлении на бумаге):",
+              "Дата:",
+              "(*) Ненужное зачеркнуть.",
+            ],
           },
         ],
       },
@@ -702,6 +1288,31 @@ const en: Record<LegalKey, LegalDoc> = {
           },
         ],
       },
+      {
+        h2: "8. Registration and payment processing",
+        blocks: [
+          {
+            type: "p",
+            text: "Registration for the courses runs through a form embedded on this website by Jotform (Jotform Inc., USA). We process the data you enter, in particular name, contact details, address and the payment data required for SEPA direct debit (e.g. account holder, IBAN).",
+          },
+          {
+            type: "p",
+            text: "The purpose is the conclusion and performance of the participation contract, including payment processing. Legal basis: Art. 6 (1)(b) GDPR (contract) and Art. 6 (1)(c) GDPR (tax and commercial retention obligations).",
+          },
+          {
+            type: "p",
+            text: "The fee is collected by SEPA core direct debit (creditor identifier DE86ZZZ00002929761). Payment and membership data may be processed in the association's administration for this purpose. [PRÜFEN: Über welchen Dienst die SEPA-Abwicklung läuft (z. B. MeinVerein/Bank) und ob ein Auftragsverarbeitungsvertrag (AVV) mit dem Zahlungsdienstleister besteht.]",
+          },
+          {
+            type: "p",
+            text: "Jotform also processes data in the USA. [PRÜFEN: Auftragsverarbeitungsvertrag (AVV) mit Jotform Inc. sowie Rechtsgrundlage für die Drittlandübermittlung (Standardvertragsklauseln/Data Privacy Framework) vor Veröffentlichung bestätigen.]",
+          },
+          {
+            type: "p",
+            text: "Contract and payment data are stored for the duration of the contractual relationship and thereafter within the statutory retention periods (in particular § 147 AO, § 257 HGB), and then deleted.",
+          },
+        ],
+      },
     ],
     updated: UPDATED.en,
   },
@@ -750,6 +1361,271 @@ const en: Record<LegalKey, LegalDoc> = {
           {
             type: "p",
             text: "Consent first (Art. 6 (1)(a) GDPR and § 25 (1) TDDDG), then the cookie. Refusing must be as easy as accepting.",
+          },
+        ],
+      },
+    ],
+    updated: UPDATED.en,
+  },
+  teilnahmebedingungen: {
+    title: "Terms of participation — Ulpan Ivrit",
+    desc: "Terms of participation for the Hebrew courses of Ulpan Ivrit, provider BiFoDe e.V.",
+    h1: "Terms of participation",
+    binding: "The German text is legally binding.",
+    lead: "These terms of participation govern participation in the Hebrew courses of Ulpan Ivrit. The provider and contracting party is BiFoDe e.V., Allgäustr. 45, 42651 Solingen. Registration and payment run through the enrolment form; this website is only the public presentation of the offer.",
+    sections: [
+      {
+        h2: "1. Scope and provider",
+        blocks: [
+          {
+            type: "p",
+            text: "These terms govern the relationship between Bildungsforum für Demokratie und Vielfalt NRW e.V. (BiFoDe e.V.), Allgäustr. 45, 42651 Solingen, and participants in the Hebrew courses of Ulpan Ivrit. They apply equally to in-person and online courses.",
+          },
+          {
+            type: "p",
+            text: "The contract language is German. Differing terms of participants do not become part of the contract unless BiFoDe e.V. expressly agrees to them in text form.",
+          },
+        ],
+      },
+      {
+        h2: "2. Services",
+        blocks: [
+          {
+            type: "p",
+            text: "Ulpan Ivrit offers Hebrew courses following the Hebrew University of Jerusalem method, with a focus on spoken Hebrew. Teaching takes place in in-person groups (in the premises of Jewish communities or other hosts) and/or online via the Moodle learning platform (ulpan.bifode.org).",
+          },
+          {
+            type: "p",
+            text: "One session (Termin) lasts 90 minutes (two teaching units, Unterrichtseinheit, of 45 minutes each). The A1 course in Düsseldorf (Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1) comprises 30 sessions of 90 minutes, 60 teaching units (UE) in total, and takes place on Wednesdays from 18:30 to 20:30, from 18 November 2026 to 7 July 2027. Further locations (e.g. Berlin) are planned; interested people can join the waiting list.",
+          },
+          {
+            type: "p",
+            text: "The scope, level, dates, location and price of each course follow from the course description and the enrolment form. The details given there for the specific course are decisive.",
+          },
+        ],
+      },
+      {
+        h2: "3. Registration and conclusion of contract",
+        blocks: [
+          {
+            type: "p",
+            text: "Registration is made via the enrolment form embedded on this website (Jotform). By submitting it, participants make a binding offer to conclude a participation contract.",
+          },
+          {
+            type: "p",
+            text: "The contract is concluded when BiFoDe e.V. confirms the registration — usually by email with course details and Moodle access.",
+          },
+          {
+            type: "p",
+            text: "Participation requires available places. For fully booked courses, a place on a waiting list may be offered.",
+          },
+        ],
+      },
+      {
+        h2: "4. Membership (optional)",
+        blocks: [
+          {
+            type: "p",
+            text: "Membership of BiFoDe e.V. is free and voluntary. It is not a condition of participation, but it reduces the course fee (discounted member tariff).",
+          },
+          {
+            type: "p",
+            text: "Membership is governed by the statutes and the fee schedule of BiFoDe e.V. It is created and ended separately from the participation contract.",
+          },
+        ],
+      },
+      {
+        h2: "5. Prices and payment",
+        blocks: [
+          {
+            type: "p",
+            text: "For the A1 course in Düsseldorf the fee is 60 € per month with free BiFoDe e.V. membership (480 € in total) or 120 € per month without membership (960 € in total). The fee is collected in 8 monthly instalments from December 2026 to July 2027 by SEPA core direct debit (SEPA-Basislastschrift). The prices stated in the enrolment form are decisive.",
+          },
+          {
+            type: "p",
+            text: "By granting the SEPA direct debit mandate, participants authorise BiFoDe e.V. to collect the amounts due from their account by SEPA core direct debit. Creditor identifier (Gläubiger-Identifikationsnummer): DE86ZZZ00002929761. The mandate reference is communicated separately. We notify you of the debit in advance (pre-notification) at least 14 days before the due date; for recurring debits a single pre-notification stating the due dates is sufficient.",
+          },
+          {
+            type: "p",
+            text: "If a direct debit fails for lack of funds or for reasons attributable to the participant, the participant bears the resulting return-debit fees.",
+          },
+        ],
+      },
+      {
+        h2: "6. Right of withdrawal for consumers",
+        blocks: [
+          {
+            type: "p",
+            text: "For a contract concluded at a distance, consumers have a statutory right of withdrawal of fourteen days from the day the contract is concluded.",
+          },
+          {
+            type: "p",
+            text: "You will find the full withdrawal instructions and the model withdrawal form at https://www.ulpan-ivrit.de/widerruf.",
+          },
+          {
+            type: "p",
+            text: "If you expressly requested that the service begin during the withdrawal period and you then withdraw, you owe a reasonable amount for the services already provided up to the withdrawal (§§ 356 (4), 357a BGB).",
+          },
+        ],
+      },
+      {
+        h2: "7. Cancellation by participants",
+        blocks: [
+          {
+            type: "p",
+            text: "After the withdrawal period, the participation contract generally runs for the entire course duration. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Irrespective of this, the contract may be terminated extraordinarily for good cause.",
+          },
+          {
+            type: "p",
+            text: "Termination must be in text form (e.g. email to info@bifode.org). Fees already incurred for services used remain unaffected.",
+          },
+        ],
+      },
+      {
+        h2: "8. Cancellation and changes by the provider",
+        blocks: [
+          {
+            type: "p",
+            text: "If the minimum number of participants required for a course (usually 15 people) is not reached, or for another important reason, BiFoDe e.V. may cancel or postpone a course. Fees already paid for services not provided are refunded in that case.",
+          },
+          {
+            type: "p",
+            text: "For organisational reasons (e.g. a teacher's absence), individual sessions may be rescheduled or replaced by equivalent online sessions. Participants are informed in good time.",
+          },
+          {
+            type: "p",
+            text: "[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]",
+          },
+        ],
+      },
+      {
+        h2: "9. Participant obligations and Moodle access",
+        blocks: [
+          {
+            type: "p",
+            text: "Participants provide truthful information at registration and keep their contact details up to date.",
+          },
+          {
+            type: "p",
+            text: "Access to the Moodle learning platform is personal and non-transferable. Login credentials must be kept confidential.",
+          },
+          {
+            type: "p",
+            text: "Respectful conduct in class and on the platform is expected. In the event of serious or repeated breaches, BiFoDe e.V. may exclude a participant from further participation.",
+          },
+        ],
+      },
+      {
+        h2: "10. Copyright of teaching materials",
+        blocks: [
+          {
+            type: "p",
+            text: "Materials provided in the course and in Moodle are protected by copyright and may be used only for your own learning. Reproduction, sharing or publication — even in part — is not permitted without prior consent.",
+          },
+        ],
+      },
+      {
+        h2: "11. Liability",
+        blocks: [
+          {
+            type: "p",
+            text: "BiFoDe e.V. is liable without limitation for damage arising from injury to life, body or health, and for intent and gross negligence.",
+          },
+          {
+            type: "p",
+            text: "For slightly negligent breaches of essential contractual obligations (cardinal duties), liability is limited to the foreseeable damage typical for the contract. Otherwise liability is excluded. Mandatory statutory provisions remain unaffected.",
+          },
+        ],
+      },
+      {
+        h2: "12. Data protection",
+        blocks: [
+          {
+            type: "p",
+            text: "Personal data is processed only to perform the contract and within the limits permitted by law. Details are in the privacy notice.",
+          },
+        ],
+      },
+      {
+        h2: "13. Final provisions",
+        blocks: [
+          {
+            type: "p",
+            text: "German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. Mandatory consumer protection rules of the consumer's country of habitual residence remain unaffected.",
+          },
+          {
+            type: "p",
+            text: "Amendments and additions to these terms require text form. Should any provision be invalid, the validity of the remaining provisions is unaffected.",
+          },
+          {
+            type: "p",
+            text: "[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]",
+          },
+        ],
+      },
+    ],
+    updated: UPDATED.en,
+  },
+  widerruf: {
+    title: "Right of withdrawal — Ulpan Ivrit",
+    desc: "Withdrawal instructions and model withdrawal form for the Hebrew courses of Ulpan Ivrit.",
+    h1: "Right of withdrawal (Widerrufsbelehrung)",
+    binding: "The German text is legally binding.",
+    lead: "These withdrawal instructions apply to consumers who conclude a participation contract with BiFoDe e.V. at a distance.",
+    sections: [
+      {
+        h2: "Right of withdrawal",
+        blocks: [
+          {
+            type: "p",
+            text: "You have the right to withdraw from this contract within fourteen days without giving any reason.",
+          },
+          {
+            type: "p",
+            text: "The withdrawal period is fourteen days from the day the contract is concluded.",
+          },
+          {
+            type: "p",
+            text: "To exercise your right of withdrawal, you must inform us (BiFoDe e.V., Allgäustr. 45, 42651 Solingen, info@bifode.org) of your decision to withdraw from this contract by a clear statement (e.g. a letter sent by post or an email). You may use the attached model withdrawal form, but this is not mandatory.",
+          },
+          {
+            type: "p",
+            text: "To meet the withdrawal deadline, it is sufficient that you send your communication concerning the exercise of the right of withdrawal before the withdrawal period expires.",
+          },
+        ],
+      },
+      {
+        h2: "Effects of withdrawal",
+        blocks: [
+          {
+            type: "p",
+            text: "If you withdraw from this contract, we shall reimburse to you all payments received from you, including the costs of delivery (with the exception of the supplementary costs resulting from your choice of a type of delivery other than the least expensive type of standard delivery offered by us), without undue delay and in any event not later than fourteen days from the day on which we are informed about your decision to withdraw from this contract. We will carry out such reimbursement using the same means of payment as you used for the initial transaction, unless you have expressly agreed otherwise; in any event, you will not incur any fees as a result of such reimbursement.",
+          },
+          {
+            type: "p",
+            text: "If you requested that the services begin during the withdrawal period, you shall pay us an amount which is in proportion to what has been provided until the time you have informed us of the exercise of the right of withdrawal from this contract, in comparison with the full coverage of the contract (§§ 356 (4), 357a BGB).",
+          },
+        ],
+      },
+      {
+        h2: "Model withdrawal form",
+        blocks: [
+          {
+            type: "p",
+            text: "(Complete and return this form only if you wish to withdraw from the contract.)",
+          },
+          {
+            type: "ul",
+            items: [
+              "To BiFoDe e.V., Allgäustr. 45, 42651 Solingen, info@bifode.org:",
+              "I/We (*) hereby give notice that I/We (*) withdraw from my/our (*) contract for the provision of the following service (*):",
+              "Ordered on (*)/received on (*):",
+              "Name of consumer(s):",
+              "Address of consumer(s):",
+              "Signature of consumer(s) (only if this form is notified on paper):",
+              "Date:",
+              "(*) Delete as appropriate.",
+            ],
           },
         ],
       },

@@ -106,7 +106,11 @@ export type Messages = {
     datesTitle: string;
     datesSummary: string;
     datesFreeLabel: string;
+    priceLine: string;
+    legalIntro: string;
     formTitle: string;
+    formFallback: string;
+    formFallbackLink: string;
     noCourse: string;
     noCourseLink: string;
     cityFaqQ: string;
@@ -204,6 +208,13 @@ export type Messages = {
     a7: string;
     q8: string;
     a8: string;
+    q9: string;
+    a9: string;
+    a9Link: string;
+    q10: string;
+    a10: string;
+    q11: string;
+    a11: string;
   };
   kontakt: {
     title: string;
@@ -246,6 +257,8 @@ export type Messages = {
     impressum: string;
     datenschutz: string;
     cookies: string;
+    teilnahmebedingungen: string;
+    widerruf: string;
     noCookies: string;
     vereinImpressum: string;
     vereinDatenschutz: string;
@@ -417,7 +430,12 @@ export const messages: Record<UiLocale, Messages> = {
       datesSummary:
         "30 Termine à 90 Min. (2 × 45 Min.) = 60 Unterrichtsstunden · mittwochs 18:30–20:30 Uhr · bis 07.07.2027",
       datesFreeLabel: "Unterrichtsfrei",
+      priceLine:
+        "A1 Düsseldorf: 30 Termine à 90 Min. (60 UE) · mittwochs 18:30–20:30 · 18.11.2026–07.07.2027 · 8 Monatsraten à 60 € (mit kostenloser Mitgliedschaft) bzw. 120 €.",
+      legalIntro: "Mit der Anmeldung gelten unsere",
       formTitle: "Anmeldung",
+      formFallback: "Formular lädt nicht?",
+      formFallbackLink: "Direkt bei Jotform öffnen",
       noCourse: "Kein Kurs in Ihrer Stadt?",
       noCourseLink: "Schreiben Sie uns",
       cityFaqQ: "Wann startet ein Ulpan in meiner Stadt?",
@@ -523,6 +541,13 @@ export const messages: Record<UiLocale, Messages> = {
       a7: "Die Fortbildung der Lehrkräfte. Sie führen aktive Dozentinnen und Lehrkräfte der Hebräischen Universität Jerusalem durch. Materialien und Methodik kommen aus derselben Schule.",
       q8: "Wann startet ein Ulpan in meiner Stadt?",
       a8: "Sobald sich mindestens 15 Interessierte gemeldet haben – über die Warteliste oder als Gruppe über Ihre Gemeinde oder Organisation.",
+      q9: "Kann ich meine Anmeldung widerrufen?",
+      a9: "Ja. Als Verbraucher:in können Sie binnen 14 Tagen ab Vertragsschluss ohne Angabe von Gründen widerrufen. Einzelheiten und das Muster-Formular stehen in der",
+      a9Link: "Widerrufsbelehrung",
+      q10: "Was passiert, wenn der Kurs nicht zustande kommt?",
+      a10: "Kommt die Mindestteilnehmerzahl (in der Regel 15 Personen) nicht zustande, können wir den Kurs absagen oder verschieben. Bereits gezahlte Beiträge für nicht erbrachte Leistungen werden erstattet.",
+      q11: "Wie funktioniert die SEPA-Lastschrift?",
+      a11: "Der Beitrag wird in 8 Monatsraten (Dez 2026–Jul 2027) per SEPA-Basislastschrift eingezogen (Gläubiger-Identifikationsnummer DE86ZZZ00002929761). Über den Einzug informieren wir Sie vorab, spätestens 14 Tage vor Fälligkeit.",
     },
     kontakt: {
       title: "Kontakt — Ulpan Ivrit",
@@ -586,6 +611,8 @@ export const messages: Record<UiLocale, Messages> = {
       impressum: "Impressum",
       datenschutz: "Datenschutz",
       cookies: "Cookies",
+      teilnahmebedingungen: "Teilnahmebedingungen",
+      widerruf: "Widerrufsbelehrung",
       noCookies: "Keine Tracking-Cookies",
       vereinImpressum: "Impressum des Vereins auf bifode.org",
       vereinDatenschutz: "Datenschutz des Vereins auf bifode.org",
@@ -769,7 +796,12 @@ export const messages: Record<UiLocale, Messages> = {
       datesSummary:
         "30 занятий по 90 мин. (2 × 45 мин.) = 60 уроков · по средам 18:30–20:30 · до 07.07.2027",
       datesFreeLabel: "Без занятий",
+      priceLine:
+        "A1 Дюссельдорф: 30 занятий по 90 мин. (60 UE) · по средам 18:30–20:30 · 18.11.2026–07.07.2027 · 8 ежемесячных платежей по 60 € (с бесплатным членством) или 120 €.",
+      legalIntro: "При записи действуют наши",
       formTitle: "Запись",
+      formFallback: "Форма не загружается?",
+      formFallbackLink: "Открыть напрямую в Jotform",
       noCourse: "Нет курса в вашем городе?",
       noCourseLink: "Напишите нам",
       cityFaqQ: "Когда ульпан откроется в моём городе?",
@@ -875,6 +907,13 @@ export const messages: Record<UiLocale, Messages> = {
       a7: "Повышение квалификации преподавателей. Его ведут действующие преподаватели Еврейского университета в Иерусалиме. Материалы и методика — из той же школы.",
       q8: "Когда ульпан откроется в моём городе?",
       a8: "Как только наберётся не меньше 15 желающих – через лист ожидания или как группа через вашу общину или организацию.",
+      q9: "Могу ли я отозвать (отменить) запись?",
+      a9: "Да. Как потребитель вы можете в течение 14 дней со дня заключения договора отказаться без объяснения причин. Подробности и образец формы — в",
+      a9Link: "разъяснении о праве на отказ",
+      q10: "Что будет, если курс не состоится?",
+      a10: "Если не наберётся минимальное число участников (как правило, 15 человек), мы можем отменить или перенести курс. Уже уплаченные взносы за неоказанные услуги возвращаются.",
+      q11: "Как работает списание по SEPA?",
+      a11: "Взнос списывается 8 ежемесячными платежами (дек 2026–июль 2027) по SEPA-Basislastschrift (идентификатор кредитора DE86ZZZ00002929761). О списании мы уведомляем заранее, не позднее чем за 14 дней до срока.",
     },
     kontakt: {
       title: "Контакты — Ulpan Ivrit",
@@ -937,6 +976,8 @@ export const messages: Record<UiLocale, Messages> = {
       impressum: "Выходные данные",
       datenschutz: "Защита данных",
       cookies: "Cookies",
+      teilnahmebedingungen: "Условия участия",
+      widerruf: "Право на отказ",
       noCookies: "Нет cookies для учёта",
       vereinImpressum: "Импрессум союза на bifode.org",
       vereinDatenschutz: "Защита данных союза на bifode.org",
@@ -1120,7 +1161,12 @@ export const messages: Record<UiLocale, Messages> = {
       datesSummary:
         "30 sessions of 90 min (2 × 45 min) = 60 lessons · Wednesdays 18:30–20:30 · until 7 Jul 2027",
       datesFreeLabel: "No class",
+      priceLine:
+        "A1 Düsseldorf: 30 sessions of 90 min (60 UE) · Wednesdays 18:30–20:30 · 18 Nov 2026–7 Jul 2027 · 8 monthly instalments of 60 € (with free membership) or 120 €.",
+      legalIntro: "By registering you agree to our",
       formTitle: "Registration",
+      formFallback: "Form not loading?",
+      formFallbackLink: "Open directly on Jotform",
       noCourse: "No course in your city?",
       noCourseLink: "Write to us",
       cityFaqQ: "When does an Ulpan start in my city?",
@@ -1226,6 +1272,13 @@ export const messages: Record<UiLocale, Messages> = {
       a7: "Teacher training. It is run by active lecturers and teachers of the Hebrew University of Jerusalem. Materials and method come from the same school.",
       q8: "When does an Ulpan start in my city?",
       a8: "As soon as at least 15 interested people have signed up – via the waiting list or as a group through your community or organisation.",
+      q9: "Can I withdraw my registration?",
+      a9: "Yes. As a consumer you may withdraw within 14 days of concluding the contract without giving reasons. Details and the model form are in the",
+      a9Link: "withdrawal instructions",
+      q10: "What happens if the course does not take place?",
+      a10: "If the minimum number of participants (usually 15 people) is not reached, we may cancel or postpone the course. Fees already paid for services not provided are refunded.",
+      q11: "How does the SEPA direct debit work?",
+      a11: "The fee is collected in 8 monthly instalments (Dec 2026–Jul 2027) by SEPA core direct debit (creditor identifier DE86ZZZ00002929761). We notify you of the debit in advance, at least 14 days before the due date.",
     },
     kontakt: {
       title: "Contact — Ulpan Ivrit",
@@ -1288,6 +1341,8 @@ export const messages: Record<UiLocale, Messages> = {
       impressum: "Imprint",
       datenschutz: "Privacy",
       cookies: "Cookies",
+      teilnahmebedingungen: "Terms of participation",
+      widerruf: "Right of withdrawal",
       noCookies: "No tracking cookies",
       vereinImpressum: "Association imprint on bifode.org",
       vereinDatenschutz: "Association privacy notice on bifode.org",
