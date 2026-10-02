@@ -1089,7 +1089,10 @@ button[type="submit"]:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 6% 8% 16%;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 6% 5% 14%;
   text-align: center;
   text-shadow: 0 1px 16px rgba(0, 61, 122, 0.35);
 }
@@ -1101,14 +1104,16 @@ button[type="submit"]:disabled {
   margin: 0 0 0.55rem;
   line-height: 1.2;
   white-space: nowrap;
-  max-width: 100%;
+  max-width: min(980px, 100%);
+  text-align: center;
 }
 
 .quote-de,
 .quote-src {
   margin: 0;
   color: var(--on-blue);
-  max-width: 100%;
+  max-width: min(980px, 100%);
+  text-align: center;
 }
 
 .quote-de {
