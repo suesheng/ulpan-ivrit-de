@@ -237,11 +237,11 @@ const de: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "Der Beitragseinzug erfolgt per SEPA-Basislastschrift (Gläubiger-Identifikationsnummer DE86ZZZ00002929761). Zahlungs- und Mitgliedsdaten können dafür in der Vereinsverwaltung verarbeitet werden. [PRÜFEN: Über welchen Dienst die SEPA-Abwicklung läuft (z. B. MeinVerein/Bank) und ob ein Auftragsverarbeitungsvertrag (AVV) mit dem Zahlungsdienstleister besteht.]",
+            text: "Der Beitragseinzug erfolgt per SEPA-Basislastschrift (Gläubiger-Identifikationsnummer DE86ZZZ00002929761). Zahlungs- und Mitgliedsdaten werden hierfür in der Vereinsverwaltungssoftware MeinVerein verarbeitet; mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO.",
           },
           {
             type: "p",
-            text: "Jotform verarbeitet Daten auch in den USA. [PRÜFEN: Auftragsverarbeitungsvertrag (AVV) mit Jotform Inc. sowie Rechtsgrundlage für die Drittlandübermittlung (Standardvertragsklauseln/Data Privacy Framework) vor Veröffentlichung bestätigen.]",
+            text: "Das Anmeldeformular wird über Jotform mit EU-Hosting bereitgestellt; die Daten werden innerhalb der Europäischen Union verarbeitet. Mit Jotform besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO.",
           },
           {
             type: "p",
@@ -428,7 +428,7 @@ const de: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "Nach Ablauf der Widerrufsfrist gilt der Teilnahmevertrag grundsätzlich für die gesamte Kursdauer. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Unabhängig davon kann der Teilnahmevertrag aus wichtigem Grund außerordentlich gekündigt werden.",
+            text: "Nach Ablauf der Widerrufsfrist ist der Teilnahmevertrag für die gesamte Kursdauer (acht Monate) verbindlich; ein ordentliches Kündigungsrecht besteht nicht. Unabhängig davon kann der Teilnahmevertrag aus wichtigem Grund außerordentlich gekündigt werden.",
           },
           {
             type: "p",
@@ -449,7 +449,7 @@ const de: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]",
+            text: "Versäumt der Teilnehmende einzelne Termine, besteht kein Anspruch auf Erstattung oder Minderung der Kursgebühr. Die Kursgebühr sichert den Kursplatz unabhängig von der tatsächlichen Teilnahme.",
           },
         ],
       },
@@ -514,7 +514,7 @@ const de: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]",
+            text: "BiFoDe e.V. beschäftigt nicht mehr als zehn Personen; eine Hinweispflicht nach § 36 VSBG besteht daher nicht. Der Verein ist nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Im Übrigen gelten die Hinweise im Impressum.",
           },
         ],
       },
@@ -781,11 +781,11 @@ const ru: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "Взнос списывается по SEPA-Basislastschrift (идентификатор кредитора DE86ZZZ00002929761). Для этого платёжные и членские данные могут обрабатываться в системе управления союзом. [PRÜFEN: Über welchen Dienst die SEPA-Abwicklung läuft (z. B. MeinVerein/Bank) und ob ein Auftragsverarbeitungsvertrag (AVV) mit dem Zahlungsdienstleister besteht.]",
+            text: "Взнос списывается по SEPA-Basislastschrift (идентификатор кредитора DE86ZZZ00002929761). Для этого платёжные и членские данные обрабатываются в программе управления союзом MeinVerein; с поставщиком заключён договор об обработке данных по поручению согласно ст. 28 GDPR.",
           },
           {
             type: "p",
-            text: "Jotform обрабатывает данные в том числе в США. [PRÜFEN: Auftragsverarbeitungsvertrag (AVV) mit Jotform Inc. sowie Rechtsgrundlage für die Drittlandübermittlung (Standardvertragsklauseln/Data Privacy Framework) vor Veröffentlichung bestätigen.]",
+            text: "Форма записи предоставляется через Jotform с хостингом в ЕС; данные обрабатываются в пределах Европейского союза. С Jotform заключён договор об обработке данных по поручению согласно ст. 28 GDPR.",
           },
           {
             type: "p",
@@ -953,7 +953,7 @@ const ru: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "После истечения срока на отказ договор об участии по общему правилу действует на весь срок курса. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Независимо от этого договор может быть расторгнут в чрезвычайном порядке по важной причине.",
+            text: "После истечения срока на отказ договор об участии является обязательным на весь срок курса (восемь месяцев); право на обычное расторжение не предусмотрено. Независимо от этого договор может быть расторгнут в чрезвычайном порядке по важной причине.",
           },
           {
             type: "p",
@@ -974,7 +974,7 @@ const ru: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]",
+            text: "Если участник пропускает отдельные занятия, право на возврат или снижение платы за курс не возникает. Плата за курс обеспечивает место на курсе независимо от фактического посещения.",
           },
         ],
       },
@@ -1039,7 +1039,7 @@ const ru: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]",
+            text: "BiFoDe e.V. занимает не более десяти человек, поэтому обязанность указания согласно § 36 VSBG отсутствует. Союз не готов и не обязан участвовать в процедуре урегулирования споров в арбитражной комиссии по делам потребителей. В остальном действуют указания в выходных данных (Impressum).",
           },
         ],
       },
@@ -1301,11 +1301,11 @@ const en: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "The fee is collected by SEPA core direct debit (creditor identifier DE86ZZZ00002929761). Payment and membership data may be processed in the association's administration for this purpose. [PRÜFEN: Über welchen Dienst die SEPA-Abwicklung läuft (z. B. MeinVerein/Bank) und ob ein Auftragsverarbeitungsvertrag (AVV) mit dem Zahlungsdienstleister besteht.]",
+            text: "The fee is collected by SEPA core direct debit (creditor identifier DE86ZZZ00002929761). Payment and membership data are processed for this purpose in the MeinVerein association management software; a data processing agreement pursuant to Art. 28 GDPR is in place with the provider.",
           },
           {
             type: "p",
-            text: "Jotform also processes data in the USA. [PRÜFEN: Auftragsverarbeitungsvertrag (AVV) mit Jotform Inc. sowie Rechtsgrundlage für die Drittlandübermittlung (Standardvertragsklauseln/Data Privacy Framework) vor Veröffentlichung bestätigen.]",
+            text: "The registration form is provided via Jotform with EU hosting; the data is processed within the European Union. A data processing agreement pursuant to Art. 28 GDPR is in place with Jotform.",
           },
           {
             type: "p",
@@ -1473,7 +1473,7 @@ const en: Record<LegalKey, LegalDoc> = {
         blocks: [
           {
             type: "p",
-            text: "After the withdrawal period, the participation contract generally runs for the entire course duration. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Irrespective of this, the contract may be terminated extraordinarily for good cause.",
+            text: "After the withdrawal period, the participation contract is binding for the entire course duration (eight months); there is no ordinary right of termination. Irrespective of this, the contract may be terminated extraordinarily for good cause.",
           },
           {
             type: "p",
@@ -1494,7 +1494,7 @@ const en: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]",
+            text: "If the participant misses individual sessions, there is no claim to a refund or reduction of the course fee. The course fee secures the course place regardless of actual attendance.",
           },
         ],
       },
@@ -1559,7 +1559,7 @@ const en: Record<LegalKey, LegalDoc> = {
           },
           {
             type: "p",
-            text: "[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]",
+            text: "BiFoDe e.V. employs no more than ten people; there is therefore no information obligation under § 36 VSBG. The association is not willing and not obliged to participate in dispute resolution proceedings before a consumer arbitration board. Otherwise, the notices in the Impressum apply.",
           },
         ],
       },

@@ -52,7 +52,7 @@ If you expressly requested that the service begin during the withdrawal period a
 
 ## 7. Cancellation by participants
 
-After the withdrawal period, the participation contract generally runs for the entire course duration. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Irrespective of this, the contract may be terminated extraordinarily for good cause.
+After the withdrawal period, the participation contract is binding for the entire course duration (eight months); there is no ordinary right of termination. Irrespective of this, the contract may be terminated extraordinarily for good cause.
 
 Termination must be in text form (e.g. email to info@bifode.org). Fees already incurred for services used remain unaffected.
 
@@ -62,7 +62,7 @@ If the minimum number of participants required for a course (usually 15 people) 
 
 For organisational reasons (e.g. a teacher's absence), individual sessions may be rescheduled or replaced by equivalent online sessions. Participants are informed in good time.
 
-[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]
+If the participant misses individual sessions, there is no claim to a refund or reduction of the course fee. The course fee secures the course place regardless of actual attendance.
 
 ## 9. Participant obligations and Moodle access
 
@@ -92,4 +92,4 @@ German law applies, excluding the UN Convention on Contracts for the Internation
 
 Amendments and additions to these terms require text form. Should any provision be invalid, the validity of the remaining provisions is unaffected.
 
-[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]
+BiFoDe e.V. employs no more than ten people; there is therefore no information obligation under § 36 VSBG. The association is not willing and not obliged to participate in dispute resolution proceedings before a consumer arbitration board. Otherwise, the notices in the Impressum apply.

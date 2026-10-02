@@ -50,7 +50,7 @@ Haben Sie ausdrücklich verlangt, dass die Dienstleistung bereits während der W
 
 ## 7. Rücktritt und Kündigung durch Teilnehmende
 
-Nach Ablauf der Widerrufsfrist gilt der Teilnahmevertrag grundsätzlich für die gesamte Kursdauer. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Unabhängig davon kann der Teilnahmevertrag aus wichtigem Grund außerordentlich gekündigt werden.
+Nach Ablauf der Widerrufsfrist ist der Teilnahmevertrag für die gesamte Kursdauer (acht Monate) verbindlich; ein ordentliches Kündigungsrecht besteht nicht. Unabhängig davon kann der Teilnahmevertrag aus wichtigem Grund außerordentlich gekündigt werden.
 
 Die Kündigung bedarf der Textform (z. B. E-Mail an info@bifode.org). Bereits entstandene Beiträge für in Anspruch genommene Leistungen bleiben unberührt.
 
@@ -60,7 +60,7 @@ Kommt die für einen Kurs erforderliche Mindestteilnehmerzahl (in der Regel 15 P
 
 Aus organisatorischen Gründen (z. B. Ausfall einer Lehrkraft) können einzelne Termine verlegt oder durch gleichwertige Online-Termine ersetzt werden. Die Teilnehmenden werden rechtzeitig informiert.
 
-[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]
+Versäumt der Teilnehmende einzelne Termine, besteht kein Anspruch auf Erstattung oder Minderung der Kursgebühr. Die Kursgebühr sichert den Kursplatz unabhängig von der tatsächlichen Teilnahme.
 
 ## 9. Pflichten der Teilnehmenden und Moodle-Zugang
 
@@ -90,4 +90,4 @@ Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrec
 
 Änderungen und Ergänzungen dieser Teilnahmebedingungen bedürfen der Textform. Sollte eine Bestimmung unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
 
-[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]
+BiFoDe e.V. beschäftigt nicht mehr als zehn Personen; eine Hinweispflicht nach § 36 VSBG besteht daher nicht. Der Verein ist nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Im Übrigen gelten die Hinweise im Impressum.

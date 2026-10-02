@@ -52,7 +52,7 @@ Ulpan Ivrit проводит курсы иврита по методике Ев�
 
 ## 7. Расторжение участником
 
-После истечения срока на отказ договор об участии по общему правилу действует на весь срок курса. [ENTSCHEIDUNG: Kündigungsregelung nach Ablauf der Widerrufsfrist — Option A: feste Vertragslaufzeit über die gesamte Kursdauer (8 Monate) ohne ordentliches Kündigungsrecht; Option B: monatliche Kündigung zum Monatsende mit anteiliger Zahlung; Option C: Kündigung nur aus wichtigem Grund. Bitte eine Option festlegen.] Независимо от этого договор может быть расторгнут в чрезвычайном порядке по важной причине.
+После истечения срока на отказ договор об участии является обязательным на весь срок курса (восемь месяцев); право на обычное расторжение не предусмотрено. Независимо от этого договор может быть расторгнут в чрезвычайном порядке по важной причине.
 
 Расторжение оформляется в текстовой форме (например, письмом на info@bifode.org). Уже возникшие взносы за использованные услуги остаются в силе.
 
@@ -62,7 +62,7 @@ Ulpan Ivrit проводит курсы иврита по методике Ев�
 
 По организационным причинам (например, отсутствие преподавателя) отдельные занятия могут быть перенесены или заменены равноценными онлайн-занятиями. Участников своевременно информируют.
 
-[ENTSCHEIDUNG: Erstattung bei vom Teilnehmenden versäumten Terminen — Option A: keine Erstattung versäumter Termine; Option B: anteilige Gutschrift; Option C: Angebot eines Nachhol- oder Online-Termins. Bitte eine Option festlegen.]
+Если участник пропускает отдельные занятия, право на возврат или снижение платы за курс не возникает. Плата за курс обеспечивает место на курсе независимо от фактического посещения.
 
 ## 9. Обязанности участников и доступ в Moodle
 
@@ -92,4 +92,4 @@ BiFoDe e.V. несёт неограниченную ответственност
 
 Изменения и дополнения этих условий оформляются в текстовой форме. Если отдельное положение недействительно, действительность остальных положений сохраняется.
 
-[PRÜFEN: Hinweis nach § 36 VSBG zur Teilnahme an einer Verbraucherschlichtungsstelle ist nur erforderlich, wenn der Verein mehr als 10 Personen beschäftigt. Zahl der Beschäftigten prüfen und Hinweis bei Bedarf ergänzen; im Übrigen gelten die Hinweise im Impressum.]
+BiFoDe e.V. занимает не более десяти человек, поэтому обязанность указания согласно § 36 VSBG отсутствует. Союз не готов и не обязан участвовать в процедуре урегулирования споров в арбитражной комиссии по делам потребителей. В остальном действуют указания в выходных данных (Impressum).
