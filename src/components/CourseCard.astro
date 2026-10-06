@@ -12,6 +12,7 @@ interface Props {
   ctaHref: string;
   ctaLabel: string;
   open?: boolean;
+  panelId: string;
 }
 
 const {
@@ -27,22 +28,37 @@ const {
   ctaHref,
   ctaLabel,
   open = false,
+  panelId,
 } = Astro.props;
 ---
 
-<details class="course-chip" open={open || undefined}>
-  <summary class="course-chip-summary">
-    <span class="course-chip-place">{place}</span>
-    <span class="course-chip-level">{level}</span>
-    <span class="course-chip-status">{status}</span>
-  </summary>
-  <div class="course-chip-body">
+<div class="course-chip" data-course-chip>
+  <button
+    type="button"
+    class="course-chip-summary"
+    aria-expanded={open ? "true" : "false"}
+    aria-controls={panelId}
+    id={`${panelId}-trigger`}
+  >
+    <span class="course-chip-main">
+      <span class="course-chip-place">{place}</span>
+      <span class="course-chip-level">{level}</span>
+    </span>
+    <span class="course-chip-meta-inline">
+      <span class="course-chip-status">{status}</span>
+      <span class="course-chip-start">{start}</span>
+    </span>
+    <span class="course-chip-toggle" aria-hidden="true"></span>
+  </button>
+  <div
+    class="course-chip-body"
+    id={panelId}
+    role="region"
+    aria-labelledby={`${panelId}-trigger`}
+    hidden={!open}
+  >
     {venue && <p class="course-chip-venue">{venue}</p>}
     <dl class="course-chip-meta">
-      <div>
-        <dt class="visually-hidden">Start</dt>
-        <dd>{start}</dd>
-      </div>
       <div>
         <dt class="visually-hidden">Schedule</dt>
         <dd>{schedule}</dd>
@@ -57,4 +73,4 @@ const {
       <a class="course-card-link" href={detailsHref}>{detailsLabel}</a>
     </p>
   </div>
-</details>
+</div>

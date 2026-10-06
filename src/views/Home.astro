@@ -15,7 +15,6 @@ const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 const traeger = `${href("/vor-ort")}${TRAEGER_HASH}`;
 const preise = href("/preise");
 
-const activeCities = copy.home.firstCities.filter((city) => Boolean(city.start));
 const plannedCities = copy.home.firstCities.filter((city) => !city.start);
 const plannedPreview = 4;
 ---
@@ -27,7 +26,7 @@ const plannedPreview = 4;
       <p>{copy.home.lead}</p>
       <div class="hero-actions">
         <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
-        <a class="btn-text" href={preise}>{copy.home.courseDetails}</a>
+        <a class="btn-text" href="#naechste-kurse">{copy.home.viewCourses}</a>
       </div>
     </div>
     <LetterVortex />
@@ -35,8 +34,8 @@ const plannedPreview = 4;
 
   <QuoteBand />
 
-  <section class="wrap next-course" aria-label={copy.home.nextEyebrow}>
-    <p class="next-course-eyebrow">{copy.home.nextEyebrow}</p>
+  <section class="wrap next-course" id="naechste-kurse" aria-labelledby="next-courses-heading">
+    <h2 id="next-courses-heading" class="next-course-eyebrow">{copy.home.nextEyebrow}</h2>
     <div class="course-chip-list">
       {
         copy.home.nextCourses.map((course, index) => (
@@ -52,7 +51,7 @@ const plannedPreview = 4;
             detailsLabel={copy.home.courseDetails}
             ctaHref={anmelden}
             ctaLabel={copy.home.registerNow}
-            open={index === 0}
+            panelId={`course-panel-${index}`}
           />
         ))
       }
@@ -89,13 +88,13 @@ const plannedPreview = 4;
     </div>
     <p class="price-snapshot-note muted">{copy.home.priceNote}</p>
     <p class="price-snapshot-actions">
-      <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
       <a class="btn-text" href={preise}>{copy.home.priceLink}</a>
     </p>
   </section>
 
   <section class="wrap trust-section" aria-labelledby="trust-heading">
     <h2 id="trust-heading" class="trust-heading">{copy.home.trustTitle}</h2>
+    <p class="trust-method muted">{copy.home.trustMethod}</p>
     <div class="partner-bar trust-bar">
       {
         PARTNERS.map((partner) => (
@@ -125,30 +124,6 @@ const plannedPreview = 4;
   <section class="wrap first-ulpan" aria-labelledby="first-ulpan-heading">
     <h2 id="first-ulpan-heading">{copy.home.firstH2}</h2>
     <p>{copy.home.firstText}</p>
-
-    <div class="city-block">
-      <h3 class="city-block-title">{copy.home.activeCitiesTitle}</h3>
-      <div class="city-chip-list">
-        {
-          activeCities.map((city, index) => (
-            <details class="city-chip city-chip-active" open={index === 0 ? true : undefined}>
-              <summary class="city-chip-summary">
-                <span class="city-chip-name">{city.name}</span>
-                {city.start && <span class="city-chip-badge">{city.start}</span>}
-              </summary>
-              <div class="city-chip-body">
-                {city.detail && <p class="city-chip-detail">{city.detail}</p>}
-                {city.venue && <p class="city-chip-venue">{city.venue}</p>}
-                <p class="city-chip-actions">
-                  <a class="course-card-cta" href={anmelden}>{copy.home.registerNow}</a>
-                  <a class="course-card-link" href={preise}>{copy.home.courseDetails}</a>
-                </p>
-              </div>
-            </details>
-          ))
-        }
-      </div>
-    </div>
 
     <div class="city-block" data-city-planned>
       <h3 class="city-block-title">{copy.home.plannedCitiesTitle}</h3>
@@ -185,7 +160,7 @@ const plannedPreview = 4;
 
     <div class="first-ulpan-actions">
       <div class="first-ulpan-action">
-        <a class="btn" href={anmelden}>{copy.home.firstWaitlistCta}</a>
+        <a class="btn btn-ghost" href={anmelden}>{copy.home.firstWaitlistCta}</a>
         <p class="muted">{copy.home.firstWaitlistNote}</p>
       </div>
       <div class="first-ulpan-action">
@@ -215,6 +190,25 @@ const plannedPreview = 4;
 </BaseLayout>
 
 <script>
+  document.querySelectorAll<HTMLElement>("[data-course-chip]").forEach((chip) => {
+    const trigger = chip.querySelector<HTMLButtonElement>(".course-chip-summary");
+    const panel = chip.querySelector<HTMLElement>(".course-chip-body");
+    if (!trigger || !panel) return;
+
+    trigger.addEventListener("click", () => {
+      const open = trigger.getAttribute("aria-expanded") === "true";
+      const next = !open;
+      trigger.setAttribute("aria-expanded", String(next));
+      panel.hidden = !next;
+      chip.classList.toggle("is-open", next);
+    });
+
+    if (trigger.getAttribute("aria-expanded") === "true") {
+      chip.classList.add("is-open");
+      panel.hidden = false;
+    }
+  });
+
   const block = document.querySelector<HTMLElement>("[data-city-planned]");
   const toggle = document.querySelector<HTMLButtonElement>("[data-city-toggle]");
 
