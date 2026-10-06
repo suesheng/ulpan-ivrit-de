@@ -364,12 +364,12 @@ export const messages: Record<UiLocale, Messages> = {
       close: "“",
     },
     home: {
-      title: "Hebräisch lernen – Ulpan Ivrit A1 in Düsseldorf und Berlin",
+      title: "Hebräisch lernen – Ulpan Ivrit A1",
       description:
-        "Hebräisch A1 als Präsenzkurs in Düsseldorf und Berlin. Online ab Dezember 2026. Anmeldung geöffnet.",
+        "Hebräisch A1 als Präsenzkurs. Online ab Dezember 2026. Anmeldung geöffnet.",
       h1: "<strong>Hebräisch</strong> lernen. Von Anfang an sprechen.",
       lead:
-        "Präsenzkurse in Düsseldorf und Berlin – Online ab Dezember 2026. Methodik der Hebräischen Universität Jerusalem, Schwerpunkt gesprochenes Hebräisch, Materialien in Moodle.",
+        "Präsenzkurse – Online ab Dezember 2026. Methodik der Hebräischen Universität Jerusalem, Schwerpunkt gesprochenes Hebräisch, Materialien in Moodle.",
       nextEyebrow: "Nächste Kurse",
       nextCourses: [
         {
@@ -817,12 +817,12 @@ export const messages: Record<UiLocale, Messages> = {
       close: "»",
     },
     home: {
-      title: "Учить иврит – Ulpan Ivrit A1 в Дюссельдорфе и Берлине",
+      title: "Учить иврит – Ulpan Ivrit A1",
       description:
-        "Курс иврита A1 очно в Дюссельдорфе и Берлине. Онлайн с декабря 2026. Идёт запись.",
+        "Курс иврита A1 очно. Онлайн с декабря 2026. Идёт запись.",
       h1: "Учить <strong>иврит</strong>. Говорить с первого занятия.",
       lead:
-        "Очные курсы в Дюссельдорфе и Берлине — онлайн с декабря 2026. Методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
+        "Очные курсы — онлайн с декабря 2026. Методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
       nextEyebrow: "Ближайшие курсы",
       nextCourses: [
         {
@@ -1269,12 +1269,12 @@ export const messages: Record<UiLocale, Messages> = {
       close: "”",
     },
     home: {
-      title: "Learn Hebrew – Ulpan Ivrit A1 in Düsseldorf and Berlin",
+      title: "Learn Hebrew – Ulpan Ivrit A1",
       description:
-        "Hebrew A1 in-person courses in Düsseldorf and Berlin. Online from December 2026. Registration open.",
+        "Hebrew A1 in-person courses. Online from December 2026. Registration open.",
       h1: "Learn <strong>Hebrew</strong>. Speak from the start.",
       lead:
-        "In-person courses in Düsseldorf and Berlin — online from December 2026. Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
+        "In-person courses — online from December 2026. Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
       nextEyebrow: "Upcoming courses",
       nextCourses: [
         {
