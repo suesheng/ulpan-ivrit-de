@@ -2022,7 +2022,7 @@ details.city-chip[open] > .city-chip-summary::after {
 .why-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5) var(--space-6);
+  gap: var(--space-3);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2031,7 +2031,12 @@ details.city-chip[open] > .city-chip-summary::after {
 .why-item {
   display: grid;
   gap: var(--space-2);
-  max-width: var(--measure);
+  max-width: none;
+  margin: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
 }
 
 .why-item-title {
@@ -2063,13 +2068,23 @@ details.city-chip[open] > .city-chip-summary::after {
 .price-snapshot-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-4) var(--space-6);
+  gap: var(--space-3);
   max-width: 36rem;
 }
 
 .price-option {
   display: grid;
   gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.price-option-preferred {
+  border-color: color-mix(in srgb, var(--blue) 28%, var(--line));
+  background: var(--paper);
 }
 
 .price-option-preferred .price-option-amount {
@@ -2212,6 +2227,48 @@ details.city-chip[open] > .city-chip-summary::after {
 }
 
 @media (max-width: 720px) {
+  .hero {
+    gap: 0;
+    padding-block: var(--space-4) var(--space-3);
+  }
+
+  .hero .vortex {
+    display: none;
+  }
+
+  .hero-actions {
+    margin-top: var(--space-4);
+    gap: var(--space-2) var(--space-4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    min-height: 2.5rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-actions .btn-text {
+    min-height: 2.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-underline-offset: 2px;
+    color: var(--blue);
+  }
+
+  .hero-actions .btn-text:hover,
+  .hero-actions .btn-text:focus-visible {
+    text-decoration: underline;
+    color: var(--blue-deep);
+  }
+
+  .hero + .quote-band {
+    margin-block-start: var(--space-4);
+  }
+
   .quote-inner {
     padding: 8% 4% 18%;
   }
