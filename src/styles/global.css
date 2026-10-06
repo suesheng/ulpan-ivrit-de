@@ -1248,6 +1248,16 @@ button[type="submit"]:disabled {
   }
 }
 
+@media (min-width: 1100px) {
+  .next-course-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .next-course-grid .course-card-actions {
+    flex-direction: column;
+  }
+}
+
 .next-course-eyebrow {
   margin: 0;
   font-size: 0.82rem;

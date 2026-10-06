@@ -363,9 +363,9 @@ export const messages: Record<UiLocale, Messages> = {
       play: "Animation abspielen",
     },
     home: {
-      title: "Hebräisch lernen in Düsseldorf – Ulpan Ivrit A1 ab 18.11.2026",
+      title: "Hebräisch lernen – Ulpan Ivrit A1 in Düsseldorf und Berlin",
       description:
-        "Hebräischkurs A1 in der Jüdischen Gemeinde Düsseldorf, mittwochs 18:30 Uhr.",
+        "Hebräisch A1 als Präsenzkurs in Düsseldorf und Berlin. Anmeldung geöffnet.",
       h1: "<strong>Hebräisch</strong> lernen ist ganz <strong>einfach</strong>!",
       lead:
         "Präsenz- und Onlineunterricht – Methodik der Hebräischen Universität Jerusalem, gesprochenes Hebräisch, Materialien in Moodle.",
@@ -387,6 +387,15 @@ export const messages: Record<UiLocale, Messages> = {
           venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
           start: "Start: 15. November 2026",
           schedule: "Sonntags · am Vormittag",
+          format: "Präsenzkurs",
+        },
+        {
+          status: "Anmeldung geöffnet",
+          level: "Hebräisch A1",
+          place: "Berlin-Charlottenburg-Wilmersdorf",
+          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+          start: "Start: 16. November 2026",
+          schedule: "Montags · ab 19:00",
           format: "Präsenzkurs",
         },
       ],
@@ -417,7 +426,8 @@ export const messages: Record<UiLocale, Messages> = {
       firstCities: [
         { name: "Düsseldorf", start: "Start 18.11.2026" },
         { name: "Aachen" },
-        { name: "Berlin", start: "Start 15.11.2026" },
+        { name: "Berlin-Prenzlauer Berg", start: "Start 15.11.2026" },
+        { name: "Berlin-Charlottenburg-Wilmersdorf", start: "Start 16.11.2026" },
         { name: "Bielefeld" },
         { name: "Bochum" },
         { name: "Bonn" },
@@ -759,9 +769,9 @@ export const messages: Record<UiLocale, Messages> = {
       play: "Включить анимацию",
     },
     home: {
-      title: "Учить иврит в Дюссельдорфе – Ulpan Ivrit A1 с 18.11.2026",
+      title: "Учить иврит – Ulpan Ivrit A1 в Дюссельдорфе и Берлине",
       description:
-        "Курс иврита A1 в Еврейской общине Дюссельдорфа, по средам в 18:30.",
+        "Курс иврита A1 очно в Дюссельдорфе и Берлине. Идёт запись.",
       h1: "Учить <strong>иврит</strong> совсем <strong>просто</strong>!",
       lead:
         "Очно и онлайн — методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
@@ -783,6 +793,15 @@ export const messages: Record<UiLocale, Messages> = {
           venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
           start: "Старт: 15 ноября 2026",
           schedule: "По воскресеньям · утром",
+          format: "Очный курс",
+        },
+        {
+          status: "Идёт запись",
+          level: "Иврит A1",
+          place: "Берлин-Шарлоттенбург-Вильмерсдорф",
+          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+          start: "Старт: 16 ноября 2026",
+          schedule: "По понедельникам · с 19:00",
           format: "Очный курс",
         },
       ],
@@ -813,7 +832,8 @@ export const messages: Record<UiLocale, Messages> = {
       firstCities: [
         { name: "Дюссельдорф", start: "старт 18.11.2026" },
         { name: "Ахен" },
-        { name: "Берлин", start: "старт 15.11.2026" },
+        { name: "Берлин-Пренцлауэр-Берг", start: "старт 15.11.2026" },
+        { name: "Берлин-Шарлоттенбург-Вильмерсдорф", start: "старт 16.11.2026" },
         { name: "Билефельд" },
         { name: "Бохум" },
         { name: "Бонн" },
@@ -1154,9 +1174,9 @@ export const messages: Record<UiLocale, Messages> = {
       play: "Play animation",
     },
     home: {
-      title: "Learn Hebrew in Düsseldorf – Ulpan Ivrit A1 from 18 Nov 2026",
+      title: "Learn Hebrew – Ulpan Ivrit A1 in Düsseldorf and Berlin",
       description:
-        "Hebrew A1 at the Jewish Community of Düsseldorf, Wednesdays 18:30.",
+        "Hebrew A1 in-person courses in Düsseldorf and Berlin. Registration open.",
       h1: "Learning <strong>Hebrew</strong> is quite <strong>simple</strong>!",
       lead:
         "In person and online — Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
@@ -1178,6 +1198,15 @@ export const messages: Record<UiLocale, Messages> = {
           venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
           start: "Start: 15 November 2026",
           schedule: "Sundays · mornings",
+          format: "In-person course",
+        },
+        {
+          status: "Registration open",
+          level: "Hebrew A1",
+          place: "Berlin-Charlottenburg-Wilmersdorf",
+          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+          start: "Start: 16 November 2026",
+          schedule: "Mondays · from 19:00",
           format: "In-person course",
         },
       ],
@@ -1208,7 +1237,8 @@ export const messages: Record<UiLocale, Messages> = {
       firstCities: [
         { name: "Düsseldorf", start: "starts 18.11.2026" },
         { name: "Aachen" },
-        { name: "Berlin", start: "starts 15.11.2026" },
+        { name: "Berlin-Prenzlauer Berg", start: "starts 15.11.2026" },
+        { name: "Berlin-Charlottenburg-Wilmersdorf", start: "starts 16.11.2026" },
         { name: "Bielefeld" },
         { name: "Bochum" },
         { name: "Bonn" },
