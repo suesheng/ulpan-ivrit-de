@@ -19,22 +19,25 @@ const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
       {" "}
       <a href={`mailto:${LINKS.contactEmail}`}>{LINKS.contactEmail}</a>.
     </p>
+    <p>
+      <a class="btn" href={`mailto:${LINKS.contactEmail}`}>{copy.kontakt.mail}</a>
+    </p>
 
     <div class="card-list card-list-3">
-      <article class="card card-online">
+      <article class="card">
         <h2>{copy.kontakt.learnersTitle}</h2>
         <p>{copy.kontakt.learners}</p>
-        <p><a href={anmelden}>{copy.kontakt.learnersLink}</a></p>
+        <p><a class="btn" href={anmelden}>{copy.kontakt.learnersLink}</a></p>
       </article>
-      <article class="card card-local">
+      <article class="card">
         <h2>{copy.kontakt.orgsTitle}</h2>
         <p>{copy.kontakt.orgs}</p>
-        <p><a href={href("/vor-ort")}>{copy.kontakt.orgsLink}</a></p>
+        <p><a class="btn btn-ghost" href={href("/vor-ort")}>{copy.kontakt.orgsLink}</a></p>
       </article>
       <article class="card">
         <h2>{copy.kontakt.teachersTitle}</h2>
         <p>{copy.kontakt.teachers}</p>
-        <p><a href={href("/stellen")}>{copy.kontakt.teachersLink}</a></p>
+        <p><a class="btn btn-ghost" href={href("/stellen")}>{copy.kontakt.teachersLink}</a></p>
       </article>
     </div>
   </div>

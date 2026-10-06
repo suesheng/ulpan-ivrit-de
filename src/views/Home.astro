@@ -5,6 +5,7 @@ import LetterVortex from "../components/LetterVortex.astro";
 import QuoteBand from "../components/QuoteBand.astro";
 import { locPath, pageLocale } from "../lib/i18n";
 import { ANMELDUNG_HASH, TRAEGER_HASH } from "../lib/course";
+import { EXT, PARTNERS } from "../lib/links";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
@@ -16,7 +17,7 @@ const preise = href("/preise");
 
 const activeCities = copy.home.firstCities.filter((city) => Boolean(city.start));
 const plannedCities = copy.home.firstCities.filter((city) => !city.start);
-const plannedPreview = 6;
+const plannedPreview = 4;
 ---
 
 <BaseLayout full title={copy.home.title} description={copy.home.description}>
@@ -26,6 +27,7 @@ const plannedPreview = 6;
       <p>{copy.home.lead}</p>
       <div class="hero-actions">
         <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
+        <a class="btn-text" href={preise}>{copy.home.courseDetails}</a>
       </div>
     </div>
     <LetterVortex />
@@ -34,10 +36,10 @@ const plannedPreview = 6;
   <QuoteBand />
 
   <section class="wrap next-course" aria-label={copy.home.nextEyebrow}>
-    <p class="next-course-eyebrow home-perk">{copy.home.nextEyebrow}</p>
-    <div class="next-course-grid">
+    <p class="next-course-eyebrow">{copy.home.nextEyebrow}</p>
+    <div class="course-chip-list">
       {
-        copy.home.nextCourses.map((course) => (
+        copy.home.nextCourses.map((course, index) => (
           <CourseCard
             status={course.status}
             level={course.level}
@@ -50,10 +52,74 @@ const plannedPreview = 6;
             detailsLabel={copy.home.courseDetails}
             ctaHref={anmelden}
             ctaLabel={copy.home.registerNow}
+            open={index === 0}
           />
         ))
       }
     </div>
+  </section>
+
+  <section class="wrap why-section" aria-labelledby="why-heading">
+    <h2 id="why-heading">{copy.home.whyTitle}</h2>
+    <ul class="why-list">
+      {
+        copy.home.whyItems.map((item) => (
+          <li class="why-item">
+            <h3 class="why-item-title">{item.title}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="wrap price-snapshot" aria-labelledby="price-heading">
+    <h2 id="price-heading">{copy.home.priceTitle}</h2>
+    <div class="price-snapshot-grid">
+      <div class="price-option price-option-preferred">
+        <p class="price-option-label">{copy.home.priceMemberLabel}</p>
+        <p class="price-option-amount">{copy.home.priceMemberAmount}</p>
+        <p class="price-option-meta">{copy.home.priceMemberMeta}</p>
+      </div>
+      <div class="price-option">
+        <p class="price-option-label">{copy.home.priceNonLabel}</p>
+        <p class="price-option-amount">{copy.home.priceNonAmount}</p>
+        <p class="price-option-meta">{copy.home.priceNonMeta}</p>
+      </div>
+    </div>
+    <p class="price-snapshot-note muted">{copy.home.priceNote}</p>
+    <p class="price-snapshot-actions">
+      <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
+      <a class="btn-text" href={preise}>{copy.home.priceLink}</a>
+    </p>
+  </section>
+
+  <section class="wrap trust-section" aria-labelledby="trust-heading">
+    <h2 id="trust-heading" class="trust-heading">{copy.home.trustTitle}</h2>
+    <div class="partner-bar trust-bar">
+      {
+        PARTNERS.map((partner) => (
+          <a
+            href={partner.href}
+            {...EXT}
+            aria-label={copy.partner.names[partner.id] ?? partner.name}
+            data-partner={partner.id}
+          >
+            <img
+              src={partner.logo}
+              alt=""
+              width={partner.width}
+              height={partner.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        ))
+      }
+    </div>
+    <p class="trust-link">
+      <a href={href("/partner")}>{copy.home.trustLink}</a>
+    </p>
   </section>
 
   <section class="wrap first-ulpan" aria-labelledby="first-ulpan-heading">
@@ -62,16 +128,26 @@ const plannedPreview = 6;
 
     <div class="city-block">
       <h3 class="city-block-title">{copy.home.activeCitiesTitle}</h3>
-      <ul class="city-chips">
+      <div class="city-chip-list">
         {
-          activeCities.map((city) => (
-            <li class="city-chip city-chip-active">
-              <span class="city-chip-name">{city.name}</span>
-              <span class="city-chip-badge">{city.start}</span>
-            </li>
+          activeCities.map((city, index) => (
+            <details class="city-chip city-chip-active" open={index === 0 ? true : undefined}>
+              <summary class="city-chip-summary">
+                <span class="city-chip-name">{city.name}</span>
+                {city.start && <span class="city-chip-badge">{city.start}</span>}
+              </summary>
+              <div class="city-chip-body">
+                {city.detail && <p class="city-chip-detail">{city.detail}</p>}
+                {city.venue && <p class="city-chip-venue">{city.venue}</p>}
+                <p class="city-chip-actions">
+                  <a class="course-card-cta" href={anmelden}>{copy.home.registerNow}</a>
+                  <a class="course-card-link" href={preise}>{copy.home.courseDetails}</a>
+                </p>
+              </div>
+            </details>
           ))
         }
-      </ul>
+      </div>
     </div>
 
     <div class="city-block" data-city-planned>
@@ -105,9 +181,6 @@ const plannedPreview = 6;
           </button>
         )
       }
-      <p class="city-planned-cta">
-        <a class="btn btn-ghost" href={anmelden}>{copy.home.cityRegisterCta}</a>
-      </p>
     </div>
 
     <div class="first-ulpan-actions">
@@ -120,53 +193,24 @@ const plannedPreview = 6;
         <p class="muted">{copy.home.firstGroupNote}</p>
       </div>
     </div>
-    <aside class="group-callout">
-      <div class="group-callout-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.75">
-          <circle cx="9" cy="8" r="3.25"></circle>
-          <circle cx="16.5" cy="9.5" r="2.5"></circle>
-          <path d="M3.5 18.5c.6-3.2 2.9-5 5.5-5s4.9 1.8 5.5 5"></path>
-          <path d="M13.2 16.2c.9-1.7 2.5-2.7 4.3-2.7 1.7 0 3.1.8 4 2.3"></path>
-        </svg>
-      </div>
+    <aside class="group-callout" aria-labelledby="group-callout-title">
       <div class="group-callout-body">
-        <p class="group-callout-title">{copy.home.firstBoxTitle}</p>
+        <p class="group-callout-title" id="group-callout-title">{copy.home.firstBoxTitle}</p>
         <p>{copy.home.firstBoxText}</p>
-        <p><a class="btn btn-ghost" href={href("/kontakt")}>{copy.home.firstBoxCta}</a></p>
       </div>
     </aside>
   </section>
 
-  <section class="wrap join-band">
-    <ul class="feature-list">
-      <li>{copy.home.f1}</li>
-      <li>{copy.home.f3}</li>
-    </ul>
-    <div class="cta-frame">
+  <section class="wrap home-close">
+    <p class="cta-pitch">{copy.home.ctaPitch}</p>
+    <div class="hero-actions">
       <a class="btn" href={anmelden}>{copy.home.registerNow}</a>
-      <p class="cta-pitch">{copy.home.ctaPitch}</p>
-      <p class="cta-ask">
-        {copy.home.ctaQuestions}
-        {" "}
-        <a href={href("/kontakt")}>{copy.home.ctaContact}</a>
-      </p>
     </div>
-  </section>
-
-  <section class="wrap stack home-cards">
-    <div class="card-list">
-      <article class="card card-local">
-        <h2>{copy.home.localTitle}</h2>
-        <p>{copy.home.localText}</p>
-        <p><a href={anmelden}>{copy.home.localLink}</a></p>
-      </article>
-      <article class="card card-online">
-        <p class="badge-soon">{copy.home.onlineBadge}</p>
-        <h2>{copy.home.onlineTitle}</h2>
-        <p>{copy.home.onlineText}</p>
-        <p><a class="btn btn-ghost" href={href("/kontakt")}>{copy.home.onlineCta}</a></p>
-      </article>
-    </div>
+    <p class="cta-ask muted">
+      {copy.home.ctaQuestions}
+      {" "}
+      <a href={href("/kontakt")}>{copy.home.ctaContact}</a>
+    </p>
   </section>
 </BaseLayout>
 

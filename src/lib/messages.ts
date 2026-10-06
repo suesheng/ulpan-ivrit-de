@@ -10,6 +10,7 @@ export type Messages = {
     legalAria: string;
     langAria: string;
     partnersAria: string;
+    socialAria: string;
   };
   form: {
     sent: string;
@@ -45,8 +46,6 @@ export type Messages = {
     source: string;
     open: string;
     close: string;
-    pause: string;
-    play: string;
   };
   home: {
     title: string;
@@ -69,31 +68,33 @@ export type Messages = {
     plannedCitiesTitle: string;
     showMoreCities: string;
     hideCities: string;
-    f1: string;
-    f3: string;
+    whyTitle: string;
+    whyItems: { title: string; text: string }[];
+    priceTitle: string;
+    priceMemberLabel: string;
+    priceMemberAmount: string;
+    priceMemberMeta: string;
+    priceNonLabel: string;
+    priceNonAmount: string;
+    priceNonMeta: string;
+    priceNote: string;
+    priceLink: string;
+    trustTitle: string;
+    trustLink: string;
     ctaPitch: string;
     ctaQuestions: string;
     ctaContact: string;
-    onlineTitle: string;
-    onlineBadge: string;
-    onlineText: string;
-    onlineCta: string;
-    localTitle: string;
-    localText: string;
-    localLink: string;
     firstH2: string;
     firstText: string;
     firstStartBadge: string;
     firstPlannedBadge: string;
-    firstCities: { name: string; start?: string }[];
+    firstCities: { name: string; start?: string; detail?: string; venue?: string }[];
     firstWaitlistCta: string;
     firstWaitlistNote: string;
     firstGroupCta: string;
     firstGroupNote: string;
     firstBoxTitle: string;
     firstBoxText: string;
-    firstBoxCta: string;
-    cityRegisterCta: string;
   };
   soGehts: {
     title: string;
@@ -167,6 +168,7 @@ export type Messages = {
     currentMeta: string;
     currentCta: string;
     preiseLink: string;
+    sessionTitle: string;
     p1: string;
     p2: string;
     p3: string;
@@ -322,6 +324,7 @@ export const messages: Record<UiLocale, Messages> = {
       legalAria: "Rechtliches",
       langAria: "Sprache",
       partnersAria: "Partner",
+      socialAria: "Soziale Netzwerke",
     },
     form: {
       sent: "Gesendet. Wir lesen die Nachricht und antworten per E-Mail.",
@@ -338,7 +341,7 @@ export const messages: Record<UiLocale, Messages> = {
       lernen: "Lernen",
       anmelden: "Anmeldung",
       online: "Online",
-      onlineSoon: "Online (bald)",
+      onlineSoon: "Online",
       vorOrt: "Vor Ort",
       lehrkraefte: "Lehrkräfte",
       methodik: "Methodik & Fortbildung",
@@ -359,17 +362,15 @@ export const messages: Record<UiLocale, Messages> = {
       source: "Eliezer Ben-Jehuda",
       open: "„",
       close: "“",
-      pause: "Animation anhalten",
-      play: "Animation abspielen",
     },
     home: {
       title: "Hebräisch lernen – Ulpan Ivrit A1 in Düsseldorf und Berlin",
       description:
-        "Hebräisch A1 als Präsenzkurs in Düsseldorf und Berlin. Anmeldung geöffnet.",
-      h1: "<strong>Hebräisch</strong> lernen ist ganz <strong>einfach</strong>!",
+        "Hebräisch A1 als Präsenzkurs in Düsseldorf und Berlin. Online ab Dezember 2026. Anmeldung geöffnet.",
+      h1: "<strong>Hebräisch</strong> lernen. Von Anfang an sprechen.",
       lead:
-        "Präsenz- und Onlineunterricht – Methodik der Hebräischen Universität Jerusalem, gesprochenes Hebräisch, Materialien in Moodle.",
-      nextEyebrow: "Nächster Kurs",
+        "Präsenzkurse in Düsseldorf und Berlin – Online ab Dezember 2026. Methodik der Hebräischen Universität Jerusalem, Schwerpunkt gesprochenes Hebräisch, Materialien in Moodle.",
+      nextEyebrow: "Nächste Kurse",
       nextCourses: [
         {
           status: "Anmeldung geöffnet",
@@ -377,57 +378,106 @@ export const messages: Record<UiLocale, Messages> = {
           place: "Düsseldorf",
           venue: "Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1",
           start: "Start: 18. November 2026",
-          schedule: "Mittwochs · 18:30–20:30",
-          format: "Präsenzkurs",
+          schedule: "Mittwochs · 18:30–20:30 · 2 × 45 Min. Unterricht + Pause",
+          format: "Präsenzkurs · bis Juli 2027 · 30 Termine",
         },
         {
           status: "Anmeldung geöffnet",
           level: "Hebräisch A1",
-          place: "Berlin-Prenzlauer Berg",
-          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          place: "Berlin-Ost",
+          venue: "Berlin-Prenzlauer Berg · Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
           start: "Start: 15. November 2026",
-          schedule: "Sonntags · am Vormittag",
-          format: "Präsenzkurs",
+          schedule: "Sonntags · am Vormittag · 2 × 45 Min. Unterricht + Pause",
+          format: "Präsenzkurs · bis Juli 2027 · 30 Termine",
         },
         {
           status: "Anmeldung geöffnet",
           level: "Hebräisch A1",
-          place: "Berlin-Charlottenburg-Wilmersdorf",
-          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+          place: "Berlin-West",
+          venue: "Berlin-Charlottenburg-Wilmersdorf · Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
           start: "Start: 16. November 2026",
-          schedule: "Montags · ab 19:00",
-          format: "Präsenzkurs",
+          schedule: "Montags · ab 19:00 · 2 × 45 Min. Unterricht + Pause",
+          format: "Präsenzkurs · bis Juli 2027 · 30 Termine",
+        },
+        {
+          status: "Start Dezember 2026",
+          level: "Hebräisch A1",
+          place: "Online",
+          venue: "Zoom und Moodle",
+          start: "Start: Dezember 2026",
+          schedule: "Live über Zoom · Materialien in Moodle",
+          format: "Onlinekurs · Anmeldung möglich",
         },
       ],
-      courseDetails: "Kursdetails",
+      courseDetails: "Kursdetails & Preise",
       registerNow: "Jetzt anmelden",
       activeCitiesTitle: "Aktive Kurse",
       plannedCitiesTitle: "Weitere Standorte in Planung",
-      showMoreCities: "Weitere Standorte anzeigen",
-      hideCities: "Standorte ausblenden",
-      f1: "Präsenz- und Onlineunterricht",
-      f3: "In Zusammenarbeit mit der Hebräischen Universität Jerusalem",
+      showMoreCities: "Alle Städte anzeigen",
+      hideCities: "Weniger anzeigen",
+      whyTitle: "Warum Ulpan Ivrit",
+      whyItems: [
+        {
+          title: "Von Anfang an sprechen",
+          text: "Schwerpunkt gesprochenes Hebräisch – von der ersten Stunde an.",
+        },
+        {
+          title: "Klare Methodik",
+          text: "Unterricht nach der Methodik der Hebräischen Universität Jerusalem.",
+        },
+        {
+          title: "Materialien in Moodle",
+          text: "Lehrwerke und Übungen begleiten den Kurs digital.",
+        },
+        {
+          title: "Vor Ort in der Community",
+          text: "Präsenzgruppen in jüdischen Gemeinden – weitere Standorte folgen.",
+        },
+      ],
+      priceTitle: "Preise",
+      priceMemberLabel: "Mit kostenloser Mitgliedschaft",
+      priceMemberAmount: "60 € / Monat",
+      priceMemberMeta: "8 Raten · 480 € insgesamt",
+      priceNonLabel: "Ohne Mitgliedschaft",
+      priceNonAmount: "120 € / Monat",
+      priceNonMeta: "8 Raten · 960 € insgesamt",
+      priceNote:
+        "Mitgliedschaft bei BiFoDe e.V. ist kostenlos und entsteht mit der Anmeldung. Die Preisoption wählen Sie im Formular.",
+      priceLink: "Alle Kursdetails",
+      trustTitle: "Träger und Partner",
+      trustLink: "Mehr zu Partnern und Methodik",
       ctaPitch: "Anmeldung in wenigen Minuten.",
       ctaQuestions: "Fragen?",
       ctaContact: "Schreiben Sie uns.",
-      onlineTitle: "Online",
-      onlineBadge: "Bald verfügbar",
-      onlineText: "Online-Gruppen sind in Vorbereitung.",
-      onlineCta: "Interesse melden",
-      localTitle: "Vor Ort",
-      localText:
-        "2 × 45 Min. mit Pause, Schwerpunkt Sprechen, Unterlagen in Moodle. Weitere Standorte: Warteliste.",
-      localLink: "Anmeldung",
-      firstH2: "Unser erster Ulpan startet – weitere folgen",
+      firstH2: "Kein Kurs in Ihrer Stadt?",
       firstText:
-        "Unser erster Ulpan Ivrit startet in einer jüdischen Gemeinde. Weitere Ulpanim planen wir in den größten jüdischen Gemeinden Deutschlands:",
+        "Weitere Ulpanim planen wir in den größten jüdischen Gemeinden Deutschlands. Auf die Warteliste setzen – oder als Gruppe ab 15 Personen melden.",
       firstStartBadge: "Start 18.11.2026",
       firstPlannedBadge: "In Planung",
       firstCities: [
-        { name: "Düsseldorf", start: "Start 18.11.2026" },
+        {
+          name: "Düsseldorf",
+          start: "Start 18.11.2026",
+          venue: "Jüdische Gemeinde Düsseldorf, Paul-Spiegel-Platz 1",
+        },
         { name: "Aachen" },
-        { name: "Berlin-Prenzlauer Berg", start: "Start 15.11.2026" },
-        { name: "Berlin-Charlottenburg-Wilmersdorf", start: "Start 16.11.2026" },
+        {
+          name: "Berlin-Ost",
+          start: "Start 15.11.2026",
+          detail: "Berlin-Prenzlauer Berg",
+          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+        },
+        {
+          name: "Berlin-West",
+          start: "Start 16.11.2026",
+          detail: "Berlin-Charlottenburg-Wilmersdorf",
+          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+        },
+        {
+          name: "Online",
+          start: "Start Dez. 2026",
+          venue: "Zoom und Moodle",
+        },
         { name: "Bielefeld" },
         { name: "Bochum" },
         { name: "Bonn" },
@@ -449,14 +499,12 @@ export const messages: Record<UiLocale, Messages> = {
       firstWaitlistCta: "Auf die Warteliste",
       firstWaitlistNote:
         "Kostenlos und unverbindlich – wir informieren Sie, sobald Ihre Stadt startet.",
-      firstGroupCta: "Gruppe anmelden",
+      firstGroupCta: "Gruppe melden",
       firstGroupNote:
-        "Sie haben eine Gruppe mit mindestens 15 Interessierten? Dann kann der Ulpan schon bald bei Ihnen starten – sprechen Sie uns an.",
+        "Gemeinde, Verein oder Freundeskreis ab 15 Interessierten – wir planen Lehrkraft, Termine und Ort.",
       firstBoxTitle: "Ab 15 Personen richten wir eine neue Gruppe ein.",
       firstBoxText:
-        "Gemeinde, Verein oder Freundeskreis – melden Sie sich mit Ihrer Gruppe, und wir planen gemeinsam Lehrkraft, Termine und Ort.",
-      firstBoxCta: "Kontakt",
-      cityRegisterCta: "Stadt vormerken",
+        "Melden Sie sich mit Ihrer Gruppe – wir planen gemeinsam Lehrkraft, Termine und Ort.",
     },
     soGehts: {
       title: "Anmeldung – Ulpan Ivrit",
@@ -493,13 +541,13 @@ export const messages: Record<UiLocale, Messages> = {
     },
     preise: {
       title: "Kursdetails & Preise — Ulpan Ivrit",
-      desc: "Umfang, Zeitraum und Preisoptionen der Hebräischkurse von Ulpan Ivrit.",
+      desc: "Umfang, Zeitraum und Preisoptionen der Präsenz- und Onlinekurse von Ulpan Ivrit.",
       h1: "Kursdetails & Preise",
       h1Short: "Kurs & Preise",
       scopeH2: "Kursumfang",
-      sessions: "30 Termine mit jeweils 90 Minuten",
+      sessions: "30 Termine · jeweils 2 × 45 Min. Unterricht + Pause",
       units: "60 Unterrichtseinheiten à 45 Minuten",
-      period: "Kurszeitraum: je nach Stadt und Kurs",
+      period: "Kurszeitraum: je nach Stadt und Format · Präsenz bis Juli 2027",
       recommended: "Empfohlen",
       memberTitle: "Mit kostenloser Mitgliedschaft",
       memberAmount: "60 €",
@@ -515,18 +563,18 @@ export const messages: Record<UiLocale, Messages> = {
     },
     kurse: {
       title: "Online – Ulpan Ivrit",
-      desc: "Online-Kurse von Ulpan Ivrit sind in Vorbereitung. Level 0 und Level 1 – Materialien wie im Präsenzunterricht.",
-      h1: "Online – individuell über Moodle",
+      desc: "Hebräisch A1 online ab Dezember 2026: Live über Zoom, Materialien in Moodle.",
+      h1: "Online – Zoom und Moodle",
       notice:
-        "Online-Kurse sind in Vorbereitung. Teilnehmende des Präsenzkurses erhalten Zugang zu Moodle.",
+        "Anmeldung möglich. Start Dezember 2026. Live-Unterricht über Zoom, Materialien in Moodle.",
       intro:
-        "Der Fernunterricht läuft auf Moodle. Die Materialien sind dieselben wie im Präsenzunterricht – der Stoff der Gruppe wird in Moodle gespiegelt. Methodik der Hebräischen Universität Jerusalem, Schwerpunkt gesprochenes Hebräisch.",
+        "Der Online-Ulpan folgt derselben Methodik der Hebräischen Universität Jerusalem wie der Präsenzkurs: Schwerpunkt gesprochenes Hebräisch. Der Unterricht findet live über Zoom statt; die Materialien liegen in Moodle.",
       localLink: "Präsenzkurs: Vor Ort",
       entry: "Einstieg",
       back: "← Kurse",
       moodle: "Zum Moodle",
-      moodleNote: " – Zugang für Teilnehmende des Präsenzkurses.",
-      interestCta: "Interesse melden",
+      moodleNote: " – Zugang nach der Anmeldung.",
+      interestCta: "Jetzt anmelden",
     },
     vorOrt: {
       title: "Vor Ort – Ulpan Ivrit",
@@ -537,8 +585,9 @@ export const messages: Record<UiLocale, Messages> = {
         "Hebräisch A1, Schwerpunkt gesprochenes Hebräisch. Den aktuellen Kurs mit Ort und Terminen finden Sie auf der Startseite und im Anmeldeformular.",
       currentCta: "Jetzt anmelden",
       preiseLink: "Kursdetails & Preise",
+      sessionTitle: "Unterrichtstermin",
       p1: "Der Präsenzunterricht läuft über jüdische Organisationen. Weitere Standorte sind in Planung; Interessierte können sich auf die Warteliste setzen lassen.",
-      p2: "Typischer Termin: 2 × 45 Min. mit Pause. Schwerpunkt: gesprochenes Hebräisch. Materialien liegen auch in Moodle.",
+      p2: "Typischer Termin: 2 × 45 Min. Unterricht plus Pause (z. B. 18:30–20:30). Schwerpunkt: gesprochenes Hebräisch. Materialien liegen auch in Moodle.",
       p3: "Im Community-Projekt suchen wir nach Möglichkeit die Lehrkraft und beteiligen uns an der Finanzierung, stellen Materialien und Fortbildung (Hishtalmut). Mehr dazu:",
       p3Link: "Lehrkräfte",
       p4: "Teilnehmende melden sich über das Anmeldeformular an. Mit der Anmeldung werden sie automatisch und kostenlos Mitglied bei BiFoDe e.V.",
@@ -600,13 +649,13 @@ export const messages: Record<UiLocale, Messages> = {
       a2: "Per SEPA-Lastschrift. Die monatlichen Beträge und die Zahl der Raten stehen unter",
       a2Link: "Kursdetails & Preise",
       q3: "Wie läuft ein Termin?",
-      a3: "2 × 45 Min. mit Pause, Schwerpunkt Sprechen, Materialien in Moodle.",
+      a3: "Typisch 2 × 45 Min. Unterricht plus Pause im Zeitfenster (z. B. 18:30–20:30). Schwerpunkt Sprechen, Materialien in Moodle.",
       q3Link: "Anmeldung",
       q4: "Gibt es weitere Standorte?",
       a4: "Weitere Standorte sind in Planung. Über das Formular kommen Sie kostenlos auf die Warteliste.",
       a4Link: "Anmeldeformular",
       q5: "Gibt es Online-Kurse?",
-      a5: "In Vorbereitung. Schreiben Sie uns über das Kontaktformular.",
+      a5: "Ja. Ab Dezember 2026 live über Zoom, Materialien in Moodle.",
       q6: "Was, wenn ich einen Termin verpasse?",
       a6: "Die Inhalte stehen in Moodle bereit.",
       q7: "Was ist Hishtalmut?",
@@ -728,6 +777,7 @@ export const messages: Record<UiLocale, Messages> = {
       legalAria: "Правовая информация",
       langAria: "Язык",
       partnersAria: "Партнёры",
+      socialAria: "Социальные сети",
     },
     form: {
       sent: "Отправлено. Прочитаем и ответим по почте.",
@@ -744,7 +794,7 @@ export const messages: Record<UiLocale, Messages> = {
       lernen: "Обучение",
       anmelden: "Запись",
       online: "Онлайн",
-      onlineSoon: "Онлайн (скоро)",
+      onlineSoon: "Онлайн",
       vorOrt: "Очно",
       lehrkraefte: "Преподаватели",
       methodik: "Повышение квалификации",
@@ -765,17 +815,15 @@ export const messages: Record<UiLocale, Messages> = {
       source: "Элиэзер Бен-Йехуда",
       open: "«",
       close: "»",
-      pause: "Остановить анимацию",
-      play: "Включить анимацию",
     },
     home: {
       title: "Учить иврит – Ulpan Ivrit A1 в Дюссельдорфе и Берлине",
       description:
-        "Курс иврита A1 очно в Дюссельдорфе и Берлине. Идёт запись.",
-      h1: "Учить <strong>иврит</strong> совсем <strong>просто</strong>!",
+        "Курс иврита A1 очно в Дюссельдорфе и Берлине. Онлайн с декабря 2026. Идёт запись.",
+      h1: "Учить <strong>иврит</strong>. Говорить с первого занятия.",
       lead:
-        "Очно и онлайн — методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
-      nextEyebrow: "Ближайший курс",
+        "Очные курсы в Дюссельдорфе и Берлине — онлайн с декабря 2026. Методика Еврейского университета в Иерусалиме, разговорный иврит, материалы в Moodle.",
+      nextEyebrow: "Ближайшие курсы",
       nextCourses: [
         {
           status: "Идёт запись",
@@ -783,57 +831,106 @@ export const messages: Record<UiLocale, Messages> = {
           place: "Дюссельдорф",
           venue: "Еврейская община Дюссельдорфа, Paul-Spiegel-Platz 1",
           start: "Старт: 18 ноября 2026",
-          schedule: "По средам · 18:30–20:30",
-          format: "Очный курс",
+          schedule: "По средам · 18:30–20:30 · 2 × 45 мин. занятия + перерыв",
+          format: "Очный курс · до июля 2027 · 30 занятий",
         },
         {
           status: "Идёт запись",
           level: "Иврит A1",
-          place: "Берлин-Пренцлауэр-Берг",
-          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          place: "Берлин-Ост",
+          venue: "Берлин-Пренцлауэр-Берг · Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
           start: "Старт: 15 ноября 2026",
-          schedule: "По воскресеньям · утром",
-          format: "Очный курс",
+          schedule: "По воскресеньям · утром · 2 × 45 мин. занятия + перерыв",
+          format: "Очный курс · до июля 2027 · 30 занятий",
         },
         {
           status: "Идёт запись",
           level: "Иврит A1",
-          place: "Берлин-Шарлоттенбург-Вильмерсдорф",
-          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+          place: "Берлин-Вест",
+          venue: "Берлин-Шарлоттенбург-Вильмерсдорф · Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
           start: "Старт: 16 ноября 2026",
-          schedule: "По понедельникам · с 19:00",
-          format: "Очный курс",
+          schedule: "По понедельникам · с 19:00 · 2 × 45 мин. занятия + перерыв",
+          format: "Очный курс · до июля 2027 · 30 занятий",
+        },
+        {
+          status: "Старт декабрь 2026",
+          level: "Иврит A1",
+          place: "Онлайн",
+          venue: "Zoom и Moodle",
+          start: "Старт: декабрь 2026",
+          schedule: "Занятия в Zoom · материалы в Moodle",
+          format: "Онлайн-курс · запись открыта",
         },
       ],
-      courseDetails: "Подробнее",
+      courseDetails: "Программа и стоимость",
       registerNow: "Записаться",
       activeCitiesTitle: "Активные курсы",
       plannedCitiesTitle: "Города в планах",
-      showMoreCities: "Показать другие города",
-      hideCities: "Скрыть",
-      f1: "Очно и онлайн",
-      f3: "В сотрудничестве с Еврейским университетом в Иерусалиме",
+      showMoreCities: "Показать все города",
+      hideCities: "Свернуть",
+      whyTitle: "Почему Ulpan Ivrit",
+      whyItems: [
+        {
+          title: "Говорить с первого занятия",
+          text: "Акцент на разговорный иврит — уже с первого урока.",
+        },
+        {
+          title: "Понятная методика",
+          text: "Занятия по методике Еврейского университета в Иерусалиме.",
+        },
+        {
+          title: "Материалы в Moodle",
+          text: "Учебники и упражнения сопровождают курс онлайн.",
+        },
+        {
+          title: "Очно в общине",
+          text: "Группы в еврейских общинах — следующие площадки в планах.",
+        },
+      ],
+      priceTitle: "Стоимость",
+      priceMemberLabel: "С бесплатным членством",
+      priceMemberAmount: "60 € / месяц",
+      priceMemberMeta: "8 платежей · всего 480 €",
+      priceNonLabel: "Без членства",
+      priceNonAmount: "120 € / месяц",
+      priceNonMeta: "8 платежей · всего 960 €",
+      priceNote:
+        "Членство в BiFoDe e.V. бесплатное и оформляется при записи. Вариант оплаты выбираете в форме.",
+      priceLink: "Все детали курса",
+      trustTitle: "Организатор и партнёры",
+      trustLink: "Подробнее о партнёрах и методике",
       ctaPitch: "Запись займёт несколько минут.",
       ctaQuestions: "Вопросы?",
       ctaContact: "Напишите нам.",
-      onlineTitle: "Онлайн",
-      onlineBadge: "Скоро",
-      onlineText: "Мы готовим запуск онлайн-групп.",
-      onlineCta: "Оставить заявку",
-      localTitle: "Очно",
-      localText:
-        "2 × 45 мин. с перерывом, упор на разговорный иврит, материалы в Moodle. Другие площадки: список ожидания.",
-      localLink: "Запись",
-      firstH2: "Наш первый ульпан уже стартует, скоро будут и другие",
+      firstH2: "Нет курса в вашем городе?",
       firstText:
-        "Наш первый Ulpan Ivrit открывается в еврейской общине. Следующие ульпаны мы планируем в крупнейших еврейских общинах Германии:",
+        "Следующие ульпаны мы планируем в крупнейших еврейских общинах Германии. Встаньте в список ожидания — или сообщите о группе от 15 человек.",
       firstStartBadge: "старт 18.11.2026",
       firstPlannedBadge: "Планируется",
       firstCities: [
-        { name: "Дюссельдорф", start: "старт 18.11.2026" },
+        {
+          name: "Дюссельдорф",
+          start: "старт 18.11.2026",
+          venue: "Еврейская община Дюссельдорфа, Paul-Spiegel-Platz 1",
+        },
         { name: "Ахен" },
-        { name: "Берлин-Пренцлауэр-Берг", start: "старт 15.11.2026" },
-        { name: "Берлин-Шарлоттенбург-Вильмерсдорф", start: "старт 16.11.2026" },
+        {
+          name: "Берлин-Ост",
+          start: "старт 15.11.2026",
+          detail: "Берлин-Пренцлауэр-Берг",
+          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+        },
+        {
+          name: "Берлин-Вест",
+          start: "старт 16.11.2026",
+          detail: "Берлин-Шарлоттенбург-Вильмерсдорф",
+          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+        },
+        {
+          name: "Онлайн",
+          start: "старт дек. 2026",
+          venue: "Zoom и Moodle",
+        },
         { name: "Билефельд" },
         { name: "Бохум" },
         { name: "Бонн" },
@@ -855,14 +952,12 @@ export const messages: Record<UiLocale, Messages> = {
       firstWaitlistCta: "В список ожидания",
       firstWaitlistNote:
         "Бесплатно и без обязательств: мы сообщим, когда начнётся курс в вашем городе.",
-      firstGroupCta: "Записать группу",
+      firstGroupCta: "Сообщить о группе",
       firstGroupNote:
-        "У вас есть группа от 15 желающих? Тогда ульпан может скоро открыться и у вас – свяжитесь с нами.",
+        "Община, союз или круг друзей от 15 желающих — подберём преподавателя, время и место.",
       firstBoxTitle: "От 15 человек мы открываем новую группу.",
       firstBoxText:
-        "Община, союз или круг друзей – напишите нам, и вместе подберём преподавателя, время и место.",
-      firstBoxCta: "Контакты",
-      cityRegisterCta: "Выбрать свой город",
+        "Напишите нам о своей группе — вместе спланируем преподавателя, время и место.",
     },
     soGehts: {
       title: "Запись — Ulpan Ivrit",
@@ -899,13 +994,13 @@ export const messages: Record<UiLocale, Messages> = {
     },
     preise: {
       title: "Программа и стоимость — Ulpan Ivrit",
-      desc: "Объём, сроки и варианты оплаты курсов иврита Ulpan Ivrit.",
+      desc: "Объём, сроки и варианты оплаты очных и онлайн-курсов Ulpan Ivrit.",
       h1: "Программа и стоимость",
       h1Short: "Курс и стоимость",
       scopeH2: "Объём курса",
-      sessions: "30 занятий продолжительностью 90 минут",
+      sessions: "30 занятий · по 2 × 45 мин. занятия + перерыв",
       units: "60 академических часов по 45 минут",
-      period: "Период обучения: зависит от города и курса",
+      period: "Период обучения: зависит от города и формата · очно до июля 2027",
       recommended: "Рекомендуем",
       memberTitle: "С бесплатным членством",
       memberAmount: "60 €",
@@ -921,18 +1016,18 @@ export const messages: Record<UiLocale, Messages> = {
     },
     kurse: {
       title: "Онлайн — Ulpan Ivrit",
-      desc:         "Онлайн-курсы Ulpan Ivrit в подготовке. Уровни 0 и 1 — те же материалы, что на очных занятиях.",
-      h1: "Онлайн — индивидуально в Moodle",
+      desc: "Иврит A1 онлайн с декабря 2026: занятия в Zoom, материалы в Moodle.",
+      h1: "Онлайн — Zoom и Moodle",
       notice:
-        "Онлайн-курсы в подготовке. Участники очного курса получают доступ в Moodle.",
+        "Запись открыта. Старт — декабрь 2026. Занятия в Zoom, материалы в Moodle.",
       intro:
-        "Дистанционное обучение идёт в Moodle. Материалы те же, что на очных занятиях — программа группы дублируется в Moodle. Методика Еврейского университета в Иерусалиме, акцент на разговорный иврит.",
+        "Онлайн-ульпан идёт по той же методике Еврейского университета в Иерусалиме, что и очный курс: акцент на разговорный иврит. Занятия проходят в Zoom; материалы лежат в Moodle.",
       localLink: "Очный курс: очно",
       entry: "Уровень входа",
       back: "← Курсы",
       moodle: "В Moodle",
-      moodleNote: " — доступ для участников очного курса.",
-      interestCta: "Оставить заявку",
+      moodleNote: " — доступ после записи.",
+      interestCta: "Записаться",
     },
     vorOrt: {
       title: "Очно — Ulpan Ivrit",
@@ -943,8 +1038,9 @@ export const messages: Record<UiLocale, Messages> = {
         "Иврит A1, упор на разговорный иврит. Актуальный курс с местом и датами — на главной странице и в форме записи.",
       currentCta: "Записаться",
       preiseLink: "Программа и стоимость",
+      sessionTitle: "Как проходит занятие",
       p1: "Очные занятия идут через еврейские организации. Другие площадки в планах; желающие могут записаться в список ожидания.",
-      p2: "Типичное занятие: два академических часа по 45 минут с перерывом. Акцент: разговорный иврит. Материалы также в Moodle.",
+      p2: "Типичное занятие: 2 × 45 мин. занятия плюс перерыв (напр. 18:30–20:30). Акцент: разговорный иврит. Материалы также в Moodle.",
       p3: "В проекте для еврейских общин мы по возможности ищем преподавателя и участвуем в финансировании, даём материалы и иштальмут (ивр. השתלמות, повышение квалификации). Подробнее:",
       p3Link: "Преподаватели",
       p4: "Участники записываются через форму. С записью они автоматически и бесплатно становятся членами BiFoDe e.V.",
@@ -1006,13 +1102,13 @@ export const messages: Record<UiLocale, Messages> = {
       a2: "Списанием по SEPA. Суммы и число платежей указаны в разделе",
       a2Link: "Программа и стоимость",
       q3: "Как проходит занятие?",
-      a3: "Два академических часа по 45 минут с перерывом, упор на разговорный иврит, материалы в Moodle.",
+      a3: "Обычно 2 × 45 мин. занятия плюс перерыв в рамках окна (напр. 18:30–20:30). Упор на разговорный иврит, материалы в Moodle.",
       q3Link: "Запись",
       q4: "Есть ли другие площадки?",
       a4: "Другие площадки в планах. Через форму вы бесплатно попадёте в список ожидания.",
       a4Link: "форму записи",
       q5: "Есть ли онлайн-курсы?",
-      a5: "В подготовке. Напишите нам через контактную форму.",
+      a5: "Да. С декабря 2026 занятия в Zoom, материалы в Moodle.",
       q6: "Что, если я пропущу занятие?",
       a6: "Материалы доступны в Moodle.",
       q7: "Что такое Hishtalmut?",
@@ -1133,6 +1229,7 @@ export const messages: Record<UiLocale, Messages> = {
       legalAria: "Legal",
       langAria: "Language",
       partnersAria: "Partners",
+      socialAria: "Social networks",
     },
     form: {
       sent: "Sent. We will read it and reply by email.",
@@ -1149,20 +1246,20 @@ export const messages: Record<UiLocale, Messages> = {
       lernen: "Learn",
       anmelden: "Registration",
       online: "Online",
-      onlineSoon: "Online (soon)",
-      vorOrt: "In person",
+      onlineSoon: "Online",
+      vorOrt: "In Person",
       lehrkraefte: "Teachers",
-      methodik: "Method & training",
+      methodik: "Method & Training",
       stellen: "Jobs",
       verein: "Association",
-      aboutVerein: "About the association",
+      aboutVerein: "About the Association",
       partner: "Partners",
       faq: "FAQ",
       kontakt: "Contact",
-      member: "Register now",
+      member: "Register Now",
       start: "Registration",
-      interest: "Register interest",
-      preise: "Course details & pricing",
+      interest: "Register Interest",
+      preise: "Course Details & Pricing",
     },
     quote: {
       translation:
@@ -1170,17 +1267,15 @@ export const messages: Record<UiLocale, Messages> = {
       source: "Eliezer Ben-Yehuda",
       open: "“",
       close: "”",
-      pause: "Pause animation",
-      play: "Play animation",
     },
     home: {
       title: "Learn Hebrew – Ulpan Ivrit A1 in Düsseldorf and Berlin",
       description:
-        "Hebrew A1 in-person courses in Düsseldorf and Berlin. Registration open.",
-      h1: "Learning <strong>Hebrew</strong> is quite <strong>simple</strong>!",
+        "Hebrew A1 in-person courses in Düsseldorf and Berlin. Online from December 2026. Registration open.",
+      h1: "Learn <strong>Hebrew</strong>. Speak from the start.",
       lead:
-        "In person and online — Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
-      nextEyebrow: "Next course",
+        "In-person courses in Düsseldorf and Berlin — online from December 2026. Hebrew University of Jerusalem method, spoken Hebrew, materials in Moodle.",
+      nextEyebrow: "Upcoming courses",
       nextCourses: [
         {
           status: "Registration open",
@@ -1188,57 +1283,106 @@ export const messages: Record<UiLocale, Messages> = {
           place: "Düsseldorf",
           venue: "Jewish Community of Düsseldorf, Paul-Spiegel-Platz 1",
           start: "Start: 18 November 2026",
-          schedule: "Wednesdays · 18:30–20:30",
-          format: "In-person course",
+          schedule: "Wednesdays · 18:30–20:30 · 2 × 45 min teaching + break",
+          format: "In-person · until July 2027 · 30 sessions",
         },
         {
           status: "Registration open",
           level: "Hebrew A1",
-          place: "Berlin-Prenzlauer Berg",
-          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+          place: "Berlin-East",
+          venue: "Berlin-Prenzlauer Berg · Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
           start: "Start: 15 November 2026",
-          schedule: "Sundays · mornings",
-          format: "In-person course",
+          schedule: "Sundays · mornings · 2 × 45 min teaching + break",
+          format: "In-person · until July 2027 · 30 sessions",
         },
         {
           status: "Registration open",
           level: "Hebrew A1",
-          place: "Berlin-Charlottenburg-Wilmersdorf",
-          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+          place: "Berlin-West",
+          venue: "Berlin-Charlottenburg-Wilmersdorf · Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
           start: "Start: 16 November 2026",
-          schedule: "Mondays · from 19:00",
-          format: "In-person course",
+          schedule: "Mondays · from 19:00 · 2 × 45 min teaching + break",
+          format: "In-person · until July 2027 · 30 sessions",
+        },
+        {
+          status: "Starts December 2026",
+          level: "Hebrew A1",
+          place: "Online",
+          venue: "Zoom and Moodle",
+          start: "Start: December 2026",
+          schedule: "Live on Zoom · materials in Moodle",
+          format: "Online course · registration open",
         },
       ],
-      courseDetails: "Course details",
+      courseDetails: "Course details & pricing",
       registerNow: "Register now",
       activeCitiesTitle: "Active courses",
       plannedCitiesTitle: "Locations in planning",
-      showMoreCities: "Show more locations",
-      hideCities: "Hide locations",
-      f1: "In person & online",
-      f3: "In cooperation with the Hebrew University of Jerusalem",
+      showMoreCities: "Show all cities",
+      hideCities: "Show less",
+      whyTitle: "Why Ulpan Ivrit",
+      whyItems: [
+        {
+          title: "Speak from the start",
+          text: "Focus on spoken Hebrew — from the first lesson.",
+        },
+        {
+          title: "Clear methodology",
+          text: "Teaching follows the Hebrew University of Jerusalem method.",
+        },
+        {
+          title: "Materials in Moodle",
+          text: "Textbooks and exercises accompany the course online.",
+        },
+        {
+          title: "In the community",
+          text: "In-person groups at Jewish communities — more locations to follow.",
+        },
+      ],
+      priceTitle: "Fees",
+      priceMemberLabel: "With free membership",
+      priceMemberAmount: "€60 / month",
+      priceMemberMeta: "8 instalments · €480 in total",
+      priceNonLabel: "Without membership",
+      priceNonAmount: "€120 / month",
+      priceNonMeta: "8 instalments · €960 in total",
+      priceNote:
+        "BiFoDe e.V. membership is free and created with registration. You choose the price option in the form.",
+      priceLink: "Full course details",
+      trustTitle: "Host and partners",
+      trustLink: "More about partners and methodology",
       ctaPitch: "Registration takes a few minutes.",
       ctaQuestions: "Questions?",
       ctaContact: "write to us",
-      onlineTitle: "Online",
-      onlineBadge: "Coming soon",
-      onlineText: "Online groups are in preparation.",
-      onlineCta: "Register interest",
-      localTitle: "In person",
-      localText:
-        "2 × 45 min with a break, focus on speaking, materials in Moodle. Further locations: waiting list.",
-      localLink: "Registration",
-      firstH2: "Our first Ulpan is starting – more are coming",
+      firstH2: "No course in your city?",
       firstText:
-        "Our first Ulpan Ivrit opens at a Jewish community. We are planning further Ulpanim in Germany's largest Jewish communities:",
+        "We are planning further Ulpanim in Germany's largest Jewish communities. Join the waiting list — or register a group of 15 or more.",
       firstStartBadge: "starts 18.11.2026",
       firstPlannedBadge: "Planned",
       firstCities: [
-        { name: "Düsseldorf", start: "starts 18.11.2026" },
+        {
+          name: "Düsseldorf",
+          start: "starts 18.11.2026",
+          venue: "Jewish Community of Düsseldorf, Paul-Spiegel-Platz 1",
+        },
         { name: "Aachen" },
-        { name: "Berlin-Prenzlauer Berg", start: "starts 15.11.2026" },
-        { name: "Berlin-Charlottenburg-Wilmersdorf", start: "starts 16.11.2026" },
+        {
+          name: "Berlin-East",
+          start: "starts 15.11.2026",
+          detail: "Berlin-Prenzlauer Berg",
+          venue: "Kunstschule Berlin, Immanuelkirchstraße 4, 10405 Berlin",
+        },
+        {
+          name: "Berlin-West",
+          start: "starts 16.11.2026",
+          detail: "Berlin-Charlottenburg-Wilmersdorf",
+          venue: "Chabad Berlin, Mark Apart Hotel, Lietzenburger Str. 82-84, 10719 Berlin",
+        },
+        {
+          name: "Online",
+          start: "starts Dec 2026",
+          venue: "Zoom and Moodle",
+        },
         { name: "Bielefeld" },
         { name: "Bochum" },
         { name: "Bonn" },
@@ -1262,12 +1406,10 @@ export const messages: Record<UiLocale, Messages> = {
         "Free and non-binding – we'll let you know when your city starts.",
       firstGroupCta: "Register a group",
       firstGroupNote:
-        "Do you have a group of 15 or more? Then the Ulpan could start near you soon – get in touch.",
+        "Community, association or group of friends of 15 or more — we plan teacher, schedule and venue.",
       firstBoxTitle: "From 15 people we start a new group.",
       firstBoxText:
-        "Community, association or group of friends – contact us and we'll plan teacher, schedule and venue together.",
-      firstBoxCta: "Contact",
-      cityRegisterCta: "Register your city",
+        "Contact us with your group — we'll plan teacher, schedule and venue together.",
     },
     soGehts: {
       title: "Registration — Ulpan Ivrit",
@@ -1304,13 +1446,13 @@ export const messages: Record<UiLocale, Messages> = {
     },
     preise: {
       title: "Course details & pricing — Ulpan Ivrit",
-      desc: "Scope, dates and course fees for Ulpan Ivrit Hebrew courses.",
+      desc: "Scope, dates and fees for in-person and online Ulpan Ivrit courses.",
       h1: "Course details & pricing",
       h1Short: "Course & pricing",
       scopeH2: "Course scope",
-      sessions: "30 sessions of 90 minutes each",
+      sessions: "30 sessions · each 2 × 45 min teaching + break",
       units: "60 teaching units of 45 minutes",
-      period: "Course period: depends on city and course",
+      period: "Course period: depends on city and format · in person until July 2027",
       recommended: "Recommended",
       memberTitle: "With free membership",
       memberAmount: "€60",
@@ -1326,18 +1468,18 @@ export const messages: Record<UiLocale, Messages> = {
     },
     kurse: {
       title: "Online — Ulpan Ivrit",
-      desc: "Online courses from Ulpan Ivrit are in preparation. Level 0 and Level 1 — same materials as in person.",
-      h1: "Online — individually on Moodle",
+      desc: "Hebrew A1 online from December 2026: live on Zoom, materials in Moodle.",
+      h1: "Online — Zoom and Moodle",
       notice:
-        "Online courses are in preparation. In-person participants receive Moodle access.",
+        "Registration open for a December 2026 start. Live classes on Zoom, materials in Moodle.",
       intro:
-        "Distance learning runs on Moodle. The materials are the same as in the classroom — the group syllabus is mirrored in Moodle. Hebrew University of Jerusalem method, focus on spoken Hebrew.",
+        "The online Ulpan follows the same Hebrew University of Jerusalem method as the in-person course: focus on spoken Hebrew. Classes are live on Zoom; materials are in Moodle.",
       localLink: "In-person course: locally",
       entry: "Entry",
       back: "← Courses",
       moodle: "Go to Moodle",
-      moodleNote: " — access for in-person participants.",
-      interestCta: "Register interest",
+      moodleNote: " — access after enrolment.",
+      interestCta: "Register now",
     },
     vorOrt: {
       title: "In person — Ulpan Ivrit",
@@ -1348,8 +1490,9 @@ export const messages: Record<UiLocale, Messages> = {
         "Hebrew A1, focus on spoken Hebrew. The current course with venue and dates is on the homepage and in the enrolment form.",
       currentCta: "Register now",
       preiseLink: "Course details & pricing",
+      sessionTitle: "How a session works",
       p1: "In-person teaching runs through Jewish organisations. Further locations are planned; interested people can join the waiting list.",
-      p2: "A typical session: 2 × 45 min with a break. Focus: spoken Hebrew. Materials are also in Moodle.",
+      p2: "A typical session: 2 × 45 min teaching plus a break (e.g. 18:30–20:30). Focus: spoken Hebrew. Materials are also in Moodle.",
       p3: "In the community project we look for a teacher where possible and help with funding, materials and training (Hishtalmut). More:",
       p3Link: "Teachers",
       p4: "Participants register via the enrolment form. With the registration they automatically become members of BiFoDe e.V. at no charge.",
@@ -1411,13 +1554,13 @@ export const messages: Record<UiLocale, Messages> = {
       a2: "By SEPA direct debit. The monthly amounts and number of instalments are under",
       a2Link: "Course details & pricing",
       q3: "What does a session look like?",
-      a3: "2 × 45 min with a break, focus on speaking, materials in Moodle.",
+      a3: "Typically 2 × 45 min teaching plus a break within the time slot (e.g. 18:30–20:30). Focus on speaking, materials in Moodle.",
       q3Link: "Registration",
       q4: "Are there other locations?",
       a4: "Further locations are in planning. Via the form you join the waiting list for free.",
       a4Link: "registration form",
       q5: "Are there online courses?",
-      a5: "In preparation. Write to us via the contact form.",
+      a5: "Yes. From December 2026: live on Zoom, materials in Moodle.",
       q6: "What if I miss a session?",
       a6: "The materials are available in Moodle.",
       q7: "What is Hishtalmut?",

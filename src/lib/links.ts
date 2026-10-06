@@ -20,7 +20,25 @@ export const LINKS = {
   sochnut: "https://www.jewishagency.org/",
   kerenHayesod: "https://www.kh-uia.org.il/",
   huji: "https://en.huji.ac.il/",
+  /** Confirmed on bifode.org. Add remaining profile URLs when available. */
+  facebook: "https://www.facebook.com/bifode",
+  whatsapp: "",
+  telegram: "",
+  instagram: "",
+  tiktok: "",
+  linkedin: "",
 } as const;
+
+export const SOCIAL = [
+  { id: "whatsapp", label: "WhatsApp", href: LINKS.whatsapp },
+  { id: "telegram", label: "Telegram", href: LINKS.telegram },
+  { id: "facebook", label: "Facebook", href: LINKS.facebook },
+  { id: "instagram", label: "Instagram", href: LINKS.instagram },
+  { id: "tiktok", label: "TikTok", href: LINKS.tiktok },
+  { id: "linkedin", label: "LinkedIn", href: LINKS.linkedin },
+] as const;
+
+export type SocialId = (typeof SOCIAL)[number]["id"];
 
 /** Social share preview (WhatsApp, Facebook, Telegram, X). */
 export const OG = {

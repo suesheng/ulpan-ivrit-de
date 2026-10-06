@@ -72,7 +72,7 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
         {" · "}
         <a href={href("/datenschutz")}>{copy.legal.datenschutz}</a>.
       </p>
-      <div class="jotform-frame">
+      <div class="jotform-frame" data-jotform-frame>
         <iframe
           id={`JotFormIFrame-${COURSE.jotformId}`}
           title={copy.soGehts.formTitle}
@@ -106,9 +106,14 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
   (function () {
     var iframe = document.getElementById("JotFormIFrame-" + formId);
     if (!iframe) return;
+    var frame = iframe.closest("[data-jotform-frame]") || iframe.parentElement;
 
     var lastHeight = 0;
     var settleTimer = null;
+
+    function markReady() {
+      if (frame) frame.classList.add("is-ready");
+    }
 
     function isThankYou(doc) {
       if (!doc || !doc.body) return false;
@@ -229,6 +234,7 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
     });
 
     iframe.addEventListener("load", function () {
+      markReady();
       lastHeight = 0;
       syncSameOrigin();
       setTimeout(syncSameOrigin, 300);
@@ -240,6 +246,8 @@ const formSrc = `/api/jotform-ulpan${formLang}`;
         mo.observe(doc.documentElement, { childList: true, subtree: true });
       } catch (_) {}
     });
+    // Fallback if the iframe never fires load (blocked network).
+    setTimeout(markReady, 4000);
   })();
 </script>
 <script is:inline src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>

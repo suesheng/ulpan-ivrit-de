@@ -11,6 +11,7 @@ interface Props {
   detailsLabel: string;
   ctaHref: string;
   ctaLabel: string;
+  open?: boolean;
 }
 
 const {
@@ -25,30 +26,35 @@ const {
   detailsLabel,
   ctaHref,
   ctaLabel,
+  open = false,
 } = Astro.props;
 ---
 
-<article class="course-card">
-  <p class="course-card-status">{status}</p>
-  <h3 class="course-card-level">{level}</h3>
-  <p class="course-card-place">{place}</p>
-  {venue && <p class="course-card-venue">{venue}</p>}
-  <dl class="course-card-meta">
-    <div>
-      <dt class="visually-hidden">Start</dt>
-      <dd>{start}</dd>
-    </div>
-    <div>
-      <dt class="visually-hidden">Schedule</dt>
-      <dd>{schedule}</dd>
-    </div>
-    <div>
-      <dt class="visually-hidden">Format</dt>
-      <dd>{format}</dd>
-    </div>
-  </dl>
-  <div class="course-card-actions">
-    <a class="btn btn-ghost" href={detailsHref}>{detailsLabel}</a>
-    <a class="btn" href={ctaHref}>{ctaLabel}</a>
+<details class="course-chip" open={open || undefined}>
+  <summary class="course-chip-summary">
+    <span class="course-chip-place">{place}</span>
+    <span class="course-chip-level">{level}</span>
+    <span class="course-chip-status">{status}</span>
+  </summary>
+  <div class="course-chip-body">
+    {venue && <p class="course-chip-venue">{venue}</p>}
+    <dl class="course-chip-meta">
+      <div>
+        <dt class="visually-hidden">Start</dt>
+        <dd>{start}</dd>
+      </div>
+      <div>
+        <dt class="visually-hidden">Schedule</dt>
+        <dd>{schedule}</dd>
+      </div>
+      <div>
+        <dt class="visually-hidden">Format</dt>
+        <dd>{format}</dd>
+      </div>
+    </dl>
+    <p class="course-chip-actions">
+      <a class="course-card-cta" href={ctaHref}>{ctaLabel}</a>
+      <a class="course-card-link" href={detailsHref}>{detailsLabel}</a>
+    </p>
   </div>
-</article>
+</details>

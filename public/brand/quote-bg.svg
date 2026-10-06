@@ -1,6 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 161" width="1024" height="532" preserveAspectRatio="none">
-  <rect width="300" height="161" fill="#3080c0"/>
-  <polygon points="0,161 300,108.6 300,161" fill="#ffffff"/>
-  <polygon points="219,125 298,113 298,144" fill="#3058a4"/>
-  <line x1="0" y1="160.2" x2="300" y2="108.6" stroke="#d8e0ea" stroke-width="1.2" stroke-linecap="square"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="qb-base" x1="0%" y1="10%" x2="100%" y2="90%">
+      <stop offset="0%" stop-color="#0a3d6b"/>
+      <stop offset="45%" stop-color="#1760a6"/>
+      <stop offset="100%" stop-color="#3b96d0"/>
+    </linearGradient>
+    <radialGradient id="qb-a" cx="70%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#1760a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="qb-b" cx="22%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#5aafe0" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0a3d6b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="qb-c" cx="50%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#003d7a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#003d7a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="qb-soft" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#qb-base)"/>
+  <rect width="1200" height="520" fill="url(#qb-a)"/>
+  <rect width="1200" height="520" fill="url(#qb-b)"/>
+  <rect width="1200" height="520" fill="url(#qb-c)"/>
+
+  <ellipse cx="960" cy="140" rx="260" ry="160" fill="#ffffff" opacity="0.1" filter="url(#qb-soft)"/>
+  <ellipse cx="240" cy="260" rx="300" ry="180" fill="#6eb8e8" opacity="0.16" filter="url(#qb-soft)"/>
+  <ellipse cx="620" cy="420" rx="340" ry="110" fill="#003d7a" opacity="0.14" filter="url(#qb-soft)"/>
 </svg>

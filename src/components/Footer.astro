@@ -2,6 +2,7 @@
 import { EXT, LINKS, PARTNERS } from "../lib/links";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
+import SocialLinks from "./SocialLinks.astro";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
@@ -84,6 +85,7 @@ const groups: { label: string; links: FooterLink[] }[] = [
         ))
       }
     </nav>
+    <SocialLinks label={copy.meta.socialAria} />
   </div>
   <nav class="partner-strip" aria-label={copy.meta.partnersAria}>
     <div class="wrap partner-bar">

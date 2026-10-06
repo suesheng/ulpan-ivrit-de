@@ -1,12 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { ANMELDUNG_HASH } from "../lib/course";
 import { locPath, pageLocale } from "../lib/i18n";
 import { t } from "../lib/messages";
 
 const locale = pageLocale(Astro.currentLocale, Astro.url.pathname);
 const copy = t(locale);
 const href = (p: string) => locPath(locale, p);
+const anmelden = `${href("/so-gehts")}${ANMELDUNG_HASH}`;
 
 const courses = (await getCollection("courses")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -40,7 +42,7 @@ const courses = (await getCollection("courses")).sort(
       }
     </div>
     <p>
-      <a class="btn" href={href("/kontakt")}>{copy.kurse.interestCta}</a>
+      <a class="btn" href={anmelden}>{copy.kurse.interestCta}</a>
     </p>
   </div>
 </BaseLayout>
